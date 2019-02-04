@@ -1,0 +1,15 @@
+Site: 
+    background-color: #E6E6E6;
+    color: #A0A0A0;
+Card: 
+    background-color: #FFF;
+
+Flare:
+    background-color: #0077B5;
+        - darker: #283E4A;
+
+Packages: (located in package.json under 'dependencies')
+    - react-router-dom
+    - @material-ui/core
+
+Changed background color of entire app by modifying index.css
