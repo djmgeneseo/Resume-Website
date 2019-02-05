@@ -1,6 +1,7 @@
 Site: 
     background-color: #E6E6E6;
     color: #A0A0A0;
+
 Card: 
     background-color: #FFF;
 
