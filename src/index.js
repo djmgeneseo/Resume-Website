@@ -7,7 +7,10 @@ import blue from '@material-ui/core/colors/indigo';
 
 const theme = createMuiTheme({
     palette: {
-        primary: blue
+        primary: blue,
+        secondary: {
+            main: '#fff'
+        }
     }
 })
 

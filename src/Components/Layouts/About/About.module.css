@@ -2,7 +2,6 @@
     margin-top: -25vh;
     margin-left: 17.5vw;
     width: 65vw;
-    height: 50vh;
     border-radius: 0px;
     z-index: 100;
 }
@@ -17,7 +16,7 @@
     display: inline-block;
     content: '';
     left: 0;
-    width: 70px;
+    width: 65px;
     height: 3px;
     border-bottom: 3px solid;
     border-color: #3f51b5;
@@ -27,7 +26,19 @@
 .body {
     box-sizing: border-box; /* includes margin (and border) in height calculation*/
     height: 87%;
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.downloadResumeButton {
+    position: absolute;
+    z-index: 5;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.downloadResumeIcon {
+    font-size: 18px;
 }
 
 .circularImageContainer {
@@ -55,6 +66,34 @@
     height: 100%;
 }
 
+.aboutMeSection {
+    padding-right: 50px;
+}
+
+.infoSpan {
+    float: left;
+    width: 80px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 .footer {
     height: 18%;
+    text-align: center;
+}
+
+.footerButton {
+    margin: 11px;
+    display: inline-block;
+}
+
+.footerButtonIcon {
+    font-size: 23px;
+}
+
+@media only screen and (max-width: 959px) {
+    .aboutMeSection {
+        padding: 35px;
+        padding-top: 25px;
+    }
 }
