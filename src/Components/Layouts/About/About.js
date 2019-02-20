@@ -15,6 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {FaFileDownload} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";
 import {FaGithub} from "react-icons/fa";
+import { Button } from '@material-ui/core';
 
 export default function About() {
 
@@ -22,7 +23,7 @@ export default function About() {
         Age: 24,
         Phone: '(516) 993-7871',
         Email: 'djmgeneseo@gmail.com',
-        Home: 'Long Island - Nassau County, NY'
+        Home: 'Long Island - Oceanside, NY'
     }
 
     const generateBioAndInfo = () => {
@@ -37,13 +38,13 @@ export default function About() {
             <Grid container className={styles.body}>
                 <Grid item xs={12} sm={12} md={5} style={{textAlign: "center"}} >
                     <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
-                    <a target="_blank" href={resume}>
-                        <Tooltip TransitionComponent={Zoom} title="DOWNLOAD RESUME" placement='top' color="primary">
-                                <Fab color="primary">
-                                    <FaFileDownload className={styles.downloadResumeIcon}/>
-                                </Fab>
-                        </Tooltip>
-                    </a>
+                        <a target="_blank" href={resume}>
+                            <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color="primary">
+                                    <Fab color="primary">
+                                        <FaFileDownload className={styles.downloadResumeIcon}/>
+                                    </Fab>
+                            </Tooltip>
+                        </a>
                     </div>
                     <div style={{display: "inline-block"}}  className={styles.circularImageContainer}>
                         <img alt='Self Portrait of David Murphy' src={require('../../../assets/img/me.png')}/>
@@ -53,16 +54,19 @@ export default function About() {
                 </Grid>
                 <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={7}>
                     <Typography className={styles.aboutMeHeader} variant="h5">
-                       About Me
-                    </Typography>
+                       About Me 
+                    </Typography> 
                     <Typography variant="body2">
                         Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.
                     </Typography>
+
                     <div style={{marginTop: '10px'}}>
                     {
                         generateBioAndInfo()
                     }
                     </div>
+
+                    {/* <Button variant="contained" color='primary' style={{marginTop: '10px'}}>CONTACT ME</Button> */}
                 </Grid>
             </Grid>
             <Grid container className={styles.footer}>
