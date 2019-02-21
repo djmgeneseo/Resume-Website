@@ -1,7 +1,6 @@
 #aboutMeCard {
     margin-top: -28vh;
-    margin-left: 17.5vw;
-    width: 65vw;
+    width: 100%;
     border-radius: 0px;
     z-index: 100;
 }

@@ -1,0 +1,66 @@
+.section {
+    margin-top: 75px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.timeline {
+    margin-top: 25px;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+}
+
+.timeline::before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background: #ffffff;
+    left: 50%;
+    margin-left: -1.5px;
+    -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
+    -moz-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
+}
+
+.experienceItem {
+    list-style-type: none;
+    width: 50%;
+}
+
+.experiencePaperLeft, .experiencePaperRight {
+    width: 93%;
+    height: 180px;
+    position: relative;
+}
+
+.experiencePaperLeft::before {
+    position: absolute;
+    top: 26px;
+    right: -15px;
+    display: inline-block;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ffffff;
+    border-right: 0 solid #ffffff;
+    border-bottom: 15px solid transparent;
+    content: " ";
+}
+
+.experiencePaperRight::before {
+    position: absolute;
+    top: 26px;
+    left: -15px;
+    right: auto;
+    display: inline-block;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ffffff;
+    border-right: 0 solid #ffffff;
+    border-bottom: 15px solid transparent;
+    content: " ";
+    border-left-width: 0;
+    border-right-width: 15px;
+}

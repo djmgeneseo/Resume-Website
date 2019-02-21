@@ -12,3 +12,6 @@ Changed background color of entire app by modifying index.css
     <div style="text-align: center">
         <div style="display: inline-block"></div>
     </div>
+
+### Positioning Absolute div inside another div
+    Make the outer div 'position: relative' and the inner 'position: absolute'. Thereafter, 'top, bottom, left, right' will be designated to the outer div, and not the entire dom! Outer div's style must also be 'display: inline-block'

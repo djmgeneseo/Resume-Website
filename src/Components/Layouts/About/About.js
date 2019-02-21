@@ -39,7 +39,7 @@ export default function About() {
                 <Grid item xs={12} sm={12} md={5} style={{textAlign: "center"}} >
                     <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
                         <a target="_blank" href={resume}>
-                            <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color="primary">
+                            <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="Download Resume" placement='top' color="primary">
                                     <Fab color="primary">
                                         <FaFileDownload className={styles.downloadResumeIcon}/>
                                     </Fab>
@@ -66,7 +66,7 @@ export default function About() {
                     }
                     </div>
 
-                    {/* <Button variant="contained" color='primary' style={{marginTop: '10px'}}>CONTACT ME</Button> */}
+                    <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button>
                 </Grid>
             </Grid>
             <Grid container className={styles.footer}>

@@ -1,5 +1,8 @@
+### ABOUT
+    # Hobbies and interests on the back-side of card
+
 ### ABILITIES
-    # Skills
+    # Languages/Skills
         Bootstrap Framework
         Material-UI
         React-Bootstrap
@@ -20,8 +23,8 @@
         Object Oriented Programming
         Ingenuix
         Laravel Framework
-    
-    #Tools
+
+    # Tools
         Eclipse
         Android Studio
         Xcode
@@ -35,9 +38,11 @@
 
 ### EXPERIENCE
 
-### PROJECTS
+### EDUCATION
 
 ### ACHIEVEMENTS
+
+### PROJECTS (My Latest Work)
 
 ### PUBLICATIONS
 

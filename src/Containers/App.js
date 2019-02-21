@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 
-import { Jumbotron, About, Footer } from '../Components/Layouts';
-import './App.module.css';
+import { Jumbotron, About, Experience, Footer } from '../Components/Layouts';
+import styles from './App.module.css';
 
 /*
   Contains Router structure for website - state manages route-specific layout features, such as header information.
@@ -13,8 +14,11 @@ import './App.module.css';
 class App extends Component {
   render() {
     return <Fragment>
-      <Jumbotron/>
+      <Jumbotron/>      
       <About/>
+      <Grid container className={styles.siteContainer}>
+        <Experience/>
+      </Grid>
       <Footer/>
     </Fragment> 
   }
