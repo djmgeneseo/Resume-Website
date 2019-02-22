@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
+import Timeline from '../../Timeline/Timeline';
+
 import styles from './Experience.module.css'
 
 const Experience = () => {
@@ -39,40 +41,38 @@ const Experience = () => {
     }
   }
 
-  const generateExperienceListItems = () => {
+  const generateExperienceListItems = (props) => {
     let i=0;
     // i%2=0 means even, which means a right-hand list item. So styleRef[0] will contain right-hand <li> jss
-    let styleItemRef = [{
-      float: 'right',
-      clear: 'right'
-    }, {
-      float: 'left',
-      clear: 'left'    
-    }]
-
     return Object.keys(experienceJSON).map(function(jobName) {
       i++;
-      return(
-        <li className={styles.experienceItem} style={styleItemRef[i%2]} key={jobName}>
-          <Paper className={styles.experiencePaperRight} style={styleItemRef[i%2]}>
+      
+      let largeMarginTop = null;
+
+      if(i===2) {
+        largeMarginTop = {
+          marginTop: '50px'
+        }
+      }
+
+      if(i%2===1) { // shift list item to the left
+        return(<li className={styles.floatLeft + ' ' + styles.experienceItem} key={jobName}>
+          <Paper className={styles.floatLeft + ' ' + styles.experiencePaperLeft}>
             <Typography variant={'body1'}>{jobName}</Typography>
           </Paper>
-        </li>
-        )
+        </li>)
+      } else { // shift list item to the right
+        return(<li className={styles.floatRight + ' ' + styles.experienceItem} style={largeMarginTop} key={jobName}>
+          <Paper className={styles.floatRight + ' ' + styles.experiencePaperRight}>
+            <Typography variant={'body1'}>{jobName}</Typography>
+          </Paper>
+        </li>)
+      }
     });
   }
 
   return (
-    <section className={styles.section}>
-        <Grid md={12}>
-          <div className={styles.heading}><Typography variant="h3">Experience</Typography></div>
-        </Grid>
-          <Grid md={12}>
-            <ul className={styles.timeline}>
-              { generateExperienceListItems() }
-            </ul>
-          </Grid>
-    </section>
+    <Timeline headerTitle={'Experience'} listGenerator={() => generateExperienceListItems()}></Timeline>
   )
 }
 

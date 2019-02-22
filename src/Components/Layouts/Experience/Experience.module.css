@@ -13,6 +13,7 @@
     padding: 0;
 }
 
+/* Middle timeline line that runs down the center of the 'Experience' section */
 .timeline::before {
     top: 0;
     bottom: 0;
@@ -27,13 +28,22 @@
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
 }
 
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
 .experienceItem {
     list-style-type: none;
     width: 50%;
+    margin-bottom: 25px;
 }
 
 .experiencePaperLeft, .experiencePaperRight {
-    width: 93%;
+    width: 96%;
     height: 180px;
     position: relative;
 }

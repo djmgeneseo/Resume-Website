@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 
-import { Jumbotron, About, Experience, Footer } from '../Components/Layouts';
+import { Jumbotron, About, Education, Experience, Footer } from '../Components/Layouts';
 import styles from './App.module.css';
 
 /*
@@ -17,6 +17,7 @@ class App extends Component {
       <Jumbotron/>      
       <About/>
       <Grid container className={styles.siteContainer}>
+        <Education/>
         <Experience/>
       </Grid>
       <Footer/>
