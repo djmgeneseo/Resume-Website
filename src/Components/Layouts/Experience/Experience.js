@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -72,7 +72,12 @@ const Experience = () => {
   }
 
   return (
-    <Timeline headerTitle={'Experience'} listGenerator={() => generateExperienceListItems()}></Timeline>
+    <Fragment>
+      <Grid md={12}>
+            <div className={styles.heading}><Typography variant="h3">Education</Typography></div>
+      </Grid>
+      <Timeline listGenerator={() => generateExperienceListItems()}></Timeline>
+    </Fragment>
   )
 }
 

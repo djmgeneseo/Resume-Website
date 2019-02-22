@@ -13,6 +13,10 @@ const theme = createMuiTheme({
         }
     },
     typography: {
+      fontFamily: [
+        'Calibri'
+      ],
+      fontSize: 16,
       text: {
         color: 'white'
       }

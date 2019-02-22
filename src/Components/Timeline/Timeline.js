@@ -14,9 +14,6 @@ const Timeline = (props) => {
   return (
     <section className={styles.section}>
         <Grid md={12}>
-          <div className={styles.heading}><Typography variant="h3">{props.headerTitle}</Typography></div>
-        </Grid>
-        <Grid md={12}>
         <ul className={styles.timeline}>
             {props.listGenerator()}
         </ul>

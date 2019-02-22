@@ -1,32 +1,9 @@
-.section {
+.heading {
+    text-align: center;
+    margin-bottom: 25px;
     margin-top: 75px;
 }
 
-.heading {
-    text-align: center;
-}
-
-.timeline {
-    margin-top: 25px;
-    display: inline-block;
-    position: relative;
-    padding: 0;
-}
-
-/* Middle timeline line that runs down the center of the 'Experience' section */
-.timeline::before {
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 3px;
-    background: #ffffff;
-    left: 50%;
-    margin-left: -1.5px;
-    -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
-    -moz-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20);
-}
 
 .floatLeft {
     float: left;
@@ -46,6 +23,8 @@
     width: 96%;
     height: 180px;
     position: relative;
+    padding: 30px;
+    box-sizing: border-box
 }
 
 .experiencePaperLeft::before {
