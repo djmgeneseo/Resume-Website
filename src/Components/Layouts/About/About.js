@@ -1,5 +1,8 @@
-import React from 'react';
-import styles from './About.module.css'
+import React, {Component} from 'react';
+import styles from './About.module.css'; // css modules
+import { withStyles } from '@material-ui/styles'; // jss library
+import indigo from '@material-ui/core/colors/indigo';
+
 import resume from '../../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
 import Paper from '@material-ui/core/Paper';
@@ -17,79 +20,100 @@ import {FaLinkedin} from "react-icons/fa";
 import {FaGithub} from "react-icons/fa";
 import { Button } from '@material-ui/core';
 
-export default function About() {
-
-    const info = {
-        Age: 24,
-        Phone: '(516) 993-7871',
-        Email: 'djmgeneseo@gmail.com',
-        Home: 'Long Island - Oceanside, NY'
+const jssStyle = theme => ({
+    aboutMeHeader: {
+        paddingBottom: '15px',
+        position: 'relative',
+        '&:after': {
+            position: 'absolute',
+            display: 'inline-block',
+            content: "''",
+            left: '0',
+            width: '65px',
+            height: '3px',
+            borderBottom: '3px solid',
+            color: indigo[500],
+            marginTop: '1.2em'
+        }
     }
+})
 
-    const generateBioAndInfo = () => {
-        return Object.keys(info).map(function(key) {
-            return (<div key={key} style={{paddingTop: '5px'}}><Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography></div>)
-        })
-    }
+const About = (props) => {
+        const {classes} = props;
 
-  return (
-    <Paper id={styles.aboutMeCard}>
-        <Grid container style={{height: '96%'}}>
-            <Grid container className={styles.body}>
-                <Grid item xs={12} sm={12} md={5} style={{textAlign: "center"}} >
-                    <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
-                        <a target="_blank" href={resume}>
-                            <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="Download Resume" placement='top' color="primary">
-                                    <Fab color="primary">
-                                        <FaFileDownload className={styles.downloadResumeIcon}/>
-                                    </Fab>
-                            </Tooltip>
-                        </a>
-                    </div>
-                    <div style={{display: "inline-block"}}  className={styles.circularImageContainer}>
-                        <img alt='Self Portrait of David Murphy' src={require('../../../assets/img/me.png')}/>
-                    </div>
-                    <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
-                    <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
-                </Grid>
-                <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={7}>
-                    <Typography className={styles.aboutMeHeader} variant="h5">
-                       About Me 
-                    </Typography> 
-                    <Typography variant="body2">
-                        Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.
-                    </Typography>
+        const info = {
+            Age: 24,
+            Phone: '(516) 993-7871',
+            Email: 'djmgeneseo@gmail.com',
+            Home: 'Long Island - Oceanside, NY'
+        }
 
-                    <div style={{marginTop: '10px'}}>
-                    {
-                        generateBioAndInfo()
-                    }
-                    </div>
+        const generateBioAndInfo = () => {
+            return Object.keys(info).map(function(key) {
+                return (<div key={key} style={{paddingTop: '5px'}}><Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography></div>)
+            })
+        }
 
-                    <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button>
-                </Grid>
-            </Grid>
-            <Grid container className={styles.footer}>
-                <AppBar position="static" color="primary">
-                    <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
-                        <div className={styles.footerButton}>
-                            <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank">
-                                <IconButton color="secondary">
-                                    <FaLinkedin className={styles.footerButtonIcon}/>
-                                </IconButton>
+    return (
+        <Paper id={styles.aboutMeCard}>
+            <Grid container style={{height: '96%'}}>
+                <Grid container className={styles.body}>
+                    <Grid item xs={12} sm={12} md={5} style={{textAlign: "center"}} >
+                        <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
+                            <a target="_blank" href={resume}>
+                                <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color="primary">
+                                        <Fab color="primary">
+                                            <FaFileDownload className={styles.downloadResumeIcon}/>
+                                        </Fab>
+                                </Tooltip>
                             </a>
                         </div>
-                        <div className={styles.footerButton}>
-                            <a href='https://github.com/djmgeneseo' target="_blank">
-                                <IconButton color="secondary">
-                                <FaGithub className={styles.footerButtonIcon}/>
-                                </IconButton>
-                            </a>
+                        <div style={{display: "inline-block"}}  className={styles.circularImageContainer}>
+                            <img alt='Self Portrait of David Murphy' src={require('../../../assets/img/me.png')}/>
                         </div>
-                    </Toolbar>
-                </AppBar>
+                        <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
+                        <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
+                    </Grid>
+                    <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={7}>
+                        <Typography className={classes.aboutMeHeader} variant="h5">
+                        ABOUT ME
+                        </Typography> 
+                        <Typography variant="body2">
+                            Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.
+                        </Typography>
+
+                        <div style={{marginTop: '10px'}}>
+                        {
+                            generateBioAndInfo()
+                        }
+                        </div>
+
+                        <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button>
+                    </Grid>
+                </Grid>
+                <Grid container className={styles.footer}>
+                    <AppBar position="static" color="primary">
+                        <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
+                            <div className={styles.footerButton}>
+                                <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank">
+                                    <IconButton color="secondary">
+                                        <FaLinkedin className={styles.footerButtonIcon}/>
+                                    </IconButton>
+                                </a>
+                            </div>
+                            <div className={styles.footerButton}>
+                                <a href='https://github.com/djmgeneseo' target="_blank">
+                                    <IconButton color="secondary">
+                                    <FaGithub className={styles.footerButtonIcon}/>
+                                    </IconButton>
+                                </a>
+                            </div>
+                        </Toolbar>
+                    </AppBar>
+                </Grid>
             </Grid>
-        </Grid>
-    </Paper>
-  )
+        </Paper>
+    )
 }
+
+export default withStyles(jssStyle)(About)

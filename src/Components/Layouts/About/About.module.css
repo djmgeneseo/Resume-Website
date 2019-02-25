@@ -5,28 +5,11 @@
     z-index: 100;
 }
 
-.aboutMeHeader {
-    padding-bottom: 15px;
-    position: relative;
-}
-
-.aboutMeHeader:after {
-    position: absolute;
-    display: inline-block;
-    content: '';
-    left: 0;
-    width: 65px;
-    height: 3px;
-    border-bottom: 3px solid;
-    border-color: #3f51b5;
-    margin-top: 1.2em;
-}
-
 .body {
     box-sizing: border-box; /* includes margin (and border) in height calculation*/
     height: 87%;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 45px;
+    padding-bottom: 45px;
 }
 
 .downloadResumeButton {

@@ -5,37 +5,43 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
 import Timeline from '../../Timeline/Timeline';
-
 import styles from './Experience.module.css'
 
 const Experience = () => {
 
   const experienceJSON = {
     'Applications Developer/Implementation Specialist': {
+      company: 'Molloy College',
       start: 'Jun 2018',
       end: 'Present'
     },
     'Robotics Co-Advisor': {
+      company: 'Hewlett-Woodmere School District',
       start: 'Sep 2017',
       end: 'Present'
     },
     'Chief Technology Officer': {
+      company: 'Skinno Inc.',
       start: 'Dec 2017',
       end: 'Jun 2018'
     },
     'Technology Specialist': {
+      company: 'Molloy College',
       start: 'Nov 2017',
       end: 'Jun 2018'
     },
     'Undergraduate Computer Science Tutor': {
+      company: 'Molloy College',
       start: 'Oct 2017',
       end: 'Apr 2018'
     },
     'Undergraduate Teacher Assistant - Web Scripting': {
+      company: 'Molloy College',
       start: 'Oct 2017',
       end: 'Dec 2017'
     },
     'Intern Editor': {
+      company: 'Messapps',
       start: 'May 2016',
       end: 'Feb 2017'
     }
@@ -74,7 +80,7 @@ const Experience = () => {
   return (
     <Fragment>
       <Grid md={12}>
-            <div className={styles.heading}><Typography variant="h3">Education</Typography></div>
+            <div className={styles.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
       </Grid>
       <Timeline listGenerator={() => generateExperienceListItems()}></Timeline>
     </Fragment>
