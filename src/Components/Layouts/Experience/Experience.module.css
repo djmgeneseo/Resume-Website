@@ -17,38 +17,3 @@
     width: 50%;
     margin-bottom: 25px;
 }
-
-.experiencePaperLeft, .experiencePaperRight {
-    width: 96%;
-    height: 180px;
-    position: relative;
-    padding: 30px;
-    box-sizing: border-box
-}
-
-.experiencePaperLeft::before {
-    position: absolute;
-    top: 26px;
-    right: -15px;
-    display: inline-block;
-    border-top: 15px solid transparent;
-    border-left: 15px solid #ffffff;
-    border-right: 0 solid #ffffff;
-    border-bottom: 15px solid transparent;
-    content: " ";
-}
-
-.experiencePaperRight::before {
-    position: absolute;
-    top: 26px;
-    left: -15px;
-    right: auto;
-    display: inline-block;
-    border-top: 15px solid transparent;
-    border-left: 15px solid #ffffff;
-    border-right: 0 solid #ffffff;
-    border-bottom: 15px solid transparent;
-    content: " ";
-    border-left-width: 0;
-    border-right-width: 15px;
-}
