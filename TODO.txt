@@ -1,3 +1,4 @@
 - Add 'Skills' section
+- Make 'About Me' section more responsive
 - Add Paralax to the top image
 - Smooth Scrolling
