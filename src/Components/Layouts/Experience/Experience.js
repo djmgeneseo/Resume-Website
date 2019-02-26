@@ -1,12 +1,17 @@
 import React, {Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import styles from './Experience.module.css' // css modules
+import indigo from '@material-ui/core/colors/indigo';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
+import {FaCircle, FaAutoprefixer} from 'react-icons/fa';
+
 import Timeline from '../../Timeline/Timeline';
+import { relative } from 'path';
+
 
 const jssStyle = theme => ({
   
@@ -48,7 +53,50 @@ const jssStyle = theme => ({
       borderLeftWidth: '0',
       borderRightWidth: '15px'
     }
+  }, 
+  timelineMarkerRight: {
+    color: indigo[500],
+    lineHeight: '85px',
+    textAlign: 'center',
+    position: 'absolute',
+    zIndex: '100',
+    left: '49.4%'
+},
+timelineMarkerLeft: {
+    color: indigo[500],
+    lineHeight: '5.3',
+    textAlign: 'center',
+    position: 'absolute',
+    zIndex: '100',
+    left: '49.4%'
+},
+timePeriodDiv: {
+  backgroundColor: indigo[500],
+  color: '#fff !important',
+  display: 'inline-block',
+  padding: '3px 15px',
+  position: 'relative',
+  margin: '13px 0px',
+  '&:before': {
+    content: "''",
+    position: 'absolute',
+    background: 'transparent',
+    display: 'inline-block',
+    right: '0',
+    width: '0',
+    height: '0',
+    top: '-10px',
+    border: '10px solid',
+    borderRightColor: 'transparent',
+    borderTopColor: 'transparent',
+    borderBottomColor: 'transparent',
+    borderLeftColor: indigo[500],
+    transform: 'rotate(180deg)'
   }
+},
+presentBorder: {
+  border: `solid ${indigo[500]}`
+}
 })
 
 const Experience = (props) => {
@@ -59,19 +107,14 @@ const Experience = (props) => {
       company: 'Molloy College',
       start: 'Jun 2018',
       end: 'Present',
-      description: 'Responsible for the development, analysis, implementation, documentation, training, and ongoing support of software applications designed to improve administrative processes and overall organizational effectiveness. Develop and recommend solutions to enhance overall process improvement initiatives in both administrative and academic areas of the College.'
-    },
-    'Robotics Co-Advisor': {
-      company: 'Hewlett-Woodmere School District',
-      start: 'Sep 2017',
-      end: 'Present',
-      description: 'Board-certified to instruct Android mobile development for students between grades 9-12. Provide guidance for both software (Java - Android Studio & Eclipse) and hardware design and implementation in an academic setting.'
+      description: 'Responsible for the development, analysis, implementation, documentation, training, and ongoing support of software applications. The software is designed to improve both administrative and academic processes, and the overall organizational effectiveness of the College.',
+      present: true
     },
     'Chief Technology Officer': {
       company: 'Skinno Inc.',
       start: 'Dec 2017',
       end: 'Jun 2018',
-      description: `Develop all aspects of Skinno's multi-platform service, including a website and a mobile application for iOS devices. Monitor technology trends in machine learning and UI/UX to improve the quality of our applications. Communicate the company's technology strategy to partners, management, investors and employees.`
+      description: `Develop all aspects of Skinno's multi-platform service, including a website and a mobile application for iOS devices. Monitor technology trends in machine learning and UI/UX to improve the quality of our applications. Communicate the company's technology strategy to partners, management, investors, and employees.`
     },
     'Technology Specialist': {
       company: 'Molloy College',
@@ -83,13 +126,20 @@ const Experience = (props) => {
       company: 'Molloy College',
       start: 'Oct 2017',
       end: 'Apr 2018',
-      description: 'Provide guidance and instruction to college students for material related to their Computer Science studies, including (but not limited to): Web Scripting, Dynamic Programming, Object Oriented Concepts, MVC Architecture, etc.'
+      description: 'Provide guidance and instruction to college students for material related to their Computer Science studies, including (but not limited to): Web Scripting, Dynamic Programming, Object Oriented Concepts, and MVC Architecture'
     },
     'Undergraduate Teacher Assistant - Web Scripting': {
       company: 'Molloy College',
       start: 'Oct 2017',
       end: 'Dec 2017',
       description: 'Volunteer 5 hours per week to help instruct a college-level Web Scripting course.'
+    },
+    'Robotics Co-Advisor': {
+      company: 'Hewlett-Woodmere School District',
+      start: 'Sep 2017',
+      end: 'Present',
+      description: 'Board-certified to instruct Android mobile development for students between grades 9-12. Provide guidance for both software (Java - Android Studio & Eclipse) and hardware design and implementation in an academic setting.',
+      present: true
     },
     'Intern Editor': {
       company: 'Messapps',
@@ -109,20 +159,33 @@ const Experience = (props) => {
       let largeMarginTop = null;
       let float = styles.floatRight;
       let experiencePaperOrientation = classes.experiencePaperRight;
+      let timelineMarker = classes.timelineMarkerRight
+      let presentBorder = null;
 
       if(i%2===1) { // left list item
         float = styles.floatLeft;
         experiencePaperOrientation = classes.experiencePaperLeft;
+        timelineMarker = classes.timelineMarkerLeft
       } else if(i===2) {
         largeMarginTop = {
           marginTop: '50px'
         }
       }
+
+      if(experienceJSON[jobName].present) {
+        presentBorder = classes.presentBorder
+      }
+
       return(<li className={float + ' ' + styles.experienceItem} style={largeMarginTop} key={jobName}>
-        <Paper className={float + ' ' + experiencePaperOrientation}>
+      <div className={timelineMarker}>
+        <FaCircle></FaCircle>
+      </div>
+        <Paper className={float + ' ' + experiencePaperOrientation + ' ' + presentBorder}>
           <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
           <Typography variant={'h5'}>{jobName}</Typography>
-          <Typography variant={'body1'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
+          <div className={classes.timePeriodDiv}>
+            <Typography className={styles.timePeriodParagraph} variant={'body2'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
+          </div>
           <Typography variant={'body2'}>{experienceJSON[jobName].description}</Typography>
         </Paper>
       </li>)

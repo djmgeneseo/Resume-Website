@@ -35,22 +35,89 @@ const jssStyle = theme => ({
             color: indigo[500],
             marginTop: '1.2em'
         }
+    },
+    educationPaperOrientation: {
+        marginBottom: '15px',
+        position: 'relative',
+        padding: '30px',
+        boxSizing: 'border-box'
+    },
+    timePeriodDiv: {
+        backgroundColor: indigo[500],
+        color: '#fff !important',
+        display: 'inline-block',
+        padding: '3px 15px',
+        position: 'relative',
+        margin: '13px 0px',
+        '&:before': {
+          content: "''",
+          position: 'absolute',
+          background: 'transparent',
+          display: 'inline-block',
+          right: '0',
+          width: '0',
+          height: '0',
+          top: '-10px',
+          border: '10px solid',
+          borderRightColor: 'transparent',
+          borderTopColor: 'transparent',
+          borderBottomColor: 'transparent',
+          borderLeftColor: indigo[500],
+          transform: 'rotate(180deg)'
+        }
     }
 })
+
+const info = {
+    Age: 24,
+    Phone: '(516) 993-7871',
+    Email: 'djmgeneseo@gmail.com',
+    Home: 'Long Island - Oceanside, NY'
+}
+
+const educationJSON = {
+    "Molloy College": {
+      degree: "BA",
+      major: 'Computer Science',
+      start: 2012,
+      end: 2018,
+      gpa: 3.49
+    },
+    "SUNY Geneseo": {
+      degree: "BA",
+      major: 'English Literature (Biology Minor)',
+      minor: 'Biology',
+      start: 2014,
+      end: 2017,
+      gpa: 3.46
+    }
+  }
 
 const About = (props) => {
         const {classes} = props;
 
-        const info = {
-            Age: 24,
-            Phone: '(516) 993-7871',
-            Email: 'djmgeneseo@gmail.com',
-            Home: 'Long Island - Oceanside, NY'
-        }
-
         const generateBioAndInfo = () => {
             return Object.keys(info).map(function(key) {
-                return (<div key={key} style={{paddingTop: '5px'}}><Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography></div>)
+                return (
+                <div key={key} style={{paddingTop: '5px'}}>
+                    <Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography>
+                </div>)
+            })
+        }
+
+        const generateEducationInfo = () => {
+            return Object.keys(educationJSON).map(function(collegeName) {
+                return (
+                <Paper className={classes.educationPaperOrientation}>
+                    <Typography>{collegeName}</Typography>
+                    <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
+                    <div className={classes.timePeriodDiv}>
+                        <Typography variant={'body2'} className={styles.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
+                        
+                    </div>
+                    <div className={styles.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
+                    
+                </Paper>)
             })
         }
 
@@ -58,13 +125,13 @@ const About = (props) => {
         <Paper id={styles.aboutMeCard}>
             <Grid container style={{height: '96%'}}>
                 <Grid container className={styles.body}>
-                    <Grid item xs={12} sm={12} md={5} style={{textAlign: "center"}} >
+                    <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
                         <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
                             <a target="_blank" href={resume}>
                                 <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color="primary">
-                                        <Fab color="primary">
-                                            <FaFileDownload className={styles.downloadResumeIcon}/>
-                                        </Fab>
+                                    <Fab color="primary">
+                                        <FaFileDownload className={styles.downloadResumeIcon}/>
+                                    </Fab>
                                 </Tooltip>
                             </a>
                         </div>
@@ -74,7 +141,7 @@ const About = (props) => {
                         <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
                         <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
                     </Grid>
-                    <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={7}>
+                    <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={4}>
                         <Typography className={classes.aboutMeHeader} variant="h5">
                         ABOUT ME
                         </Typography> 
@@ -89,6 +156,14 @@ const About = (props) => {
                         </div>
 
                         <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button>
+                    </Grid>
+                    <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={4}>
+                        {/* <Typography className={classes.aboutMeHeader} variant="h5">
+                        MY EDUCATION
+                        </Typography>  */}
+                        { 
+                            generateEducationInfo() 
+                        }
                     </Grid>
                 </Grid>
                 <Grid container className={styles.footer}>

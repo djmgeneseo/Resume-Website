@@ -17,7 +17,6 @@ class App extends Component {
       <Jumbotron/>      
       <About/>
       <Grid container className={styles.siteContainer}>
-        <Education/>
         <Experience/>
       </Grid>
       <Footer/>

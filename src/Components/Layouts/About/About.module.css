@@ -61,7 +61,7 @@
     float: left;
     width: 80px;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .contactButton {
@@ -80,6 +80,16 @@
 
 .footerButtonIcon {
     font-size: 23px;
+}
+
+.timePeriodParagraph {
+    color: #fff !important;
+    font-size: 10px;
+}
+
+.gpa {
+    display: inline;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 959px) {

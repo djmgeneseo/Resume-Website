@@ -14,6 +14,11 @@
 
 .experienceItem {
     list-style-type: none;
-    width: 50%;
+    width: 49.2%;
     margin-bottom: 25px;
+}
+
+.timePeriodParagraph {
+    color: #fff !important;
+    font-size: 10px;
 }
