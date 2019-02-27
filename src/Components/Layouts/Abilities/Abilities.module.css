@@ -1,0 +1,28 @@
+.sectionBackground {
+    background-color: rgb(252, 252, 252);
+    width: 100%;
+    height: auto;
+}
+
+.siteContainer {
+    margin: 75px auto;
+    padding: 75px 0;
+    max-width: 1280px;
+}
+
+.heading {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.headerShadow img {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.subHeading {
+    text-align: left;
+    width: 100%;
+    margin: 10px 0;
+}

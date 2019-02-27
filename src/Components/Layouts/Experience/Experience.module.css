@@ -4,6 +4,11 @@
     margin-top: 75px;
 }
 
+.headerShadow img {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
 .floatLeft {
     float: left;
 }

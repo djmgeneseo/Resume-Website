@@ -118,7 +118,6 @@ const About = (props) => {
                         <Typography variant={'body2'} className={styles.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
                     </div>
                     <div className={styles.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
-                    
                 </Paper>)
             })
         }

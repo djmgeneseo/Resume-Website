@@ -10,8 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import {FaCircle, FaAutoprefixer} from 'react-icons/fa';
 
 import Timeline from '../../Timeline/Timeline';
-import { relative } from 'path';
-
 
 const jssStyle = theme => ({
   
@@ -54,6 +52,24 @@ const jssStyle = theme => ({
       borderRightWidth: '15px'
     }
   }, 
+  certificateIconDivLeft: {
+    position: 'absolute',
+    top: '-10px',
+    left: '-10px',
+    width: '30px',
+    height: 'auto'
+  },
+  certificateIconDivRight: {
+    position: 'absolute',
+    top: '-10px',
+    right: '10px',
+    width: '30px',
+    height: 'auto'
+  },
+    certificateIconDivImg: {
+      width: '70px',
+      height: 'auto'   
+  },
   timelineMarkerRight: {
     color: indigo[500],
     lineHeight: '85px',
@@ -161,11 +177,13 @@ const Experience = (props) => {
       let experiencePaperOrientation = classes.experiencePaperRight;
       let timelineMarker = classes.timelineMarkerRight
       let presentBorder = null;
+      let certificateIconDiv = classes.certificateIconDivRight;
 
       if(i%2===1) { // left list item
         float = styles.floatLeft;
         experiencePaperOrientation = classes.experiencePaperLeft;
         timelineMarker = classes.timelineMarkerLeft
+        certificateIconDiv = classes.certificateIconDivLeft;
       } else if(i===2) {
         largeMarginTop = {
           marginTop: '50px'
@@ -181,6 +199,9 @@ const Experience = (props) => {
         <FaCircle></FaCircle>
       </div>
         <Paper className={float + ' ' + experiencePaperOrientation + ' ' + presentBorder}>
+          <div className={certificateIconDiv}>
+            {/* <img className={classes.certificateIconDivImg} alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/> */}
+          </div>
           <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
           <Typography variant={'h5'}>{jobName}</Typography>
           <div className={classes.timePeriodDiv}>
@@ -196,6 +217,7 @@ const Experience = (props) => {
     <Fragment>
       <Grid md={12}>
             <div className={styles.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
+            {/* <div className={styles.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
       </Grid>
       <Timeline listGenerator={() => generateExperienceListItems()}></Timeline>
     </Fragment>

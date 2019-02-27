@@ -1,7 +1,10 @@
 ### ABOUT
     # Hobbies and interests on the back-side of card
+    # Education
 
-### ABILITIES
+### EXPERIENCE
+
+### Abilities
     # Languages/Skills
         Bootstrap Framework
         Material-UI
@@ -21,11 +24,18 @@
         Javascript
         MVC Pattern
         Object Oriented Programming
-        Ingenuix
         Laravel Framework
 
     # Tools
         Eclipse
+        LDAP
+        ODBC
+        MongoDB
+        DynamoDB
+        Firestore
+        Firebase
+        Microsoft IIS
+        Ingenuix
         Android Studio
         Xcode
         Visual Studio Code
@@ -35,10 +45,8 @@
         CocoaPods (MacOS Package Manager)
         Google Analytics
         R Studios
-
-### EXPERIENCE
-
-### EDUCATION
+        REST Architecture
+        CRUD Paradigm
 
 ### ACHIEVEMENTS
     # Sigma Tau Delta - International English Honors Society
