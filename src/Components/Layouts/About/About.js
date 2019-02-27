@@ -109,11 +109,13 @@ const About = (props) => {
             return Object.keys(educationJSON).map(function(collegeName) {
                 return (
                 <Paper className={classes.educationPaperOrientation}>
+                    <div className={styles.certificateIconDiv}>
+                        <img alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/>
+                    </div>
                     <Typography>{collegeName}</Typography>
                     <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
                     <div className={classes.timePeriodDiv}>
                         <Typography variant={'body2'} className={styles.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
-                        
                     </div>
                     <div className={styles.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
                     
@@ -155,7 +157,7 @@ const About = (props) => {
                         }
                         </div>
 
-                        <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button>
+                        {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
                     </Grid>
                     <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={4}>
                         {/* <Typography className={classes.aboutMeHeader} variant="h5">
