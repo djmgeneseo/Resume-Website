@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import styles from './About.module.css'; // css modules
 import { withStyles } from '@material-ui/styles'; // jss library
-import indigo from '@material-ui/core/colors/indigo';
 
 import resume from '../../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
@@ -32,7 +31,7 @@ const jssStyle = theme => ({
             width: '65px',
             height: '3px',
             borderBottom: '3px solid',
-            color: indigo[500],
+            color: theme.palette.primary['500'],
             marginTop: '1.2em'
         }
     },
@@ -43,7 +42,7 @@ const jssStyle = theme => ({
         boxSizing: 'border-box'
     },
     timePeriodDiv: {
-        backgroundColor: indigo[500],
+        backgroundColor: theme.palette.primary['500'],
         color: '#fff !important',
         display: 'inline-block',
         padding: '3px 15px',
@@ -62,7 +61,7 @@ const jssStyle = theme => ({
           borderRightColor: 'transparent',
           borderTopColor: 'transparent',
           borderBottomColor: 'transparent',
-          borderLeftColor: indigo[500],
+          borderLeftColor: theme.palette.primary['500'],
           transform: 'rotate(180deg)'
         }
     }
@@ -108,7 +107,7 @@ const About = (props) => {
         const generateEducationInfo = () => {
             return Object.keys(educationJSON).map(function(collegeName) {
                 return (
-                <Paper className={classes.educationPaperOrientation}>
+                <Paper key={collegeName} className={classes.educationPaperOrientation}>
                     <div className={styles.certificateIconDiv}>
                         <img alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/>
                     </div>

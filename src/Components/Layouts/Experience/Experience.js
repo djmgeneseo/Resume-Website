@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import styles from './Experience.module.css' // css modules
-import indigo from '@material-ui/core/colors/indigo';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -71,7 +70,7 @@ const jssStyle = theme => ({
       height: 'auto'   
   },
   timelineMarkerRight: {
-    color: indigo[500],
+    color: theme.palette.primary['500'],
     lineHeight: '85px',
     textAlign: 'center',
     position: 'absolute',
@@ -79,7 +78,7 @@ const jssStyle = theme => ({
     left: '49.4%'
 },
 timelineMarkerLeft: {
-    color: indigo[500],
+    color: theme.palette.primary['500'],
     lineHeight: '5.3',
     textAlign: 'center',
     position: 'absolute',
@@ -87,7 +86,7 @@ timelineMarkerLeft: {
     left: '49.4%'
 },
 timePeriodDiv: {
-  backgroundColor: indigo[500],
+  backgroundColor: theme.palette.primary['500'],
   color: '#fff !important',
   display: 'inline-block',
   padding: '3px 15px',
@@ -106,12 +105,12 @@ timePeriodDiv: {
     borderRightColor: 'transparent',
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
-    borderLeftColor: indigo[500],
+    borderLeftColor: theme.palette.primary['500'],
     transform: 'rotate(180deg)'
   }
 },
 presentBorder: {
-  border: `solid ${indigo[500]}`
+  border: `solid ${theme.palette.primary['500']}`
 }
 })
 
@@ -215,11 +214,11 @@ const Experience = (props) => {
 
   return (
     <Fragment>
-      <Grid md={12}>
+      <Grid item md={12}>
             <div className={styles.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
             {/* <div className={styles.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
       </Grid>
-      <Timeline listGenerator={() => generateExperienceListItems()}></Timeline>
+      <Timeline listItemsGenerator={() => generateExperienceListItems()}></Timeline>
     </Fragment>
   )
 }

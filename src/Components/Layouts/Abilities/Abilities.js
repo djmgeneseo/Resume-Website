@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react'
 import { withStyles } from '@material-ui/styles'; // jss library
 import styles from './Abilities.module.css'
-import indigo from '@material-ui/core/colors/indigo';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {MdStar, MdStarHalf, MdStarBorder} from 'react-icons/md';
 
-const jssStyle = theme => ({ 
+const jssStyle = (theme) => ({
+  testTheme: theme,
   columnLeftFormat: {
     boxSizing: 'border-box', 
     paddingRight: '15px'
@@ -17,10 +17,11 @@ const jssStyle = theme => ({
     paddingLeft: '15px'
   },
   starsSpan: {
-    color: indigo[500]
+    color: theme.palette.primary['500']
   }
 })
 
+// TODO: reverse key/value pairing
 const skillsJSON = {
   'JavaScript (ES5, 6, & 7)': {
     stars: 5
@@ -149,17 +150,22 @@ const toolsJSON = {
     stars: 2
   },
 }
+
+function randomString(length) {
+  return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
+}
+
   const Abilities = (props) => {
     const {classes} = props;
 
     const generateStars = (filledStarsAmt, emptyStarsAmt) => {
       let jsx = [];
       while(filledStarsAmt > 0) {
-        jsx.push(<MdStar/>);
+        jsx.push(<MdStar key={randomString(10)}/>);
         filledStarsAmt--;
       }
       while(emptyStarsAmt > 0) {
-        jsx.push(<MdStarBorder/>);
+        jsx.push(<MdStarBorder key={randomString(10)}/>);
         emptyStarsAmt--;
       }  
       return jsx.map(function(star) {return star});
@@ -169,17 +175,16 @@ const toolsJSON = {
       const halfwayMark = Math.ceil(Object.keys(abilityJSON).length/2);
       let leftColArr = Object.keys(abilityJSON).splice(0, halfwayMark);
       let rightColArr = Object.keys(abilityJSON).splice(halfwayMark, Object.keys(abilityJSON).length)
-
       return (
         <Fragment>
-          <Grid xs={12} sm={12} md={6} className={classes.columnLeftFormat}>{
+          <Grid item xs={12} sm={12} md={6} className={classes.columnLeftFormat}>{
             leftColArr.map(function(abilityName) {
-              return (<Typography variant="body1">{abilityName} <span className={classes.starsSpan} style={{float: 'right'}}>{generateStars(abilityJSON[abilityName].stars, 5-abilityJSON[abilityName].stars)}</span></Typography>)
+              return (<Typography key={randomString(10)} variant="body1">{abilityName} <span className={classes.starsSpan} style={{float: 'right'}}>{generateStars(abilityJSON[abilityName].stars, 5-abilityJSON[abilityName].stars)}</span></Typography>)
             })
           }</Grid>
-          <Grid xs={12} sm={12} md={6} className={classes.columnRightFormat}>{
+          <Grid item xs={12} sm={12} md={6} className={classes.columnRightFormat}>{
             rightColArr.map(function(abilityName) {
-              return (<Typography variant="body1">{abilityName} <span className={classes.starsSpan} style={{float: 'right'}}>{generateStars(abilityJSON[abilityName].stars, 5-abilityJSON[abilityName].stars)}</span></Typography>)
+              return (<Typography key={randomString(10)} variant="body1">{abilityName} <span className={classes.starsSpan} style={{float: 'right'}}>{generateStars(abilityJSON[abilityName].stars, 5-abilityJSON[abilityName].stars)}</span></Typography>)
             })
           }</Grid>
         </Fragment>

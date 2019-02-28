@@ -13,9 +13,9 @@ import styles from './Timeline.module.css'
 const Timeline = (props) => {
   return (
     <section className={styles.section}>
-        <Grid md={12}>
+        <Grid item md={12}>
         <ul className={styles.timeline}>
-            {props.listGenerator()}
+            {props.listItemsGenerator()}
         </ul>
         </Grid>
     </section>
