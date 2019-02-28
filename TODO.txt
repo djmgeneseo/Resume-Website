@@ -1,3 +1,5 @@
+- Condense JSONS for Abilities.js by swapping key-value pairs
+- Make a drawer for Colors that sticks onto the view 
 - Add 'Skills' section
 - Make 'About Me' section more responsive
 - Add Paralax to the top image
