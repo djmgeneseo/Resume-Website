@@ -1,4 +1,5 @@
 - Condense JSONS for Abilities.js by swapping key-value pairs
+- Make Jumbotron tint change with the theme's palette's primary color 
 - Make a drawer for Colors that sticks onto the view 
 - Add 'Skills' section
 - Make 'About Me' section more responsive
