@@ -7,9 +7,10 @@
 
 .body {
     box-sizing: border-box; /* includes margin (and border) in height calculation*/
+    align-items: center; /* Vertical aligning */
     height: 87%;
-    padding-top: 45px;
-    padding-bottom: 45px;
+    padding-top: 30px;
+    padding-bottom: 15px; /* Because of the bottom-margin of 15px beneach the last education card */
 }
 
 .downloadResumeButton {

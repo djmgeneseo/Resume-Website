@@ -38,7 +38,7 @@ const jssStyle = theme => ({
     educationPaperOrientation: {
         marginBottom: '15px',
         position: 'relative',
-        padding: '30px',
+        padding: '25px',
         boxSizing: 'border-box'
     },
     timePeriodDiv: {
@@ -123,7 +123,7 @@ const About = (props) => {
 
     return (
         <Paper id={styles.aboutMeCard}>
-            <Grid container style={{height: '96%'}}>
+            <Grid container>
                 <Grid container className={styles.body}>
                     <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
                         <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
