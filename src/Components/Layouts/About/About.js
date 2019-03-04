@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styles from './About.module.css'; // css modules
 import { withStyles } from '@material-ui/styles'; // jss library
 
@@ -17,7 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {FaFileDownload} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";
 import {FaGithub} from "react-icons/fa";
-import { Button } from '@material-ui/core';
+// import { Button } from '@material-ui/core';
 
 const jssStyle = theme => ({
     aboutMeHeader: {
@@ -127,7 +127,7 @@ const About = (props) => {
                 <Grid container className={styles.body}>
                     <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
                         <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
-                            <a target="_blank" href={resume}>
+                            <a target="_blank" rel="noopener noreferrer" href={resume}>
                                 <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color="primary">
                                     <Fab color="primary">
                                         <FaFileDownload className={styles.downloadResumeIcon}/>
@@ -170,14 +170,14 @@ const About = (props) => {
                     <AppBar position="static" color="primary">
                         <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
                             <div className={styles.footerButton}>
-                                <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank">
+                                <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
                                     <IconButton color="secondary">
                                         <FaLinkedin className={styles.footerButtonIcon}/>
                                     </IconButton>
                                 </a>
                             </div>
                             <div className={styles.footerButton}>
-                                <a href='https://github.com/djmgeneseo' target="_blank">
+                                <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
                                     <IconButton color="secondary">
                                     <FaGithub className={styles.footerButtonIcon}/>
                                     </IconButton>

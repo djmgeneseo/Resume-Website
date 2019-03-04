@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
-import {FaCircle, FaAutoprefixer} from 'react-icons/fa';
+import {FaCircle} from 'react-icons/fa';
 
 import Timeline from '../../Timeline/Timeline';
 

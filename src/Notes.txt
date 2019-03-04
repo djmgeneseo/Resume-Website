@@ -17,4 +17,8 @@ Changed background color of entire app by modifying index.css
     Make the outer div 'position: relative' and the inner 'position: absolute'. Thereafter, 'top, bottom, left, right' will be designated to the outer div, and not the entire dom! Outer div's style must also be 'display: inline-block'
 
 ### Customizing theme with Material-UI
-    YOU NEED TO IMPORT MuiThemeProvider and createMuiTheme from '@material-ui/core/styles'
+    YOU NEED TO IMPORT MuiThemeProvider and createMuiTheme specifically from '@material-ui/core/styles'
+
+### Prevent phishing attempts from exploiting internal react vulnerability - anchor tags 
+    include rel="noopener noreferrer" in anchor tags that have target="_blank"
+    

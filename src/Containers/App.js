@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import React, { Component } from 'react';
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import indigo from '@material-ui/core/colors/indigo';
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
+    //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
     return <MuiThemeProvider theme={this.state.theme}>
       <ColorPicker changeColor={(color) => this.changeColor(color)}/>
       <Jumbotron/>      

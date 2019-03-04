@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styles from './ColorPicker.module.css'
 
 import red from '@material-ui/core/colors/red';
