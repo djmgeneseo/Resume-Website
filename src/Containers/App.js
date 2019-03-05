@@ -75,6 +75,10 @@ class App extends Component {
   }
 
   changeColor = (newColor) => {
+    // quick-fix: change background color of tooltip
+    initialTheme.overrides.MuiTooltip.tooltip.backgroundColor = newColor[500];
+    
+    // create a new theme using the previous configuration; overide primary and secondary configurations
     this.setState({color: newColor, theme: createMuiTheme(({...initialTheme, palette: {
       primary: newColor,
       secondary: {
@@ -87,7 +91,7 @@ class App extends Component {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
     return <MuiThemeProvider theme={this.state.theme}>
       <ColorPicker changeColor={(color) => this.changeColor(color)}/>
-      <Jumbotron/>      
+      <Jumbotron theme={this.state.theme}/>      
       <About theme={this.state.theme}/>
       <Grid container className={styles.siteContainer}>
         <Experience theme={this.state.theme}/>

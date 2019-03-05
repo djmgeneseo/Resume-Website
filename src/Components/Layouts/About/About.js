@@ -38,7 +38,7 @@ const jssStyle = theme => ({
     educationPaperOrientation: {
         marginBottom: '15px',
         position: 'relative',
-        padding: '25px',
+        padding: '15px 25px',
         boxSizing: 'border-box'
     },
     timePeriodDiv: {
@@ -128,7 +128,7 @@ const About = (props) => {
                     <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
                         <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
                             <a target="_blank" rel="noopener noreferrer" href={resume}>
-                                <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color="primary">
+                                <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color='primary'>
                                     <Fab color="primary">
                                         <FaFileDownload className={styles.downloadResumeIcon}/>
                                     </Fab>
