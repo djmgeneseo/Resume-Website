@@ -1,0 +1,19 @@
+.buttonContainer {
+    position: fixed;
+    right:-3px;
+    top: 10%;
+    height: auto;
+    z-index: 1101;
+}
+
+.paletteButton {
+    content: "' '";
+    width: 100%;
+    background-color: white;
+}
+
+.paletteIcon {
+    width: 20px;
+    height: auto;
+    font-size: 23px;
+}

@@ -4,7 +4,6 @@ import About from './About/About'
 import Abilities from './Abilities/Abilities'
 import Experience from './Experience/Experience'
 import Projects from './Projects/Projects'
-import ColorPicker from './ColorPicker/ColorPicker'
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  
@@ -13,5 +12,5 @@ import ColorPicker from './ColorPicker/ColorPicker'
  */
 
 export {
-    Jumbotron, Footer, About, Experience, Abilities, Projects, ColorPicker
+    Jumbotron, Footer, About, Experience, Abilities, Projects
 }

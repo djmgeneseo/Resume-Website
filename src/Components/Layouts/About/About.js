@@ -120,7 +120,7 @@ const About = (props) => {
                 </Paper>)
             })
         }
-
+        
     return (
         <Paper id={styles.aboutMeCard}>
             <Grid container>
