@@ -11,7 +11,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import Fab from '@material-ui/core/Fab';
-import Zoom from '@material-ui/core/Zoom';
+// import Zoom from '@material-ui/core/Zoom';
 import IconButton from '@material-ui/core/IconButton';
 
 import {FaFileDownload} from "react-icons/fa";
@@ -64,6 +64,10 @@ const jssStyle = theme => ({
           borderLeftColor: theme.palette.primary['500'],
           transform: 'rotate(180deg)'
         }
+    },
+    tooltipPopper: {
+        // backgroundColor: theme.palette.primary['500']
+        height: '40px !important'
     }
 })
 
@@ -93,33 +97,33 @@ const educationJSON = {
   }
 
 const About = (props) => {
-        const {classes} = props;
+    const {classes} = props;
+   
+    const generateBioAndInfo = () => {
+        return Object.keys(info).map(function(key) {
+            return (
+            <div key={key} style={{paddingTop: '5px'}}>
+                <Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography>
+            </div>)
+        })
+    }
 
-        const generateBioAndInfo = () => {
-            return Object.keys(info).map(function(key) {
-                return (
-                <div key={key} style={{paddingTop: '5px'}}>
-                    <Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography>
-                </div>)
-            })
-        }
-
-        const generateEducationInfo = () => {
-            return Object.keys(educationJSON).map(function(collegeName) {
-                return (
-                <Paper key={collegeName} className={classes.educationPaperOrientation}>
-                    <div className={styles.certificateIconDiv}>
-                        <img alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/>
-                    </div>
-                    <Typography>{collegeName}</Typography>
-                    <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
-                    <div className={classes.timePeriodDiv}>
-                        <Typography variant={'body2'} className={styles.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
-                    </div>
-                    <div className={styles.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
-                </Paper>)
-            })
-        }
+    const generateEducationInfo = () => {
+        return Object.keys(educationJSON).map(function(collegeName) {
+            return (
+            <Paper key={collegeName} className={classes.educationPaperOrientation}>
+                <div className={styles.certificateIconDiv}>
+                    <img alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/>
+                </div>
+                <Typography>{collegeName}</Typography>
+                <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
+                <div className={classes.timePeriodDiv}>
+                    <Typography variant={'body2'} className={styles.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
+                </div>
+                <div className={styles.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
+            </Paper>)
+        })
+    }
         
     return (
         <Paper id={styles.aboutMeCard}>
@@ -128,7 +132,12 @@ const About = (props) => {
                     <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
                         <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
                             <a target="_blank" rel="noopener noreferrer" href={resume}>
-                                <Tooltip TransitionComponent={Zoom} leaveDelay={200} title="DOWNLOAD RESUME" placement='top' color='primary'>
+                                <Tooltip 
+                                    leaveDelay={100} 
+                                    title="DOWNLOAD RESUME" 
+                                    placement='top' 
+                                    color='primary' 
+                                    classes={{ popper: classes.tooltipPopper }}>
                                     <Fab color="primary">
                                         <FaFileDownload className={styles.downloadResumeIcon}/>
                                     </Fab>
@@ -158,9 +167,6 @@ const About = (props) => {
                         {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
                     </Grid>
                     <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={4}>
-                        {/* <Typography className={classes.aboutMeHeader} variant="h5">
-                        MY EDUCATION
-                        </Typography>  */}
                         { 
                             generateEducationInfo() 
                         }

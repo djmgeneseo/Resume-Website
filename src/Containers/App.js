@@ -33,11 +33,14 @@ let initialTheme = createMuiTheme({
     textPrimary: '#fff'
   },
   overrides: {
-      MuiTooltip: {
-        tooltip: {
-          color: "white",
-          fontSize: '13px',
-          backgroundColor: '#3f51b5'
+      MuiDrawer: {
+        paper: {
+          height: '184px !important',
+          top: '10% !important',
+          textAlign: 'center',
+          width: '150px',
+          // alignItems: 'center',
+          padding: '10px'
         }
       },
       MuiTypography: {
@@ -75,9 +78,6 @@ class App extends Component {
   }
 
   changeColor = (newColor) => {
-    // quick-fix: change background color of tooltip
-    initialTheme.overrides.MuiTooltip.tooltip.backgroundColor = newColor[500];
-    
     // create a new theme using the previous configuration; overide primary and secondary configurations
     this.setState({color: newColor, theme: createMuiTheme(({...initialTheme, palette: {
       primary: newColor,

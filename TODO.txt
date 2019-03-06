@@ -1,5 +1,6 @@
-- Make a drawer for Colors that sticks onto the view 
-- Add 'Skills' section
+- Create Portfolio section
+- Create Blog section
+- Create hobbies section
 - Make 'About Me' section more responsive
 - Add Paralax to the top image
 - Smooth Scrolling
