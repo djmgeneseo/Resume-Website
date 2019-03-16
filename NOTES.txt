@@ -22,3 +22,8 @@ Changed background color of entire app by modifying index.css
 ### Prevent phishing attempts from exploiting internal react vulnerability - anchor tags 
     include rel="noopener noreferrer" in anchor tags that have target="_blank"
     
+### To run the react project only:
+    Run command line from the client directory, run npm start
+
+### Setup concurrent rules to run both node.js server and react project; the node.js server is not reay yet as of 03/13/19
+    Run command line from root directory, run npm start
