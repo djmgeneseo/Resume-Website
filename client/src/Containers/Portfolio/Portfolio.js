@@ -68,10 +68,12 @@ const portfolioItems = {
   }
 }
 
+/**
+ * Cannot declare 'classes' as a class-wide property value because of complications with the theme. Everytime a theme value is changed, element classes will suddenly not apply on the DOM
+ */
 class Portfolio extends Component {
   
   state = {
-    classes: this.props.classes,
     value: 0
   }
 
@@ -80,10 +82,11 @@ class Portfolio extends Component {
   };
 
   generatePortfolioItems = () => {
+    const classes = this.props.classes;
     return Object.keys(portfolioItems).map((itemName) => {
       return (
       <Grid item xs={6} sm={6} md={4}>
-        <Card className={this.state.classes.portfolioCard}>
+        <Card className={classes.portfolioCard}>
           <CardHeader
             title={itemName}
           >
@@ -93,7 +96,7 @@ class Portfolio extends Component {
           </CardMedia>
           <CardContent>
           <Divider/>
-          <div className={this.state.classes.tagsContainer}>
+          <div className={classes.tagsContainer}>
             <Button size='small' variant="outlined" color="primary">
               Tags
             </Button>  
@@ -105,13 +108,14 @@ class Portfolio extends Component {
   }
   
   render() {
+    const classes = this.props.classes;
     return (
       <Fragment>
         <Grid item md={12}>
-          <div className={this.state.classes.heading}><Typography variant="h4">PORTFOLIO</Typography></div>
+          <div className={classes.heading}><Typography variant="h4">PORTFOLIO</Typography></div>
           <Tabs 
             // centered
-            className={this.state.classes.portfolioTabs} 
+            className={classes.portfolioTabs} 
             value={this.state.value}
             onChange={this.handleChange}
             indicatorColor="primary"
