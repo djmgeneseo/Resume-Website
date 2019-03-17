@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import AppBar from '@material-ui/core/AppBar';
+import Zoom from '@material-ui/core/Zoom';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
@@ -24,49 +24,61 @@ const jssStyle = theme => ({
     marginBottom: '10px'
   },
   portfolioCard: {
-    margin: '10px'
+    margin: '10px',
+    height: '360px'
+
   },
   tagsContainer: {
     marginTop: '15px'
+  },
+  tagButton: {
+    marginTop: '5px',
+    marginRight: '5px',
+    display: 'inline-block'
   }
 })
 
 const portfolioItems = {
   'Skinno': {
-    tags: []
+    tags: ['Swift', 'Firebase', 'Firestore']
   },
   'Skinno Landing Page': {
     link: 'https://djmgeneseo.github.io/Skinno_Website/',
     git: 'https://github.com/djmgeneseo/Skinno_Website',
-    tags: []
+    tags: ['HTML & CSS','JavaScript', 'jQuery']
   },
   'Molloy Data Dashboard': {
-    tags: []
+    tags: ['HTML & CSS','JavaScript', 'jQuery', 'Bootstrap', 'PHP', 'IIS']
+  },
+  'Resume Website': {
+    tags: ['React', 'JavaScript', 'JSS', 'Material-UI']
   },
   'Machine Learning Practice': {
     git: 'https://github.com/djmgeneseo/mlpractice',
-    tags: []
+    tags: ['Swift','Tensorflow']
   },
   'Roemer Arboretum Research': {
     git: 'https://github.com/djmgeneseo/Roemer-Arboretum-Research',
-    tags: []
+    tags: ['R']
   },
   'Mock Food Delivery Website': {
     link: 'https://djmgeneseo.github.io/MOCK-FOOD-DELIVERY-WEBSITE/',
     git: 'https://github.com/djmgeneseo/MOCK-FOOD-DELIVERY-WEBSITE',
-    tags: []
+    tags: ['HTML & CSS', 'JavaScript', 'jQuery']
   },
   'Flappy Bird': {
     link: 'https://djmgeneseo.github.io/FLAPPY-BIRD/',
     git: 'https://github.com/djmgeneseo/FLAPPY-BIRD/tree/master',
-    tags: []
+    tags: ['JavaScript']
   },
   'Ping Pong': {
     link: 'https://djmgeneseo.github.io/PING-PONG/',
     git: 'https://github.com/djmgeneseo/PING-PONG',
-    tags: []
+    tags: ['JavaScript']
   }
 }
+
+const filterOptions = ['All','JavaScript','HTML & CSS','Swift','jQuery','React','R']
 
 /**
  * Cannot declare 'classes' as a class-wide property value because of complications 
@@ -84,29 +96,41 @@ class Portfolio extends Component {
     this.setState({ value });
   };
 
-  generatePortfolioItems = () => {
+  generatePortfolioItems = (filterIndex) => {
     const classes = this.props.classes;
-    return Object.keys(portfolioItems).map((itemName) => {
-      return (
-      <Grid item xs={6} sm={6} md={4}>
-        <Card className={classes.portfolioCard}>
-          <CardHeader
-            title={itemName}
-          >
-          </CardHeader>
-          <CardMedia>
+    return Object.keys(portfolioItems).map(itemName => {
+      if(filterIndex===0 || portfolioItems[itemName].tags.includes(filterOptions[filterIndex])){
+        return (
+        <Grid key={filterIndex + itemName} item xs={6} sm={6} md={4}>
+          <Zoom in={true}>
+            <Card className={classes.portfolioCard}>
+              <CardHeader
+                title={itemName}
+              >
+              </CardHeader>
+              <CardMedia>
 
-          </CardMedia>
-          <CardContent>
-          <Divider/>
-          <div className={classes.tagsContainer}>
-            <Button size='small' variant="outlined" color="primary">
-              Tags
-            </Button>  
-          </div>
-          </CardContent>
-        </Card>
-      </Grid>)
+              </CardMedia>
+              <CardContent>
+              <Divider/>
+              <div className={classes.tagsContainer}>
+              {
+                portfolioItems[itemName].tags.map(tagName => {
+                  return (
+                    <div className={classes.tagButton}>
+                      <Button size='small' variant="outlined" color="primary">
+                        {tagName}
+                      </Button>
+                    </div>
+                  )  
+                })
+              }  
+              </div>
+              </CardContent>
+            </Card>
+          </Zoom>
+        </Grid>)
+      } else {return null}
     })
   }
   
@@ -114,22 +138,26 @@ class Portfolio extends Component {
     const classes = this.props.classes;
     return (
       <Fragment>
-        <Grid item md={12}>
+        <Grid item xs={12} sm={12} md={12}>
           <div className={classes.heading}><Typography variant="h4">PORTFOLIO</Typography></div>
           <Tabs 
             // centered
+            variant="scrollable"
+            scrollButtons="on"
             className={classes.portfolioTabs} 
             value={this.state.value}
             onChange={this.handleChange}
             indicatorColor="primary"
             textColor="primary">
-            <Tab disableRipple label="All"/>
-            <Tab disableRipple label="Filter 1" />
-            <Tab disableRipple label="Filter 2" />
+            {
+              filterOptions.map((filterName) => {
+                return <Tab key={filterName} disableRipple label={filterName}/>
+              })
+            }
           </Tabs>
         </Grid>
         {
-          this.generatePortfolioItems()
+          this.generatePortfolioItems(this.state.value)
         }
       </Fragment>
     )

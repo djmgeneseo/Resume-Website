@@ -2,12 +2,13 @@
     background-color: rgb(252, 252, 252);
     width: 100%;
     height: auto;
+    padding: 10px 0px;
 }
 
 .siteContainer {
     margin: 75px auto;
-    padding: 75px 0;
     max-width: 1280px;
+    padding: 10px;
 }
 
 .heading {

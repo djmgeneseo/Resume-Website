@@ -213,13 +213,13 @@ const Experience = (props) => {
   }
 
   return (
-    <Fragment>
-      <Grid item md={12}>
+    <div style={{padding: '10px'}}>
+      <Grid item xs={12} sm={12} md={12}>
             <div className={styles.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
             {/* <div className={styles.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
       </Grid>
       <Timeline listItemsGenerator={() => generateExperienceListItems()}></Timeline>
-    </Fragment>
+    </div>
   )
 }
 
