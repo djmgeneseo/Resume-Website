@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 
 import {Jumbotron, About, Experience, Abilities, Footer } from '../Components/Layouts';
 import ColorPicker from '../Containers/ColorPicker/ColorPicker';
+import Portfolio from '../Containers/Portfolio/Portfolio';
 import styles from './App.module.css';
 
 /*
@@ -94,6 +95,7 @@ class App extends Component {
       <Jumbotron theme={this.state.theme}/>      
       <About theme={this.state.theme}/>
       <Grid container className={styles.siteContainer}>
+        <Portfolio theme={this.state.theme}/>
         <Experience theme={this.state.theme}/>
       </Grid>
       <Abilities theme={this.state.theme}/>
