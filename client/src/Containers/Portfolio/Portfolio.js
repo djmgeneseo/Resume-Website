@@ -69,7 +69,10 @@ const portfolioItems = {
 }
 
 /**
- * Cannot declare 'classes' as a class-wide property value because of complications with the theme. Everytime a theme value is changed, element classes will suddenly not apply on the DOM
+ * Cannot declare 'classes' as a class-wide property value because of complications 
+ * with the theme. Everytime a theme value is changed, element classes will 
+ * suddenly not apply on the DOM. Fixed by making jss 'classes' variable a local variable
+ * to all closures within the Portfolio class.
  */
 class Portfolio extends Component {
   
