@@ -1,15 +1,19 @@
 import React, {Fragment, Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Zoom from '@material-ui/core/Zoom';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import Slide from '@material-ui/core/Slide';
+import CardActions from '@material-ui/core/CardActions';
+import Fab from '@material-ui/core/Fab';
+
+import {FaGithub} from "react-icons/fa";
+import {MdLink} from "react-icons/md";
 
 import { withStyles } from '@material-ui/styles'; // jss library
 
@@ -26,18 +30,64 @@ const jssStyle = theme => ({
   portfolioCard: {
     margin: '10px',
     height: '400px'
-
   },
   tagsContainer: {
-    marginTop: '15px'
+    marginTop: '10px'
   },
   tagButton: {
     marginTop: '5px',
     marginRight: '5px',
     display: 'inline-block'
   },
+  cardMediaContainer: {
+    display: 'relative', 
+    overflow: 'hidden',
+      '&:hover $cardMedia': {
+        transform: 'scale(1.2)'
+      },
+      '&:hover $cardCaptionActions': {
+        opacity: '1'
+      },
+      '&:hover $cardMediaCaptionContainer': {
+        top: '150px'
+      }
+  },
   cardMedia: {
-    height: '270px'
+    height: '270px',
+    transition: 'transform .5s',
+    position: 'relative',
+    '&::before': {
+      content: "' '",
+	    position: 'absolute',
+      top: '0',
+      right: '0',
+      bottom: '0',
+      left: '0',
+      background: `linear-gradient(to top,#000 40%, ${theme.palette.primary['200']})`,
+      // background: 'linear-gradient(transparent, rgba(12, 24, 36, 1))',
+      opacity: '.5'
+    }
+  },
+  cardMediaCaptionContainer: {
+    padding: '10px',
+    position: 'absolute',
+    top: '200px',
+    left: '10px',
+    transition: 'top ease 0.5s'
+  },
+  cardCaptionActions: {
+    position: 'absolute',
+    top: '195px',
+    left: '12px',
+    padding: '10px',
+    opacity: 0,
+    transition: 'opacity .5s'
+  },
+  cardActionIcon: {
+    // fontSize: '23px'
+  },
+  cardMediaText: {
+    color: '#fff !important'
   }
 })
 
@@ -54,7 +104,8 @@ const portfolioItems = {
     tags: ['HTML & CSS','JavaScript', 'jQuery', 'Bootstrap', 'PHP', 'IIS']
   },
   'Resume Website': {
-    tags: ['React', 'JavaScript', 'JSS', 'Material-UI']
+    git: 'https://github.com/djmgeneseo/Resume-Website',
+    tags: ['React', 'JavaScript', 'JSS', 'Material-UI']    
   },
   'Machine Learning Practice': {
     git: 'https://github.com/djmgeneseo/mlpractice',
@@ -95,26 +146,62 @@ class Portfolio extends Component {
     value: 0
   }
 
-  handleChange = (event, value) => {
+  handleTabChange = (event, value) => {
     this.setState({ value });
   };
 
+  generateActionButtons = (portfolioItemName) => {
+    const classes = this.props.classes;
+    let elements = [];  
+    
+    if(portfolioItems[portfolioItemName].link) {
+      elements.push(
+        (<a key={portfolioItems[portfolioItemName].link} href={portfolioItems[portfolioItemName].link} target="_blank" rel="noopener noreferrer">
+          <Fab size="small" color="primary">
+            <MdLink className={classes.cardActionIcon}/>
+          </Fab>
+        </a>)
+      )
+    }
+
+    if(portfolioItems[portfolioItemName].git){
+      elements.push(
+        (<a key={portfolioItems[portfolioItemName].git} href={portfolioItems[portfolioItemName].git} target="_blank" rel="noopener noreferrer">
+          <Fab size="small" color="primary">
+            <FaGithub className={classes.cardActionIcon}/>
+          </Fab>
+        </a>)
+      )
+    }
+
+    return elements
+  }
+
   generatePortfolioItems = (filterIndex) => {
     const classes = this.props.classes;
-    return Object.keys(portfolioItems).map(itemName => {
-      if(filterIndex===0 || portfolioItems[itemName].tags.includes(filterOptions[filterIndex])){
+    let transitionDelay = 0;
+
+    return Object.keys(portfolioItems).map(portfolioItemName => {
+      if(filterIndex===0 || portfolioItems[portfolioItemName].tags.includes(filterOptions[filterIndex])){
+        transitionDelay+=75; // creates a staggered transition effect
         return (
-        <Grid key={filterIndex + itemName} item xs={6} sm={6} md={4}>
-          <Zoom in={true}>
+        <Grid key={filterIndex + portfolioItemName} item xs={12} sm={6} md={4}>
+          <Slide direction='up' in={true} style={{ transitionDelay: transitionDelay }}>
             <Card className={classes.portfolioCard}>
-              <CardMedia className={classes.cardMedia} image={require('../assets/img/me.png')}>
-              <Typography style={{color: '#fff', padding: '10px'}}variant='h5'>{itemName}</Typography>
-              </CardMedia>
+              <div className={classes.cardMediaContainer}>
+                <CardMedia className={classes.cardMedia} image={require('../assets/img/me.png')}/>
+                <div className={classes.cardMediaCaptionContainer}>
+                  <Typography className={classes.cardMediaText} variant='h5'>{portfolioItemName}</Typography>
+                </div>
+                <CardActions className={classes.cardCaptionActions}>
+                  { this.generateActionButtons(portfolioItemName) }
+                </CardActions>
+              </div>
               <CardContent>
               <Divider/>
               <div className={classes.tagsContainer}>
               {
-                portfolioItems[itemName].tags.map(tagName => {
+                portfolioItems[portfolioItemName].tags.map(tagName => {
                   return (
                     <div key={tagName} className={classes.tagButton}>
                       <Button size='small' variant="outlined" color="primary">
@@ -127,7 +214,7 @@ class Portfolio extends Component {
               </div>
               </CardContent>
             </Card>
-          </Zoom>
+          </Slide>
         </Grid>)
       } else {return null}
     })
@@ -145,7 +232,7 @@ class Portfolio extends Component {
             scrollButtons="on"
             className={classes.portfolioTabs} 
             value={this.state.value}
-            onChange={this.handleChange}
+            onChange={this.handleTabChange}
             indicatorColor="primary"
             textColor="primary">
             {
@@ -155,9 +242,7 @@ class Portfolio extends Component {
             }
           </Tabs>
         </Grid>
-        {
-          this.generatePortfolioItems(this.state.value)
-        }
+        { this.generatePortfolioItems(this.state.value) }
       </Fragment>
     )
   }

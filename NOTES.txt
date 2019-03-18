@@ -27,3 +27,14 @@ Changed background color of entire app by modifying index.css
 
 ### Setup concurrent rules to run both node.js server and react project; the node.js server is not reay yet as of 03/13/19
     Run command line from root directory, run npm start
+
+### Targeting a local rule via one jss element: $className
+    cardMediaContainer: {
+        display: 'relative', 
+        overflow: 'hidden',
+        '&:hover $cardMedia': {
+            transform: 'scale(1.2)'
+        }
+  }
+
+### React seems to automatically spread arrays of elements when returned.
