@@ -1,13 +1,38 @@
 import React, {Fragment} from 'react'
 import { withStyles } from '@material-ui/styles'; // jss library
-import styles from './Abilities.module.css'
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {MdStar, MdStarBorder} from 'react-icons/md';
 
 const jssStyle = (theme) => ({
-  testTheme: theme,
+  sectionBackground: {
+    backgroundColor: 'rgb(252,252,252)',
+    width: '100%',
+    height: 'auto',
+    padding: '10px 0px'
+  },
+  siteContainer: {
+    margin: '75px auto',
+    maxWidth: '1280px',
+    padding: '10px'
+  },
+  heading: {
+    textAlign: 'center',
+    width: '100%',
+    marginBottom: '25px'
+  },
+  headerShadow: {
+    '& img': {
+      marginBottom: '15px',
+      width: '100%'
+    }
+  },
+  subHeading: {
+    textAlign: 'left',
+    width: '100%',
+    margin: '10px 0'
+  },
   columnLeftFormat: {
     boxSizing: 'border-box', 
     paddingRight: '15px'
@@ -18,7 +43,15 @@ const jssStyle = (theme) => ({
   },
   starsSpan: {
     color: theme.palette.primary['500']
-  }
+  },
+  '@media only screen and (max-width: 959px)': {
+    columnRightFormat: {
+      paddingLeft: '0px'
+    },
+    columnLeftFormat: {
+      paddingRight: '0px'
+    }
+}
 })
 
 // TODO: reverse key/value pairing
@@ -121,13 +154,13 @@ const Abilities = (props) => {
   }
 
   return (
-    <section className={styles.sectionBackground}>
-      <Grid container className={styles.siteContainer}>
-        <div className={styles.heading}><Typography variant="h4">ABILITIES</Typography></div>
-        <div className={styles.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div>
-        <div className={styles.subHeading}><Typography variant="h5">Skills</Typography></div>
+    <section className={classes.sectionBackground}>
+      <Grid container className={classes.siteContainer}>
+        <div className={classes.heading}><Typography variant="h4">ABILITIES</Typography></div>
+        <div className={classes.headerShadow}><img alt='section header shadow' src={require('../../assets/img/section_header_shadow.png')}/></div>
+        <div className={classes.subHeading}><Typography variant="h5">Skills</Typography></div>
         { generateAbilityCategoryRow(skillsJSON) }
-        <div className={styles.subHeading}><Typography variant="h5">Tools</Typography></div>
+        <div className={classes.subHeading}><Typography variant="h5">Tools</Typography></div>
         { generateAbilityCategoryRow(toolsJSON) }
       </Grid>
     </section>

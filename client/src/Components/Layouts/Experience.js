@@ -1,6 +1,5 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
-import styles from './Experience.module.css' // css modules
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -8,10 +7,35 @@ import Paper from '@material-ui/core/Paper';
 
 import {FaCircle} from 'react-icons/fa';
 
-import Timeline from '../../Timeline/Timeline';
+import Timeline from '../Timeline';
 
 const jssStyle = theme => ({
-  
+  heading: {
+    textAlign: 'center',
+    marginBottom: '25px',
+    marginTop: '50px'
+  },
+  headerShadow: {
+    '& img': {
+      marginBottom: '15px',
+      width: '100%'
+    }
+  },
+  floatLeft: {
+    float: 'left'
+  },
+  floatRight: {
+    float: 'right'
+  },
+  experienceItem: {
+    listStyleType: 'none',
+    width: '49.2%',
+    marginBottom: '25px'
+  },
+  timePeriodParagraph: {
+    color: '#fff !important',
+    fontSize: '10px'
+  },
   experiencePaperLeft: {
     width: '96%',
     height: '300px', // '300px'
@@ -172,14 +196,14 @@ const Experience = (props) => {
       
       // Default style = list item oriented to the right
       let largeMarginTop = null;
-      let float = styles.floatRight;
+      let float = classes.floatRight;
       let experiencePaperOrientation = classes.experiencePaperRight;
       let timelineMarker = classes.timelineMarkerRight
       let presentBorder = null;
       let certificateIconDiv = classes.certificateIconDivRight;
 
       if(i%2===1) { // left list item
-        float = styles.floatLeft;
+        float = classes.floatLeft;
         experiencePaperOrientation = classes.experiencePaperLeft;
         timelineMarker = classes.timelineMarkerLeft
         certificateIconDiv = classes.certificateIconDivLeft;
@@ -193,7 +217,7 @@ const Experience = (props) => {
         presentBorder = classes.presentBorder
       }
 
-      return(<li className={float + ' ' + styles.experienceItem} style={largeMarginTop} key={jobName}>
+      return(<li className={float + ' ' + classes.experienceItem} style={largeMarginTop} key={jobName}>
       <div className={timelineMarker}>
         <FaCircle></FaCircle>
       </div>
@@ -204,7 +228,7 @@ const Experience = (props) => {
           <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
           <Typography variant={'h5'}>{jobName}</Typography>
           <div className={classes.timePeriodDiv}>
-            <Typography className={styles.timePeriodParagraph} variant={'body2'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
+            <Typography className={classes.timePeriodParagraph} variant={'body2'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
           </div>
           <Typography variant={'body2'}>{experienceJSON[jobName].description}</Typography>
         </Paper>
@@ -215,8 +239,8 @@ const Experience = (props) => {
   return (
     <div style={{padding: '10px'}}>
       <Grid item xs={12} sm={12} md={12}>
-            <div className={styles.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
-            {/* <div className={styles.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
+            <div className={classes.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
+            {/* <div className={classes.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
       </Grid>
       <Timeline listItemsGenerator={() => generateExperienceListItems()}></Timeline>
     </div>

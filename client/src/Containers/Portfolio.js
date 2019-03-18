@@ -25,7 +25,7 @@ const jssStyle = theme => ({
   },
   portfolioCard: {
     margin: '10px',
-    height: '360px'
+    height: '400px'
 
   },
   tagsContainer: {
@@ -35,6 +35,9 @@ const jssStyle = theme => ({
     marginTop: '5px',
     marginRight: '5px',
     display: 'inline-block'
+  },
+  cardMedia: {
+    height: '270px'
   }
 })
 
@@ -104,12 +107,8 @@ class Portfolio extends Component {
         <Grid key={filterIndex + itemName} item xs={6} sm={6} md={4}>
           <Zoom in={true}>
             <Card className={classes.portfolioCard}>
-              <CardHeader
-                title={itemName}
-              >
-              </CardHeader>
-              <CardMedia>
-
+              <CardMedia className={classes.cardMedia} image={require('../assets/img/me.png')}>
+              <Typography style={{color: '#fff', padding: '10px'}}variant='h5'>{itemName}</Typography>
               </CardMedia>
               <CardContent>
               <Divider/>
@@ -117,7 +116,7 @@ class Portfolio extends Component {
               {
                 portfolioItems[itemName].tags.map(tagName => {
                   return (
-                    <div className={classes.tagButton}>
+                    <div key={tagName} className={classes.tagButton}>
                       <Button size='small' variant="outlined" color="primary">
                         {tagName}
                       </Button>

@@ -8,9 +8,8 @@ import grey from '@material-ui/core/colors/grey';
 import Grid from '@material-ui/core/Grid';
 
 import {Jumbotron, About, Experience, Abilities, Footer } from '../Components/Layouts';
-import ColorPicker from '../Containers/ColorPicker/ColorPicker';
-import Portfolio from '../Containers/Portfolio/Portfolio';
-import styles from './App.module.css';
+import ColorPicker from '../Containers/ColorPicker';
+import Portfolio from '../Containers/Portfolio';
 
 /*
   Contains Router structure for website - state manages route-specific layout features, such as header information.
@@ -90,11 +89,12 @@ class App extends Component {
 
   render() {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
+    
     return <MuiThemeProvider theme={this.state.theme}>
       <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>
       <Jumbotron theme={this.state.theme}/>      
       <About theme={this.state.theme}/>
-      <Grid container className={styles.siteContainer}>
+      <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
         <Portfolio theme={this.state.theme}/>
         <Experience theme={this.state.theme}/>
       </Grid>

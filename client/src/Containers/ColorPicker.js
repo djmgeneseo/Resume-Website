@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react'
-import styles from './ColorPicker.module.css'
 import Drawer from '@material-ui/core/Drawer'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/styles'
@@ -34,7 +33,19 @@ const jssStyle = theme => ({
   },
   tooltipPopper: {
     height: '40px !important'
-}
+  },
+  buttonContainer: {
+    position: 'fixed',
+    right: '-3px',
+    top: '10%',
+    height: 'auto',
+    zIndex: '1101'
+  },
+  paletteButton: {
+    content: "' '",
+    width: '100%',
+    backgroundColor: 'white'
+  }
 })
 
 const palette = {
@@ -96,10 +107,9 @@ class ColorPicker extends Component {
   }
 
   render() {
-    
     return (
       <Fragment>
-        <div className={styles.buttonContainer}>
+        <div className={this.props.classes.buttonContainer}>
             {/* <button onClick={() => props.changeColor(red)}>test</button> */}
             <Button style={{backgroundColor: 'white', border: 'solid 1.2px #e0e0e0'}} onClick={() => this.toggleDrawer('right', true)}>
               <MdColorLens className={this.props.classes.paletteIcon} style={{fontSize: '23px'}}></MdColorLens>

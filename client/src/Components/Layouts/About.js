@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './About.module.css'; // css modules
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import resume from '../../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
+import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -34,6 +33,93 @@ const jssStyle = theme => ({
             color: theme.palette.primary['500'],
             marginTop: '1.2em'
         }
+    },
+    aboutMeCard: {
+        marginTop: '-28vh',
+        width: '100%',
+        borderRadius: '0px',
+        zIndex: '100'
+    },
+    body: {
+        boxSizing: 'border-box',
+        alignItems: 'center',
+        height: '87%',
+        paddingTop: '30px',
+        paddingBottom: '30px'
+    },
+    downloadResumeButton: {
+        position: 'absolute',
+        zIndex: '5',
+        '& button': {
+            width: '45px',
+            height: '45px'
+        }
+    },
+    downloadResumeIcon: {
+        fontSize: '18px'
+    },
+    circularImageContainer: {
+        position: 'relative',
+        width: '200px',
+        height: '200px',
+        overflow: 'hidden',
+        borderRadius: '50%',
+        '&::after': {
+            content: "' '",
+            position: 'absolute',
+            width: '200px',
+            height: '200px',
+            top: 0,
+            left: 0,
+            boxShadow: 'inset 0 0 20px 4px rgba(0, 0, 0, 0.44)',
+            borderRadius: '50%'
+        },
+        '& img': {
+            position: 'relative',
+            width: '100%',
+            height: '100%'
+        }
+    },
+    aboutMeSection: {
+        paddingRight: '50px'
+    },
+    infoSpan: {
+        float: 'left',
+        width: '80px',
+        textTransform: 'uppercase',
+        fontWeight: '600'
+    },
+    contactButton: {
+        marginTop: '10px'
+    },
+    footer: {
+        height: '18%',
+        textAlign: 'center'
+    },
+    footerButton: {
+        margin: '11px',
+        display: 'inline-block'
+    },
+    footerButtonIcon: {
+        fontSize: '23px'
+    },
+    certificateIconDiv: {
+        position: 'absolute',
+        top: '-10px',
+        right: '10px',
+        width: '30px',
+        height: 'auto',
+        '& img': {
+            width: '70px',
+            height: 'auto'
+        }
+    },
+    timePeriodParagraph: {
+        color: '#fff !important'
+    },
+    gpa: {
+        display: 'inline',
+        marginLeft: '10px'
     },
     educationPaperOrientation: {
         marginBottom: '15px',
@@ -68,6 +154,12 @@ const jssStyle = theme => ({
     tooltipPopper: {
         // backgroundColor: theme.palette.primary['500']
         height: '40px !important'
+    },
+    '@media only screen and (max-width: 959px)': {
+        aboutMeSection: {
+            padding: '35px',
+            paddingTop: '25px'
+        }
     }
 })
 
@@ -103,7 +195,7 @@ const About = (props) => {
         return Object.keys(info).map(function(key) {
             return (
             <div key={key} style={{paddingTop: '5px'}}>
-                <Typography variant="body1"><span className={styles.infoSpan}>{key}</span> {info[key]}</Typography>
+                <Typography variant="body1"><span className={classes.infoSpan}>{key}</span> {info[key]}</Typography>
             </div>)
         })
     }
@@ -112,25 +204,25 @@ const About = (props) => {
         return Object.keys(educationJSON).map(function(collegeName) {
             return (
             <Paper key={collegeName} className={classes.educationPaperOrientation}>
-                <div className={styles.certificateIconDiv}>
-                    <img alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/>
+                <div className={classes.certificateIconDiv}>
+                    <img alt='Certificate Icon' src={require('../../assets/icons/certificate.png')}/>
                 </div>
                 <Typography>{collegeName}</Typography>
                 <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
                 <div className={classes.timePeriodDiv}>
-                    <Typography variant={'body2'} className={styles.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
+                    <Typography variant={'body2'} className={classes.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
                 </div>
-                <div className={styles.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
+                <div className={classes.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
             </Paper>)
         })
     }
         
     return (
-        <Paper id={styles.aboutMeCard}>
+        <Paper className={classes.aboutMeCard}>
             <Grid container>
-                <Grid container className={styles.body}>
+                <Grid container className={classes.body}>
                     <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
-                        <div style={{display: 'inline-block'}} className={styles.downloadResumeButton}>
+                        <div style={{display: 'inline-block'}} className={classes.downloadResumeButton}>
                             <a target="_blank" rel="noopener noreferrer" href={resume}>
                                 <Tooltip 
                                     leaveDelay={100} 
@@ -139,18 +231,18 @@ const About = (props) => {
                                     color='primary' 
                                     classes={{ popper: classes.tooltipPopper }}>
                                     <Fab color="primary">
-                                        <FaFileDownload className={styles.downloadResumeIcon}/>
+                                        <FaFileDownload className={classes.downloadResumeIcon}/>
                                     </Fab>
                                 </Tooltip>
                             </a>
                         </div>
-                        <div style={{display: "inline-block"}}  className={styles.circularImageContainer}>
-                            <img alt='Self Portrait of David Murphy' src={require('../../../assets/img/me.png')}/>
+                        <div style={{display: "inline-block"}}  className={classes.circularImageContainer}>
+                            <img alt='Self Portrait of David Murphy' src={require('../../assets/img/me.png')}/>
                         </div>
                         <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
                         <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
                     </Grid>
-                    <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={4}>
+                    <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={4}>
                         <Typography className={classes.aboutMeHeader} variant="h5">
                         ABOUT ME
                         </Typography> 
@@ -166,26 +258,26 @@ const About = (props) => {
 
                         {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
                     </Grid>
-                    <Grid className={styles.aboutMeSection} item xs={12} sm={12} md={4}>
+                    <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={4}>
                         { 
                             generateEducationInfo() 
                         }
                     </Grid>
                 </Grid>
-                <Grid container className={styles.footer}>
+                <Grid container className={classes.footer}>
                     <AppBar position="static" color="primary">
                         <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
-                            <div className={styles.footerButton}>
+                            <div className={classes.footerButton}>
                                 <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
                                     <IconButton color="secondary">
-                                        <FaLinkedin className={styles.footerButtonIcon}/>
+                                        <FaLinkedin className={classes.footerButtonIcon}/>
                                     </IconButton>
                                 </a>
                             </div>
-                            <div className={styles.footerButton}>
+                            <div className={classes.footerButton}>
                                 <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
                                     <IconButton color="secondary">
-                                    <FaGithub className={styles.footerButtonIcon}/>
+                                    <FaGithub className={classes.footerButtonIcon}/>
                                     </IconButton>
                                 </a>
                             </div>
