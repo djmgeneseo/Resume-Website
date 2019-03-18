@@ -4,6 +4,7 @@
     > Upload footage of 'Machine Learning' (OCR) Practice
     > Create pictures for portfolio card items
 - Create Blog section
+- Make Experience section more responsive
 - Create Hobbies section
     > Create a Header section above 'About Me' section
 - Add Paralax to the top image
