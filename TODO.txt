@@ -1,8 +1,5 @@
 - Create Portfolio section
-    > Record and Upload footage of the Data Dashboard
-    > Upload footage of Skinno App
-    > Upload footage of 'Machine Learning' (OCR) Practice
-    > Create pictures for portfolio card items
+    > Record and Upload footage and image of the Data Dashboard
 - Create Blog section
 - Make Experience section more responsive
 - Create Hobbies section

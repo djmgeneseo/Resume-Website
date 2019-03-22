@@ -13,6 +13,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Fab from '@material-ui/core/Fab';
 
 import {FaGithub} from "react-icons/fa";
+import {FaYoutubeSquare} from "react-icons/fa";
 import {MdLink} from "react-icons/md";
 
 import { withStyles } from '@material-ui/styles'; // jss library
@@ -92,43 +93,54 @@ const jssStyle = theme => ({
 })
 
 const portfolioItems = {
+  'Resume Website': {
+    git: 'https://github.com/djmgeneseo/Resume-Website',
+    tags: ['React', 'JavaScript', 'ES6', 'JSS', 'Material-UI'],
+    img: require('../assets/img/resume_site.png')
+  },
+  'Molloy Data Dashboard': {
+    tags: ['HTML & CSS','JavaScript', 'jQuery', 'Bootstrap', 'PHP', 'IIS'],
+    img: require('../assets/img/me.png')
+  },
   'Skinno': {
-    tags: ['Swift', 'Firebase', 'Firestore']
+    tags: ['Swift', 'Firebase', 'Firestore'],
+    video: 'https://www.youtube.com/watch?v=aB-9-rHU7FA',
+    img: require('../assets/img/skinno.jpg')
   },
   'Skinno Landing Page': {
     link: 'https://djmgeneseo.github.io/Skinno_Website/',
     git: 'https://github.com/djmgeneseo/Skinno_Website',
-    tags: ['HTML & CSS','JavaScript', 'jQuery']
-  },
-  'Molloy Data Dashboard': {
-    tags: ['HTML & CSS','JavaScript', 'jQuery', 'Bootstrap', 'PHP', 'IIS']
-  },
-  'Resume Website': {
-    git: 'https://github.com/djmgeneseo/Resume-Website',
-    tags: ['React', 'JavaScript', 'JSS', 'Material-UI']    
-  },
-  'Machine Learning Practice': {
-    git: 'https://github.com/djmgeneseo/mlpractice',
-    tags: ['Swift','Tensorflow']
-  },
-  'Roemer Arboretum Research': {
-    git: 'https://github.com/djmgeneseo/Roemer-Arboretum-Research',
-    tags: ['R']
+    tags: ['HTML & CSS','JavaScript', 'jQuery'],
+    img: require('../assets/img/skinno_site.png')
   },
   'Mock Food Delivery Website': {
     link: 'https://djmgeneseo.github.io/MOCK-FOOD-DELIVERY-WEBSITE/',
     git: 'https://github.com/djmgeneseo/MOCK-FOOD-DELIVERY-WEBSITE',
-    tags: ['HTML & CSS', 'JavaScript', 'jQuery']
+    tags: ['HTML & CSS', 'JavaScript', 'jQuery'],
+    img: require('../assets/img/food_site.png')
+  },
+  'iOS OCR Mobile Vision': {
+    git: 'https://github.com/djmgeneseo/mlpractice',
+    tags: ['Swift','Tensorflow', 'Mobile Vision'],
+    video: 'https://www.youtube.com/watch?v=sKEsSFrNkrQ',
+    img: require('../assets/img/mobile_vision.png')
+  },
+  'Roemer Arboretum Research': {
+    git: 'https://github.com/djmgeneseo/Roemer-Arboretum-Research',
+    tags: ['R'],
+    img: require('../assets/img/arboretum.png')
   },
   'Flappy Bird': {
     link: 'https://djmgeneseo.github.io/FLAPPY-BIRD/',
     git: 'https://github.com/djmgeneseo/FLAPPY-BIRD/tree/master',
-    tags: ['JavaScript']
+    tags: ['JavaScript', 'ES6'],
+    img: require('../assets/img/flappy_bird.png')
   },
   'Ping Pong': {
     link: 'https://djmgeneseo.github.io/PING-PONG/',
     git: 'https://github.com/djmgeneseo/PING-PONG',
-    tags: ['JavaScript']
+    tags: ['JavaScript', 'ES5'],
+    img: require('../assets/img/ping_pong.png')
   }
 }
 
@@ -164,6 +176,16 @@ class Portfolio extends Component {
       )
     }
 
+    if(portfolioItems[portfolioItemName].video) {
+      elements.push(
+        (<a key={portfolioItems[portfolioItemName].video} href={portfolioItems[portfolioItemName].video} target="_blank" rel="noopener noreferrer">
+          <Fab size="small" color="primary">
+            <FaYoutubeSquare className={classes.cardActionIcon}/>
+          </Fab>
+        </a>)
+      )
+    }
+
     if(portfolioItems[portfolioItemName].git){
       elements.push(
         (<a key={portfolioItems[portfolioItemName].git} href={portfolioItems[portfolioItemName].git} target="_blank" rel="noopener noreferrer">
@@ -189,7 +211,7 @@ class Portfolio extends Component {
           <Slide direction='up' in={true} style={{ transitionDelay: transitionDelay }}>
             <Card className={classes.portfolioCard}>
               <div className={classes.cardMediaContainer}>
-                <CardMedia className={classes.cardMedia} image={require('../assets/img/me.png')}/>
+                <CardMedia className={classes.cardMedia} image={portfolioItems[portfolioItemName].img}/>
                 <div className={classes.cardMediaCaptionContainer}>
                   <Typography className={classes.cardMediaText} variant='h5'>{portfolioItemName}</Typography>
                 </div>
