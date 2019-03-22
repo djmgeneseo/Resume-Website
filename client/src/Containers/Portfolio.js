@@ -95,7 +95,7 @@ const jssStyle = theme => ({
 const portfolioItems = {
   'Resume Website': {
     git: 'https://github.com/djmgeneseo/Resume-Website',
-    tags: ['React', 'JavaScript', 'ES6', 'JSS', 'Material-UI'],
+    tags: ['React', 'JavaScript', 'ES6', 'JSS', 'Material-UI', 'npm'],
     img: require('../assets/img/resume_site.png')
   },
   'Molloy Data Dashboard': {
@@ -103,7 +103,7 @@ const portfolioItems = {
     img: require('../assets/img/me.png')
   },
   'Skinno': {
-    tags: ['Swift', 'Firebase', 'Firestore'],
+    tags: ['Swift', 'Firebase', 'Firestore', 'CocoaPods'],
     video: 'https://www.youtube.com/watch?v=aB-9-rHU7FA',
     img: require('../assets/img/skinno.jpg')
   },
@@ -121,7 +121,7 @@ const portfolioItems = {
   },
   'iOS OCR Mobile Vision': {
     git: 'https://github.com/djmgeneseo/mlpractice',
-    tags: ['Swift','Tensorflow', 'Mobile Vision'],
+    tags: ['Swift','Tensorflow', 'Mobile Vision', 'CocoaPods'],
     video: 'https://www.youtube.com/watch?v=sKEsSFrNkrQ',
     img: require('../assets/img/mobile_vision.png')
   },
