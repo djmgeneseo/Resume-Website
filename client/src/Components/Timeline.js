@@ -24,6 +24,12 @@ const jssStyle = theme => ({
       left: '50%',
       marginLeft: '-1.5px',
       boxShadow: '0px 1px 6px rgba(0, 0, 0, 0.10), 0px 1px 6px rgba(0, 0, 0, 0.20)'
+    },
+    '@media only screen and (max-width: 960px)': {
+      '&::before': {
+        left: '0%',
+        width: '8px'
+      }
     }
   }
 })

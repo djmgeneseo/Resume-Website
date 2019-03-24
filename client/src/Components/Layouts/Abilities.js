@@ -51,7 +51,7 @@ const jssStyle = (theme) => ({
     columnLeftFormat: {
       paddingRight: '0px'
     }
-}
+  }
 })
 
 // TODO: reverse key/value pairing

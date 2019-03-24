@@ -110,10 +110,10 @@ const portfolioItems = {
   'Skinno Landing Page': {
     link: 'https://djmgeneseo.github.io/Skinno_Website/',
     git: 'https://github.com/djmgeneseo/Skinno_Website',
-    tags: ['HTML & CSS','JavaScript', 'jQuery'],
+    tags: ['HTML & CSS','JavaScript', 'jQuery', 'Heroku'],
     img: require('../assets/img/skinno_site.png')
   },
-  'Mock Food Delivery Website': {
+  'Mock Food App Website': {
     link: 'https://djmgeneseo.github.io/MOCK-FOOD-DELIVERY-WEBSITE/',
     git: 'https://github.com/djmgeneseo/MOCK-FOOD-DELIVERY-WEBSITE',
     tags: ['HTML & CSS', 'JavaScript', 'jQuery'],

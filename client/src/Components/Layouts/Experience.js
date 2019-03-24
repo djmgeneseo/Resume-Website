@@ -30,7 +30,11 @@ const jssStyle = theme => ({
   experienceItem: {
     listStyleType: 'none',
     width: '49.2%',
-    marginBottom: '25px'
+    marginBottom: '25px',
+    '@media only screen and (max-width: 960px)': {
+      width: '94%',
+      float: 'right !important'
+    }
   },
   timePeriodParagraph: {
     color: '#fff !important',
@@ -39,9 +43,9 @@ const jssStyle = theme => ({
   experiencePaperLeft: {
     width: '96%',
     height: '300px', // '300px'
-    position: 'relative',
     padding: '30px',
     boxSizing: 'border-box',
+    position: 'relative',
     '&:before': {
       position: 'absolute',
       top: '26px',
@@ -52,14 +56,38 @@ const jssStyle = theme => ({
       borderRight: '0 solid #ffffff',
       borderBottom: '15px solid transparent',
       content: "''"
+    },
+    '@media only screen and (max-width: 1160px)': {
+      height: '400px'
+    },
+    '@media only screen and (max-width: 960px)': {
+      width: '100%',
+      height: '300px',
+      '&:before': {
+        position: 'absolute',
+        top: '26px',
+        left: '-15px',
+        right: 'auto',
+        display: 'inline-block',
+        borderTop: '15px solid transparent',
+        borderLeft: '15px solid #ffffff',
+        borderRight: '0 solid #ffffff',
+        borderBottom: '15px solid transparent',
+        content: "''",
+        borderLeftWidth: '0',
+        borderRightWidth: '15px'
+      }
+    },
+    '@media only screen and (max-width: 600px)': {
+      height: '400px'
     }
   },
   experiencePaperRight: {
     width: '96%',
     height: '300px', // '300px'
-    position: 'relative',
     padding: '30px',
     boxSizing: 'border-box',
+    position: 'relative',
     '&:before': {
       position: 'absolute',
       top: '26px',
@@ -73,6 +101,17 @@ const jssStyle = theme => ({
       content: "''",
       borderLeftWidth: '0',
       borderRightWidth: '15px'
+    },
+    '@media only screen and (max-width: 1160px)': {
+      height: '400px'
+    },
+    '@media only screen and (max-width: 960px)': {
+      width: '100%',
+      height: '300px',
+      marginTop: '0px !important'
+    },
+    '@media only screen and (max-width: 600px)': {
+      height: '400px'
     }
   }, 
   certificateIconDivLeft: {
@@ -89,7 +128,7 @@ const jssStyle = theme => ({
     width: '30px',
     height: 'auto'
   },
-    certificateIconDivImg: {
+  certificateIconDivImg: {
       width: '70px',
       height: 'auto'   
   },
@@ -99,7 +138,10 @@ const jssStyle = theme => ({
     textAlign: 'center',
     position: 'absolute',
     zIndex: '100',
-    left: '49.4%'
+    left: '49.4%',
+    '@media only screen and (max-width: 960px)': {
+      left: '-4px'
+    }
 },
 timelineMarkerLeft: {
     color: theme.palette.primary['500'],
@@ -107,7 +149,10 @@ timelineMarkerLeft: {
     textAlign: 'center',
     position: 'absolute',
     zIndex: '100',
-    left: '49.4%'
+    left: '49.4%',
+    '@media only screen and (max-width: 960px)': {
+      left: '-4px'
+    }
 },
 timePeriodDiv: {
   backgroundColor: theme.palette.primary['500'],
@@ -207,7 +252,7 @@ const Experience = (props) => {
         experiencePaperOrientation = classes.experiencePaperLeft;
         timelineMarker = classes.timelineMarkerLeft
         certificateIconDiv = classes.certificateIconDivLeft;
-      } else if(i===2) {
+      } else if(i===2 && window.innerWidth > 960) {
         largeMarginTop = {
           marginTop: '50px'
         }
