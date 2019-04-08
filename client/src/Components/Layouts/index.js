@@ -3,6 +3,7 @@ import Footer from './Footer'
 import About from './About'
 import Abilities from './Abilities'
 import Experience from './Experience'
+import Achievements from './Achievements'
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  
@@ -11,5 +12,5 @@ import Experience from './Experience'
  */
 
 export {
-    Jumbotron, Footer, About, Experience, Abilities
+    Jumbotron, Footer, About, Achievements, Experience, Abilities
 }

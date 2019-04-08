@@ -84,6 +84,13 @@ const jssStyle = theme => ({
     opacity: 0,
     transition: 'opacity .5s'
   },
+  seeMoreCardEffect: {
+    display: 'none',
+    transition: 'display .5s'
+  },
+  seeMoreButtonWrapper: {
+    marginTop: '15px'
+  },
   cardActionIcon: {
     // fontSize: '23px'
   },
@@ -155,13 +162,29 @@ const filterOptions = ['All','JavaScript','HTML & CSS','Swift','jQuery','React',
 class Portfolio extends Component {
   
   state = {
-    value: 0
+    tabValue: 0,
+    seeMorePortfolio: false
   }
 
-  handleTabChange = (event, value) => {
-    this.setState({ value });
+  /**
+   * Tab handler
+   */
+  handleTabChange = (event, tabValue) => {
+    this.setState({ tabValue });
   };
 
+  /**
+   * 'See more' button handler
+   */
+  handleSeeMoreButton = (event) => {
+    this.setState(state => {
+      return {seeMorePortfolio: !state.seeMorePortfolio}
+    });
+  }
+
+  /**
+   * @param {string} portfolioItemName - The name of the portfolio 'item.' Ex) 'Molloy Data Dashboard'
+   */
   generateActionButtons = (portfolioItemName) => {
     const classes = this.props.classes;
     let elements = [];  
@@ -199,15 +222,39 @@ class Portfolio extends Component {
     return elements
   }
 
+  /**
+   * @param {string} portfolioItemName - The name of the portfolio 'item.' Ex) 'Molloy Data Dashboard'
+   */
+  generatePortfolioTags = (portfolioItemName) => {
+    const classes = this.props.classes;
+    return portfolioItems[portfolioItemName].tags.map(tagName => {
+      return (
+        <div key={tagName} className={classes.tagButton}>
+          <Button size='small' variant="outlined" color="primary">
+            {tagName}
+          </Button>
+        </div>
+      )  
+    })
+  }
+
+  /**
+   * 
+   * @param {number} filterIndex - The index of the currently activated tab
+   * 
+   * Uses:
+   *    generateActionButtons()
+   *    generatePortfolioTags()
+   */
   generatePortfolioItems = (filterIndex) => {
     const classes = this.props.classes;
     let transitionDelay = 0;
 
-    return Object.keys(portfolioItems).map(portfolioItemName => {
+    return Object.keys(portfolioItems).map((portfolioItemName, itemIndex) => {
       if(filterIndex===0 || portfolioItems[portfolioItemName].tags.includes(filterOptions[filterIndex])){
-        transitionDelay+=75; // creates a staggered transition effect
+        transitionDelay+=75; // creates a staggered transition effect between every card
         return (
-        <Grid key={filterIndex + portfolioItemName} item xs={12} sm={6} md={4}>
+        <Grid key={filterIndex + portfolioItemName} className={!this.state.seeMorePortfolio && itemIndex>5 ? classes.seeMoreCardEffect : null} item xs={12} sm={6} md={4}>
           <Slide direction='up' in={true} style={{ transitionDelay: transitionDelay }}>
             <Card className={classes.portfolioCard}>
               <div className={classes.cardMediaContainer}>
@@ -222,17 +269,7 @@ class Portfolio extends Component {
               <CardContent>
               <Divider/>
               <div className={classes.tagsContainer}>
-              {
-                portfolioItems[portfolioItemName].tags.map(tagName => {
-                  return (
-                    <div key={tagName} className={classes.tagButton}>
-                      <Button size='small' variant="outlined" color="primary">
-                        {tagName}
-                      </Button>
-                    </div>
-                  )  
-                })
-              }  
+              { this.generatePortfolioTags(portfolioItemName) }
               </div>
               </CardContent>
             </Card>
@@ -253,7 +290,7 @@ class Portfolio extends Component {
             variant="scrollable"
             scrollButtons="on"
             className={classes.portfolioTabs} 
-            value={this.state.value}
+            value={this.state.tabValue}
             onChange={this.handleTabChange}
             indicatorColor="primary"
             textColor="primary">
@@ -264,8 +301,11 @@ class Portfolio extends Component {
             }
           </Tabs>
         </Grid>
-        { this.generatePortfolioItems(this.state.value) }
-      </Fragment>
+        { this.generatePortfolioItems(this.state.tabValue) }
+        <div style={{display: 'flex',justifyContent: 'center', width: '100%'}}>
+          <Button className={classes.seeMoreButtonWrapper} onClick={this.handleSeeMoreButton} size='large' color="primary">{this.state.seeMorePortfolio ? '- See Less' : '+ See More'}</Button>
+        </div>
+    </Fragment>
     )
   }
 }

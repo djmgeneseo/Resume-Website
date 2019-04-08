@@ -35,8 +35,11 @@ const jssStyle = theme => ({
         }
     },
     aboutMeCard: {
-        marginTop: '-28vh',
-        width: '100%',
+        // max width instead?
+        maxWidth: '1280px',
+        margin: '-28vh auto 0 auto',
+        // width: '70%',
+        // marginLeft: '15%',
         borderRadius: '0px',
         zIndex: '100'
     },
@@ -103,62 +106,24 @@ const jssStyle = theme => ({
     footerButtonIcon: {
         fontSize: '23px'
     },
-    certificateIconDiv: {
-        position: 'absolute',
-        top: '-10px',
-        right: '10px',
-        width: '30px',
-        height: 'auto',
-        '& img': {
-            width: '70px',
-            height: 'auto'
-        }
-    },
-    timePeriodParagraph: {
-        color: '#fff !important'
-    },
-    gpa: {
-        display: 'inline',
-        marginLeft: '10px'
-    },
-    educationPaperOrientation: {
-        marginBottom: '15px',
-        position: 'relative',
-        padding: '15px 25px',
-        boxSizing: 'border-box'
-    },
-    timePeriodDiv: {
-        backgroundColor: theme.palette.primary['500'],
-        color: '#fff !important',
-        display: 'inline-block',
-        padding: '3px 15px',
-        position: 'relative',
-        margin: '13px 0px',
-        '&:before': {
-          content: "''",
-          position: 'absolute',
-          background: 'transparent',
-          display: 'inline-block',
-          right: '0',
-          width: '0',
-          height: '0',
-          top: '-10px',
-          border: '10px solid',
-          borderRightColor: 'transparent',
-          borderTopColor: 'transparent',
-          borderBottomColor: 'transparent',
-          borderLeftColor: theme.palette.primary['500'],
-          transform: 'rotate(180deg)'
-        }
-    },
     tooltipPopper: {
         // backgroundColor: theme.palette.primary['500']
         height: '40px !important'
+    },
+    '@media only screen and (max-width: 1300px)': {
+        aboutMeCard: {
+            width: '90%',
+            marginLeft: '5%'
+        }
     },
     '@media only screen and (max-width: 959px)': {
         aboutMeSection: {
             padding: '35px',
             paddingTop: '25px'
+        },
+        aboutMeCard: {
+            width: '80%',
+            marginLeft: '10%'
         }
     }
 })
@@ -170,27 +135,9 @@ const info = {
     Home: 'Long Island - Oceanside, NY'
 }
 
-const educationJSON = {
-    "Molloy College": {
-      degree: "BA",
-      major: 'Computer Science',
-      start: 2012,
-      end: 2018,
-      gpa: 3.49
-    },
-    "SUNY Geneseo": {
-      degree: "BA",
-      major: 'English Literature (Biology Minor)',
-      minor: 'Biology',
-      start: 2014,
-      end: 2017,
-      gpa: 3.46
-    }
-  }
-
 const About = (props) => {
     const {classes} = props;
-   
+    
     const generateBioAndInfo = () => {
         return Object.keys(info).map(function(key) {
             return (
@@ -199,29 +146,12 @@ const About = (props) => {
             </div>)
         })
     }
-
-    const generateEducationInfo = () => {
-        return Object.keys(educationJSON).map(function(collegeName) {
-            return (
-            <Paper key={collegeName} className={classes.educationPaperOrientation}>
-                <div className={classes.certificateIconDiv}>
-                    <img alt='Certificate Icon' src={require('../../assets/icons/certificate.png')}/>
-                </div>
-                <Typography>{collegeName}</Typography>
-                <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
-                <div className={classes.timePeriodDiv}>
-                    <Typography variant={'body2'} className={classes.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
-                </div>
-                <div className={classes.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
-            </Paper>)
-        })
-    }
         
     return (
         <Paper className={classes.aboutMeCard}>
             <Grid container>
                 <Grid container className={classes.body}>
-                    <Grid item xs={12} sm={12} md={4} style={{textAlign: "center"}} >
+                    <Grid item xs={12} sm={12} md={6} style={{textAlign: "center"}} >
                         <div style={{display: 'inline-block'}} className={classes.downloadResumeButton}>
                             <a target="_blank" rel="noopener noreferrer" href={resume}>
                                 <Tooltip 
@@ -242,7 +172,7 @@ const About = (props) => {
                         <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
                         <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
                     </Grid>
-                    <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={4}>
+                    <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={6}>
                         <Typography className={classes.aboutMeHeader} variant="h5">
                         ABOUT ME
                         </Typography> 
@@ -257,11 +187,6 @@ const About = (props) => {
                         </div>
 
                         {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
-                    </Grid>
-                    <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={4}>
-                        { 
-                            generateEducationInfo() 
-                        }
                     </Grid>
                 </Grid>
                 <Grid container className={classes.footer}>

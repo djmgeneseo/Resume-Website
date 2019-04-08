@@ -7,7 +7,7 @@ import grey from '@material-ui/core/colors/grey';
 
 import Grid from '@material-ui/core/Grid';
 
-import {Jumbotron, About, Experience, Abilities, Footer } from '../Components/Layouts';
+import {Jumbotron, About, Achievements, Experience, Abilities, Footer } from '../Components/Layouts';
 import ColorPicker from '../Containers/ColorPicker';
 import Portfolio from '../Containers/Portfolio';
 
@@ -94,6 +94,9 @@ class App extends Component {
       <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>
       <Jumbotron theme={this.state.theme}/>      
       <About theme={this.state.theme}/>
+      <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
+        <Achievements theme={this.state.theme}/>
+      </Grid>
       <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
         <Portfolio theme={this.state.theme}/>
         <Experience theme={this.state.theme}/>
