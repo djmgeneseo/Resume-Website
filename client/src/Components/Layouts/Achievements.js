@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 const certificateIcon = require('../../assets/icons/certificate.png');
 
 const jssStyle = theme => ({
+    sectionWrapper: {
+        width: '100%'
+    },
     educationPaperOrientation: {
         marginBottom: '15px',
         position: 'relative',
@@ -61,6 +64,12 @@ const jssStyle = theme => ({
         display: 'inline',
         marginLeft: '10px'
     },
+    '@media only screen and (max-width: 1300px)': {
+        sectionWrapper: {
+            width: '85%',
+            marginLeft: '7.5%'
+        }
+    }
 })
 
 const educationJSON = {
@@ -102,14 +111,14 @@ const Achievements = (props) => {
     }
 
     return (
-        <Fragment>
+        <section className={classes.sectionWrapper}>
             <Grid item xs={12} sm={12} md={12}>
             <div className={classes.heading}><Typography variant="h4">ACHIEVEMENTS</Typography></div>
             </Grid>
             <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={4}>
                 {  generateEducationInfo() }
             </Grid>
-        </Fragment>
+        </section>
     )
 }
 

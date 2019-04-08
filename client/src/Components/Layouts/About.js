@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
 import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
@@ -36,6 +36,7 @@ const jssStyle = theme => ({
     },
     aboutMeCard: {
         // max width instead?
+        position: 'relative',
         maxWidth: '1280px',
         margin: '-28vh auto 0 auto',
         // width: '70%',
@@ -110,20 +111,78 @@ const jssStyle = theme => ({
         // backgroundColor: theme.palette.primary['500']
         height: '40px !important'
     },
-    '@media only screen and (max-width: 1300px)': {
-        aboutMeCard: {
-            width: '90%',
-            marginLeft: '5%'
+    arrowRight: {
+        right: '0%',
+        top: '35%',
+        position: 'absolute',
+        marginRight: '-50px',
+        width: '100px',
+        height: '100px',
+        cursor: 'pointer',
+        '&:hover': {
+            transform: 'rotate(-360deg)',
+            transition: 'all .4s'
         }
     },
-    '@media only screen and (max-width: 959px)': {
+    circleRight: {
+        position: 'absolute',
+        boxSizing: 'border-box',
+        height: '100px',
+        width: '100px',
+        border: '15px solid ' + theme.palette.primary["500"],
+        borderRadius: '50%',
+        clipPath: 'inset(0 0 0 50%)'
+    },
+    triangleRight: {
+        position: 'absolute',
+        width: '35px',
+        height: '30px',
+        background: theme.palette.primary["500"],
+        marginTop: '-6px',
+        marginLeft: '30px',
+        clipPath: 'polygon(50% 100%, 100% 0%, 0% 0%)',
+        transform: 'rotate(90deg)'
+    },
+    arrowLeft: {
+        left: '0%',
+        top: '35%',
+        position: 'absolute',
+        marginLeft: '-50px',
+        width: '100px',
+        height: '100px',
+        cursor: 'pointer',
+        '&:hover': {
+            transform: 'rotate(360deg)',
+            transition: 'all .4s'
+        }
+    },
+    circleLeft: {
+        position: 'absolute',
+        boxSizing: 'border-box',
+        height: '100px',
+        width: '100px',
+        border: '15px solid ' + theme.palette.primary["500"],
+        borderRadius: '50%',
+        clipPath: 'inset(0 50% 0 0)'
+    },
+    triangleLeft: {
+        position: 'absolute',
+        width: '35px',
+        height: '30px',
+        background: theme.palette.primary["500"],
+        marginTop: '-6px',
+        marginLeft: '38px',
+        clipPath: 'polygon(50% 0, 0% 100%, 100% 100%)',
+        transform: 'rotate(90deg)'
+    },
+    '@media only screen and (max-width: 1300px)': {
         aboutMeSection: {
             padding: '35px',
             paddingTop: '25px'
         },
         aboutMeCard: {
-            width: '80%',
-            marginLeft: '10%'
+            width: '85%',
+            marginLeft: '7.5%'
         }
     }
 })
@@ -148,7 +207,12 @@ const About = (props) => {
     }
         
     return (
+        <Fragment>
         <Paper className={classes.aboutMeCard}>
+            <div className={classes.arrowLeft}>
+                <div className={classes.circleLeft}></div>
+                <div className={classes.triangleLeft}></div>
+            </div>
             <Grid container>
                 <Grid container className={classes.body}>
                     <Grid item xs={12} sm={12} md={6} style={{textAlign: "center"}} >
@@ -210,7 +274,12 @@ const About = (props) => {
                     </AppBar>
                 </Grid>
             </Grid>
+            <div className={classes.arrowRight}>
+             <div className={classes.circleRight}></div>
+             <div className={classes.triangleRight}></div>
+            </div>
         </Paper>
+      </Fragment>
     )
 }
 

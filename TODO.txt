@@ -1,3 +1,4 @@
+- Paralax for Achievements with current jumbotron as background (idea: 04/8)
 - Create Portfolio section
     > Record and Upload footage and image of the Data Dashboard
 - Create Blog section
