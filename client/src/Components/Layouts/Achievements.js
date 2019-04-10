@@ -113,7 +113,7 @@ const Achievements = (props) => {
     return (
         <section className={classes.sectionWrapper}>
             <Grid item xs={12} sm={12} md={12}>
-            <div className={classes.heading}><Typography variant="h4">ACHIEVEMENTS</Typography></div>
+            <div className={classes.heading}><Typography style={{color: '#fff'}} variant="h4">ACHIEVEMENTS</Typography></div>
             </Grid>
             <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={4}>
                 {  generateEducationInfo() }

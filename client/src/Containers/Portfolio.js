@@ -249,12 +249,14 @@ class Portfolio extends Component {
   generatePortfolioItems = (filterIndex) => {
     const classes = this.props.classes;
     let transitionDelay = 0;
+    let cardsOnScreen = 0;
 
-    return Object.keys(portfolioItems).map((portfolioItemName, itemIndex) => {
+    return Object.keys(portfolioItems).map(portfolioItemName => {
       if(filterIndex===0 || portfolioItems[portfolioItemName].tags.includes(filterOptions[filterIndex])){
+        cardsOnScreen++;
         transitionDelay+=75; // creates a staggered transition effect between every card
         return (
-        <Grid key={filterIndex + portfolioItemName} className={!this.state.seeMorePortfolio && itemIndex>5 ? classes.seeMoreCardEffect : null} item xs={12} sm={6} md={4}>
+        <Grid key={filterIndex + portfolioItemName} className={!this.state.seeMorePortfolio && cardsOnScreen>6 ? classes.seeMoreCardEffect : null} item xs={12} sm={6} md={4}>
           <Slide direction='up' in={true} style={{ transitionDelay: transitionDelay }}>
             <Card className={classes.portfolioCard}>
               <div className={classes.cardMediaContainer}>

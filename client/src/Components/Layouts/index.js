@@ -1,4 +1,3 @@
-import Jumbotron from './Jumbotron'
 import Footer from './Footer'
 import About from './About'
 import Abilities from './Abilities'
@@ -12,5 +11,5 @@ import Achievements from './Achievements'
  */
 
 export {
-    Jumbotron, Footer, About, Achievements, Experience, Abilities
+    Footer, About, Achievements, Experience, Abilities
 }

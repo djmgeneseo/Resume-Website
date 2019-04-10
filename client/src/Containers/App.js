@@ -7,15 +7,18 @@ import grey from '@material-ui/core/colors/grey';
 
 import Grid from '@material-ui/core/Grid';
 
-import {Jumbotron, About, Achievements, Experience, Abilities, Footer } from '../Components/Layouts';
+import {About, Achievements, Experience, Abilities, Footer } from '../Components/Layouts';
 import ColorPicker from '../Containers/ColorPicker';
 import Portfolio from '../Containers/Portfolio';
+import Parallax from '../Components/Parallax';
 
 /*
   Contains Router structure for website - state manages route-specific layout features, such as header information.
 
   Fragment is a wrapper that circumvents the need for a div - aka, no extra markup 
 */
+
+const achievementsBackgroundImage = require('../assets/img/jumbo.jpg');
 
 let initialTheme = createMuiTheme({
   palette: {
@@ -91,12 +94,13 @@ class App extends Component {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
     
     return <MuiThemeProvider theme={this.state.theme}>
-      <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>
-      <Jumbotron theme={this.state.theme}/>      
+      <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>    
       <About theme={this.state.theme}/>
-      <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-        <Achievements theme={this.state.theme}/>
-      </Grid>
+      <Parallax backgroundImage={achievementsBackgroundImage} theme={this.state.theme}>
+        <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
+          <Achievements theme={this.state.theme}/>
+        </Grid>
+      </Parallax>
       <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
         <Portfolio theme={this.state.theme}/>
         <Experience theme={this.state.theme}/>

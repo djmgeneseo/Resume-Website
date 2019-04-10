@@ -38,7 +38,7 @@ const jssStyle = theme => ({
         // max width instead?
         position: 'relative',
         maxWidth: '1280px',
-        margin: '-28vh auto 0 auto',
+        margin: '30px auto 0 auto',
         // width: '70%',
         // marginLeft: '15%',
         borderRadius: '0px',
@@ -184,6 +184,10 @@ const jssStyle = theme => ({
             width: '85%',
             marginLeft: '7.5%'
         }
+    },
+    '@keyframes spin': {
+        from: {transform: 'rotate(0deg)'},
+        to: {transform: 'rotate(360deg)'}
     }
 })
 
