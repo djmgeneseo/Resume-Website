@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
 import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
@@ -19,6 +19,35 @@ import {FaGithub} from "react-icons/fa";
 // import { Button } from '@material-ui/core';
 
 const jssStyle = theme => ({
+    sectionAboutCard: {
+        maxWidth: '1280px',
+        margin: '75px auto'
+    },
+    flipContainer: {
+        perspective: '1000px'
+        // '&:hover $flipper, $flipContainer:hover $flipper': {
+        //     transform: 'rotateY(180deg)'
+        // }
+    },
+    flipper: {
+        transition: '0.6s',
+        transformStyle: 'preserve-3d',
+        position: 'relative'
+    },
+    frontOfCard: {
+        backfaceVisibility: 'hidden',
+        zIndex: '2',
+	    transform: 'rotateY(0deg)'
+    },  
+    backOfCard: {
+        backfaceVisibility: 'hidden',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        transform: 'rotateY(180deg)',
+        width: '100%',
+        height: '100%'
+    },
     aboutMeHeader: {
         paddingBottom: '15px',
         position: 'relative',
@@ -34,11 +63,25 @@ const jssStyle = theme => ({
             marginTop: '1.2em'
         }
     },
+    hobbiesHeader: {
+        paddingBottom: '15px',
+        position: 'relative',
+        '&:after': {
+            position: 'absolute',
+            display: 'inline-block',
+            content: "''",
+            width: '65px',
+            height: '3px',
+            left: '0',
+            borderBottom: '3px solid',
+            color: theme.palette.primary['500'],
+            marginTop: '1.2em'
+        }
+    },
     aboutMeCard: {
         // max width instead?
         position: 'relative',
-        maxWidth: '1280px',
-        margin: '30px auto 0 auto',
+        minHeight: '446px',
         // width: '70%',
         // marginLeft: '15%',
         borderRadius: '0px',
@@ -97,8 +140,9 @@ const jssStyle = theme => ({
         marginTop: '10px'
     },
     footer: {
-        height: '18%',
-        textAlign: 'center'
+        textAlign: 'center',
+        position: 'absolute',
+        bottom: '0'
     },
     footerButton: {
         margin: '11px',
@@ -111,70 +155,39 @@ const jssStyle = theme => ({
         // backgroundColor: theme.palette.primary['500']
         height: '40px !important'
     },
-    arrowRight: {
+    arrowBox: {
+        position: 'absolute',
+        width: '50px',
+        height: '50px',
+        top: '5%',
         right: '0%',
-        top: '35%',
-        position: 'absolute',
-        marginRight: '-50px',
-        width: '100px',
-        height: '100px',
+        marginRight: '-20px',
         cursor: 'pointer',
-        '&:hover': {
-            transform: 'rotate(-360deg)',
-            transition: 'all .4s'
+        transform: 'translate(-50%, -60%)',
+        '&:hover $arrowRound': {
+            transform: 'rotate(1turn) scale(1.2)'
         }
-    },
-    circleRight: {
+      },
+      arrowRound: {
         position: 'absolute',
-        boxSizing: 'border-box',
-        height: '100px',
-        width: '100px',
-        border: '15px solid ' + theme.palette.primary["500"],
+        width: '50px',
+        height: '50px',
+        border: 'calc(50px / 4) solid '+theme.palette.primary['500'],
         borderRadius: '50%',
-        clipPath: 'inset(0 0 0 50%)'
-    },
-    triangleRight: {
-        position: 'absolute',
-        width: '35px',
-        height: '30px',
-        background: theme.palette.primary["500"],
-        marginTop: '-6px',
-        marginLeft: '30px',
-        clipPath: 'polygon(50% 100%, 100% 0%, 0% 0%)',
-        transform: 'rotate(90deg)'
-    },
-    arrowLeft: {
-        left: '0%',
-        top: '35%',
-        position: 'absolute',
-        marginLeft: '-50px',
-        width: '100px',
-        height: '100px',
-        cursor: 'pointer',
-        '&:hover': {
-            transform: 'rotate(360deg)',
-            transition: 'all .4s'
+        borderRightColor: 'transparent',
+        transition: 'transform .5s',
+        '&::after': {
+            content: "' '",
+            position: 'absolute',
+            top: '-22.5%',
+            left: '65%',
+            border: 'calc(50px * 0.5) solid #fff',
+            borderBottomColor: theme.palette.primary['500'],
+            borderLeftColor: 'transparent',
+            borderTopWidth: '0',
+            borderRightWidth: '0'
         }
-    },
-    circleLeft: {
-        position: 'absolute',
-        boxSizing: 'border-box',
-        height: '100px',
-        width: '100px',
-        border: '15px solid ' + theme.palette.primary["500"],
-        borderRadius: '50%',
-        clipPath: 'inset(0 50% 0 0)'
-    },
-    triangleLeft: {
-        position: 'absolute',
-        width: '35px',
-        height: '30px',
-        background: theme.palette.primary["500"],
-        marginTop: '-6px',
-        marginLeft: '38px',
-        clipPath: 'polygon(50% 0, 0% 100%, 100% 100%)',
-        transform: 'rotate(90deg)'
-    },
+      },
     '@media only screen and (max-width: 1300px)': {
         aboutMeSection: {
             padding: '35px',
@@ -184,10 +197,6 @@ const jssStyle = theme => ({
             width: '85%',
             marginLeft: '7.5%'
         }
-    },
-    '@keyframes spin': {
-        from: {transform: 'rotate(0deg)'},
-        to: {transform: 'rotate(360deg)'}
     }
 })
 
@@ -198,10 +207,127 @@ const info = {
     Home: 'Long Island - Oceanside, NY'
 }
 
-const About = (props) => {
-    const {classes} = props;
+class About extends Component {
+    classes = this.props.classes;
+
+    state = {
+        flippedCard: false
+    }
     
-    const generateBioAndInfo = () => {
+    generateFrontOfCard = () => {
+        return (
+            <Paper className={this.classes.aboutMeCard}>
+                <Grid container>
+                    <Grid container className={this.classes.body}>
+                        <Grid item xs={12} sm={12} md={6} style={{textAlign: "center"}} >
+                            <div style={{display: 'inline-block'}} className={this.classes.downloadResumeButton}>
+                                <a target="_blank" rel="noopener noreferrer" href={resume}>
+                                    <Tooltip 
+                                        leaveDelay={100} 
+                                        title="DOWNLOAD RESUME" 
+                                        placement='top' 
+                                        color='primary' 
+                                        classes={{ popper: this.classes.tooltipPopper }}>
+                                        <Fab color="primary">
+                                            <FaFileDownload className={this.classes.downloadResumeIcon}/>
+                                        </Fab>
+                                    </Tooltip>
+                                </a>
+                            </div>
+                            <div style={{display: "inline-block"}}  className={this.classes.circularImageContainer}>
+                                <img alt='Self Portrait of David Murphy' src={require('../../assets/img/me.png')}/>
+                            </div>
+                            <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
+                            <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
+                        </Grid>
+                        <Grid className={this.classes.aboutMeSection} item xs={12} sm={12} md={6}>
+                            <Typography className={this.classes.aboutMeHeader} variant="h5">
+                            ABOUT ME
+                            </Typography> 
+                            <Typography variant="body2">
+                                Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.
+                            </Typography>
+    
+                            <div style={{marginTop: '10px'}}>
+                            {
+                                this.generateBioAndInfo()
+                            }
+                            </div>
+    
+                            {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
+                        </Grid>
+                    </Grid>
+                    <Grid container className={this.classes.footer}>
+                        <AppBar position="static" color="primary">
+                            <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
+                                <div className={this.classes.footerButton}>
+                                    <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
+                                        <IconButton color="secondary">
+                                            <FaLinkedin className={this.classes.footerButtonIcon}/>
+                                        </IconButton>
+                                    </a>
+                                </div>
+                                <div className={this.classes.footerButton}>
+                                    <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
+                                        <IconButton color="secondary">
+                                        <FaGithub className={this.classes.footerButtonIcon}/>
+                                        </IconButton>
+                                    </a>
+                                </div>
+                            </Toolbar>
+                        </AppBar>
+                    </Grid>
+                </Grid>
+                <div onClick={this.handleCardFlip} className={this.classes.arrowBox}>
+                    <div className={this.classes.arrowRound}></div>
+                </div>
+            </Paper>
+        )
+    }
+
+    generateBackOfCard = () => {
+       return ( <Paper className={this.classes.aboutMeCard}>
+                <Grid container>
+                    <Grid container className={this.classes.body}>
+                        <Grid item xs={12} sm={12} md={6} style={{paddingLeft: '50px'}}>
+                            <Typography className={this.classes.hobbiesHeader} variant="h5">
+                                Hobbies
+                            </Typography> 
+                        </Grid>
+                        <Grid className={this.classes.aboutMeSection} item xs={12} sm={12} md={6}>
+    
+                        </Grid>
+                    </Grid>
+                    <Grid container className={this.classes.footer}>
+                        <AppBar position="static" color="primary">
+                            <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
+                                <div className={this.classes.footerButton}>
+                                    <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
+                                        <IconButton color="secondary">
+                                            <FaLinkedin className={this.classes.footerButtonIcon}/>
+                                        </IconButton>
+                                    </a>
+                                </div>
+                                <div className={this.classes.footerButton}>
+                                    <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
+                                        <IconButton color="secondary">
+                                        <FaGithub className={this.classes.footerButtonIcon}/>
+                                        </IconButton>
+                                    </a>
+                                </div>
+                            </Toolbar>
+                        </AppBar>
+                    </Grid>
+                </Grid>
+                <div onClick={this.handleCardFlip} className ={this.classes.arrowBox}>
+                    <div className={this.classes.arrowRound}></div>
+                </div>
+            </Paper>
+       )
+    }
+
+    generateBioAndInfo = () => {
+        const classes = this.classes;
         return Object.keys(info).map(function(key) {
             return (
             <div key={key} style={{paddingTop: '5px'}}>
@@ -209,82 +335,29 @@ const About = (props) => {
             </div>)
         })
     }
-        
-    return (
-        <Fragment>
-        <Paper className={classes.aboutMeCard}>
-            <div className={classes.arrowLeft}>
-                <div className={classes.circleLeft}></div>
-                <div className={classes.triangleLeft}></div>
-            </div>
-            <Grid container>
-                <Grid container className={classes.body}>
-                    <Grid item xs={12} sm={12} md={6} style={{textAlign: "center"}} >
-                        <div style={{display: 'inline-block'}} className={classes.downloadResumeButton}>
-                            <a target="_blank" rel="noopener noreferrer" href={resume}>
-                                <Tooltip 
-                                    leaveDelay={100} 
-                                    title="DOWNLOAD RESUME" 
-                                    placement='top' 
-                                    color='primary' 
-                                    classes={{ popper: classes.tooltipPopper }}>
-                                    <Fab color="primary">
-                                        <FaFileDownload className={classes.downloadResumeIcon}/>
-                                    </Fab>
-                                </Tooltip>
-                            </a>
-                        </div>
-                        <div style={{display: "inline-block"}}  className={classes.circularImageContainer}>
-                            <img alt='Self Portrait of David Murphy' src={require('../../assets/img/me.png')}/>
-                        </div>
-                        <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
-                        <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
-                    </Grid>
-                    <Grid className={classes.aboutMeSection} item xs={12} sm={12} md={6}>
-                        <Typography className={classes.aboutMeHeader} variant="h5">
-                        ABOUT ME
-                        </Typography> 
-                        <Typography variant="body2">
-                            Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.
-                        </Typography>
 
-                        <div style={{marginTop: '10px'}}>
-                        {
-                            generateBioAndInfo()
-                        }
-                        </div>
+    handleCardFlip = (event) => {
+        this.setState(state => ({
+            flippedCard: !state.flippedCard
+        }));
+    }
 
-                        {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
-                    </Grid>
-                </Grid>
-                <Grid container className={classes.footer}>
-                    <AppBar position="static" color="primary">
-                        <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
-                            <div className={classes.footerButton}>
-                                <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
-                                    <IconButton color="secondary">
-                                        <FaLinkedin className={classes.footerButtonIcon}/>
-                                    </IconButton>
-                                </a>
-                            </div>
-                            <div className={classes.footerButton}>
-                                <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
-                                    <IconButton color="secondary">
-                                    <FaGithub className={classes.footerButtonIcon}/>
-                                    </IconButton>
-                                </a>
-                            </div>
-                        </Toolbar>
-                    </AppBar>
-                </Grid>
-            </Grid>
-            <div className={classes.arrowRight}>
-             <div className={classes.circleRight}></div>
-             <div className={classes.triangleRight}></div>
-            </div>
-        </Paper>
-      </Fragment>
-    )
+    render() {
+        return (
+            <section className={this.classes.sectionAboutCard}>
+                <div className={this.classes.flipContainer}>
+                    <div className={this.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
+                        <div className={this.classes.frontOfCard}>
+                            {this.generateFrontOfCard()}
+                        </div>
+                        <div className={this.classes.backOfCard}>
+                            {this.generateBackOfCard()}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 }
 
 export default withStyles(jssStyle)(About)

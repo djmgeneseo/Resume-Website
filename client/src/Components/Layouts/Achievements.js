@@ -9,7 +9,8 @@ const certificateIcon = require('../../assets/icons/certificate.png');
 
 const jssStyle = theme => ({
     sectionWrapper: {
-        width: '100%'
+        width: '100%',
+        padding: '75px 0'
     },
     educationPaperOrientation: {
         marginBottom: '15px',
@@ -58,7 +59,6 @@ const jssStyle = theme => ({
     heading: {
         textAlign: 'center',
         marginBottom: '25px',
-        marginTop: '75px'
     },
     gpa: {
         display: 'inline',
