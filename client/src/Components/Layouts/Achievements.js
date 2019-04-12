@@ -102,8 +102,8 @@ const Achievements = (props) => {
                 </div>
                 <Typography>{collegeName}</Typography>
                 <Typography variant={'h5'}>{educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}</Typography>
-                <div className={classes.timePeriodDiv}>
-                    <Typography variant={'body2'} className={classes.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
+                    <div className={classes.timePeriodDiv}>
+                <Typography variant={'body2'} className={classes.timePeriodParagraph} >{educationJSON[collegeName].start + ' - ' + educationJSON[collegeName].end}</Typography>
                 </div>
                 <div className={classes.gpa}>GPA: {educationJSON[collegeName].gpa}</div>
             </Paper>)

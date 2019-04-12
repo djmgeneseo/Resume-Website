@@ -12,6 +12,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Fab from '@material-ui/core/Fab';
 // import Zoom from '@material-ui/core/Zoom';
 import IconButton from '@material-ui/core/IconButton';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
 
 import {FaFileDownload} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";
@@ -65,18 +68,38 @@ const jssStyle = theme => ({
     },
     hobbiesHeader: {
         paddingBottom: '15px',
-        position: 'relative',
+        position: 'absolute',
+        left: '0',
+        top: '0',
+        paddingLeft: '50px',
+        paddingTop: '25px',
         '&:after': {
             position: 'absolute',
             display: 'inline-block',
             content: "''",
             width: '65px',
             height: '3px',
-            left: '0',
+            left: '50px',
             borderBottom: '3px solid',
             color: theme.palette.primary['500'],
             marginTop: '1.2em'
         }
+    },
+    hobbyIcon: {
+        width: '89px',
+        cursor: 'pointer',
+        transition: 'transform .25s',
+        '&:hover': {
+            transform: 'scale(1.2)',
+            transition: 'transform .25s'
+        }
+    },
+    hobbyCard: {
+        maxWidth: '345px',
+        margin: 'auto'
+    },
+    hobbyCardMedia: {
+        height: '170px'
     },
     aboutMeCard: {
         // max width instead?
@@ -87,12 +110,18 @@ const jssStyle = theme => ({
         borderRadius: '0px',
         zIndex: '100'
     },
-    body: {
+    frontCardBody: {
         boxSizing: 'border-box',
         alignItems: 'center',
         height: '87%',
         paddingTop: '30px',
         paddingBottom: '30px'
+    },
+    backCardBody: {
+        boxSizing: 'border-box',
+        alignItems: 'center',
+        height: '87%',
+        padding: '50px'
     },
     downloadResumeButton: {
         position: 'absolute',
@@ -207,18 +236,108 @@ const info = {
     Home: 'Long Island - Oceanside, NY'
 }
 
+const hobbies = {
+    'Cycling': {
+        icon: require('../../assets/icons/hobbies/bicycle.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Hiking': {
+        icon: require('../../assets/icons/hobbies/boots.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Piano': {
+        icon: require('../../assets/icons/hobbies/keyboard.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Snowboarding': {
+        icon: require('../../assets/icons/hobbies/snowboard.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Volleyball': {
+        icon: require('../../assets/icons/hobbies/volleyball.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Tennis': {
+        icon: require('../../assets/icons/hobbies/tennis.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Surfing': {
+        icon: require('../../assets/icons/hobbies/surfboard.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Research': {
+        icon: require('../../assets/icons/hobbies/research.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    },
+    'Climbing': {
+        icon: require('../../assets/icons/hobbies/climbing.png'),
+        description: 'Dummy text',
+        image: require('../../assets/img/me.png')
+    }
+}
+
 class About extends Component {
     classes = this.props.classes;
 
     state = {
-        flippedCard: false
+        flippedCard: false,
+        activeHobbyKey: 'Cycling' 
+    }
+
+    handleActiveHobbyKey = (newHobbyKey) => {
+        this.setState({
+            activeHobbyKey: newHobbyKey
+        })
+        console.log(this.state.activeHobbyKey)
+    }
+
+    generateHobbyCard = () => {
+        return (<Card className={this.classes.hobbyCard}>
+                <CardMedia
+                className={this.classes.hobbyCardMedia}
+                image={hobbies[this.state.activeHobbyKey].image}
+                title={this.state.activeHobbyKey}
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {this.state.activeHobbyKey}
+                </Typography>
+                <Typography component="p">
+                    {hobbies[this.state.activeHobbyKey].description}
+                </Typography>
+                </CardContent>
+            </Card>)
     }
     
+    generateHobbyIcons = () => {
+        return Object.keys(hobbies).map((hobby, hobbyIdx) => {
+            if((hobbyIdx+1)%3 === 0) {
+                return (
+                    <Fragment key={hobby+hobbyIdx}>
+                        <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} className={this.classes.hobbyIcon} alt={hobby + ' icon'} src={hobbies[hobby].icon}/>
+                        <br/>
+                    </Fragment>
+                )
+            }
+            return (
+                <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} key={hobby+hobbyIdx} className={this.classes.hobbyIcon} alt={hobby + ' icon'} src={hobbies[hobby].icon}/>
+            )
+        })
+    }
+
     generateFrontOfCard = () => {
         return (
             <Paper className={this.classes.aboutMeCard}>
                 <Grid container>
-                    <Grid container className={this.classes.body}>
+                    <Grid container className={this.classes.frontCardBody}>
                         <Grid item xs={12} sm={12} md={6} style={{textAlign: "center"}} >
                             <div style={{display: 'inline-block'}} className={this.classes.downloadResumeButton}>
                                 <a target="_blank" rel="noopener noreferrer" href={resume}>
@@ -288,14 +407,19 @@ class About extends Component {
     generateBackOfCard = () => {
        return ( <Paper className={this.classes.aboutMeCard}>
                 <Grid container>
-                    <Grid container className={this.classes.body}>
-                        <Grid item xs={12} sm={12} md={6} style={{paddingLeft: '50px'}}>
+                    <Grid container className={this.classes.backCardBody}>
+                        <Grid item xs={12} sm={12} md={6}>
                             <Typography className={this.classes.hobbiesHeader} variant="h5">
                                 Hobbies
                             </Typography> 
+                            <div style={{textAlign: 'center'}}>
+                                {this.generateHobbyIcons()}
+                            </div>
                         </Grid>
-                        <Grid className={this.classes.aboutMeSection} item xs={12} sm={12} md={6}>
-    
+                        <Grid item xs={12} sm={12} md={6}>
+                            <div style={{textAlign: 'center'}}>
+                                {this.generateHobbyCard()}
+                            </div>
                         </Grid>
                     </Grid>
                     <Grid container className={this.classes.footer}>
