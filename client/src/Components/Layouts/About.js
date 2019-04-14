@@ -247,8 +247,8 @@ const hobbies = {
         description: 'Dummy text',
         image: require('../../assets/img/me.png')
     },
-    'Piano': {
-        icon: require('../../assets/icons/hobbies/keyboard.png'),
+    'Drumming': {
+        icon: require('../../assets/icons/hobbies/drums.png'),
         description: 'Dummy text',
         image: require('../../assets/img/me.png')
     },
@@ -296,13 +296,12 @@ class About extends Component {
         this.setState({
             activeHobbyKey: newHobbyKey
         })
-        console.log(this.state.activeHobbyKey)
     }
 
     generateHobbyCard = () => {
-        return (<Card className={this.classes.hobbyCard}>
+        return (<Card className={this.props.classes.hobbyCard}>
                 <CardMedia
-                className={this.classes.hobbyCardMedia}
+                className={this.props.classes.hobbyCardMedia}
                 image={hobbies[this.state.activeHobbyKey].image}
                 title={this.state.activeHobbyKey}
                 />
@@ -322,45 +321,45 @@ class About extends Component {
             if((hobbyIdx+1)%3 === 0) {
                 return (
                     <Fragment key={hobby+hobbyIdx}>
-                        <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} className={this.classes.hobbyIcon} alt={hobby + ' icon'} src={hobbies[hobby].icon}/>
+                        <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} className={this.props.classes.hobbyIcon} alt={hobby + ' icon'} src={hobbies[hobby].icon}/>
                         <br/>
                     </Fragment>
                 )
             }
             return (
-                <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} key={hobby+hobbyIdx} className={this.classes.hobbyIcon} alt={hobby + ' icon'} src={hobbies[hobby].icon}/>
+                <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} key={hobby+hobbyIdx} className={this.props.classes.hobbyIcon} alt={hobby + ' icon'} src={hobbies[hobby].icon}/>
             )
         })
     }
 
     generateFrontOfCard = () => {
         return (
-            <Paper className={this.classes.aboutMeCard}>
+            <Paper className={this.props.classes.aboutMeCard}>
                 <Grid container>
-                    <Grid container className={this.classes.frontCardBody}>
+                    <Grid container className={this.props.classes.frontCardBody}>
                         <Grid item xs={12} sm={12} md={6} style={{textAlign: "center"}} >
-                            <div style={{display: 'inline-block'}} className={this.classes.downloadResumeButton}>
+                            <div style={{display: 'inline-block'}} className={this.props.classes.downloadResumeButton}>
                                 <a target="_blank" rel="noopener noreferrer" href={resume}>
                                     <Tooltip 
                                         leaveDelay={100} 
                                         title="DOWNLOAD RESUME" 
                                         placement='top' 
                                         color='primary' 
-                                        classes={{ popper: this.classes.tooltipPopper }}>
+                                        classes={{ popper: this.props.classes.tooltipPopper }}>
                                         <Fab color="primary">
-                                            <FaFileDownload className={this.classes.downloadResumeIcon}/>
+                                            <FaFileDownload className={this.props.classes.downloadResumeIcon}/>
                                         </Fab>
                                     </Tooltip>
                                 </a>
                             </div>
-                            <div style={{display: "inline-block"}}  className={this.classes.circularImageContainer}>
+                            <div style={{display: "inline-block"}}  className={this.props.classes.circularImageContainer}>
                                 <img alt='Self Portrait of David Murphy' src={require('../../assets/img/me.png')}/>
                             </div>
                             <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
                             <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
                         </Grid>
-                        <Grid className={this.classes.aboutMeSection} item xs={12} sm={12} md={6}>
-                            <Typography className={this.classes.aboutMeHeader} variant="h5">
+                        <Grid className={this.props.classes.aboutMeSection} item xs={12} sm={12} md={6}>
+                            <Typography className={this.props.classes.aboutMeHeader} variant="h5">
                             ABOUT ME
                             </Typography> 
                             <Typography variant="body2">
@@ -376,20 +375,20 @@ class About extends Component {
                             {/* <Button variant="contained" color='primary' style={{marginTop: '20px'}}>CONTACT ME</Button> */}
                         </Grid>
                     </Grid>
-                    <Grid container className={this.classes.footer}>
+                    <Grid container className={this.props.classes.footer}>
                         <AppBar position="static" color="primary">
                             <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
-                                <div className={this.classes.footerButton}>
+                                <div className={this.props.classes.footerButton}>
                                     <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
                                         <IconButton color="secondary">
-                                            <FaLinkedin className={this.classes.footerButtonIcon}/>
+                                            <FaLinkedin className={this.props.classes.footerButtonIcon}/>
                                         </IconButton>
                                     </a>
                                 </div>
-                                <div className={this.classes.footerButton}>
+                                <div className={this.props.classes.footerButton}>
                                     <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
                                         <IconButton color="secondary">
-                                        <FaGithub className={this.classes.footerButtonIcon}/>
+                                        <FaGithub className={this.props.classes.footerButtonIcon}/>
                                         </IconButton>
                                     </a>
                                 </div>
@@ -397,19 +396,19 @@ class About extends Component {
                         </AppBar>
                     </Grid>
                 </Grid>
-                <div onClick={this.handleCardFlip} className={this.classes.arrowBox}>
-                    <div className={this.classes.arrowRound}></div>
+                <div onClick={this.handleCardFlip} className={this.props.classes.arrowBox}>
+                    <div className={this.props.classes.arrowRound}></div>
                 </div>
             </Paper>
         )
     }
 
     generateBackOfCard = () => {
-       return ( <Paper className={this.classes.aboutMeCard}>
+       return ( <Paper className={this.props.classes.aboutMeCard}>
                 <Grid container>
-                    <Grid container className={this.classes.backCardBody}>
+                    <Grid container className={this.props.classes.backCardBody}>
                         <Grid item xs={12} sm={12} md={6}>
-                            <Typography className={this.classes.hobbiesHeader} variant="h5">
+                            <Typography className={this.props.classes.hobbiesHeader} variant="h5">
                                 Hobbies
                             </Typography> 
                             <div style={{textAlign: 'center'}}>
@@ -422,20 +421,20 @@ class About extends Component {
                             </div>
                         </Grid>
                     </Grid>
-                    <Grid container className={this.classes.footer}>
+                    <Grid container className={this.props.classes.footer}>
                         <AppBar position="static" color="primary">
                             <Toolbar style={{textAlign: 'center', display: 'inline-block'}}>
-                                <div className={this.classes.footerButton}>
+                                <div className={this.props.classes.footerButton}>
                                     <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
                                         <IconButton color="secondary">
-                                            <FaLinkedin className={this.classes.footerButtonIcon}/>
+                                            <FaLinkedin className={this.props.classes.footerButtonIcon}/>
                                         </IconButton>
                                     </a>
                                 </div>
-                                <div className={this.classes.footerButton}>
+                                <div className={this.props.classes.footerButton}>
                                     <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
                                         <IconButton color="secondary">
-                                        <FaGithub className={this.classes.footerButtonIcon}/>
+                                        <FaGithub className={this.props.classes.footerButtonIcon}/>
                                         </IconButton>
                                     </a>
                                 </div>
@@ -443,19 +442,19 @@ class About extends Component {
                         </AppBar>
                     </Grid>
                 </Grid>
-                <div onClick={this.handleCardFlip} className ={this.classes.arrowBox}>
-                    <div className={this.classes.arrowRound}></div>
+                <div onClick={this.handleCardFlip} className ={this.props.classes.arrowBox}>
+                    <div className={this.props.classes.arrowRound}></div>
                 </div>
             </Paper>
        )
     }
 
     generateBioAndInfo = () => {
-        const classes = this.classes;
+        let props = this.props;
         return Object.keys(info).map(function(key) {
             return (
             <div key={key} style={{paddingTop: '5px'}}>
-                <Typography variant="body1"><span className={classes.infoSpan}>{key}</span> {info[key]}</Typography>
+                <Typography variant="body1"><span className={props.classes.infoSpan}>{key}</span> {info[key]}</Typography>
             </div>)
         })
     }
@@ -468,13 +467,13 @@ class About extends Component {
 
     render() {
         return (
-            <section className={this.classes.sectionAboutCard}>
-                <div className={this.classes.flipContainer}>
-                    <div className={this.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
-                        <div className={this.classes.frontOfCard}>
+            <section className={this.props.classes.sectionAboutCard}>
+                <div className={this.props.classes.flipContainer}>
+                    <div className={this.props.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
+                        <div className={this.props.classes.frontOfCard}>
                             {this.generateFrontOfCard()}
                         </div>
-                        <div className={this.classes.backOfCard}>
+                        <div className={this.props.classes.backOfCard}>
                             {this.generateBackOfCard()}
                         </div>
                     </div>
