@@ -1,5 +1,4 @@
 import Footer from './Footer'
-import About from './About'
 import Abilities from './Abilities'
 import Experience from './Experience'
 import Achievements from './Achievements'
@@ -11,5 +10,5 @@ import Achievements from './Achievements'
  */
 
 export {
-    Footer, About, Achievements, Experience, Abilities
+    Footer, Achievements, Experience, Abilities
 }

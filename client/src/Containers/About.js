@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
+import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -16,15 +16,19 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 
+import Fade from '@material-ui/core/Fade';
+
 import {FaFileDownload} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";
 import {FaGithub} from "react-icons/fa";
+import { isAbsolute } from 'path';
 // import { Button } from '@material-ui/core';
 
 const jssStyle = theme => ({
     inflate: {
-        transform: 'scale(1.4)',
-        zIndex: '190'
+        transform: 'scale(1.2) !important',
+        zIndex: '190',
+        transition: 'transform .25s',
     },
     sectionAboutCard: {
         maxWidth: '1280px',
@@ -92,15 +96,16 @@ const jssStyle = theme => ({
     hobbyIcon: {
         width: '89px',
         cursor: 'pointer',
-        transition: 'transform .25s',
+        transition: 'transform .75s',
         '&:hover': {
-            transform: 'scale(1.2)',
-            transition: 'transform .25s'
+            transform: 'rotateY(180deg)',
+            transition: 'transform .75s'
         }
     },
     hobbyPictureCardContainer: {
         textAlign: 'center',
-        marginBottom: '50px'
+        marginBottom: '50px',
+        position: 'relative'
     },
     hobbyCard: {
         maxWidth: '450px',
@@ -128,6 +133,27 @@ const jssStyle = theme => ({
             // background: 'linear-gradient(transparent, rgba(12, 24, 36, 1))',
             opacity: '.3'
           }
+    },
+    arrowIcon: {
+        border: `solid ${theme.palette.primary['200']}`,
+        borderWidth: '0 3px 3px 0',
+        display: 'inline-block',
+        padding: '3px',
+        width: '15px',
+        height: '15px',
+        cursor: 'pointer'
+      },
+    right: {
+        transform: 'rotate(-45deg)',
+        position: 'absolute',
+        right: '0',
+        top: '50%'
+    },
+    left: {
+        transform: 'rotate(135deg)',
+        position: 'absolute',
+        left: '0',
+        top: '50%'
     },
     aboutMeCard: {
         // max width instead?
@@ -266,49 +292,49 @@ const info = {
 
 const hobbies = {
     'Cycling': {
-        icon: require('../../assets/icons/hobbies/bicycle.png'),
-        description: ['I bought this Domane AL 2 as my first road bike in August of 2018. By September of that year, my furthest recorded Distance was 37.47 miles in 4h 02m 27s.'],
-        image: [require('../../assets/img/hobbies/bicycle.jpg')]
+        icon: require('../assets/icons/hobbies/bicycle.png'),
+        description: ['I bought this Domane AL 2 as my first road bike in August of 2018. By September of that year, my furthest recorded Distance reached 37.47 miles in 4h 02m 27s.'],
+        images: [require('../assets/img/hobbies/bicycle.jpg')]
     },
     'Hiking': {
-        icon: require('../../assets/icons/hobbies/boots.png'),
+        icon: require('../assets/icons/hobbies/boots.png'),
         description: ["The Ein Gedi in Israel, located south-east of Jerusalem. This picture was taken nearby the Dead Sea - Earth's lowest elevation on land.", "Half-way point to the top of the 1240ft Breakneck Ridge, NY. Located 1 hour north of NYC along the Hudson River."],
-        image: [require('../../assets/img/hobbies/hike_1.jpg'), require('../../assets/img/hobbies/hike_2.jpg')]
+        images: [require('../assets/img/hobbies/hike_1.jpg'), require('../assets/img/hobbies/hike_2.jpg')]
     },
     'Drumming': {
-        icon: require('../../assets/icons/hobbies/drums.png'),
+        icon: require('../assets/icons/hobbies/drums.png'),
         description: ['Battle of the Bands at my hometown High School in Oceanside, NY - 2012.', "Live at my High School reunion/charity event (with a different band) on my High School's football field - 2014."],
-        image: [require('../../assets/img/hobbies/drum_1.jpg'),require('../../assets/img/hobbies/drum_2.jpg')]
+        images: [require('../assets/img/hobbies/drum_1.jpg'),require('../assets/img/hobbies/drum_2.jpg')]
     },
     'Snowboarding': {
-        icon: require('../../assets/icons/hobbies/snowboard.png'),
-        description: ['My first snowboarding trip! I (right) purchased this board and pair of boots from Facebook Marketplace and hit the slopes the next day. January 2019 @ Mountain Creek, NJ (~1300ft elevation).', "One month later, I hit my first black diamond. February 2019 @ Mountain Creek, NJ.", "By the beginning of March, I was hooked. Here's one of me with my new snowboard atop Killington Mountain, VT (~4500ft). Other mountains I visited before the season's end: Hunter, Mount Snow, and Camelback."],
-        image: [require('../../assets/img/hobbies/snowboard_1.jpg'),require('../../assets/img/hobbies/snowboard_2.jpg'),require('../../assets/img/hobbies/snowboard_3.jpg')]
+        icon: require('../assets/icons/hobbies/snowboard.png'),
+        description: ['My first snowboarding trip! I (right) purchased this board and pair of boots from Facebook Marketplace and hit the slopes the next day. January 2019 @ Mountain Creek, NJ (~1300ft elevation).', "After 3 sessions and many falls, I finally felt comfortable carving both toeside and heelside on blue squares. One month later, I bought a new pair of boots and hit my first ever black diamond. February 2019 @ Mountain Creek, NJ.", "After snowboarding every weekend for two months, I was hooked. Pictured is me with my new snowboard atop Killington Mountain, VT (~4500ft). Other mountains I visited before the season's close include Hunter Mountain, Mount Snow, and Camelback."],
+        images: [require('../assets/img/hobbies/snowboard_1.jpg'),require('../assets/img/hobbies/snowboard_2.jpg'),require('../assets/img/hobbies/snowboard_3.jpg')]
     },
     'Volleyball': {
-        icon: require('../../assets/icons/hobbies/volleyball.png'),
+        icon: require('../assets/icons/hobbies/volleyball.png'),
         description: ["Pictured is my Geneseo club Volleyball team versing SUNY Buffalo. I was vice president on the e-board, and designated right-side hitter."],
-        image: [require('../../assets/img/hobbies/volleyball.jpg')]
+        images: [require('../assets/img/hobbies/volleyball.jpg')]
     },
     'Tennis': {
-        icon: require('../../assets/icons/hobbies/tennis.png'),
+        icon: require('../assets/icons/hobbies/tennis.png'),
         description: ["I started playing Tennis in the Summer of '18. At this point, I was self-taught; here's me, applying skills I learned after watching Youtube tutorials and the pros play live. I recorded myself playing against the wall to debug my forehand and serve after every practice.", "By the end of the Summer, I met old friends and new players who helped push me to NTRP level 3.0. Pictured is a still-frame from a video I recorded of a late-summer session. At this point, I recorded myself to debug my backhand."],
-        image: [require('../../assets/img/hobbies/tennis_1.jpg'),require('../../assets/img/hobbies/tennis_2.jpg')]
+        images: [require('../assets/img/hobbies/tennis_1.jpg'),require('../assets/img/hobbies/tennis_2.jpg')]
     },
     'Surfing': {
-        icon: require('../../assets/icons/hobbies/surfboard.png'),
+        icon: require('../assets/icons/hobbies/surfboard.png'),
         description: ["Me (on the right) teaching my friend from upstate how to surfboard. Picture taken in the Summer of '18.  I've been surfing since the Summer of '14."],
-        image: [require('../../assets/img/hobbies/surf_1.jpg')]
+        images: [require('../assets/img/hobbies/surf_1.jpg')]
     },
     'Research': {
-        icon: require('../../assets/icons/hobbies/research.png'),
+        icon: require('../assets/icons/hobbies/research.png'),
         description: ["I completed my mentor-guided research on forest succession at Geneseo in 2016. I utilized transect data from a 1999 study of the Roemer Arboretum to parameterize a transition matrix model that predicts the arboretum’s future tree composition."],
-        image: [require('../../assets/img/hobbies/research_1.png')]
+        images: [require('../assets/img/hobbies/research_1.png')]
     },
     'Climbing': {
-        icon: require('../../assets/icons/hobbies/climbing.png'),
-        description: ["I've been indoor climbing for over two years, and recently decided to take climbing outdoors. The crashpad on my back is meant to support climbing falls of up to 20ft. Pictured is me at the half-way point up Bear Mountain, NY (highest point is 1200ft)", "One of two boulders I found with decent holds for many possible climbing routes. I am currently developing an App with a fellow climber and developer to make sharing rare climbing spots easy. Many boulders exist that have evaded the more popular yet unmaintained climbing databases."],
-        image: [require('../../assets/img/hobbies/climb_2.jpg'), require('../../assets/img/hobbies/climb_1.jpg')]
+        icon: require('../assets/icons/hobbies/climbing.png'),
+        description: ["I've been indoor climbing for over two years, and recently decided to take climbing outdoors. The crashpad on my back is meant to support climbing falls of up to 20ft. Pictured is me at the half-way point up Bear Mountain, NY (1200ft)", "One of two boulders I found with decent holds for many possible climbing routes. I am currently developing an App with a fellow climber and developer to make sharing rare climbing spots easy. Many boulders exist that have evaded the more popular yet unmaintained climbing databases."],
+        images: [require('../assets/img/hobbies/climb_2.jpg'), require('../assets/img/hobbies/climb_1.jpg')]
     }
 }
 
@@ -317,43 +343,56 @@ class About extends Component {
 
     state = {
         flippedCard: false,
-        activeHobbyKey: 'Cycling' 
+        activeHobbyKey: 'Cycling',
+        activeImageIdx: 0
     }
 
-    handleActiveHobbyKey = (newHobbyKey) => {
+    handleActiveHobbyClick = (newHobbyKey) => {
         this.setState({
-            activeHobbyKey: newHobbyKey
+            activeHobbyKey: newHobbyKey,
+            activeImageIdx: 0
+        })
+    }
+
+    handleArrowClick = (additionOrSubtraction) => {
+        this.setState(state => {
+            return {
+                activeImageIdx: state.activeImageIdx + additionOrSubtraction
+            }
         })
     }
 
     generateHobbyPictureCard = () => {
-        return (<Card className={this.props.classes.hobbyCard}>
-                <div className={this.props.classes.cardMediaContainer}>
-                    <CardMedia
-                    onClick={() => {window.open(hobbies[this.state.activeHobbyKey].image[0])}}
-                    className={this.props.classes.hobbyCardMedia}
-                    image={hobbies[this.state.activeHobbyKey].image[0]}
-                    title={this.state.activeHobbyKey}
-                    />
-                </div>
-                <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                    {this.state.activeHobbyKey}
-                </Typography>
-                <Typography component="p">
-                    {hobbies[this.state.activeHobbyKey].description[0]}
-                </Typography>
-                </CardContent>
-            </Card>)
+        return (
+            <Fade in={true}>
+                <Card className={this.props.classes.hobbyCard}>
+                    <div className={this.props.classes.cardMediaContainer}>
+                        <CardMedia
+                        onClick={() => {window.open(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx])}}
+                        className={this.props.classes.hobbyCardMedia}
+                        image={hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx]}
+                        title={this.state.activeHobbyKey}
+                        />
+                    </div>
+                    <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        {this.state.activeHobbyKey}
+                    </Typography>
+                    <Typography component="p">
+                        {hobbies[this.state.activeHobbyKey].description[this.state.activeImageIdx]}
+                    </Typography>
+                    </CardContent>
+                </Card>
+            </Fade>
+            )
     }
     
     generateHobbyIcons = () => {
         return Object.keys(hobbies).map((hobby, hobbyIdx) => {
-            console.log(hobby === this.state.activeHobbyKey);
             if((hobbyIdx+1)%3 === 0) {
                 return (
                     <Fragment key={hobby+hobbyIdx}>
-                        <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} 
+                        <img onClick={()=>{this.handleActiveHobbyClick(hobby)}} 
                             className={
                                 hobby === this.state.activeHobbyKey ? this.props.classes.hobbyIcon + " " + this.props.classes.inflate : this.props.classes.hobbyIcon
                             } 
@@ -364,7 +403,8 @@ class About extends Component {
                 )
             }
             return (
-                <img onClick={()=>{this.handleActiveHobbyKey(hobby)}} key={hobby+hobbyIdx}          className={
+                <img onClick={()=>{this.handleActiveHobbyClick(hobby)}} key={hobby+hobbyIdx}          
+                    className={
                         hobby === this.state.activeHobbyKey ? 
                         this.props.classes.hobbyIcon + " " + this.props.classes.inflate : this.props.classes.hobbyIcon
                     } 
@@ -395,7 +435,7 @@ class About extends Component {
                                 </a>
                             </div>
                             <div style={{display: "inline-block"}}  className={this.props.classes.circularImageContainer}>
-                                <img alt='Self Portrait of David Murphy' src={require('../../assets/img/me.png')}/>
+                                <img alt='Self Portrait of David Murphy' src={require('../assets/img/me.png')}/>
                             </div>
                             <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
                             <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
@@ -445,8 +485,35 @@ class About extends Component {
         )
     }
 
+    generateLeftArrow = () => {
+        if(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx -1]) {
+            return (
+                <i 
+                    onClick={()=>{
+                        this.handleArrowClick(-1)
+                    }} 
+                    className={
+                        this.props.classes.arrowIcon + ' ' + 
+                        this.props.classes.left}></i>
+            )
+        }
+    }
+
+    generateRightArrow = () => {
+        if(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx + 1]) {
+            return (
+                <i 
+                    onClick={()=>{
+                        this.handleArrowClick(1)
+                    }} 
+                    className={this.props.classes.arrowIcon + ' ' + this.props.classes.right}></i>
+            )
+        }
+    }
+
     generateBackOfCard = () => {
-       return ( <Paper className={this.props.classes.aboutMeCard}>
+       return ( 
+            <Paper className={this.props.classes.aboutMeCard}>
                 <Grid container>
                     <Grid container className={this.props.classes.backCardBody}>
                         <Grid item xs={12} sm={12} md={6}>
@@ -459,7 +526,9 @@ class About extends Component {
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
                             <div className={this.props.classes.hobbyPictureCardContainer}>
+                                {this.generateLeftArrow()}
                                 {this.generateHobbyPictureCard()}
+                                {this.generateRightArrow()}
                             </div>
                         </Grid>
                     </Grid>
