@@ -1,9 +1,10 @@
-- Paralax for Achievements with current jumbotron as background (idea: 04/8)
-- Create Portfolio section
+- Create arrows for hobby cards on backside of 'About Me' card
+- Page title and favicon
+- Finish Portfolio section
     > Record and Upload footage and image of the Data Dashboard
+    > Edit Skinno website
 - Create Blog section
 - Make Experience section more responsive
 - Create Hobbies section
     > Create a Header section above 'About Me' section
-- Add Paralax to the top image
 - Smooth Scrolling
