@@ -37,16 +37,6 @@ let initialTheme = createMuiTheme({
     textPrimary: '#fff'
   },
   overrides: {
-      MuiDrawer: {
-        paper: {
-          height: '184px !important',
-          top: '10% !important',
-          textAlign: 'center',
-          width: '150px',
-          // alignItems: 'center',
-          padding: '10px'
-        }
-      },
       MuiTypography: {
         body1: {
           color: grey[800]

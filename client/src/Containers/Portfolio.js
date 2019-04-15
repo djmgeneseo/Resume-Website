@@ -96,6 +96,14 @@ const jssStyle = theme => ({
   },
   cardMediaText: {
     color: '#fff !important'
+  },
+  '@media only screen and (max-width: 600px)': { // Phone screens
+    cardCaptionActions: {
+      opacity: '1'
+    },
+    cardMediaCaptionContainer: {
+      top: '150px'
+    }
   }
 })
 

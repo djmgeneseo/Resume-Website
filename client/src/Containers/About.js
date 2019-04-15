@@ -75,7 +75,6 @@ const jssStyle = theme => ({
         }
     },
     hobbiesHeader: {
-        paddingBottom: '15px',
         position: 'absolute',
         left: '0',
         top: '0',
@@ -93,22 +92,28 @@ const jssStyle = theme => ({
             marginTop: '1.2em'
         }
     },
+    hobbyIconCollectionContainer: {
+        textAlign: 'center',
+    },
+    hobbyIconContainer: {
+        display: 'inline-block',
+        '&:hover $hobbyIcon': {
+            transform: 'rotateY(180deg)',
+            transition: 'transform .50s'
+        }
+    },
     hobbyIcon: {
         width: '89px',
         cursor: 'pointer',
         transition: 'transform .75s',
-        '&:hover': {
-            transform: 'rotateY(180deg)',
-            transition: 'transform .75s'
-        }
     },
     hobbyPictureCardContainer: {
         textAlign: 'center',
-        marginBottom: '50px',
+        margin: '50px 0px',
         position: 'relative'
     },
     hobbyCard: {
-        maxWidth: '450px',
+        maxWidth: '80%',
         margin: 'auto',
     },
     cardMediaContainer: {
@@ -117,7 +122,7 @@ const jssStyle = theme => ({
         '&:hover $hobbyCardMedia': {
             transform: 'scale(1.2)'
         }
-  },
+    },
     hobbyCardMedia: {
         height: '170px',
         transition: 'transform .5s',
@@ -146,13 +151,13 @@ const jssStyle = theme => ({
     right: {
         transform: 'rotate(-45deg)',
         position: 'absolute',
-        right: '0',
+        right: '5%',
         top: '50%'
     },
     left: {
         transform: 'rotate(135deg)',
         position: 'absolute',
-        left: '0',
+        left: '5%',
         top: '50%'
     },
     aboutMeCard: {
@@ -175,7 +180,7 @@ const jssStyle = theme => ({
         boxSizing: 'border-box',
         alignItems: 'center',
         height: '87%',
-        padding: '50px'
+        paddingBottom: '50px'
     },
     downloadResumeButton: {
         position: 'absolute',
@@ -271,14 +276,40 @@ const jssStyle = theme => ({
             borderRightWidth: '0'
         }
       },
-    '@media only screen and (max-width: 1300px)': {
+    '@media only screen and (max-width: 1300px)': { // Smaller desktop/laptop screens
         aboutMeSection: {
             padding: '35px',
-            paddingTop: '25px'
+            paddingTop: '15px'
+        },
+        frontCardBody: {
+            paddingTop: '20px',
+            paddingBottom: '69px'
         },
         aboutMeCard: {
             width: '85%',
             marginLeft: '7.5%'
+        }
+    },
+    '@media only screen and (max-width: 959px)': { // Tablet screens
+        hobbyIconCollectionContainer: {
+            paddingTop: '50px'
+        }
+    },
+    '@media only screen and (max-width: 600px)': { // Phone screens
+        backCardBody: {
+            padding: '75px 25px'
+        },
+        right: {
+            right: '-10px',
+        },
+        left: {
+            left: '-10px'
+        },
+        hobbiesHeader: {
+            paddingLeft: '25px',
+            '&:after': {
+                left: '25px'
+            }
         }
     }
 })
@@ -364,7 +395,6 @@ class About extends Component {
 
     generateHobbyPictureCard = () => {
         return (
-            <Fade in={true}>
                 <Card className={this.props.classes.hobbyCard}>
                     <div className={this.props.classes.cardMediaContainer}>
                         <CardMedia
@@ -383,33 +413,40 @@ class About extends Component {
                     </Typography>
                     </CardContent>
                 </Card>
-            </Fade>
             )
     }
     
     generateHobbyIcons = () => {
         return Object.keys(hobbies).map((hobby, hobbyIdx) => {
-            if((hobbyIdx+1)%3 === 0) {
+            if((hobbyIdx+1)%3 === 0) { // push icon to new row
                 return (
                     <Fragment key={hobby+hobbyIdx}>
-                        <img onClick={()=>{this.handleActiveHobbyClick(hobby)}} 
-                            className={
-                                hobby === this.state.activeHobbyKey ? this.props.classes.hobbyIcon + " " + this.props.classes.inflate : this.props.classes.hobbyIcon
-                            } 
-                            alt={hobby + ' icon'} 
-                            src={hobbies[hobby].icon}/>
+                        <div 
+                            onClick={()=>{this.handleActiveHobbyClick(hobby)}} 
+                            className={this.props.classes.hobbyIconContainer}>
+                            <img  
+                                className={
+                                    hobby === this.state.activeHobbyKey ? this.props.classes.hobbyIcon + " " + this.props.classes.inflate : this.props.classes.hobbyIcon
+                                } 
+                                alt={hobby + ' icon'} 
+                                src={hobbies[hobby].icon}/>
+                        </div>
                         <br/>
                     </Fragment>
                 )
             }
             return (
-                <img onClick={()=>{this.handleActiveHobbyClick(hobby)}} key={hobby+hobbyIdx}          
-                    className={
-                        hobby === this.state.activeHobbyKey ? 
-                        this.props.classes.hobbyIcon + " " + this.props.classes.inflate : this.props.classes.hobbyIcon
-                    } 
-                    alt={hobby + ' icon'} 
-                    src={hobbies[hobby].icon}/>
+                <div 
+                    onClick={()=>{this.handleActiveHobbyClick(hobby)}} 
+                    className={this.props.classes.hobbyIconContainer} key={hobby+hobbyIdx}>
+                    <img        
+                        className={
+                            hobby === this.state.activeHobbyKey ? 
+                            this.props.classes.hobbyIcon + " " + this.props.classes.inflate : this.props.classes.hobbyIcon
+                        } 
+                        alt={hobby + ' icon'} 
+                        src={hobbies[hobby].icon}/>
+                </div>
             )
         })
     }
@@ -520,7 +557,7 @@ class About extends Component {
                             <Typography className={this.props.classes.hobbiesHeader} variant="h5">
                                 Hobbies
                             </Typography> 
-                            <div style={{textAlign: 'center'}}>
+                            <div className={this.props.classes.hobbyIconCollectionContainer}>
                                 {this.generateHobbyIcons()}
                             </div>
                         </Grid>

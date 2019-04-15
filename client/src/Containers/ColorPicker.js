@@ -10,11 +10,18 @@ import { red, pink, purple, deepPurple, indigo, blue, lightBlue, cyan, teal, gre
 import { MdColorLens } from "react-icons/md"
 
 const jssStyle = theme => ({
+  buttonContainer: {
+    position: 'fixed',
+    right: '-3px',
+    top: '30%',
+    height: 'auto',
+    zIndex: '1101'
+  },
   drawerPaper: {
     height: '184px !important',
-    top: '10% !important',
     textAlign: 'center',
     width: '150px',
+    top: '30% !important',
     // alignItems: 'center',
     padding: '10px'
   }, 
@@ -33,13 +40,6 @@ const jssStyle = theme => ({
   },
   tooltipPopper: {
     height: '40px !important'
-  },
-  buttonContainer: {
-    position: 'fixed',
-    right: '-3px',
-    top: '10%',
-    height: 'auto',
-    zIndex: '1101'
   },
   paletteButton: {
     content: "' '",
