@@ -1,9 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import {Grid, Typography, Paper} from '@material-ui/core';
 
 import {FaCircle} from 'react-icons/fa';
 

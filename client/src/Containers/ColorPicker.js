@@ -1,10 +1,6 @@
 import React, {Component, Fragment} from 'react'
-import Drawer from '@material-ui/core/Drawer'
-import Button from '@material-ui/core/Button'
+import {Drawer, Button, Grid, Tooltip} from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
-import Grid from '@material-ui/core/Grid'
-import Tooltip from '@material-ui/core/Tooltip'
-
 import { red, pink, purple, deepPurple, indigo, blue, lightBlue, cyan, teal, green, lightGreen, lime, yellow, amber, orange, deepOrange } from '@material-ui/core/colors'
 
 import { MdColorLens } from "react-icons/md"

@@ -1,16 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import Slide from '@material-ui/core/Slide';
-import CardActions from '@material-ui/core/CardActions';
-import Fab from '@material-ui/core/Fab';
+import {Fab, CardActions, Slide, Typography, Divider, Button, Tab, Tabs, CardMedia, CardContent, Card, Grid} from '@material-ui/core';
 
 import {FaGithub} from "react-icons/fa";
 import {FaYoutubeSquare} from "react-icons/fa";

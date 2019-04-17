@@ -5,7 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
 import grey from '@material-ui/core/colors/grey';
 
-import Grid from '@material-ui/core/Grid';
+import {Grid} from '@material-ui/core';
 
 import {Achievements, Experience, Abilities, Footer } from '../Components/Layouts';
 import ColorPicker from '../Containers/ColorPicker';

@@ -3,20 +3,7 @@ import { withStyles } from '@material-ui/styles'; // jss library
 
 import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
-import Tooltip from '@material-ui/core/Tooltip';
-import Fab from '@material-ui/core/Fab';
-// import Zoom from '@material-ui/core/Zoom';
-import IconButton from '@material-ui/core/IconButton';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-
-import Fade from '@material-ui/core/Fade';
+import {Fade, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
 import {FaFileDownload} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";

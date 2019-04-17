@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react'
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import {Grid, Typography} from '@material-ui/core';
 import {MdStar, MdStarBorder} from 'react-icons/md';
 
 const jssStyle = (theme) => ({
