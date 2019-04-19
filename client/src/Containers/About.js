@@ -15,7 +15,6 @@ const jssStyle = theme => ({
     inflate: {
         transform: 'scale(1.2) !important',
         zIndex: '190',
-        transition: 'transform .25s',
     },
     sectionAboutCard: {
         maxWidth: '1280px',
@@ -84,6 +83,8 @@ const jssStyle = theme => ({
     },
     hobbyIconContainer: {
         display: 'inline-block',
+        transition: 'margin .75s',
+        margin: '5px',
         '&:hover $hobbyIcon': {
             transform: 'rotateY(180deg)',
             transition: 'transform .50s'
@@ -93,6 +94,8 @@ const jssStyle = theme => ({
         width: '89px',
         cursor: 'pointer',
         transition: 'transform .75s',
+        boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)',
+        borderRadius: '50%'
     },
     hobbyPictureCardContainer: {
         textAlign: 'center',
@@ -243,7 +246,7 @@ const jssStyle = theme => ({
             transform: 'rotate(1turn) scale(1.2)'
         }
       },
-      arrowRound: {
+    arrowRound: {
         position: 'absolute',
         width: '50px',
         height: '50px',
@@ -326,7 +329,7 @@ const hobbies = {
     },
     'Snowboarding': {
         icon: require('../assets/icons/hobbies/snowboard.png'),
-        description: ['My first snowboarding trip! I (right) purchased this board and pair of boots from Facebook Marketplace and hit the slopes the next day. January 2019 @ Mountain Creek, NJ (~1300ft elevation).', "After 3 sessions and many falls, I finally felt comfortable carving both toeside and heelside on blue squares. One month later, I bought a new pair of boots and hit my first ever black diamond. February 2019 @ Mountain Creek, NJ.", "After snowboarding every weekend for two months, I was hooked. Pictured is me with my new snowboard atop Killington Mountain, VT (~4500ft). Other mountains I visited before the season's close include Hunter Mountain, Mount Snow, and Camelback."],
+        description: ['My first snowboarding trip! I (right) purchased this board and pair of boots from Facebook Marketplace and hit the slopes the next day. January 2019 @ Mountain Creek, NJ (~1300ft elevation).', "After 3 sessions of many bruises and wipeouts, I finally felt comfortable carving both toeside and heelside on blue squares. One month later, armed with proper padding, new bindings, and a new pair of boots, I felt confident enough to hit my first-ever black diamond. February 2019 @ Mountain Creek, NJ.", "After snowboarding every weekend for two months, I was hooked. I could hit almost every black diamond, and began transitioning into the terrain park. Pictured is me with my new snowboard atop Killington Mountain, VT (~4500ft). Other mountains I visited before the season's close include Hunter Mountain, Mount Snow, and Camelback."],
         images: [require('../assets/img/hobbies/snowboard_1.jpg'),require('../assets/img/hobbies/snowboard_2.jpg'),require('../assets/img/hobbies/snowboard_3.jpg')]
     },
     'Volleyball': {

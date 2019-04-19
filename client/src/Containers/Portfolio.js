@@ -1,8 +1,7 @@
 import React, {Fragment, Component} from 'react';
 import {Fab, CardActions, Slide, Typography, Divider, Button, Tab, Tabs, CardMedia, CardContent, Card, Grid} from '@material-ui/core';
 
-import {FaGithub} from "react-icons/fa";
-import {FaYoutubeSquare} from "react-icons/fa";
+import {FaGithub, FaYoutubeSquare} from "react-icons/fa";
 import {MdLink} from "react-icons/md";
 
 import { withStyles } from '@material-ui/styles'; // jss library
@@ -104,7 +103,7 @@ const portfolioItems = {
   },
   'Molloy Data Dashboard': {
     tags: ['HTML & CSS','JavaScript', 'jQuery', 'Bootstrap', 'PHP', 'IIS'],
-    img: require('../assets/img/me.png')
+    img: require('../assets/img/data_dashboard.png')
   },
   'Skinno': {
     tags: ['Swift', 'Firebase', 'Firestore', 'CocoaPods'],
@@ -116,6 +115,11 @@ const portfolioItems = {
     git: 'https://github.com/djmgeneseo/Skinno_Website',
     tags: ['HTML & CSS','JavaScript', 'jQuery', 'Heroku'],
     img: require('../assets/img/skinno_site.png')
+  },
+  'Job Listing Automation': {
+    git: 'https://github.com/djmgeneseo/Job-Listing-Generator',
+    tags: ['HTML & CSS', 'JavaScript', 'Node.js'],
+    img: require('../assets/img/job_listing.png')
   },
   'Mock Food App Website': {
     link: 'https://djmgeneseo.github.io/MOCK-FOOD-DELIVERY-WEBSITE/',
