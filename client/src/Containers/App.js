@@ -7,7 +7,7 @@ import grey from '@material-ui/core/colors/grey';
 
 import {Grid} from '@material-ui/core';
 
-import {Experience, Abilities, Footer } from '../Components/Layouts';
+import {NavBar, Experience, Abilities, Footer } from '../Components/Layouts';
 import {ColorPicker, Portfolio, Achievements, About} from './index';
 import Parallax from '../Components/Parallax';
 
@@ -83,6 +83,7 @@ class App extends Component {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
     
     return <MuiThemeProvider theme={this.state.theme}>
+      <NavBar theme={this.state.theme}/>
       <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>    
       <About theme={this.state.theme}/>
       <Parallax backgroundImage={achievementsBackgroundImage} theme={this.state.theme}>

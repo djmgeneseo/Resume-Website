@@ -178,15 +178,15 @@ const educationJSON = {
 const achievements = {
     'Zahn Innovation Center': {
         images: [skinno1, skinno2, skinno3],
-        description: ['blah', 'blah', 'blah']
+        description: ['Grand Prize Winners', "Molloy Magazine Spring/Summer '18", "Oceanside Herald May 24th 2018"]
     },
     'FIRST Tech Challenge': {
         images: [robotics1, robotics2, robotics3],
-        description: ['blah', 'blah', 'blah']
+        description: ["Hewlett-Woodmere's team Innovo at Long Island Regionals after being selected to advance to the North Eastern Super Regionals Championship.", "Me (center) teaching incomming Freshman about how to connect their code to the robot's hardware", "Me (left) with Hewlett-Woodmere Robotic's graduating class of '19"]
     },
     'Sigma Tau Delta': {
         images: [stdCertificate],
-        description: ['blah']
+        description: ['Official Certification recieved November 11th, 2016']
     }
 }
 
@@ -407,7 +407,7 @@ class Achievements extends Component {
                         <Card className={this.props.classes.hobbyCard}>
                             <div className={this.props.classes.cardMediaContainer}>
                                 <CardMedia
-                                onClick={() => {window.open(achievements[this.state.activeAchievementKey].images[this.state.activeAchievementIdx])}}
+                                onClick={() => {window.open(achievements[this.state.activeAchievementKey].images[this.state.activeImageIdx])}}
                                 className={this.props.classes.hobbyCardMedia}
                                 image={achievements[this.state.activeAchievementKey].images[this.state.activeImageIdx]}
                                 title={this.state.activeHobbyKey}
@@ -418,7 +418,7 @@ class Achievements extends Component {
                                 {this.state.activeAchievementKey}
                             </Typography>
                             <Typography component="p">
-                                {achievements[this.state.activeAchievementKey].description[this.state.activeAchievementIdx]}
+                                {achievements[this.state.activeAchievementKey].description[this.state.activeImageIdx]}
                             </Typography>
                             </CardContent>
                         </Card>
