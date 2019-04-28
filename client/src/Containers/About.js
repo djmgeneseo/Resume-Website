@@ -319,8 +319,8 @@ const hobbies = {
     },
     'Hiking': {
         icon: require('../assets/icons/hobbies/boots.png'),
-        description: ["The Ein Gedi in Israel, located south-east of Jerusalem. This picture was taken nearby the Dead Sea - Earth's lowest elevation on land.", "Half-way point to the top of the 1240ft Breakneck Ridge, NY. Located 1 hour north of NYC along the Hudson River."],
-        images: [require('../assets/img/hobbies/hike_1.jpg'), require('../assets/img/hobbies/hike_2.jpg')]
+        description: ["The Ein Gedi in Israel, located south-east of Jerusalem. This picture was taken nearby the Dead Sea - Earth's lowest elevation on land.", "Half-way point to the top of the 1240ft Breakneck Ridge, NY. Located 1 hour north of NYC along the Hudson River.", "Cathedral Rock - Sedona, Arizona", "Devil's Bridge - Sedona, Arizona", "Grand Canyon (Southern Rim) - Grand Canyon National Park, Arizona", "Angel's Landing - Zion National Park, Utah"],
+        images: [require('../assets/img/hobbies/hike_1.jpg'), require('../assets/img/hobbies/hike_2.jpg'),require('../assets/img/hobbies/hike_3.jpg'),require('../assets/img/hobbies/hike_4.jpg'),require('../assets/img/hobbies/hike_5.jpg'),require('../assets/img/hobbies/hike_6.jpg')]
     },
     'Drumming': {
         icon: require('../assets/icons/hobbies/drums.png'),
@@ -354,8 +354,8 @@ const hobbies = {
     },
     'Climbing': {
         icon: require('../assets/icons/hobbies/climbing.png'),
-        description: ["I've been indoor climbing for over two years, and recently decided to take climbing outdoors. The crashpad on my back is meant to support climbing falls of up to 20ft. Pictured is me at the half-way point up Bear Mountain, NY (1200ft)", "One of two boulders I found with decent holds for many possible climbing routes. I am currently developing an App with a fellow climber and developer to make sharing rare climbing spots easy. Many boulders exist that have evaded the more popular yet unmaintained climbing databases."],
-        images: [require('../assets/img/hobbies/climb_2.jpg'), require('../assets/img/hobbies/climb_1.jpg')]
+        description: ["I've been indoor climbing for over two years, and recently decided to take climbing outdoors. The crashpad on my back is meant to support climbing falls of up to 20ft. Pictured is me at the half-way point up Bear Mountain, NY (1200ft)", "One of two boulders I found with decent holds for many possible climbing routes. I am currently developing an App with a fellow climber and developer to make sharing rare climbing spots easy. Many boulders exist that have evaded the more popular yet unmaintained climbing databases.", "Lately I've been climbing in the gym at Island Rock (Plainview, NY). My focus is on top roping, to transition into the world of lead and sport climbing."],
+        images: [require('../assets/img/hobbies/climb_2.jpg'), require('../assets/img/hobbies/climb_1.jpg'), require('../assets/img/hobbies/climb_3.jpg')]
     }
 }
 
@@ -385,24 +385,24 @@ class About extends Component {
 
     generateHobbyPictureCard = () => {
         return (
-                <Card className={this.props.classes.hobbyCard}>
-                    <div className={this.props.classes.cardMediaContainer}>
-                        <CardMedia
-                        onClick={() => {window.open(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx])}}
-                        className={this.props.classes.hobbyCardMedia}
-                        image={hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx]}
-                        title={this.state.activeHobbyKey}
-                        />
-                    </div>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {this.state.activeHobbyKey}
-                    </Typography>
-                    <Typography component="p">
-                        {hobbies[this.state.activeHobbyKey].description[this.state.activeImageIdx]}
-                    </Typography>
-                    </CardContent>
-                </Card>
+            <Card className={this.props.classes.hobbyCard}>
+                <div className={this.props.classes.cardMediaContainer}>
+                    <CardMedia
+                    onClick={() => {window.open(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx])}}
+                    className={this.props.classes.hobbyCardMedia}
+                    image={hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx]}
+                    title={this.state.activeHobbyKey}
+                    />
+                </div>
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {this.state.activeHobbyKey}
+                </Typography>
+                <Typography component="p">
+                    {hobbies[this.state.activeHobbyKey].description[this.state.activeImageIdx]}
+                </Typography>
+                </CardContent>
+            </Card>
             )
     }
     

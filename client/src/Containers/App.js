@@ -7,11 +7,9 @@ import grey from '@material-ui/core/colors/grey';
 
 import {Grid} from '@material-ui/core';
 
-import {Achievements, Experience, Abilities, Footer } from '../Components/Layouts';
-import ColorPicker from '../Containers/ColorPicker';
-import Portfolio from '../Containers/Portfolio';
+import {Experience, Abilities, Footer } from '../Components/Layouts';
+import {ColorPicker, Portfolio, Achievements, About} from './index';
 import Parallax from '../Components/Parallax';
-import About from '../Containers/About.js';
 
 /*
   Contains Router structure for website - state manages route-specific layout features, such as header information.
