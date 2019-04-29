@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import {Grid, Typography, Paper} from '@material-ui/core';
+import {Grow, Grid, Typography, Paper} from '@material-ui/core';
 
 import {FaCircle} from 'react-icons/fa';
 
-import Timeline from '../Timeline';
+import Timeline from '../Components/Timeline';
+import ScrollTrigger from 'react-scroll-trigger';
 
 const jssStyle = theme => ({
   heading: {
@@ -182,57 +183,77 @@ presentBorder: {
 }
 })
 
-const Experience = (props) => {
-  const {classes} = props;
+const experienceJSON = {
+  'Applications Developer/Implementation Specialist': {
+    company: 'Molloy College',
+    start: 'Jun 2018',
+    end: 'Present',
+    description: 'Responsible for the development, analysis, implementation, documentation, training, and ongoing support of software applications. The software is designed to improve both administrative and academic processes, and the overall organizational effectiveness of the College.',
+    present: true
+  },
+  'Chief Technology Officer': {
+    company: 'Skinno Inc.',
+    start: 'Dec 2017',
+    end: 'Jun 2018',
+    description: `Develop all aspects of Skinno's multi-platform service, including a website and a mobile application for iOS devices. Monitor technology trends in machine learning and UI/UX to improve the quality of our applications. Communicate the company's technology strategy to partners, management, investors, and employees.`
+  },
+  'Technology Specialist': {
+    company: 'Molloy College',
+    start: 'Nov 2017',
+    end: 'Jun 2018',
+    description: 'Monitor, manually re-image, and connect several computer labs onto both the student and faculty DNS, assigning user and admin privileges respectively. Working Experience with switch panels and patch panels in a professional environment.'
+  },
+  'Undergraduate Computer Science Tutor': {
+    company: 'Molloy College',
+    start: 'Oct 2017',
+    end: 'Apr 2018',
+    description: 'Provide guidance and instruction to college students for material related to their Computer Science studies, including (but not limited to): Web Scripting, Dynamic Programming, Object Oriented Concepts, and MVC Architecture'
+  },
+  'Undergraduate Teacher Assistant - Web Scripting': {
+    company: 'Molloy College',
+    start: 'Oct 2017',
+    end: 'Dec 2017',
+    description: 'Volunteer 5 hours per week to help instruct a college-level Web Scripting course.'
+  },
+  'Robotics Co-Advisor': {
+    company: 'Hewlett-Woodmere School District',
+    start: 'Sep 2017',
+    end: 'Present',
+    description: 'Board-certified to instruct Android mobile development for students between grades 9-12. Provide guidance for both software (Java - Android Studio & Eclipse) and hardware design and implementation in an academic setting.',
+    present: true
+  },
+  'Intern Editor': {
+    company: 'Messapps',
+    start: 'May 2016',
+    end: 'Feb 2017',
+    description: 'Collaborate with the CEO and several project managers to produce online content on a weekly basis. Written content pertained to topics in both mobile devices and the development of mobile applications. Attended meetings to contribute topic suggestions for future web content.'
+  }
+}
 
-  const experienceJSON = {
-    'Applications Developer/Implementation Specialist': {
-      company: 'Molloy College',
-      start: 'Jun 2018',
-      end: 'Present',
-      description: 'Responsible for the development, analysis, implementation, documentation, training, and ongoing support of software applications. The software is designed to improve both administrative and academic processes, and the overall organizational effectiveness of the College.',
-      present: true
-    },
-    'Chief Technology Officer': {
-      company: 'Skinno Inc.',
-      start: 'Dec 2017',
-      end: 'Jun 2018',
-      description: `Develop all aspects of Skinno's multi-platform service, including a website and a mobile application for iOS devices. Monitor technology trends in machine learning and UI/UX to improve the quality of our applications. Communicate the company's technology strategy to partners, management, investors, and employees.`
-    },
-    'Technology Specialist': {
-      company: 'Molloy College',
-      start: 'Nov 2017',
-      end: 'Jun 2018',
-      description: 'Monitor, manually re-image, and connect several computer labs onto both the student and faculty DNS, assigning user and admin privileges respectively. Working Experience with switch panels and patch panels in a professional environment.'
-    },
-    'Undergraduate Computer Science Tutor': {
-      company: 'Molloy College',
-      start: 'Oct 2017',
-      end: 'Apr 2018',
-      description: 'Provide guidance and instruction to college students for material related to their Computer Science studies, including (but not limited to): Web Scripting, Dynamic Programming, Object Oriented Concepts, and MVC Architecture'
-    },
-    'Undergraduate Teacher Assistant - Web Scripting': {
-      company: 'Molloy College',
-      start: 'Oct 2017',
-      end: 'Dec 2017',
-      description: 'Volunteer 5 hours per week to help instruct a college-level Web Scripting course.'
-    },
-    'Robotics Co-Advisor': {
-      company: 'Hewlett-Woodmere School District',
-      start: 'Sep 2017',
-      end: 'Present',
-      description: 'Board-certified to instruct Android mobile development for students between grades 9-12. Provide guidance for both software (Java - Android Studio & Eclipse) and hardware design and implementation in an academic setting.',
-      present: true
-    },
-    'Intern Editor': {
-      company: 'Messapps',
-      start: 'May 2016',
-      end: 'Feb 2017',
-      description: 'Collaborate with the CEO and several project managers to produce online content on a weekly basis. Written content pertained to topics in both mobile devices and the development of mobile applications. Attended meetings to contribute topic suggestions for future web content.'
+class Experience extends Component {
+
+  state={
+    showElement1: false,
+    showElement2: false,
+    showElement3: false,
+    showElement4: false,
+    showElement5: false,
+    showElement6: false,
+    showElement7: false
+  }
+
+  handleOnScroll = (cardToggle) => {
+    if(this.state[cardToggle] === false){ // prevent react from mounting component by preventing this function from reseting the state with another true value
+        // [cardToggle] - array brackets is an es6 feature used to set key via variable
+        this.setState({
+            [cardToggle]: true
+        });
     }
   }
 
-  const generateExperienceListItems = () => {
+  generateExperienceListItems = () => {
+    const {classes} = this.props;
+    const self=this;
     let i=0;
     // i%2=0 means even, which means a right-hand list item. So styleRef[0] will contain right-hand <li> jss
     return Object.keys(experienceJSON).map(function(jobName) {
@@ -261,34 +282,44 @@ const Experience = (props) => {
         presentBorder = classes.presentBorder
       }
 
-      return(<li className={float + ' ' + classes.experienceItem} style={largeMarginTop} key={jobName}>
-      <div className={timelineMarker}>
-        <FaCircle></FaCircle>
-      </div>
-        <Paper className={float + ' ' + experiencePaperOrientation + ' ' + presentBorder}>
-          <div className={certificateIconDiv}>
-            {/* <img className={classes.certificateIconDivImg} alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/> */}
+      return(
+        <li className={float + ' ' + classes.experienceItem} style={largeMarginTop} key={jobName}>
+          <div className={timelineMarker}>
+            <FaCircle></FaCircle>
           </div>
-          <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
-          <Typography variant={'h5'}>{jobName}</Typography>
-          <div className={classes.timePeriodDiv}>
-            <Typography className={classes.timePeriodParagraph} variant={'body2'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
-          </div>
-          <Typography variant={'body2'}>{experienceJSON[jobName].description}</Typography>
-        </Paper>
+          <ScrollTrigger onEnter={()=>self.handleOnScroll('showElement'+i)}>
+            <Grow in={self.state['showElement'+i]} timeout={1000}>
+              <div>
+                <Paper className={float + ' ' + experiencePaperOrientation + ' ' + presentBorder}>
+                  <div className={certificateIconDiv}>
+                    {/* <img className={classes.certificateIconDivImg} alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/> */}
+                  </div>
+                  <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
+                  <Typography variant={'h5'}>{jobName}</Typography>
+                  <div className={classes.timePeriodDiv}>
+                    <Typography className={classes.timePeriodParagraph} variant={'body2'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
+                  </div>
+                  <Typography variant={'body2'}>{experienceJSON[jobName].description}</Typography>
+                </Paper>
+              </div>
+            </Grow>
+          </ScrollTrigger>
       </li>)
     });
   }
 
-  return (
-    <div style={{padding: '10px'}}>
-      <Grid item xs={12} sm={12} md={12}>
-            <div className={classes.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
-            {/* <div className={classes.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
-      </Grid>
-      <Timeline listItemsGenerator={() => generateExperienceListItems()}></Timeline>
-    </div>
-  )
+  render() {
+    const {classes} = this.props;
+    return (
+      <div style={{padding: '10px'}}>
+        <Grid item xs={12} sm={12} md={12}>
+              <div className={classes.heading}><Typography variant="h4">EXPERIENCE</Typography></div>
+              {/* <div className={classes.headerShadow}><img alt='section header shadow' src={require('../../../assets/img/section_header_shadow.png')}/></div> */}
+        </Grid>
+        <Timeline listItemsGenerator={() => this.generateExperienceListItems()}></Timeline>
+      </div>
+    )
+  }
 }
 
 export default withStyles(jssStyle)(Experience)

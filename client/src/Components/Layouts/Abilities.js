@@ -56,8 +56,8 @@ const jssStyle = (theme) => ({
 // TODO: reverse key/value pairing
 const skillsJSON = {
   5: ['JavaScript (ES5, 6, & 7)','HTML(5)','CSS(3)','JSON','Git','Bootstrap Framework','Material-UI Framework','Object Oriented Programming'],
-  4: ['React','React-Bootstrap Framework','Swift','JQuery','MVC Pattern','CRUD Paradigm','REST Architecture','NoSQL','SQL'],
-  3: ['MySQL','Node.js','Java','PHP'],
+  4: ['NoSQL','SQL','PHP','React','React-Bootstrap Framework','Swift','JQuery','MVC Pattern','CRUD Paradigm','REST Architecture'],
+  3: ['MySQL','Node.js','Java'],
   2: ['R'],
   1: ['Laravel Framework']
 }

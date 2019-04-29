@@ -6,8 +6,6 @@ import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Develop
 import { Slide, Toolbar, AppBar, Typography, IconButton, Button } from '@material-ui/core';
 import {FaLinkedin, FaHome, FaGithub} from "react-icons/fa";
 
-import ScrollTrigger from 'react-scroll-trigger';
-
 const jssStyle = theme => ({
     root: {
         flexGrow: 1
