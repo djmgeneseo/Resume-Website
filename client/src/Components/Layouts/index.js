@@ -1,7 +1,6 @@
 import Footer from './Footer';
 import Abilities from './Abilities';
 import Experience from './Experience';
-import NavBar from './NavBar';
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  
@@ -10,5 +9,5 @@ import NavBar from './NavBar';
  */
 
 export {
-    NavBar, Footer, Experience, Abilities
+    Footer, Experience, Abilities
 }

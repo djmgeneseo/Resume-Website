@@ -199,9 +199,10 @@ class Achievements extends Component {
         activeAchievementIdx: 0,
         zahnCardVisible: false,
         ftcCardVisible: false,
-        educationCardVisible: false,
+        molloyCardVisible: false,
+        geneseoCardVisible: false,
         stdCardVisible: false,
-        johnsonCardVisible: false,
+        jlabsCardVisible: false,
         galvanizeCardVisible: false,
         massCardVisible: false
     }
@@ -219,11 +220,12 @@ class Achievements extends Component {
     }
 
     handleOnScroll = (cardToggle) => {
-        // [cardToggle] - array brackets is an es6 feature used to set key via variable
-        this.setState({
-            [cardToggle]: true
-        })
-        console.log(this.state);
+        if(this.state[cardToggle] === false){ // prevent react from mounting component by preventing this function from reseting the state with another true value
+            // [cardToggle] - array brackets is an es6 feature used to set key via variable
+            this.setState({
+                [cardToggle]: true
+            });
+        }
     }
 
     generateEducationInfo = () => {
@@ -296,136 +298,196 @@ class Achievements extends Component {
                     {/* Zahn */}
                     <Grid item xs={12} sm={12} md={12}>
                         <ScrollTrigger onEnter={()=>this.handleOnScroll('zahnCardVisible')}>
-                            <Fade in={this.state.zahnCardVisible}>
-                                <AchievementCard
-                                    theme = {theme}
-                                    achievementAffiliation={'Zahn Innovation Center 2018 - Technology Track'}
-                                    achievement={'Grand Prize Winner'}
-                                    year={'2018'}
-                                    icon={trophyIcon}
-                                    logo={zahnLogo}
-                                    adjacentToDate={(
-                                        <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
-                                            <FaRegImages></FaRegImages>
-                                        </Fab>
-                                    )}
-                                    >
-                                    <Typography><em>“Startups in this category were challenged to develop ventures that use technology to solve problems otherwise untouched. Their products include transformative new apps, web platforms, database tools, or e-commerce sites.”</em></Typography>
-                                        <ul>
-                                            <li><Typography>Lead the development and communication of Skinno Inc.'s technology as <strong>Co-founder & Chief Technology Officer</strong> to win the <strong>$25,000 Technology Grand Prize</strong> in the Zahn Innovation Venture Competition</Typography></li>
-                                            <li><Typography>Winner of the <strong>$1,000 People's Choice Award</strong> associated with this competition.</Typography></li>
-                                            <li>
-                                                <Typography>Judges were chosen based on their advanced knowledge of and expertise in the latest technologies:</Typography>
-                                                <ul>
-                                                    <li><Typography><strong><em>Howard Morgan:</em></strong> Co-Founder at First Round Capital</Typography></li>
-                                                    <li><Typography><strong><em>Noel Goddard:</em></strong> Principal at Accelerate NY Seed Fund</Typography></li>
-                                                    <li><Typography><strong><em>Chuck Pettid:</em></strong> Senior Partner at Republic.co</Typography></li>
-                                                    <li><Typography><strong><em>Sandford (Sandy) Wollman:</em></strong> Co-Founder & Managing Director at The Westchester Angels, Leader and Connector in the Angel Investing Space</Typography></li>
-                                                    <li><Typography><strong><em>Kimberly Yarnell:</em></strong> Global Marketing Solutions at Facebook</Typography></li>
-                                                    <li><Typography><strong><em>Arber Ruci:</em></strong> Director of NYC Innovation Hot Spot, Founder and CEO of InYourClass Corp.</Typography></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                </AchievementCard>
-                            </Fade>
-                        </ScrollTrigger>
-                    </Grid>
-                    {/* FTC Robotics */}
-                        <Grid item xs={12} sm={12} md={12}>
-                            <ScrollTrigger onEnter={()=>this.handleOnScroll('ftcCardVisible')}>
-                                <Slide in={this.state.ftcCardVisible} direction="down">
+                            <Grow in={this.state.zahnCardVisible} timeout={1000}>
+                                <div>
                                     <AchievementCard
                                         theme = {theme}
-                                        achievementAffiliation={'FTC Robotics 2018 @ Hewlett-Woodmere High School'}
-                                        achievement={'Software Advisor/Mentor of the Robotics Long Island Regional Champions'}
+                                        achievementAffiliation={'Zahn Innovation Center 2018 - Technology Track'}
+                                        achievement={'Grand Prize Winner'}
                                         year={'2018'}
-                                        icon={teacherIcon}
-                                        logo={ftcLogo}
+                                        icon={trophyIcon}
+                                        logo={zahnLogo}
                                         adjacentToDate={(
-                                            <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                            <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
                                                 <FaRegImages></FaRegImages>
                                             </Fab>
                                         )}
                                         >
-                                        <ul>
-                                            <li><Typography>
-                                            <strong>Manage & mentor three high school software development teams,</strong> all of whom competed in several Nassau County qualifiers. All three teams advanced into the Long Island First Tech Regional Challenge at Smithtown High West.
-                                            </Typography></li>
-                                            <li><Typography>
-                                            One team, Roboboogie, won <strong>first place in The Long Island First Tech Regional Challenge.</strong> Another team, Innovo, advanced further to the 'Super Regional' level to <strong>compete at the North American/North-Eastern Super Regional competition</strong> in Scranton, PA.
-                                            </Typography></li>
-                                        </ul>
+                                        <Typography><em>“Startups in this category were challenged to develop ventures that use technology to solve problems otherwise untouched. Their products include transformative new apps, web platforms, database tools, or e-commerce sites.”</em></Typography>
+                                            <ul>
+                                                <li><Typography>Lead the development and communication of Skinno Inc.'s technology as <strong>Co-founder & Chief Technology Officer</strong> to win the <strong>$25,000 Technology Grand Prize</strong> in the Zahn Innovation Venture Competition</Typography></li>
+                                                <li><Typography>Winner of the <strong>$1,000 People's Choice Award</strong> associated with this competition.</Typography></li>
+                                                <li>
+                                                    <Typography>Judges were chosen based on their advanced knowledge of and expertise in the latest technologies:</Typography>
+                                                    <ul>
+                                                        <li><Typography><strong><em>Howard Morgan:</em></strong> Co-Founder at First Round Capital</Typography></li>
+                                                        <li><Typography><strong><em>Noel Goddard:</em></strong> Principal at Accelerate NY Seed Fund</Typography></li>
+                                                        <li><Typography><strong><em>Chuck Pettid:</em></strong> Senior Partner at Republic.co</Typography></li>
+                                                        <li><Typography><strong><em>Sandford (Sandy) Wollman:</em></strong> Co-Founder & Managing Director at The Westchester Angels, Leader and Connector in the Angel Investing Space</Typography></li>
+                                                        <li><Typography><strong><em>Kimberly Yarnell:</em></strong> Global Marketing Solutions at Facebook</Typography></li>
+                                                        <li><Typography><strong><em>Arber Ruci:</em></strong> Director of NYC Innovation Hot Spot, Founder and CEO of InYourClass Corp.</Typography></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
                                     </AchievementCard>
-                                </Slide>
+                                </div>
+                            </Grow>
+                        </ScrollTrigger>
+                    </Grid>
+                    {/* FTC Robotics */}
+                    <Grid item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('ftcCardVisible')}>
+                                <Grow in={this.state.ftcCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme = {theme}
+                                            achievementAffiliation={'FTC Robotics 2018 @ Hewlett-Woodmere High School'}
+                                            achievement={'Software Advisor/Mentor of the Robotics Long Island Regional Champions'}
+                                            year={'2018'}
+                                            icon={teacherIcon}
+                                            logo={ftcLogo}
+                                            adjacentToDate={(
+                                                <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                                    <FaRegImages></FaRegImages>
+                                                </Fab>
+                                            )}
+                                            >
+                                            <ul>
+                                                <li><Typography>
+                                                <strong>Manage & mentor three high school software development teams,</strong> all of whom competed in several Nassau County qualifiers. All three teams advanced into the Long Island First Tech Regional Challenge at Smithtown High West.
+                                                </Typography></li>
+                                                <li><Typography>
+                                                One team, Roboboogie, won <strong>first place in The Long Island First Tech Regional Challenge.</strong> Another team, Innovo, advanced further to the 'Super Regional' level to <strong>compete at the North American/North-Eastern Super Regional competition</strong> in Scranton, PA.
+                                                </Typography></li>
+                                            </ul>
+                                        </AchievementCard>
+                                    </div>
+                                </Grow>
                             </ScrollTrigger>
                         </Grid>
                     <Grid item xs={12} sm={12} md={4}>
-                        {/* Education */}
-                        <ScrollTrigger onEnter={()=>this.handleOnScroll('educationCardVisible')}>
-                            {  this.generateEducationInfo() }
-                        </ScrollTrigger>
-                        <Grid item xs={12} sm={12} md={12}>
+                        {/* Molloy */}
+                        <Grid key={'Molloy College'} item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('molloyCardVisible')}>
+                                <Grow in={this.state.molloyCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme={theme}
+                                            achievementAffiliation={'Molloy College'}
+                                            achievement={'BA in Computer Science'}
+                                            year={'2012-18'}
+                                            icon={certificateIcon}
+                                            adjacentToDate={'GPA: 3.49'}
+                                            marginBottom={'32px'}
+                                            logo={molloyLogo}
+                                        />
+                                    </div>
+                                </Grow>
+                            </ScrollTrigger>
+                        </Grid>
+                        {/* Geneseo */}
+                        <Grid key={'SUNY Geneseo'} item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('geneseoCardVisible')}>
+                                <Grow in={this.state.geneseoCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme={theme}
+                                            achievementAffiliation={'SUNY Geneseo'}
+                                            achievement={'BA in English Literature (Biology Minor)'}
+                                            year={'2014-17'}
+                                            icon={certificateIcon}
+                                            adjacentToDate={'GPA: 3.46'}
+                                            marginBottom={'32px'}
+                                            logo={geneseoLogo}
+                                        />
+                                    </div>
+                                </Grow>
+                            </ScrollTrigger>
+                        </Grid>     
                         {/* Galvanize */}
-                        <AchievementCard
-                            theme={theme}
-                            achievementAffiliation={"Galvanize"}
-                            achievement={'Company Member (Skinno Inc.)'}
-                            year={'2018-19'}
-                            icon={memberIcon}
-                            logo={galvanizeLogo}
-                        >
-                            <Typography><em>"Galvanize is the recognized leader in technology education with a focus in software development, data science and data engineering. We have a world-renowned team of experienced, full-time instructional faculty with decades of experience among them."</em></Typography>
-                        </AchievementCard>
+                        <Grid item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('galvanizeCardVisible')}>
+                                <Grow in={this.state.galvanizeCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme={theme}
+                                            achievementAffiliation={"Galvanize"}
+                                            achievement={'Company Member (Skinno Inc.)'}
+                                            year={'2018-19'}
+                                            icon={memberIcon}
+                                            logo={galvanizeLogo}
+                                        >
+                                            <Typography><em>"Galvanize is the recognized leader in technology education with a focus in software development, data science and data engineering. We have a world-renowned team of experienced, full-time instructional faculty with decades of experience among them."</em></Typography>
+                                        </AchievementCard>
+                                    </div>
+                                </Grow>
+                            </ScrollTrigger>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={12} md={8}>
-                        <Grid container>
                         {/* Sigma Tau Delta */}
-                            <Grid item xs={12} sm={12} md={12}>
-                                <AchievementCard
-                                    theme = {theme}
-                                    marginBottom = {'32px'}
-                                    achievementAffiliation={'Sigma Tau Delta - International English Honors Society'}
-                                    achievement={'Honorary Member'}
-                                    year={'2016'}
-                                    icon={certificateIcon}
-                                    logo={stdLogo}
-                                    adjacentToDate={(
-                                        <Fab onClick={() => {this.handleOpenModal('Sigma Tau Delta')}} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
-                                            <FaRegImages></FaRegImages>
-                                        </Fab>
-                                    )}
-                                >
-                                    <Typography><strong>One of the top 30% of writers internationally to receive an invitation.</strong> Eligibility requires the demonstration of high writing proficiency, a combination of courses taken, and a minimum 3.0 GPA.</Typography>
-                                </AchievementCard>
-                            </Grid>
-                            {/* Jlabs */}
-                            <Grid item xs={12} sm={12} md={12}>
-                                    <AchievementCard
-                                        theme = {theme}
-                                        marginBottom = {'32px'}
-                                        achievementAffiliation={'Johnson & Johnson 2018 Digital Beauty QuickFire Challenge'}
-                                        achievement={'Top 5 Finalist'}
-                                        year={'2018'}
-                                        icon={trophyIcon}
-                                        logo={jlabsLogo}
-                                    >
-                                        <Typography>Participate in an international tech challenge sponsored by Johnson & Johnson Innovation, JLABS (JLABS) and Johnson & Johnson Consumer Inc.</Typography>
-                                    </AchievementCard>
-                            </Grid>
-                            {/* MassChallenge */}
-                            <Grid item xs={12} sm={12} md={12}>
-                                    <AchievementCard
-                                        theme = {theme}
-                                        achievementAffiliation={'MassChallenge Accelerator - Boston'}
-                                        achievement={'Round 2 Finalist'}
-                                        year={'2018'}
-                                        icon={trophyIcon}
-                                        logo={massChallengeLogo}
-                                    >
-                                        <Typography>As the Chief Technology Officer of Skinno Inc., communicate the company's computer vision software to judges & investors.</Typography>
-                                    </AchievementCard>
-                            </Grid>
+                        <Grid item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('stdCardVisible')}>
+                                <Grow in={this.state.stdCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme = {theme}
+                                            marginBottom = {'32px'}
+                                            achievementAffiliation={'Sigma Tau Delta - International English Honors Society'}
+                                            achievement={'Honorary Member'}
+                                            year={'2016'}
+                                            icon={certificateIcon}
+                                            logo={stdLogo}
+                                            adjacentToDate={(
+                                                <Fab onClick={() => {this.handleOpenModal('Sigma Tau Delta')}} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                                    <FaRegImages></FaRegImages>
+                                                </Fab>
+                                            )}
+                                        >
+                                            <Typography><strong>One of the top 30% of writers internationally to receive an invitation.</strong> Eligibility requires the demonstration of high writing proficiency, a combination of courses taken, and a minimum 3.0 GPA.</Typography>
+                                        </AchievementCard>
+                                    </div>
+                                </Grow>
+                            </ScrollTrigger>
+                        </Grid>
+                        {/* Jlabs */}
+                        <Grid item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('jlabsCardVisible')}>
+                                <Grow in={this.state.jlabsCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme = {theme}
+                                            marginBottom = {'32px'}
+                                            achievementAffiliation={'Johnson & Johnson 2018 Digital Beauty QuickFire Challenge'}
+                                            achievement={'Top 5 Finalist'}
+                                            year={'2018'}
+                                            icon={trophyIcon}
+                                            logo={jlabsLogo}
+                                        >
+                                            <Typography>Participate in an international tech challenge sponsored by Johnson & Johnson Innovation, JLABS (JLABS) and Johnson & Johnson Consumer Inc.</Typography>
+                                        </AchievementCard>
+                                    </div>
+                                </Grow>
+                            </ScrollTrigger>
+                        </Grid>
+                        {/* MassChallenge */}
+                        <Grid item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('massCardVisible')}>
+                                <Grow in={this.state.massCardVisible} timeout={1000}>
+                                    <div>
+                                        <AchievementCard
+                                            theme = {theme}
+                                            achievementAffiliation={'MassChallenge Accelerator - Boston'}
+                                            achievement={'Round 2 Finalist'}
+                                            year={'2018'}
+                                            icon={trophyIcon}
+                                            logo={massChallengeLogo}
+                                        >
+                                            <Typography>As the Chief Technology Officer of Skinno Inc., communicate the company's computer vision software to judges & investors.</Typography>
+                                        </AchievementCard>
+                                    </div>
+                                </Grow>
+                            </ScrollTrigger>
                         </Grid>
                     </Grid>
                 </Grid>

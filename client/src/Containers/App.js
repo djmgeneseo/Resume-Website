@@ -7,8 +7,8 @@ import grey from '@material-ui/core/colors/grey';
 
 import {Grid} from '@material-ui/core';
 
-import {NavBar, Experience, Abilities, Footer } from '../Components/Layouts';
-import {ColorPicker, Portfolio, Achievements, About} from './index';
+import {Experience, Abilities, Footer } from '../Components/Layouts';
+import {NavBar, ColorPicker, Portfolio, Achievements, About} from './index';
 import Parallax from '../Components/Parallax';
 
 /*

@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/styles'; // jss library
 
 import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
-import {Fade, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
+import {Slide, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
 import {FaFileDownload} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";
@@ -606,6 +606,7 @@ class About extends Component {
     render() {
         return (
             <section className={this.props.classes.sectionAboutCard}>
+            <Slide in={true} direction="right" timeout={500}>
                 <div className={this.props.classes.flipContainer}>
                     <div className={this.props.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
                         <div className={this.props.classes.frontOfCard}>
@@ -616,6 +617,7 @@ class About extends Component {
                         </div>
                     </div>
                 </div>
+            </Slide>
             </section>
         )
     }
