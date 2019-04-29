@@ -1,8 +1,9 @@
 import React, {Fragment, Component} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import { Typography, Grid, Fab, Modal, Card, CardMedia, CardContent } from '@material-ui/core';
+import { Typography, Grid, Fab, Modal, Card, CardMedia, CardContent, Grow, Slide, Fade } from '@material-ui/core';
 import AchievementCard from '../Components/AchievementCard';
+import ScrollTrigger from 'react-scroll-trigger';
 
 import {FaRegImages} from "react-icons/fa";
 
@@ -195,7 +196,14 @@ class Achievements extends Component {
     state = {
         openModal: false,
         activeAchievementKey: 'Zahn Innovation Center',
-        activeAchievementIdx: 0
+        activeAchievementIdx: 0,
+        zahnCardVisible: false,
+        ftcCardVisible: false,
+        educationCardVisible: false,
+        stdCardVisible: false,
+        johnsonCardVisible: false,
+        galvanizeCardVisible: false,
+        massCardVisible: false
     }
 
     handleOpenModal = (newKey) => {
@@ -210,21 +218,32 @@ class Achievements extends Component {
         this.setState({openModal: false});
     }
 
+    handleOnScroll = (cardToggle) => {
+        // [cardToggle] - array brackets is an es6 feature used to set key via variable
+        this.setState({
+            [cardToggle]: true
+        })
+        console.log(this.state);
+    }
+
     generateEducationInfo = () => {
         const {theme} = this.props;
+        const self = this;
         return Object.keys(educationJSON).map(function(collegeName) {
             return (
             <Grid key={collegeName} item xs={12} sm={12} md={12}>
-                <AchievementCard
-                    theme={theme}
-                    achievementAffiliation={collegeName}
-                    achievement={educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}
-                    year={educationJSON[collegeName].start + '-' + educationJSON[collegeName].end}
-                    icon={certificateIcon}
-                    adjacentToDate={'GPA: ' + educationJSON[collegeName].gpa}
-                    marginBottom={'32px'}
-                    logo={educationJSON[collegeName].logo}
-                />
+                <Grow in={self.state.ftcCardVisible}>
+                    <AchievementCard
+                        theme={theme}
+                        achievementAffiliation={collegeName}
+                        achievement={educationJSON[collegeName].degree +' in ' + educationJSON[collegeName].major}
+                        year={educationJSON[collegeName].start + '-' + educationJSON[collegeName].end}
+                        icon={certificateIcon}
+                        adjacentToDate={'GPA: ' + educationJSON[collegeName].gpa}
+                        marginBottom={'32px'}
+                        logo={educationJSON[collegeName].logo}
+                    />
+                </Grow>
             </Grid>
             )
         })
@@ -276,64 +295,75 @@ class Achievements extends Component {
                 <Grid container spacing={32}>
                     {/* Zahn */}
                     <Grid item xs={12} sm={12} md={12}>
-                        <AchievementCard
-                            theme = {theme}
-                            achievementAffiliation={'Zahn Innovation Center 2018 - Technology Track'}
-                            achievement={'Grand Prize Winner'}
-                            year={'2018'}
-                            icon={trophyIcon}
-                            logo={zahnLogo}
-                            adjacentToDate={(
-                                <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
-                                    <FaRegImages></FaRegImages>
-                                </Fab>
-                            )}
-                            >
-                            <Typography><em>“Startups in this category were challenged to develop ventures that use technology to solve problems otherwise untouched. Their products include transformative new apps, web platforms, database tools, or e-commerce sites.”</em></Typography>
-                                <ul>
-                                    <li><Typography>Lead the development and communication of Skinno Inc.'s technology as <strong>Co-founder & Chief Technology Officer</strong> to win the <strong>$25,000 Technology Grand Prize</strong> in the Zahn Innovation Venture Competition</Typography></li>
-                                    <li><Typography>Winner of the <strong>$1,000 People's Choice Award</strong> associated with this competition.</Typography></li>
-                                    <li>
-                                        <Typography>Judges were chosen based on their advanced knowledge of and expertise in the latest technologies:</Typography>
+                        <ScrollTrigger onEnter={()=>this.handleOnScroll('zahnCardVisible')}>
+                            <Fade in={this.state.zahnCardVisible}>
+                                <AchievementCard
+                                    theme = {theme}
+                                    achievementAffiliation={'Zahn Innovation Center 2018 - Technology Track'}
+                                    achievement={'Grand Prize Winner'}
+                                    year={'2018'}
+                                    icon={trophyIcon}
+                                    logo={zahnLogo}
+                                    adjacentToDate={(
+                                        <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                            <FaRegImages></FaRegImages>
+                                        </Fab>
+                                    )}
+                                    >
+                                    <Typography><em>“Startups in this category were challenged to develop ventures that use technology to solve problems otherwise untouched. Their products include transformative new apps, web platforms, database tools, or e-commerce sites.”</em></Typography>
                                         <ul>
-                                            <li><Typography><strong><em>Howard Morgan:</em></strong> Co-Founder at First Round Capital</Typography></li>
-                                            <li><Typography><strong><em>Noel Goddard:</em></strong> Principal at Accelerate NY Seed Fund</Typography></li>
-                                            <li><Typography><strong><em>Chuck Pettid:</em></strong> Senior Partner at Republic.co</Typography></li>
-                                            <li><Typography><strong><em>Sandford (Sandy) Wollman:</em></strong> Co-Founder & Managing Director at The Westchester Angels, Leader and Connector in the Angel Investing Space</Typography></li>
-                                            <li><Typography><strong><em>Kimberly Yarnell:</em></strong> Global Marketing Solutions at Facebook</Typography></li>
-                                            <li><Typography><strong><em>Arber Ruci:</em></strong> Director of NYC Innovation Hot Spot, Founder and CEO of InYourClass Corp.</Typography></li>
+                                            <li><Typography>Lead the development and communication of Skinno Inc.'s technology as <strong>Co-founder & Chief Technology Officer</strong> to win the <strong>$25,000 Technology Grand Prize</strong> in the Zahn Innovation Venture Competition</Typography></li>
+                                            <li><Typography>Winner of the <strong>$1,000 People's Choice Award</strong> associated with this competition.</Typography></li>
+                                            <li>
+                                                <Typography>Judges were chosen based on their advanced knowledge of and expertise in the latest technologies:</Typography>
+                                                <ul>
+                                                    <li><Typography><strong><em>Howard Morgan:</em></strong> Co-Founder at First Round Capital</Typography></li>
+                                                    <li><Typography><strong><em>Noel Goddard:</em></strong> Principal at Accelerate NY Seed Fund</Typography></li>
+                                                    <li><Typography><strong><em>Chuck Pettid:</em></strong> Senior Partner at Republic.co</Typography></li>
+                                                    <li><Typography><strong><em>Sandford (Sandy) Wollman:</em></strong> Co-Founder & Managing Director at The Westchester Angels, Leader and Connector in the Angel Investing Space</Typography></li>
+                                                    <li><Typography><strong><em>Kimberly Yarnell:</em></strong> Global Marketing Solutions at Facebook</Typography></li>
+                                                    <li><Typography><strong><em>Arber Ruci:</em></strong> Director of NYC Innovation Hot Spot, Founder and CEO of InYourClass Corp.</Typography></li>
+                                                </ul>
+                                            </li>
                                         </ul>
-                                    </li>
-                                </ul>
-                        </AchievementCard>
+                                </AchievementCard>
+                            </Fade>
+                        </ScrollTrigger>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
-                        <AchievementCard
-                            theme = {theme}
-                            achievementAffiliation={'FTC Robotics 2018 @ Hewlett-Woodmere High School'}
-                            achievement={'Software Advisor/Mentor of the Robotics Long Island Regional Champions'}
-                            year={'2018'}
-                            icon={teacherIcon}
-                            logo={ftcLogo}
-                            adjacentToDate={(
-                                <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
-                                    <FaRegImages></FaRegImages>
-                                </Fab>
-                            )}
-                            >
-                            <ul>
-                                <li><Typography>
-                                <strong>Manage & mentor three high school software development teams,</strong> all of whom competed in several Nassau County qualifiers. All three teams advanced into the Long Island First Tech Regional Challenge at Smithtown High West.
-                                </Typography></li>
-                                <li><Typography>
-                                One team, Roboboogie, won <strong>first place in The Long Island First Tech Regional Challenge.</strong> Another team, Innovo, advanced further to the 'Super Regional' level to <strong>compete at the North American/North-Eastern Super Regional competition</strong> in Scranton, PA.
-                                </Typography></li>
-                            </ul>
-                            </AchievementCard>
-                    </Grid>
+                    {/* FTC Robotics */}
+                        <Grid item xs={12} sm={12} md={12}>
+                            <ScrollTrigger onEnter={()=>this.handleOnScroll('ftcCardVisible')}>
+                                <Slide in={this.state.ftcCardVisible} direction="down">
+                                    <AchievementCard
+                                        theme = {theme}
+                                        achievementAffiliation={'FTC Robotics 2018 @ Hewlett-Woodmere High School'}
+                                        achievement={'Software Advisor/Mentor of the Robotics Long Island Regional Champions'}
+                                        year={'2018'}
+                                        icon={teacherIcon}
+                                        logo={ftcLogo}
+                                        adjacentToDate={(
+                                            <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                                <FaRegImages></FaRegImages>
+                                            </Fab>
+                                        )}
+                                        >
+                                        <ul>
+                                            <li><Typography>
+                                            <strong>Manage & mentor three high school software development teams,</strong> all of whom competed in several Nassau County qualifiers. All three teams advanced into the Long Island First Tech Regional Challenge at Smithtown High West.
+                                            </Typography></li>
+                                            <li><Typography>
+                                            One team, Roboboogie, won <strong>first place in The Long Island First Tech Regional Challenge.</strong> Another team, Innovo, advanced further to the 'Super Regional' level to <strong>compete at the North American/North-Eastern Super Regional competition</strong> in Scranton, PA.
+                                            </Typography></li>
+                                        </ul>
+                                    </AchievementCard>
+                                </Slide>
+                            </ScrollTrigger>
+                        </Grid>
                     <Grid item xs={12} sm={12} md={4}>
                         {/* Education */}
-                        {  this.generateEducationInfo() }
+                        <ScrollTrigger onEnter={()=>this.handleOnScroll('educationCardVisible')}>
+                            {  this.generateEducationInfo() }
+                        </ScrollTrigger>
                         <Grid item xs={12} sm={12} md={12}>
                         {/* Galvanize */}
                         <AchievementCard
