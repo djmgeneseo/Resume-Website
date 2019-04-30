@@ -83,20 +83,21 @@ class App extends Component {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
     
     return <MuiThemeProvider theme={this.state.theme}>
+    <div ref={(ele) => { this.testRef = ele; }}></div>
       <NavBar theme={this.state.theme}/>
       <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>    
-      <NavHelper theme={this.state.theme}/>
-      <About theme={this.state.theme}/>
+      <NavHelper siteAbout={this.testRef} theme={this.state.theme}/>
+      <About ref={"aboutSection"} theme={this.state.theme}/>
       <Parallax backgroundImage={achievementsBackgroundImage} theme={this.state.theme}>
         <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-          <Achievements theme={this.state.theme}/>
+          <Achievements ref={"achievementsSection"} theme={this.state.theme}/>
         </Grid>
       </Parallax>
       <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-        <Portfolio theme={this.state.theme}/>
-        <Experience theme={this.state.theme}/>
+        <Portfolio ref={"portfolioSection"} theme={this.state.theme}/>
+        <Experience ref={"experienceSection"} theme={this.state.theme}/>
       </Grid>
-      <Abilities theme={this.state.theme}/>
+      <Abilities ref={"abilitiesSection"} theme={this.state.theme}/>
       <Footer/>
     </MuiThemeProvider>
   }

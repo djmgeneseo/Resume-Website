@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Card, CardActionArea, CardContent, Typography} from '@material-ui/core';
+import scrollToComponent from 'react-scroll-to-component';
 
 import { withStyles } from '@material-ui/styles'; // jss library
 
@@ -31,13 +32,15 @@ const jssStyle = theme => ({
 
 /**
  * Escorts user to different parts of the page
+ * 
+ * @param {ref} siteAbout - reference to site's about section
  */
 export class NavHelper extends Component {
   render() {
       const {classes} = this.props;
     return (
         <Card className={classes.navHelperContainer}>
-            <CardActionArea>
+            <CardActionArea onClick={() => scrollToComponent(this.testRef)}>
                 <CardContent className={classes.backgroundColor}>
                     <GoChevronUp className={classes.icon + ' ' + classes.topIcon}/>
                 </CardContent>
@@ -62,6 +65,7 @@ export class NavHelper extends Component {
                     <GoTools className={classes.icon}/>
                 </CardContent>
             </CardActionArea>
+            <div ref={(ele) => { this.testRef = ele; }}></div>
         </Card>
     )
   }
