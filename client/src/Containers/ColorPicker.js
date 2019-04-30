@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react'
-import {Drawer, Button, Grid, Tooltip} from '@material-ui/core'
+import {Drawer, CardContent, Grid, Tooltip, CardActionArea, Card} from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
-import { red, pink, purple, deepPurple, indigo, blue, lightBlue, cyan, teal, green, lightGreen, lime, yellow, amber, orange, deepOrange } from '@material-ui/core/colors'
+import { red, pink, purple, deepPurple, indigo, blue, lightBlue, cyan, teal, green, lightGreen, lime, amber, orange, deepOrange, brown } from '@material-ui/core/colors'
 
 import { MdColorLens } from "react-icons/md"
 
@@ -57,10 +57,10 @@ const palette = {
   'Green': green,
   'Light Green': lightGreen,
   'Lime': lime,
-  'Yellow': yellow,
   'Amber': amber,
   'Orange': orange,
-  'Deep Orange': deepOrange
+  'Deep Orange': deepOrange,
+  'Brown': brown
 } 
 
 class ColorPicker extends Component {
@@ -105,12 +105,13 @@ class ColorPicker extends Component {
   render() {
     return (
       <Fragment>
-        <div className={this.props.classes.buttonContainer}>
-            {/* <button onClick={() => props.changeColor(red)}>test</button> */}
-            <Button style={{backgroundColor: 'white', border: 'solid 1.2px #e0e0e0'}} onClick={() => this.toggleDrawer('right', true)}>
-              <MdColorLens className={this.props.classes.paletteIcon} style={{fontSize: '23px'}}></MdColorLens>
-            </Button>
-        </div>
+        <Card className={this.props.classes.buttonContainer}>
+          <CardActionArea onClick={() => this.toggleDrawer('right', true)}>
+            <CardContent>
+              <MdColorLens className={this.props.classes.paletteIcon}></MdColorLens>
+            </CardContent>
+          </CardActionArea>
+        </Card>
         <Drawer
           anchor="right" 
           open={this.state.right} 

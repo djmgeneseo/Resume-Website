@@ -3,6 +3,7 @@ import Achievements from './Achievements';
 import ColorPicker from './ColorPicker';
 import Portfolio from './Portfolio';
 import NavBar from './NavBar';
+import NavHelper from './NavHelper';
 import Experience from './Experience';
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
@@ -12,5 +13,5 @@ import Experience from './Experience';
  */
 
 export {
-    NavBar, About, Achievements, ColorPicker, Portfolio, Experience
+    NavBar, NavHelper, About, Achievements, ColorPicker, Portfolio, Experience
 }

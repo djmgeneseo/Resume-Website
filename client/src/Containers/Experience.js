@@ -233,13 +233,13 @@ const experienceJSON = {
 class Experience extends Component {
 
   state={
-    showElement1: false,
-    showElement2: false,
-    showElement3: false,
-    showElement4: false,
-    showElement5: false,
-    showElement6: false,
-    showElement7: false
+    'show Applications Developer/Implementation Specialist': false,
+    'show Chief Technology Officer': false,
+    'show Technology Specialist': false,
+    'show Undergraduate Computer Science Tutor': false,
+    'show Undergraduate Teacher Assistant - Web Scripting': false,
+    'show Robotics Co-Advisor': false,
+    'show Intern Editor': false
   }
 
   handleOnScroll = (cardToggle) => {
@@ -281,19 +281,17 @@ class Experience extends Component {
       if(experienceJSON[jobName].present) {
         presentBorder = classes.presentBorder
       }
-
+      
       return(
         <li className={float + ' ' + classes.experienceItem} style={largeMarginTop} key={jobName}>
           <div className={timelineMarker}>
             <FaCircle></FaCircle>
           </div>
-          <ScrollTrigger onEnter={()=>self.handleOnScroll('showElement'+i)}>
-            <Grow in={self.state['showElement'+i]} timeout={1000}>
+          <ScrollTrigger onEnter={()=>self.handleOnScroll('show '+jobName)}>
+            <Grow in={self.state['show '+jobName]} timeout={1000}>
               <div>
                 <Paper className={float + ' ' + experiencePaperOrientation + ' ' + presentBorder}>
-                  <div className={certificateIconDiv}>
-                    {/* <img className={classes.certificateIconDivImg} alt='Certificate Icon' src={require('../../../assets/icons/certificate.png')}/> */}
-                  </div>
+                  <div className={certificateIconDiv}></div>
                   <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
                   <Typography variant={'h5'}>{jobName}</Typography>
                   <div className={classes.timePeriodDiv}>

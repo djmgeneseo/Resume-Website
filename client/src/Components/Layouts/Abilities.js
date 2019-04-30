@@ -30,7 +30,18 @@ const jssStyle = (theme) => ({
   subHeading: {
     textAlign: 'left',
     width: '100%',
-    margin: '10px 0'
+    paddingBottom: '15px',
+    position: 'relative',
+    '&:after': {
+        position: 'absolute',
+        display: 'inline-block',
+        content: "''",
+        left: '0',
+        width: '35px',
+        height: '3px',
+        borderBottom: '3px solid',
+        color: theme.palette.primary['500']
+    }
   },
   columnLeftFormat: {
     boxSizing: 'border-box', 
@@ -40,8 +51,36 @@ const jssStyle = (theme) => ({
     boxSizing: 'border-box',
     paddingLeft: '15px'
   },
+  onHover: {
+    '&:hover': {
+      backgroundColor: '#e4e7e7',
+    },
+    '&:hover $star': {
+      margin: '1px'
+    }
+  },
   starsSpan: {
     color: theme.palette.primary['500']
+  },
+  horizontalDivider: {
+    margin: '40px 0px',
+    borderColor: '#727878',
+    opacity: '0.2',
+    border: '0',
+    borderTop: '.09px solid #eee',
+    width: '100%'
+  },
+  star: {
+    display: 'inline',
+    transition: 'margin .2s'
+  },
+  reactDisclaimer: {
+    textAlign:"center", 
+    marginTop: "40px", 
+    width:"100%"
+  },
+  disclaimerText: {
+    color: '#424242ba'
   },
   '@media only screen and (max-width: 959px)': {
     columnRightFormat: {
@@ -85,11 +124,19 @@ const Abilities = (props) => {
   const generateStars = (filledStarsAmt, emptyStarsAmt) => {
     let jsx = [];
     while(filledStarsAmt > 0) {
-      jsx.push(<MdStar key={randomString(10)}/>);
+      jsx.push(
+        <div key={randomString(10)} className={classes.star}>
+          <MdStar/>
+        </div>
+      );
       filledStarsAmt--;
     }
     while(emptyStarsAmt > 0) {
-      jsx.push(<MdStarBorder key={randomString(10)}/>);
+      jsx.push(
+        <div key={randomString(10)} className={classes.star}>
+          <MdStarBorder/>
+        </div>
+      );
       emptyStarsAmt--;
     }  
     return jsx.map(function(star) {return star});
@@ -134,20 +181,28 @@ const Abilities = (props) => {
           leftColArr.map(function(abilityObject) {
             let amtOfStars = Object.keys(abilityObject);
             let abilityName = abilityObject[Object.keys(abilityObject)];
-            return (<Typography key={randomString(10)} variant="body1">{abilityName} <span className={classes.starsSpan} style={{float: 'right'}}>{
-              generateStars(amtOfStars, 5-amtOfStars)
-            }</span></Typography>)
-          })
-        }</Grid>
+            return (
+              <div key={randomString(10)} className={classes.onHover}>
+                <Typography style={{display: 'inline'}} variant="body1">{abilityName}</Typography>
+                <span className={classes.starsSpan} style={{float: 'right'}}>
+                  {generateStars(amtOfStars, 5-amtOfStars)}</span>
+              </div>
+            )
+          })}
+        </Grid>
         <Grid item xs={12} sm={12} md={6} className={classes.columnRightFormat}>{
           rightColArr.map(function(abilityObject) {
             let amtOfStars = Object.keys(abilityObject);
             let abilityName = abilityObject[Object.keys(abilityObject)];
-            return (<Typography key={randomString(10)} variant="body1">{abilityName} <span className={classes.starsSpan} style={{float: 'right'}}>{
-              generateStars(amtOfStars, 5-amtOfStars)
-            }</span></Typography>)
-          })
-        }</Grid>
+            return (
+              <div key={randomString(10)} className={classes.onHover}>
+                <Typography style={{display: 'inline'}} variant="body1">{abilityName}</Typography>
+                <span className={classes.starsSpan} style={{float: 'right'}}>
+                  {generateStars(amtOfStars, 5-amtOfStars)}</span>
+              </div>
+            )
+          })}
+        </Grid>
       </Fragment>
     )
   }
@@ -159,6 +214,10 @@ const Abilities = (props) => {
         <div className={classes.headerShadow}><img alt='section header shadow' src={require('../../assets/img/section_header_shadow.png')}/></div>
         <div className={classes.subHeading}><Typography variant="h5">Skills</Typography></div>
         { generateAbilityCategoryRow(skillsJSON) }
+        <div className={classes.reactDisclaimer}>
+          <Typography><i className={classes.disclaimerText}>This project was built using React & Material-UI.</i></Typography>
+        </div>
+        <hr className={classes.horizontalDivider}/>
         <div className={classes.subHeading}><Typography variant="h5">Tools</Typography></div>
         { generateAbilityCategoryRow(toolsJSON) }
       </Grid>

@@ -104,11 +104,11 @@ const AchievementCard = (props) => {
         <div className={classes.certificateIconDiv}>
             <img alt='Achievement icon' src={props.icon}/>
         </div>
-        <Typography>{props.achievementAffiliation}</Typography>
+        <Typography color="inherit">{props.achievementAffiliation}</Typography>
         { generateLogo() }
-        <Typography variant={'h5'}>{props.achievement}</Typography>
+        <Typography color="inherit" variant={'h5'}>{props.achievement}</Typography>
         <div className={classes.timePeriodDiv}>
-            <Typography variant={'body2'} className={classes.timePeriodParagraph}>{props.year}</Typography>
+            <Typography color="inherit" variant={'body2'} className={classes.timePeriodParagraph}>{props.year}</Typography>
         </div>
         { generateAdjacentToDate() }
         <div>

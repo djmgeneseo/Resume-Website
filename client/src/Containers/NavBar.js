@@ -54,11 +54,11 @@ class NavBar extends Component {
                 <Slide in={!this.state.topOfPage} direction="down" timeout={250}>
                     <AppBar color="primary" position="fixed">
                         <Toolbar>
-                        <a href='' rel="noopener noreferrer" className={classes.home}>
+                        {/* <a href='' rel="noopener noreferrer" className={classes.home}>
                             <IconButton color="secondary">
                                 <FaHome/>
                             </IconButton>
-                        </a>
+                        </a> */}
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             David Murphy - Online Resume
                         </Typography>

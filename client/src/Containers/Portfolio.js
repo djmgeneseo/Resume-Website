@@ -69,7 +69,7 @@ const jssStyle = theme => ({
     top: '195px',
     left: '12px',
     padding: '10px',
-    opacity: 0,
+    opacity: '0',
     transition: 'opacity .5s'
   },
   seeMoreCardEffect: {
