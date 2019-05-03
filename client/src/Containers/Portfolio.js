@@ -102,11 +102,11 @@ const portfolioItems = {
     img: require('../assets/img/resume_site.png')
   },
   'Molloy Data Dashboard': {
-    tags: ['HTML & CSS','JavaScript', 'jQuery', 'Bootstrap', 'PHP', 'IIS'],
+    tags: ['HTML & CSS','JavaScript', 'SQL', 'jQuery', 'Bootstrap', 'PHP', 'IIS'],
     img: require('../assets/img/data_dashboard.png')
   },
   'Skinno': {
-    tags: ['Swift', 'Firebase', 'Firestore', 'CocoaPods'],
+    tags: ['Swift', 'Firebase', 'Firestore', 'NoSQL', 'CocoaPods'],
     video: 'https://www.youtube.com/watch?v=aB-9-rHU7FA',
     img: require('../assets/img/skinno.jpg')
   },
@@ -152,7 +152,7 @@ const portfolioItems = {
   }
 }
 
-const filterOptions = ['All','JavaScript','HTML & CSS','Swift','jQuery','React','R']
+const filterOptions = ['All','JavaScript','HTML & CSS', 'SQL', 'NoSQL','Swift','jQuery','React','R']
 
 /**
  * Cannot declare 'classes' as a class-wide property value because of complications 
