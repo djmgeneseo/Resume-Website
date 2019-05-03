@@ -4,20 +4,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import indigo from '@material-ui/core/colors/indigo';
 import grey from '@material-ui/core/colors/grey';
-
-import {Grid} from '@material-ui/core';
-
-import {Abilities, Footer } from '../Components/Layouts';
-import {Experience, NavBar, NavHelper, ColorPicker, Portfolio, Achievements, About} from './index';
-import Parallax from '../Components/Parallax';
+import {FrontPage} from './index';
 
 /*
   Contains Router structure for website - state manages route-specific layout features, such as header information.
 
   Fragment is a wrapper that circumvents the need for a div - aka, no extra markup 
 */
-
-const achievementsBackgroundImage = require('../assets/img/jumbo.jpg');
 
 let initialTheme = createMuiTheme({
   palette: {
@@ -81,24 +74,9 @@ class App extends Component {
 
   render() {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
-    
+
     return <MuiThemeProvider theme={this.state.theme}>
-    <div ref={(ele) => { this.testRef = ele; }}></div>
-      <NavBar theme={this.state.theme}/>
-      <ColorPicker theme={this.state.theme} changeColor={(color) => this.changeColor(color)}/>    
-      <NavHelper siteAbout={this.testRef} theme={this.state.theme}/>
-      <About ref={"aboutSection"} theme={this.state.theme}/>
-      <Parallax backgroundImage={achievementsBackgroundImage} theme={this.state.theme}>
-        <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-          <Achievements ref={"achievementsSection"} theme={this.state.theme}/>
-        </Grid>
-      </Parallax>
-      <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-        <Portfolio ref={"portfolioSection"} theme={this.state.theme}/>
-        <Experience ref={"experienceSection"} theme={this.state.theme}/>
-      </Grid>
-      <Abilities ref={"abilitiesSection"} theme={this.state.theme}/>
-      <Footer/>
+      <FrontPage changeColor={(color)=>this.changeColor(color)} theme={this.state.theme}/>
     </MuiThemeProvider>
   }
 }

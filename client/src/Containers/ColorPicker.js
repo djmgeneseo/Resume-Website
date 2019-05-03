@@ -90,8 +90,8 @@ class ColorPicker extends Component {
           <Grid 
             item xs={3}
             role="button"
-            onClick={() => {this.toggleDrawer('right', false); this.props.changeColor(color);}}
-            onKeyDown={() => {this.toggleDrawer('right', false); this.props.changeColor(color);}}
+            onClick={() => {this.toggleDrawer('right', false); this.props.changeColorCallback(color);}}
+            onKeyDown={() => {this.toggleDrawer('right', false); this.props.changeColorCallback(color);}}
             style={{backgroundColor: color500}}
             className={this.props.classes.innerDrawerColor}
             >
