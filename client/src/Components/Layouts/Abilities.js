@@ -83,6 +83,9 @@ const jssStyle = (theme) => ({
     color: '#424242ba'
   },
   '@media only screen and (max-width: 959px)': {
+    siteContainer: {
+      paddingRight: '60px'
+    },
     columnRightFormat: {
       paddingLeft: '0px'
     },
@@ -103,7 +106,7 @@ const skillsJSON = {
 
 const toolsJSON = {
   5: ['Android Studio','Xcode','Visual Studio Code','Brackets','Firestore','Firebase','Microsoft IIS','NPM'],
-  4: ['CocoaPods (MacOS Package Manager)', 'Eclipse','Ingenuix CMS'],
+  4: ['CocoaPods', 'Eclipse','Ingenuix CMS'],
   3: ['Eclipse', 'MongoDB','Google Analytics','R Studios','ODBC'],
   2: ['LDAP','Visual Studio 2017'],
   1: ['DynamoDB']
