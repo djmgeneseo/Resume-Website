@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import {Experience, NavBar, ColorPicker, Portfolio, Achievements, About} from './index';
+import {Experience, NavBar, ColorPicker, Portfolio, Achievements, About, Blogs} from './index';
 import Parallax from '../Components/Parallax';
 import {Card, CardActionArea, CardContent, Grid} from '@material-ui/core';
-import {Abilities, Footer, Blogs} from '../Components/Layouts';
+import {Abilities, Footer} from '../Components/Layouts';
 
 import scrollToComponent from 'react-scroll-to-component';
 

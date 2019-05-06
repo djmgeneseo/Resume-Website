@@ -6,7 +6,6 @@ import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Develop
 import {Slide, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
 import {FaFileDownload,FaLinkedin,FaGithub} from "react-icons/fa";
-import { isAbsolute } from 'path';
 // import { Button } from '@material-ui/core';
 
 const jssStyle = theme => ({

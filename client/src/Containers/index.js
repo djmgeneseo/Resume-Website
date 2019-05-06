@@ -5,6 +5,7 @@ import Portfolio from './Portfolio';
 import NavBar from './NavBar';
 import FrontPage from './FrontPage';
 import Experience from './Experience';
+import Blogs from './Blogs';
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  
@@ -13,5 +14,5 @@ import Experience from './Experience';
  */
 
 export {
-    NavBar, FrontPage, About, Achievements, ColorPicker, Portfolio, Experience
+    NavBar, FrontPage, About, Achievements, ColorPicker, Portfolio, Experience, Blogs
 }

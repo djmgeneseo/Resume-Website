@@ -1,7 +1,7 @@
-import React, {Fragment, Component} from 'react';
+import React, { Component} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import { Typography, Grid, Fab, Modal, Card, CardMedia, CardContent, Grow, Slide, Fade } from '@material-ui/core';
+import { Typography, Grid, Fab, Modal, Card, CardMedia, CardContent, Grow } from '@material-ui/core';
 import AchievementCard from '../Components/AchievementCard';
 import ScrollTrigger from 'react-scroll-trigger';
 
