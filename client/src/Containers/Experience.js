@@ -7,6 +7,7 @@ import {FaCircle} from 'react-icons/fa';
 
 import Timeline from '../Components/Timeline';
 import ScrollTrigger from 'react-scroll-trigger';
+import TimePeriodCaption from '../Components/TimePeriodCaption';
 
 const jssStyle = theme => ({
   heading: {
@@ -252,6 +253,7 @@ class Experience extends Component {
   }
 
   generateExperienceListItems = () => {
+    const {theme} = this.props;
     const {classes} = this.props;
     const self=this;
     let i=0;
@@ -294,9 +296,9 @@ class Experience extends Component {
                   <div className={certificateIconDiv}></div>
                   <Typography variant={'body1'}>{experienceJSON[jobName].company}</Typography>          
                   <Typography variant={'h5'}>{jobName}</Typography>
-                  <div className={classes.timePeriodDiv}>
-                    <Typography className={classes.timePeriodParagraph} variant={'body2'}>{experienceJSON[jobName].start + ' - ' + experienceJSON[jobName].end}</Typography>
-                  </div>
+
+                  <TimePeriodCaption theme={theme} timeDescription={`${experienceJSON[jobName].start} - ${experienceJSON[jobName].end}`}/>
+                  
                   <Typography variant={'body2'}>{experienceJSON[jobName].description}</Typography>
                 </Paper>
               </div>
@@ -320,4 +322,4 @@ class Experience extends Component {
   }
 }
 
-export default withStyles(jssStyle)(Experience)
+export default withStyles(jssStyle, {withTheme: true})(Experience)

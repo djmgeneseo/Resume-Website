@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/styles'; // jss library
 import {Experience, NavBar, ColorPicker, Portfolio, Achievements, About} from './index';
 import Parallax from '../Components/Parallax';
 import {Card, CardActionArea, CardContent, Grid} from '@material-ui/core';
-import {Abilities, Footer } from '../Components/Layouts';
+import {Abilities, Footer, Blogs} from '../Components/Layouts';
 
 import scrollToComponent from 'react-scroll-to-component';
 
@@ -77,22 +77,23 @@ export class FrontPage extends Component {
 
     return (
         <Fragment>
-        {navHelper}    
-        <div ref={(ele) => { this.testRef = ele; }}></div>
-        <NavBar theme={this.props.theme}/>
-        <ColorPicker theme={this.props.theme} changeColorCallback={(color) => this.props.changeColor(color)}/>    
-        <About ref={(ele) => { this.aboutSection = ele; }} theme={this.props.theme}/>
-        <Parallax backgroundImage={achievementsBackgroundImage} theme={this.props.theme}>
-          <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-            <Achievements ref={(ele) => { this.achievementsSection = ele; }} theme={this.props.theme}/>
-          </Grid>
-        </Parallax>
-        <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-          <Portfolio ref={(ele) => { this.portfolioSection = ele; }} theme={this.props.theme}/>
-          <Experience ref={(ele) => { this.experienceSection = ele; }} theme={this.props.theme}/>
-        </Grid>
-        <Abilities ref={(ele) => { this.abilitiesSection = ele; }} theme={this.props.theme}/>
-        <Footer/>
+            {navHelper}    
+            <div ref={(ele) => { this.testRef = ele; }}></div>
+            <NavBar theme={this.props.theme}/>
+            <ColorPicker theme={this.props.theme} changeColorCallback={(color) => this.props.changeColor(color)}/>    
+            <About ref={(ele) => { this.aboutSection = ele; }} theme={this.props.theme}/>
+            <Parallax backgroundImage={achievementsBackgroundImage} theme={this.props.theme}>
+            <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
+                <Achievements ref={(ele) => { this.achievementsSection = ele; }} theme={this.props.theme}/>
+            </Grid>
+            </Parallax>
+            <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
+            <Portfolio ref={(ele) => { this.portfolioSection = ele; }} theme={this.props.theme}/>
+            <Experience ref={(ele) => { this.experienceSection = ele; }} theme={this.props.theme}/>
+            </Grid>
+            <Abilities ref={(ele) => { this.abilitiesSection = ele; }} theme={this.props.theme}/>
+            <Blogs theme={this.props.theme}/>
+            <Footer/>
         </Fragment>
     )
   }
