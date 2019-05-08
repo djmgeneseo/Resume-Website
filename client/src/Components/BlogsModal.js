@@ -6,17 +6,28 @@ import MessAppsLogo from '../assets/img/blogs/messapps_logo.png';
 import { withStyles } from '@material-ui/styles'; // jss library
 
 const jssStyle = theme => ({
+    heading: {
+      textAlign: 'center',
+      width: '100%',
+      marginBottom: '25px'
+    },
+    whiteFont: {
+      color: '#FFF !important'
+    },
     modalContainerCard: {
-      height: '70%',
-      width: '90%',
-      margin: '5%',
-      overflowY: 'scroll !important'
+      height: '50%',
+      width: '70%',
+      padding: '10px',
+      overflowY: 'auto',
+      position: 'absolute',
+      left: '14%',
+      top: '25%'
     },
     modalContainerContent: {
       padding: '20%'
     },
     categoryCard: {
-      height: '200px',
+      height: '100px',
       width: 'auto'
     },
     categoryCardMedia: {
@@ -31,35 +42,35 @@ const categories = {
     link: ''
   },
   'Coming Soon1': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon2': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon3': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon4': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon5': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon6': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon7': {
-    img: '',
+    img: null,
     link: ''
   },
   'Coming Soon8': {
-    img: '',
+    img: null,
     link: ''
   }
 }
@@ -74,11 +85,11 @@ const BlogsModal = (props) => {
 
   const generateCategoryCards = () => {
     return Object.keys(categories).map((categoryName, idx) => {
-      return <Grid key={categoryName + idx} item xs={12} sm={12} md={4}>
+      return <Grid key={categoryName + idx} item xs={12} sm={6} md={4}>
       <Card className={classes.categoryCard}>
-        <CardActionArea>
-          <CardMedia className={classes.categoryCardMedia} image={MessAppsLogo}>
-            <Typography>{categoryName}</Typography>
+        <CardActionArea className={classes.categoryCard} style={{padding: '10px'}}>
+          <CardMedia className={classes.categoryCardMedia} image={categories[categoryName]['img']} title={categoryName}>
+            <Typography>{categories[categoryName]['img'] === null ? categoryName: ''}</Typography>
           </CardMedia>
         </CardActionArea>
       </Card>
@@ -93,13 +104,23 @@ const BlogsModal = (props) => {
       open={props.openModal}
       onClose={() => props.handleClose()}
     >
-        <Card className={classes.modalContainerCard}>
+      <div className={classes.modalContainerCard}>
+        <Grid container spacing={16}>
+          <Grid item xs={12} sm={12} md={12}>
+            <div className={classes.heading}>
+              <Typography color="secondary" variant="h4">BLOG CATEGORIES</Typography>
+            </div>
+          </Grid>
+          {generateCategoryCards()}
+        </Grid>
+      </div>
+        {/* <Card className={classes.modalContainerCard}>
           <CardContent className={classes.modalContainerContent}>
-            <Grid container spacing={32}>
+            <Grid container spacing={16}>
               {generateCategoryCards()}
             </Grid>
           </CardContent>
-        </Card>
+        </Card> */}
     </Modal>
   )
 }
