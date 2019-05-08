@@ -1,6 +1,10 @@
 import React from 'react';
 import {Modal, Grid, Card, CardActionArea, CardContent, CardMedia, Typography} from '@material-ui/core';
 
+// Blog Page
+import {Link} from "react-router-dom";
+import BlogPage from '../Containers/MessAppsBlog';
+
 import MessAppsLogo from '../assets/img/blogs/messapps_logo.png';
 
 import { withStyles } from '@material-ui/styles'; // jss library
@@ -87,11 +91,13 @@ const BlogsModal = (props) => {
     return Object.keys(categories).map((categoryName, idx) => {
       return <Grid key={categoryName + idx} item xs={12} sm={6} md={4}>
       <Card className={classes.categoryCard}>
-        <CardActionArea className={classes.categoryCard} style={{padding: '10px'}}>
-          <CardMedia className={classes.categoryCardMedia} image={categories[categoryName]['img']} title={categoryName}>
-            <Typography>{categories[categoryName]['img'] === null ? categoryName: ''}</Typography>
-          </CardMedia>
-        </CardActionArea>
+          <CardActionArea className={classes.categoryCard} style={{padding: '10px'}}>
+            <Link to="/blogs/MessApps">
+                <CardMedia className={classes.categoryCardMedia} image={categories[categoryName]['img']} title={categoryName}>
+                  <Typography>{categories[categoryName]['img'] === null ? categoryName: ''}</Typography>
+                </CardMedia>
+            </Link>
+          </CardActionArea>
       </Card>
     </Grid>
     })
@@ -114,13 +120,6 @@ const BlogsModal = (props) => {
           {generateCategoryCards()}
         </Grid>
       </div>
-        {/* <Card className={classes.modalContainerCard}>
-          <CardContent className={classes.modalContainerContent}>
-            <Grid container spacing={16}>
-              {generateCategoryCards()}
-            </Grid>
-          </CardContent>
-        </Card> */}
     </Modal>
   )
 }

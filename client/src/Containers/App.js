@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import MessAppsBlog from './MessAppsBlog'
+
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import indigo from '@material-ui/core/colors/indigo';
 import grey from '@material-ui/core/colors/grey';
@@ -75,9 +78,14 @@ class App extends Component {
   render() {
     //console.log('state: ' + JSON.stringify(this.state.theme.palette.primary))
 
-    return <MuiThemeProvider theme={this.state.theme}>
-      <FrontPage changeColor={(color)=>this.changeColor(color)} theme={this.state.theme}/>
-    </MuiThemeProvider>
+    return (
+        <Router>
+          <MuiThemeProvider theme={this.state.theme}>
+            <Route path={`/`} exact component={() => <FrontPage changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
+            <Route path={`/blogs/MessApps/`} component={() => <MessAppsBlog theme={this.state.theme}/>}/>
+          </MuiThemeProvider>
+        </Router>
+    )
   }
 }
 
