@@ -18,6 +18,10 @@ const jssStyle = theme => ({
     }
 });
 
+/**
+ * props:
+ * @param {bool} noScroll - removes scroll feature. Otherwise, must scroll below top of page to see navbar
+ */
 class NavBar extends Component {
     
     state = {
@@ -26,6 +30,9 @@ class NavBar extends Component {
 
     componentDidMount() {
         const self=this;
+        console.log(this.props.noScroll);
+        
+        if(this.props.noScroll || this.props.noScroll === undefined) {
         window.onscroll = function() { // Event listener
           if(window.pageYOffset === 0) {
             self.handleEnterTopScroll();
@@ -33,7 +40,8 @@ class NavBar extends Component {
             self.handleExitTopScroll();
           }
         };
-      }
+      } 
+    }
 
     handleExitTopScroll = () => {
         this.setState({
@@ -51,7 +59,7 @@ class NavBar extends Component {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
-                <Slide in={!this.state.topOfPage} direction="down" timeout={250}>
+                <Slide in={this.props.noScroll===true ? this.state.topOfPage : !this.state.topOfPage} direction="down" timeout={250}>
                     <AppBar color="primary" position="fixed">
                         <Toolbar>
                         {/* <a href='' rel="noopener noreferrer" className={classes.home}>
