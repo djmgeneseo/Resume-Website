@@ -1,29 +1,59 @@
 import React, { Component } from 'react'
 
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Typography, Grid, Paper} from '@material-ui/core'
 
 import NavBar from '../Containers/NavBar';
-import {Three_easy_ways_to_improve_your_restaurants_app} from '../Components/BlogEntries/MessApps/index'
+import {Three_easy_ways_to_improve_your_restaurants_app} from '../Components/BlogEntries/MessApps/index';
 
 const jssStyle = theme => ({
-    pageContainer: {
+    blogPageContainer: {
       maxWidth: '1280px', 
       margin: '0 auto',
       marginTop: '75px'
+    },
+    articlePaper: {
+      padding: '40px' 
     }
+
 })
 
+const articles = {
+  'Three_easy_ways_to_improve_your_restaurants_app': <Three_easy_ways_to_improve_your_restaurants_app/>,
+
+}
+
 class MessAppsBlog extends Component {
+  state = {
+    isLandingPage: true
+  }
+
+    // TODO - callback? or setup router properly...
+  disableLandingPage = () => {
+    this.setState({
+      isLandingPage: false
+    })
+  }
+
+  generateArticles = () => {
+    return Object.keys(articles).map((articleName, index) => {
+        return <Route path={`/blogs/MessApps/${articleName}`} component={() => articles[articleName]}>
+        </Route>
+    })
+  }
+
   render() {
     const {classes} = this.props;
     return (
-      <div className={classes.pageContainer}>
+      <div className={classes.blogPageContainer}>
         <NavBar noScroll theme={this.props.theme}/>
         <Grid container spacing={32}>
           <Grid item xs={12} sm={12} md={8}>
-            <Paper>
-              <Three_easy_ways_to_improve_your_restaurants_app/>
+            <Paper className={classes.articlePaper}>
+            {/* TODO */}
+              {this.isLandingPage === true ? <Three_easy_ways_to_improve_your_restaurants_app/> : null}
+              {this.generateArticles()}
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={4}>
