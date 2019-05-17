@@ -1,7 +1,6 @@
 import React from 'react';
 import {Modal, Grid, Card, CardActionArea, CardContent, CardMedia, Typography} from '@material-ui/core';
 
-// Blog Page
 import {Link} from "react-router-dom";
 
 import MessAppsLogo from '../assets/img/blogs/messapps_logo.png';

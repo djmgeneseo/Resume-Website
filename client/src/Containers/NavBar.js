@@ -3,7 +3,9 @@ import { withStyles } from '@material-ui/styles'; // jss library;
 
 import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf';
 
-import { Slide, Toolbar, AppBar, Typography, IconButton, Button } from '@material-ui/core';
+import {Link} from "react-router-dom";
+
+import { Slide, Toolbar, AppBar, Typography, IconButton, Button, Menu, MenuItem } from '@material-ui/core';
 import {FaLinkedin, FaHome, FaGithub} from "react-icons/fa";
 
 const jssStyle = theme => ({
@@ -15,6 +17,12 @@ const jssStyle = theme => ({
     },
     home: {
         marginRight: '10px'
+    },
+    removeTextDecoration: {
+        textDecoration: 'none'
+    },
+    removeOutline: {
+        outline: 'none'
     }
 });
 
@@ -25,8 +33,17 @@ const jssStyle = theme => ({
 class NavBar extends Component {
     
     state = {
-        topOfPage: true
+        topOfPage: true,
+        anchorEl: null
     }
+
+    handleMenu = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+    
+    handleClose = () => {
+    this.setState({ anchorEl: null });
+    };
 
     componentDidMount() {
         const self=this;
@@ -56,19 +73,48 @@ class NavBar extends Component {
 
     render() {
         const {classes} = this.props;
+        const {anchorEl} = this.state;
+        const open = Boolean(anchorEl);
+
         return (
             <div className={classes.root}>
                 <Slide in={this.props.noScroll===true ? this.state.topOfPage : !this.state.topOfPage} direction="down" timeout={250}>
                     <AppBar color="primary" position="fixed">
                         <Toolbar>
-                        {/* <a href='' rel="noopener noreferrer" className={classes.home}>
-                            <IconButton color="secondary">
-                                <FaHome/>
-                            </IconButton>
-                        </a> */}
-                        <Typography variant="h6" color="inherit" className={classes.grow}>
-                            David Murphy - Online Resume
-                        </Typography>
+                        <div className={classes.grow}>
+                            <Link to='/' className={classes.home}>
+                                <IconButton color="secondary">
+                                    <FaHome/>
+                                </IconButton>
+                            </Link>
+                            <div style={{display: 'inline'}}>
+                                <Button
+                                    aria-owns={open ? 'menu-appbar' : undefined}
+                                    aria-haspopup="true"
+                                    onClick={this.handleMenu}
+                                    color="inherit"
+                                >
+                                    Blogs
+                                </Button>
+                                <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorEl}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={open}
+                                onClose={this.handleClose}
+                                >
+                                <Link to="/blogs" className={classes.removeTextDecoration}><MenuItem style={{outline: 'none'}} onClick={this.handleClose}>All Blogs</MenuItem></Link>
+                                <Link to="/blogs/MessApps" className={classes.removeTextDecoration}><MenuItem onClick={this.handleClose}>MessApps</MenuItem></Link>
+                                </Menu>
+                            </div>
+                        </div>
                         <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
                             <IconButton color="secondary">
                                 <FaLinkedin/>

@@ -35,6 +35,9 @@ const jssStyle = theme => ({
     },
     allBlogsButton: {
         marginTop: '15px !important'
+    },
+    removeOutline: {
+        '&:focus':{outline: 'none'}
     }
 })
 
@@ -110,6 +113,7 @@ class BlogSection extends Component {
                         <Button className={classes.allBlogsButton} color="primary" variant="contained" onClick={() => this.handleModalOpen()}>All Blog Posts</Button>
                     </div>
                     <Modal
+                        classes={{root: classes.removeOutline}}
                         aria-labelledby="simple-modal-title"
                         aria-describedby="simple-modal-description"
                         open={this.state.modalOpen}
