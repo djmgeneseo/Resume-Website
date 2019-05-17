@@ -5,9 +5,9 @@ import {Grow, Grid, Typography, Paper} from '@material-ui/core';
 
 import {FaCircle} from 'react-icons/fa';
 
-import Timeline from '../Components/Timeline';
+import Timeline from '../../Components/FrontPage/Timeline';
 import ScrollTrigger from 'react-scroll-trigger';
-import TimePeriodCaption from '../Components/TimePeriodCaption';
+import TimePeriodCaption from '../../Components/TimePeriodCaption';
 
 const jssStyle = theme => ({
   heading: {

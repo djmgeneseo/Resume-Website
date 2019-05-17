@@ -2,35 +2,35 @@ import React, { Component} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
 import { Typography, Grid, Fab, Modal, Card, CardMedia, CardContent, Grow } from '@material-ui/core';
-import AchievementCard from '../Components/AchievementCard';
+import AchievementCard from '../../Components/FrontPage/AchievementCard';
 import ScrollTrigger from 'react-scroll-trigger';
 
 import {FaRegImages} from "react-icons/fa";
 
 // Icons
-const certificateIcon = require('../assets/icons/certificate.png');
-const trophyIcon = require('../assets/icons/trophy.png');
-const memberIcon = require('../assets/icons/member.png');
-const teacherIcon = require('../assets/icons/teacher.png');
+const certificateIcon = require('../../assets/icons/certificate.png');
+const trophyIcon = require('../../assets/icons/trophy.png');
+const memberIcon = require('../../assets/icons/member.png');
+const teacherIcon = require('../../assets/icons/teacher.png');
 
 // Logos
-const stdLogo = require('../assets/img/achievements/sigma_tau_delta.jpg');
-const jlabsLogo = require('../assets/img/achievements/jlabs_logo.png');
-const zahnLogo = require('../assets/img/achievements/zahn_center.png');
-const molloyLogo = require('../assets/img/achievements/molloy_logo.jpg');
-const geneseoLogo  = require('../assets/img/achievements/geneseo_logo.png');
-const galvanizeLogo = require('../assets/img/achievements/galvanize_logo.jpg');
-const massChallengeLogo = require('../assets/img/achievements/masschallenge_logo.png');
-const ftcLogo = require('../assets/img/achievements/ftc_logo.jpg');
+const stdLogo = require('../../assets/img/achievements/sigma_tau_delta.jpg');
+const jlabsLogo = require('../../assets/img/achievements/jlabs_logo.png');
+const zahnLogo = require('../../assets/img/achievements/zahn_center.png');
+const molloyLogo = require('../../assets/img/achievements/molloy_logo.jpg');
+const geneseoLogo  = require('../../assets/img/achievements/geneseo_logo.png');
+const galvanizeLogo = require('../../assets/img/achievements/galvanize_logo.jpg');
+const massChallengeLogo = require('../../assets/img/achievements/masschallenge_logo.png');
+const ftcLogo = require('../../assets/img/achievements/ftc_logo.jpg');
 
 // Pictures
-const stdCertificate = require('../assets/img/achievements/sigma_cert.jpg');
-const skinno1 = require('../assets/img/achievements/skinno_1.jpg');
-const skinno2 = require('../assets/img/achievements/skinno_2.jpg');
-const skinno3 = require('../assets/img/achievements/skinno_3.jpg');
-const robotics1 = require('../assets/img/achievements/robotics_1.jpg');
-const robotics2 = require('../assets/img/achievements/robotics_2.jpg');
-const robotics3 = require('../assets/img/achievements/robotics_3.jpg');
+const stdCertificate = require('../../assets/img/achievements/sigma_cert.jpg');
+const skinno1 = require('../../assets/img/achievements/skinno_1.jpg');
+const skinno2 = require('../../assets/img/achievements/skinno_2.jpg');
+const skinno3 = require('../../assets/img/achievements/skinno_3.jpg');
+const robotics1 = require('../../assets/img/achievements/robotics_1.jpg');
+const robotics2 = require('../../assets/img/achievements/robotics_2.jpg');
+const robotics3 = require('../../assets/img/achievements/robotics_3.jpg');
 
 const jssStyle = theme => ({
     sectionWrapper: {

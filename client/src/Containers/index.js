@@ -1,11 +1,11 @@
-import About from './About.js';
-import Achievements from './Achievements';
+import About from './FrontPage/About.js';
+import Achievements from './FrontPage/Achievements';
 import ColorPicker from './ColorPicker';
-import Portfolio from './Portfolio';
+import Portfolio from './FrontPage/Portfolio';
 import NavBar from './NavBar';
-import FrontPage from './FrontPage';
-import Experience from './Experience';
-import Blogs from './Blogs';
+import FrontPage from './FrontPage/FrontPage';
+import Experience from './FrontPage/Experience';
+import Blogs from './FrontPage/Blogs';
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  

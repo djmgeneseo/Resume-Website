@@ -1,17 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
-
-import {Experience, NavBar, ColorPicker, Portfolio, Achievements, About, Blogs} from './index';
-import Parallax from '../Components/Parallax';
 import {Card, CardActionArea, CardContent, Grid} from '@material-ui/core';
-import {Abilities, Footer} from '../Components/Layouts';
+
+import {Experience, Portfolio, Achievements, About, Blogs} from './index';
+import {NavBar, ColorPicker} from '../index';
+
+import {Parallax} from '../../Components/index';
+import {Abilities, Footer} from '../../Components/FrontPage/index';
 
 import scrollToComponent from 'react-scroll-to-component';
 
 // Media
 import { GoChevronUp, GoFileCode, GoBriefcase, GoTools } from "react-icons/go";
 import { IoMdTrophy } from "react-icons/io";
-import achievementsBackgroundImage from '../assets/img/jumbo.jpg';
+import achievementsBackgroundImage from '../../assets/img/jumbo.jpg';
 
 const jssStyle = theme => ({
     navHelperContainer: {

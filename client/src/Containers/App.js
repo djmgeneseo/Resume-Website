@@ -81,8 +81,8 @@ class App extends Component {
     return (
         <Router>
           <MuiThemeProvider theme={this.state.theme}>
-            <Route path={`/`} exact component={() => <FrontPage changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
-            <Route path={`/blogs/MessApps/`} component={() => <MessAppsBlog theme={this.state.theme}/>}/>
+            <Route path={`/`} exact component={(routeProps) => <FrontPage {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
+            <Route path={`/blogs/MessApps/`} component={(routeProps) => <MessAppsBlog {...routeProps} theme={this.state.theme}/>}/>
           </MuiThemeProvider>
         </Router>
     )

@@ -1,12 +1,42 @@
 import React, {Component, Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
+import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
 
 import {Slide, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
 import {FaFileDownload,FaLinkedin,FaGithub} from "react-icons/fa";
 // import { Button } from '@material-ui/core';
+
+const selfPortrait = require('../../assets/img/me.png')
+
+const cyclingPics = [require('../../assets/img/hobbies/bicycle.jpg')]
+const hikingPics = [require('../../assets/img/hobbies/hike_1.jpg'),
+                    require('../../assets/img/hobbies/hike_2.jpg'),
+                    require('../../assets/img/hobbies/hike_3.jpg'),
+                    require('../../assets/img/hobbies/hike_4.jpg'),
+                    require('../../assets/img/hobbies/hike_5.jpg'),
+                    require('../../assets/img/hobbies/hike_6.jpg')]
+
+const drummingPics = [require('../../assets/img/hobbies/drum_1.jpg'),
+                    require('../../assets/img/hobbies/drum_2.jpg')]
+
+const snowboardingPics = [require('../../assets/img/hobbies/snowboard_1.jpg'),
+                        require('../../assets/img/hobbies/snowboard_2.jpg'),
+                        require('../../assets/img/hobbies/snowboard_3.jpg')]
+
+const volleyballPics = [require('../../assets/img/hobbies/volleyball.jpg')]
+
+const tennisPics = [require('../../assets/img/hobbies/tennis_1.jpg'),
+                    require('../../assets/img/hobbies/tennis_2.jpg')]
+
+const surfingPics = [require('../../assets/img/hobbies/surf_1.jpg')]
+
+const researchPics = [require('../../assets/img/hobbies/research_1.png')]
+
+const climbingPics = [require('../../assets/img/hobbies/climb_2.jpg'), 
+                    require('../../assets/img/hobbies/climb_1.jpg'), 
+                    require('../../assets/img/hobbies/climb_3.jpg')]
 
 const jssStyle = theme => ({
     inflate: {
@@ -310,49 +340,49 @@ const info = {
 
 const hobbies = {
     'Cycling': {
-        icon: require('../assets/icons/hobbies/bicycle.png'),
+        icon: require('../../assets/icons/hobbies/bicycle.png'),
         description: ['I bought this Domane AL 2 as my first road bike in August of 2018. By September of that year, I reached my furthest cycling distance of 37.47 miles in 4h 02m 27s.'],
-        images: [require('../assets/img/hobbies/bicycle.jpg')]
+        images: cyclingPics
     },
     'Hiking': {
-        icon: require('../assets/icons/hobbies/boots.png'),
+        icon: require('../../assets/icons/hobbies/boots.png'),
         description: ["The Ein Gedi in Israel, located south-east of Jerusalem. This picture (Spring 2014) was taken nearby the Dead Sea - Earth's lowest on-land elevation.", "Half-way point to the top of the 1240ft Breakneck Ridge (Aug 2018). Located just 1 hour north of NYC along the Hudson River.", "Cathedral Rock - Sedona, Arizona (April 2019)", "Devil's Bridge - Sedona, Arizona (April 2019)", "Grand Canyon (Southern Rim) - Grand Canyon National Park, Arizona (April 2019)", "Angel's Landing - Zion National Park, Utah (April 2019)"],
-        images: [require('../assets/img/hobbies/hike_1.jpg'), require('../assets/img/hobbies/hike_2.jpg'),require('../assets/img/hobbies/hike_3.jpg'),require('../assets/img/hobbies/hike_4.jpg'),require('../assets/img/hobbies/hike_5.jpg'),require('../assets/img/hobbies/hike_6.jpg')]
+        images: hikingPics
     },
     'Drumming': {
-        icon: require('../assets/icons/hobbies/drums.png'),
+        icon: require('../../assets/icons/hobbies/drums.png'),
         description: ["Battle of the Bands at my hometown High School in Oceanside, NY (Spring 2012).", "Live at my High School reunion/charity event (with a different band) on my High School's football field (Summer 2014)."],
-        images: [require('../assets/img/hobbies/drum_1.jpg'),require('../assets/img/hobbies/drum_2.jpg')]
+        images: drummingPics
     },
     'Snowboarding': {
-        icon: require('../assets/icons/hobbies/snowboard.png'),
+        icon: require('../../assets/icons/hobbies/snowboard.png'),
         description: ['My first snowboarding trip! I (right) purchased this board and pair of boots from Facebook Marketplace and hit the slopes the next day. Mountain Creek, NJ (~1300ft elevation) (Jan 2019).', "After 3 sessions and many bruises later, I finally felt comfortable carving both toeside and heelside on blue squares. One month later - armed with new bindings and a new pair of boots - I felt confident enough to hit my first-ever black diamond. For the next two months, feeling unsatisfied about waiting for the weekend to snowboard, I started to find time during the week. I was hooked. (February 2019 @ Mountain Creek, NJ)", "By the end of the season, I could hit almost every black diamond, and made my first steps into the terrain park. Pictured is me with my new board setup @ Killington Mountain, VT (~4500ft). Other mountains I visited before the season's close include Hunter Mountain, Mount Snow, and Camelback."],
-        images: [require('../assets/img/hobbies/snowboard_1.jpg'),require('../assets/img/hobbies/snowboard_2.jpg'),require('../assets/img/hobbies/snowboard_3.jpg')]
+        images: snowboardingPics
     },
     'Volleyball': {
-        icon: require('../assets/icons/hobbies/volleyball.png'),
+        icon: require('../../assets/icons/hobbies/volleyball.png'),
         description: ["Pictured is my Geneseo club Volleyball team versing SUNY Buffalo. I was vice president on the e-board, and designated right-side hitter (Nov 2016)."],
-        images: [require('../assets/img/hobbies/volleyball.jpg')]
+        images: volleyballPics
     },
     'Tennis': {
-        icon: require('../assets/icons/hobbies/tennis.png'),
+        icon: require('../../assets/icons/hobbies/tennis.png'),
         description: ["I started playing Tennis in the Spring of '18. At this point, I was self-taught; here's me, applying skills I learned after watching Youtube tutorials and the pros play live. I recorded myself playing against the wall to debug my forehand and serve after every practice (Spring 2018).", "By the end of the Summer, I met old friends and new players who helped push me to NTRP level 3.0. Pictured is a still-frame from a video I recorded of a late-summer session. At this point, I recorded myself to debug my backhand (Summer 2018)."],
-        images: [require('../assets/img/hobbies/tennis_1.jpg'),require('../assets/img/hobbies/tennis_2.jpg')]
+        images: tennisPics
     },
     'Surfing': {
-        icon: require('../assets/icons/hobbies/surfboard.png'),
+        icon: require('../../assets/icons/hobbies/surfboard.png'),
         description: ["Me (on the right - Summer 2017) teaching my friend from upstate how to surfboard. I've been surfing since the Summer of 2014."],
-        images: [require('../assets/img/hobbies/surf_1.jpg')]
+        images: surfingPics
     },
     'Research': {
-        icon: require('../assets/icons/hobbies/research.png'),
+        icon: require('../../assets/icons/hobbies/research.png'),
         description: ["I completed my mentor-guided research on forest succession at Geneseo in 2016. I utilized transect data from a 1999 study of the Roemer Arboretum to parameterize a transition matrix model that predicts the arboretum’s future tree composition."],
-        images: [require('../assets/img/hobbies/research_1.png')]
+        images: researchPics
     },
     'Climbing': {
-        icon: require('../assets/icons/hobbies/climbing.png'),
+        icon: require('../../assets/icons/hobbies/climbing.png'),
         description: ["I've been indoor climbing since 2014, and recently decided to take climbing outdoors. The crashpad on my back is meant to support climbing falls of up to 20ft. Pictured is me at the half-way point up Bear Mountain, NY (1200ft) (April 2019)", "One of two boulders I found with decent holds for many possible climbing routes (April 2019). I am currently developing an App with a fellow climber and developer to make sharing rare climbing spots easy. Many boulders exist that have evaded the more popular yet unmaintained climbing databases.", "Lately I've been climbing in the gym at Island Rock (Plainview, NY). In preparation to transition into lead climbing, I turned my focus in the gym onto top roping. Pictured is me warming-up on a graded 5.9 problem. My highest achieved grade is 5.10d (April 2019)"],
-        images: [require('../assets/img/hobbies/climb_2.jpg'), require('../assets/img/hobbies/climb_1.jpg'), require('../assets/img/hobbies/climb_3.jpg')]
+        images: climbingPics
     }
 }
 
@@ -459,7 +489,7 @@ class About extends Component {
                                 </a>
                             </div>
                             <div style={{display: "inline-block"}}  className={this.props.classes.circularImageContainer}>
-                                <img alt='Self Portrait of David Murphy' src={require('../assets/img/me.png')}/>
+                                <img alt='Self Portrait of David Murphy' src={selfPortrait}/>
                             </div>
                             <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
                             <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>

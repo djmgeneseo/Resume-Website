@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Card, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
-import BlogsModal from '../Components/BlogsModal';
+import BlogsModal from '../../Components/FrontPage/BlogsModal';
 
 import { withStyles } from '@material-ui/styles'; // jss library
-import me from '../assets/img/me.png';
-import TimePeriodCaption from '../Components/TimePeriodCaption';
+import me from '../../assets/img/me.png';
+import TimePeriodCaption from '../../Components/TimePeriodCaption';
 
 const jssStyle = theme => ({
     siteContainer: {

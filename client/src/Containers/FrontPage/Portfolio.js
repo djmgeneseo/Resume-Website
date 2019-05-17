@@ -99,56 +99,56 @@ const portfolioItems = {
   'Resume Website': {
     git: 'https://github.com/djmgeneseo/Resume-Website',
     tags: ['React', 'JavaScript', 'ES6', 'JSS', 'Material-UI', 'npm'],
-    img: require('../assets/img/resume_site.png')
+    img: require('../../assets/img/resume_site.png')
   },
   'Molloy Data Dashboard': {
     tags: ['HTML & CSS','JavaScript', 'SQL', 'jQuery', 'Bootstrap', 'PHP', 'IIS'],
-    img: require('../assets/img/data_dashboard.png')
+    img: require('../../assets/img/data_dashboard.png')
   },
   'Skinno': {
     tags: ['Swift', 'Firebase', 'Firestore', 'NoSQL', 'CocoaPods'],
     video: 'https://www.youtube.com/watch?v=aB-9-rHU7FA',
-    img: require('../assets/img/skinno.jpg')
+    img: require('../../assets/img/skinno.jpg')
   },
   'Skinno Landing Page': {
     link: 'https://djmgeneseo.github.io/Skinno_Website/',
     git: 'https://github.com/djmgeneseo/Skinno_Website',
     tags: ['HTML & CSS','JavaScript', 'jQuery', 'Heroku'],
-    img: require('../assets/img/skinno_site.png')
+    img: require('../../assets/img/skinno_site.png')
   },
   'Job Listing Automation': {
     git: 'https://github.com/djmgeneseo/Job-Listing-Generator',
     tags: ['HTML & CSS', 'JavaScript', 'Node.js'],
-    img: require('../assets/img/job_listing.png')
+    img: require('../../assets/img/job_listing.png')
   },
   'Mock Food App Website': {
     link: 'https://djmgeneseo.github.io/MOCK-FOOD-DELIVERY-WEBSITE/',
     git: 'https://github.com/djmgeneseo/MOCK-FOOD-DELIVERY-WEBSITE',
     tags: ['HTML & CSS', 'JavaScript', 'jQuery'],
-    img: require('../assets/img/food_site.png')
+    img: require('../../assets/img/food_site.png')
   },
   'iOS OCR Mobile Vision': {
     git: 'https://github.com/djmgeneseo/mlpractice',
     tags: ['Swift','Tensorflow', 'Mobile Vision', 'CocoaPods'],
     video: 'https://www.youtube.com/watch?v=sKEsSFrNkrQ',
-    img: require('../assets/img/mobile_vision.png')
+    img: require('../../assets/img/mobile_vision.png')
   },
   'Roemer Arboretum Research': {
     git: 'https://github.com/djmgeneseo/Roemer-Arboretum-Research',
     tags: ['R'],
-    img: require('../assets/img/arboretum.png')
+    img: require('../../assets/img/arboretum.png')
   },
   'Flappy Bird': {
     link: 'https://djmgeneseo.github.io/FLAPPY-BIRD/',
     git: 'https://github.com/djmgeneseo/FLAPPY-BIRD/tree/master',
     tags: ['JavaScript', 'ES6'],
-    img: require('../assets/img/flappy_bird.png')
+    img: require('../../assets/img/flappy_bird.png')
   },
   'Ping Pong': {
     link: 'https://djmgeneseo.github.io/PING-PONG/',
     git: 'https://github.com/djmgeneseo/PING-PONG',
     tags: ['JavaScript', 'ES5'],
-    img: require('../assets/img/ping_pong.png')
+    img: require('../../assets/img/ping_pong.png')
   }
 }
 

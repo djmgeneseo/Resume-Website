@@ -1,5 +1,6 @@
-import Footer from './Footer';
-import Abilities from './Abilities';
+import ArticleHOC from "./ArticleHOC";
+import Parallax from "./Parallax";
+import TimePeriodCaption from './TimePeriodCaption'
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  
@@ -8,5 +9,5 @@ import Abilities from './Abilities';
  */
 
 export {
-    Footer, Abilities
+    ArticleHOC, Parallax, TimePeriodCaption
 }

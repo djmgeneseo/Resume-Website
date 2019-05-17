@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Typography, Grid, Paper} from '@material-ui/core'
 
+import ArticleHOC from '../Components/ArticleHOC' 
+
 import NavBar from '../Containers/NavBar';
 import {Three_easy_ways_to_improve_your_restaurants_app} from '../Components/BlogEntries/MessApps/index';
 
@@ -38,8 +40,7 @@ class MessAppsBlog extends Component {
 
   generateArticles = () => {
     return Object.keys(articles).map((articleName, index) => {
-        return <Route path={`/blogs/MessApps/${articleName}`} component={() => articles[articleName]}>
-        </Route>
+        return <Route path={`/blogs/MessApps/${articleName}`} component={(routeProps) => <ArticleHOC {...routeProps}>{articles[articleName]}</ArticleHOC>}/>
     })
   }
 

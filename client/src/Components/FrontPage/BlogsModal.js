@@ -3,9 +3,9 @@ import {Modal, Grid, Card, CardActionArea, CardContent, CardMedia, Typography} f
 
 // Blog Page
 import {Link} from "react-router-dom";
-import BlogPage from '../Containers/MessAppsBlog';
+import BlogPage from '../../Containers/MessAppsBlog';
 
-import MessAppsLogo from '../assets/img/blogs/messapps_logo.png';
+import MessAppsLogo from '../../assets/img/blogs/messapps_logo.png';
 
 import { withStyles } from '@material-ui/styles'; // jss library
 
