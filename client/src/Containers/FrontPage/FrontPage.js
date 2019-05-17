@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Card, CardActionArea, CardContent, Grid} from '@material-ui/core';
 
-import {Experience, Portfolio, Achievements, About, Blogs} from './index';
+import {Experience, Portfolio, Achievements, About, BlogSection} from './index';
 import {NavBar, ColorPicker} from '../index';
 
 import {Parallax} from '../../Components/index';
@@ -94,7 +94,7 @@ export class FrontPage extends Component {
             <Experience ref={(ele) => { this.experienceSection = ele; }} theme={this.props.theme}/>
             </Grid>
             <Abilities ref={(ele) => { this.abilitiesSection = ele; }} theme={this.props.theme}/>
-            <Blogs theme={this.props.theme}/>
+            <BlogSection theme={this.props.theme}/>
             <Footer/>
         </Fragment>
     )

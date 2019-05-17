@@ -30,7 +30,6 @@ class NavBar extends Component {
 
     componentDidMount() {
         const self=this;
-        console.log(this.props.noScroll);
         
         if(this.props.noScroll || this.props.noScroll === undefined) {
         window.onscroll = function() { // Event listener

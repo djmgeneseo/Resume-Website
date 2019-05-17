@@ -3,9 +3,8 @@ import {Modal, Grid, Card, CardActionArea, CardContent, CardMedia, Typography} f
 
 // Blog Page
 import {Link} from "react-router-dom";
-import BlogPage from '../../Containers/MessAppsBlog';
 
-import MessAppsLogo from '../../assets/img/blogs/messapps_logo.png';
+import MessAppsLogo from '../assets/img/blogs/messapps_logo.png';
 
 import { withStyles } from '@material-ui/styles'; // jss library
 
@@ -83,8 +82,9 @@ const categories = {
  * @param {func} handleClose
  * @param {bool} openModal
  * @param {json} theme
+ * @param {bool} removeHeader
  */
-const BlogsModal = (props) => {
+const BlogsSelection = (props) => {
   const {classes} = props;
 
   const generateCategoryCards = () => {
@@ -104,24 +104,17 @@ const BlogsModal = (props) => {
   }
 
   return (
-    <Modal
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
-      open={props.openModal}
-      onClose={() => props.handleClose()}
-    >
       <div className={classes.modalContainerCard}>
         <Grid container spacing={16}>
           <Grid item xs={12} sm={12} md={12}>
-            <div className={classes.heading}>
+            <div className={classes.heading} style={props.removeHeader === true ? {display: 'none'} : {display: 'block'}}>
               <Typography color="secondary" variant="h4">BLOG CATEGORIES</Typography>
             </div>
           </Grid>
           {generateCategoryCards()}
         </Grid>
       </div>
-    </Modal>
   )
 }
 
-export default withStyles(jssStyle)(BlogsModal)
+export default withStyles(jssStyle)(BlogsSelection)

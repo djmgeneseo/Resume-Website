@@ -3,11 +3,11 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Typography, Link} from '@material-ui/core';
 
-import img1 from '../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/1.jpg';
-import img2 from '../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/2.jpg';
-import img3 from '../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/3.jpg';
+import img1 from '../../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/1.jpg';
+import img2 from '../../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/2.jpg';
+import img3 from '../../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/3.jpg';
 
-import davidThumbNail from '../../../assets/img/blogs/david_thumbnail.png';
+import davidThumbNail from '../../../../assets/img/blogs/david_thumbnail.png';
 
 const jssStyle = theme => ({
     img: {

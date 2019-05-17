@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import MessAppsBlog from './MessAppsBlog'
+import {Blogs, MessAppsBlog} from './Blogs/index';
+import {FrontPage} from './FrontPage/index';
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import indigo from '@material-ui/core/colors/indigo';
 import grey from '@material-ui/core/colors/grey';
-import {FrontPage} from './index';
 
 /*
   Contains Router structure for website - state manages route-specific layout features, such as header information.
@@ -82,7 +82,7 @@ class App extends Component {
         <Router>
           <MuiThemeProvider theme={this.state.theme}>
             <Route path={`/`} exact component={(routeProps) => <FrontPage {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
-            <Route path={`/blogs/MessApps/`} component={(routeProps) => <MessAppsBlog {...routeProps} theme={this.state.theme}/>}/>
+            <Route path={`/blogs`} component={(routeProps) => <Blogs {...routeProps} theme={this.state.theme}/>}/>
           </MuiThemeProvider>
         </Router>
     )

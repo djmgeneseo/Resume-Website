@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Card, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
-import BlogsModal from '../../Components/FrontPage/BlogsModal';
+import {Card, CardActions, CardContent, CardMedia, Button, Typography, Grid, Modal} from '@material-ui/core';
 
 import { withStyles } from '@material-ui/styles'; // jss library
 import me from '../../assets/img/me.png';
 import TimePeriodCaption from '../../Components/TimePeriodCaption';
+import BlogsSelection from '../../Components/BlogsSelection';
 
 const jssStyle = theme => ({
     siteContainer: {
@@ -38,7 +38,7 @@ const jssStyle = theme => ({
     }
 })
 
-class Blogs extends Component {
+class BlogSection extends Component {
 
     state={
         modalOpen: false
@@ -109,14 +109,17 @@ class Blogs extends Component {
                     <div style={{display: 'flex',justifyContent: 'center', width: '100%'}}>
                         <Button className={classes.allBlogsButton} color="primary" variant="contained" onClick={() => this.handleModalOpen()}>All Blog Posts</Button>
                     </div>
-                    <BlogsModal 
-                        theme = {this.props.theme}
-                        handleClose={() => this.handleModalClose()} 
-                        openModal={this.state.modalOpen}/>
+                    <Modal
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        open={this.state.modalOpen}
+                        onClose={() => this.handleModalClose()}>
+                        <BlogsSelection/>
+                    </Modal>
                 </Grid>
             </Grid>
         )
     }
 }
 
-export default withStyles(jssStyle, {withTheme: true})(Blogs)
+export default withStyles(jssStyle, {withTheme: true})(BlogSection)
