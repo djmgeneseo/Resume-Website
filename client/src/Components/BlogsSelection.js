@@ -17,7 +17,7 @@ const jssStyle = theme => ({
       color: '#FFF !important'
     },
     modalContainerCard: {
-      height: '50%',
+      height: '60%',
       width: '70%',
       padding: '10px',
       overflowY: 'auto',

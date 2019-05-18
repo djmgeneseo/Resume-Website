@@ -35,9 +35,6 @@ const jssStyle = theme => ({
     },
     allBlogsButton: {
         marginTop: '15px !important'
-    },
-    removeOutline: {
-        '&:focus':{outline: 'none'}
     }
 })
 
@@ -76,7 +73,6 @@ class BlogSection extends Component {
                             <Typography variant="h5">Mock Title</Typography>
                             <Typography>Lorem ipsum dolor sit amet, ne usu eius animal, nam accusata conceptam ea. Qui ut prima aliquip reprehendunt, eos ex nibh libris delectus, an has liber melius constituto. Epicuri mediocrem vis ex.</Typography>
                         </CardContent>
-                        
                         <CardActions><Button size="small" color="primary">Read More</Button></CardActions>
                     </Card>
                 </Grid>

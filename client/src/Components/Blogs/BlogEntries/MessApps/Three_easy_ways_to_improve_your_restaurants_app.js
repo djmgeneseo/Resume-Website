@@ -3,11 +3,13 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Typography, Link} from '@material-ui/core';
 
-import img1 from '../../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/1.jpg';
-import img2 from '../../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/2.jpg';
-import img3 from '../../../../assets/img/blogs/messapps/3_easy_ways_to_improve_your_restaurants_app/3.jpg';
+import TimePeriodCaption from '../../../TimePeriodCaption';
 
-import davidThumbNail from '../../../../assets/img/blogs/david_thumbnail.png';
+import img1 from '../../../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/1.jpg';
+import img2 from '../../../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/2.jpg';
+import img3 from '../../../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/3.jpg';
+
+import davidThumbnail from '../../../../assets/img/blogs/david_thumbnail.png';
 
 const jssStyle = theme => ({
     img: {
@@ -32,9 +34,10 @@ const jssStyle = theme => ({
         verticalAlign: '-0.4em'
       }
     },
-    headingAutorContainer: {
+    headingAuthorContainer: {
       display: 'inline-block',
-      marginLeft: '1em'
+      marginLeft: '1em',
+      position: 'relative'
     },
     headingAuthor: {
       marginBottom: '-5px !important'
@@ -46,11 +49,11 @@ const Three_easy_ways_to_improve_your_restaurants_app = (props) => {
   return (
     <div>
       <div>
-      <Typography style={{float: 'right', display: 'inline'}}><Link href={'https://messapps.com/allcategories/strategy/3-easy-ways-improve-restaurants-app-2/'} underline='always'>Visit MessApps</Link></Typography>
-        <img src={davidThumbNail} style={{marginTop: '5px'}} alt="David Murphy thumbnail picture"/>
-        <div className={classes.headingAutorContainer}>
+      <Typography style={{float: 'right', display: 'inline'}}><a href={'https://messapps.com/allcategories/strategy/3-easy-ways-improve-restaurants-app-2/'}>Visit MessApps</a></Typography>
+        <img src={davidThumbnail} style={{marginTop: '5px'}} alt="David Murphy thumbnail picture"/>
+        <div className={classes.headingAuthorContainer}>
           <Typography variant="h6" className={classes.headingAuthor}>David Murphy</Typography>
-          <Typography variant="caption">June 27, 2016</Typography>
+          <TimePeriodCaption theme={props.theme} timeDescription={'June 27, 2016'}></TimePeriodCaption>
         </div>
       </div>
       <br/>
@@ -154,4 +157,4 @@ const Three_easy_ways_to_improve_your_restaurants_app = (props) => {
   )
 }
 
-export default withStyles(jssStyle)(Three_easy_ways_to_improve_your_restaurants_app)
+export default withStyles(jssStyle, {withTheme: true})(Three_easy_ways_to_improve_your_restaurants_app)

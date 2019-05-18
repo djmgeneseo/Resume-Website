@@ -21,6 +21,7 @@ const jssStyle = theme => ({
 class Blogs extends Component {
   render() {
       const {classes} = this.props;
+      console.log(this.props.theme)
     return (
       <div>
         <NavBar noScroll theme={this.props.theme}/>
