@@ -16,7 +16,8 @@ import {
   ElevenOfTheMostFrequentlyAskedAppMarketingQuestions,
   ACompleteOverviewOfTheAppDevelopmentCycle,
   AnIntroIntoTestflightExternalTesting,
-  AnIntroIntoTestflightInternalTesting
+  AnIntroIntoTestflightInternalTesting,
+  AppAnalyticsWhatYouCanFindOutAboutYourUsers
 } from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
@@ -94,7 +95,16 @@ const articles = [
     intro: `TestFlight is completely optional, yet completely free for all iOS developers.`,
     img: require('../../assets/img/blogs/messapps/an-intro-into-testflight-internal-testing/1.jpg'),
     date: 'August 11, 2016',
-    messappsURL: 'https://messapps.com/allcategories/development/intro-testflight-external-testing/'
+    messappsURL: 'https://messapps.com/allcategories/development/an-intro-into-testflight-internal-testing-2/'
+  },
+  {
+    title: `App Analytics – What can you find out about your users?`,
+    id: 'app-analytics-what-you-can-find-out-about-your-users',
+    component: <AppAnalyticsWhatYouCanFindOutAboutYourUsers/>,
+    intro: `Successful app optimization is why app analytics is such a profitable investment.`,
+    img: require('../../assets/img/blogs/messapps/app-analytics-what-you-can-find-out-about-your-users/1.jpg'),
+    date: 'June 02, 2016',
+    messappsURL: 'https://messapps.com/allcategories/strategy/app-analytics-can-find-users-2/'
   }
 ]
 
@@ -129,7 +139,7 @@ class MessAppsBlog extends Component {
     
     return (
       <div className={classes.blogPageContainer}>
-        <Grid container>
+        <Grid container spacing={16}>
           <Grid item xs={12} sm={12} md={12}>
                       <div className={classes.heading}>
                           <Typography variant="h4">MESSAPPS</Typography>

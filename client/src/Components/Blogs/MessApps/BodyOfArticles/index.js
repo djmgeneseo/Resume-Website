@@ -4,6 +4,7 @@ import ElevenOfTheMostFrequentlyAskedAppMarketingQuestions from './ElevenOfTheMo
 import ACompleteOverviewOfTheAppDevelopmentCycle from './ACompleteOverviewOfTheAppDevelopmentCycle'
 import AnIntroIntoTestflightExternalTesting from './AnIntroIntoTestflightExternalTesting'
 import AnIntroIntoTestflightInternalTesting from './AnIntroIntoTestflightInternalTesting'
+import AppAnalyticsWhatYouCanFindOutAboutYourUsers from './AppAnalyticsWhatYouCanFindOutAboutYourUsers'
 
 export {
     ThreeEasyWaysToImproveYourRestaurantsApp, 
@@ -11,5 +12,6 @@ export {
     ElevenOfTheMostFrequentlyAskedAppMarketingQuestions,
     ACompleteOverviewOfTheAppDevelopmentCycle,
     AnIntroIntoTestflightExternalTesting,
-    AnIntroIntoTestflightInternalTesting
+    AnIntroIntoTestflightInternalTesting,
+    AppAnalyticsWhatYouCanFindOutAboutYourUsers
 }

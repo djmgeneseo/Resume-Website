@@ -58,7 +58,7 @@ const jssStyle = theme => ({
 const BlogCard = (props) => {
     const {classes} = props;
     return (
-        <Grid key={props.blogTitle} item xs={12} sm={12} md={4}>
+        <Grid key={props.blogTitle} item xs={12} sm={6} md={4}>
             <Card className={classes.blogCard}>
                 <CardMedia className={classes.cardMedia} image={props.blogImg}>
                     <div className={classes.timePeriodContainer}>
