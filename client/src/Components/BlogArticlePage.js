@@ -15,6 +15,9 @@ const jssStyle = theme => ({
   }
 })
 
+/**
+ * @param {jsx} children = article/blog
+ */
 const BlogArticlePage = (props) => {
   const {classes} = props;
   return (

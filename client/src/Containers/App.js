@@ -35,6 +35,9 @@ let initialTheme = createMuiTheme({
         body1: {
           color: grey[800]
         },
+        paragraph: {
+          fontSize: 19
+        },
         body2: {
           color: grey[800]
         },

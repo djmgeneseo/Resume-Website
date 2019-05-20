@@ -8,8 +8,16 @@ import BlogArticlePage from '../../Components/BlogArticlePage'
 import me from '../../assets/img/me.png';
 import TimePeriodCaption from '../../Components/TimePeriodCaption';
 import BlogCard from '../../Components/Blogs/BlogCard';
+import MessAppsArticle from '../../Components/Blogs/MessApps/MessAppsArticle'
 
-import {Three_easy_ways_to_improve_your_restaurants_app} from '../../Components/Blogs/BlogEntries/MessApps/index';
+import {
+  ThreeEasyWaysToImproveYourRestaurantsApp,
+  FiveAppreneurBooksThatGuaranteeResults,
+  ElevenOfTheMostFrequentlyAskedAppMarketingQuestions,
+  ACompleteOverviewOfTheAppDevelopmentCycle,
+  AnIntroIntoTestflightExternalTesting,
+  AnIntroIntoTestflightInternalTesting
+} from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
     heading: {
@@ -30,17 +38,63 @@ const jssStyle = theme => ({
       margin: '75px auto',
       maxWidth: '1280px',
       padding: '10px'
-    },
+    }
 })
 
 const articles = [
   {
     title: `3 Easy Ways To Improve Your Restaurant’s App`,
     id: 'three-easy-ways-to-improve-your-restaurants-app',
-    component: <Three_easy_ways_to_improve_your_restaurants_app />,
+    component: <ThreeEasyWaysToImproveYourRestaurantsApp/>,
     intro: `Restaurant apps are notorious for frozen payment transactions and horrific user accessibility. It's a shame, because a recent survey shows that 46% of users report that apps/websites with easier navigation would make them feel more comfortable with finishing a payment transaction.`,
     img: require('../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/1.jpg'),
-    date: 'Jan 25th, 2016'
+    date: 'Jan 25th, 2016',
+    messappsURL: 'https://messapps.com/allcategories/strategy/3-easy-ways-improve-restaurants-app-2/'
+  },
+  {
+    title: `5 Appreneur Books That Guarantee Results`,
+    id: `five-appreneur-books-that-guarantee-results`,
+    component: <FiveAppreneurBooksThatGuaranteeResults/>,
+    intro: `As competition flares across the App Store, techniques in advertising are becoming progressively more sophisticated. It’s the appreneur’s job to stay afloat in the market by acquainting themselves with the latest and greatest strategies in e­marketing.`,
+    img: require('../../assets/img/blogs/messapps/five-appreneur-books-that-guarantee-results/1.jpg'),
+    date: 'June 14th, 2016',
+    messappsURL: 'https://messapps.com/allcategories/strategy/5-appreneur-books-will-guarantee-results-2/'
+  },
+  {
+    title: `11 of The Most Frequently Asked App Marketing Questions`,
+    id: `eleven-of-the-most-frequently-asked-app-marketing-questions`,
+    component: <ElevenOfTheMostFrequentlyAskedAppMarketingQuestions/>,
+    intro: `An app's performance on the market is contingent on both its reputation and its discoverability.`,
+    img: require('../../assets/img/blogs/messapps/eleven-of-the-most-frequently-asked-app-marketing-questions/1.jpg'),
+    date: 'June 2nd, 2016',
+    messappsURL: 'https://messapps.com/allcategories/marketing/11-frequently-asked-app-marketing-questions/'
+  },
+  {
+    title: `A Complete Overview Of The App Development Cycle`,
+    id: `a-complete-overview-of-the-app-development-cycle`,
+    component: <ACompleteOverviewOfTheAppDevelopmentCycle/>,
+    intro: `An app’s development cycle can be broken down into these five distinct steps.`,
+    img: require('../../assets/img/blogs/messapps/a-complete-overview-of-the-app-development-cycle/1.jpg'),
+    date: 'June 5th, 2016',
+    messappsURL: 'https://messapps.com/allcategories/development/complete-overview-app-development-cycle-2/'
+  },
+  {
+    title: `An Intro Into TestFlight: External Testing`,
+    id: 'an-intro-into-testflight-external-testing',
+    component: <AnIntroIntoTestflightExternalTesting/>,
+    intro: `All data is invaluable for getting your app ahead of the game, so aggregating information pre­release can only be beneficial to your app’s success. That being said, TestFlight is both completely optional and completely free to use for all iOS developers.`,
+    img: require('../../assets/img/blogs/messapps/an-intro-into-testflight-external-testing/1.jpg'),
+    date: 'August 11, 2016',
+    messappsURL: 'https://messapps.com/allcategories/development/intro-testflight-external-testing/'
+  },
+  {
+    title: `An Intro Into TestFlight: Internal Testing`,
+    id: 'an-intro-into-testflight-internal-testing',
+    component: <AnIntroIntoTestflightInternalTesting/>,
+    intro: `TestFlight is completely optional, yet completely free for all iOS developers.`,
+    img: require('../../assets/img/blogs/messapps/an-intro-into-testflight-internal-testing/1.jpg'),
+    date: 'August 11, 2016',
+    messappsURL: 'https://messapps.com/allcategories/development/intro-testflight-external-testing/'
   }
 ]
 
@@ -62,13 +116,7 @@ class MessAppsBlog extends Component {
   //   })
   // }
 
-  findComponentOfArticle = (articleId) => {
-    const article = articles.find(({id}) => id === articleId)
-    return article.component
-  }
-
   generateListOfArticles = () => {
-
     return articles.map((article, idx) => {
       return ( 
         <BlogCard key={article.id} theme={this.props.theme} blogLink={`messapps/${article.id}`} blogImg={article.img} blogDate={article.date} blogTitle={article.title} blogIntro={article.intro} />
@@ -99,12 +147,18 @@ class MessAppsBlog extends Component {
               path={`${this.props.match.path}/:articleId`}
               component={(reactProps) => 
                 <BlogArticlePage>
-                {// to add the theme prop, must create clone of component.
-                  React.cloneElement(
-                    this.findComponentOfArticle(reactProps.match.params.articleId),
-                    {theme: this.props.theme}
-                  )
-                }
+                  <MessAppsArticle
+                    theme={this.props.theme}
+                    title={articles.find(({id}) => id===reactProps.match.params.articleId).title}
+                    messappsURL={articles.find(({id}) => id===reactProps.match.params.articleId).messappsURL}
+                    date={articles.find(({id}) => id===reactProps.match.params.articleId).date}
+                    intro={articles.find(({id}) => id===reactProps.match.params.articleId).intro}
+                    body={React.cloneElement(
+                      articles.find(({id}) => id === reactProps.match.params.articleId).component,
+                      {theme: this.props.theme}
+                    )}
+                  >
+                </MessAppsArticle>
                 </BlogArticlePage>
               }
           />

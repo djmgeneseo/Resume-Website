@@ -3,13 +3,9 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Typography, Link} from '@material-ui/core';
 
-import TimePeriodCaption from '../../../TimePeriodCaption';
-
 import img1 from '../../../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/1.jpg';
 import img2 from '../../../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/2.jpg';
 import img3 from '../../../../assets/img/blogs/messapps/three-easy-ways-to-improve-your-restaurants-app/3.jpg';
-
-import davidThumbnail from '../../../../assets/img/blogs/david_thumbnail.png';
 
 const jssStyle = theme => ({
     img: {
@@ -17,7 +13,7 @@ const jssStyle = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
       marginBottom: '15px',
-      maxWidth: '90%'
+      maxWidth: '90%' 
     },
     blockQuote: {
       background: '#f9f9f9',
@@ -25,6 +21,7 @@ const jssStyle = theme => ({
       margin: '1.5em 10px !important',
       padding: '0.5em 10px',
       display: 'block',
+      quotes: `'"''"''"''"'`,
       '&::before': {
         color: '#ccc',
         content: 'open-quote',
@@ -33,37 +30,13 @@ const jssStyle = theme => ({
         marginRight: '0.25em',
         verticalAlign: '-0.4em'
       }
-    },
-    headingAuthorContainer: {
-      display: 'inline-block',
-      marginLeft: '1em',
-      position: 'relative'
-    },
-    headingAuthor: {
-      marginBottom: '-5px !important'
     }
 })
 
-const Three_easy_ways_to_improve_your_restaurants_app = (props) => {
+const ThreeEasyWaysToImproveYourRestaurantsApp = (props) => {
   const {classes} = props;
   return (
     <div>
-      <div>
-      <Typography style={{float: 'right', display: 'inline'}}><a href={'https://messapps.com/allcategories/strategy/3-easy-ways-improve-restaurants-app-2/'}>Visit MessApps</a></Typography>
-        <img src={davidThumbnail} style={{marginTop: '5px'}} alt="David Murphy thumbnail picture"/>
-        <div className={classes.headingAuthorContainer}>
-          <Typography variant="h6" className={classes.headingAuthor}>David Murphy</Typography>
-          <TimePeriodCaption theme={props.theme} timeDescription={'June 27, 2016'}></TimePeriodCaption>
-        </div>
-      </div>
-      <br/>
-      <Typography variant="h3" gutterBottom>3 Easy Ways To Improve Your Restaurant’s App</Typography>
-      <Typography>
-      Restaurant apps are notorious for frozen payment transactions and horrific user accessibility. It's a shame, because a recent survey shows that 46% of users report that apps/websites with easier navigation would make them feel more comfortable with finishing a payment transaction.
-      </Typography>
-      <br/>
-      <hr/>
-      <br/>
       <Typography paragraph>
       In 2015, total app revenue amounted to a total of 89.17 billion dollars. How can your business tap into that wealth? Better yet, if your business has an app, is user accessibility the sole determinant for its poor performance? 
       </Typography>
@@ -124,7 +97,7 @@ const Three_easy_ways_to_improve_your_restaurants_app = (props) => {
               </Typography>
         </li>
         <li>
-            <Typography>Security concerns</Typography>
+            <Typography paragraph>Security concerns</Typography>
             <Typography className={classes.blockQuote}>
             “Their app doesn’t seem too official, I mean it’s very unresponsive and navigation isn’t user­friendly whatsoever...Maybe I downloaded the wrong app?”
             </Typography>
@@ -157,4 +130,4 @@ const Three_easy_ways_to_improve_your_restaurants_app = (props) => {
   )
 }
 
-export default withStyles(jssStyle, {withTheme: true})(Three_easy_ways_to_improve_your_restaurants_app)
+export default withStyles(jssStyle, {withTheme: true})(ThreeEasyWaysToImproveYourRestaurantsApp)
