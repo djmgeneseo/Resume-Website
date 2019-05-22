@@ -5,6 +5,10 @@ import ACompleteOverviewOfTheAppDevelopmentCycle from './ACompleteOverviewOfTheA
 import AnIntroIntoTestflightExternalTesting from './AnIntroIntoTestflightExternalTesting'
 import AnIntroIntoTestflightInternalTesting from './AnIntroIntoTestflightInternalTesting'
 import AppAnalyticsWhatYouCanFindOutAboutYourUsers from './AppAnalyticsWhatYouCanFindOutAboutYourUsers'
+import AppIndexingTheLatestAndGreatestInMarketing from './AppIndexingTheLatestAndGreatestInMarketing'
+import BoostYourAppsGrowthSocialImplementations from './BoostYourAppsGrowthSocialImplementations'
+import CreatingYourFirstiOSDeveloperAccount from './CreatingYourFirstiOSDeveloperAccount'
+import FindingYouriOSDevicesUdidViaItunes from './FindingYouriOSDevicesUdidViaItunes'
 
 export {
     ThreeEasyWaysToImproveYourRestaurantsApp, 
@@ -13,5 +17,9 @@ export {
     ACompleteOverviewOfTheAppDevelopmentCycle,
     AnIntroIntoTestflightExternalTesting,
     AnIntroIntoTestflightInternalTesting,
-    AppAnalyticsWhatYouCanFindOutAboutYourUsers
+    AppAnalyticsWhatYouCanFindOutAboutYourUsers,
+    AppIndexingTheLatestAndGreatestInMarketing,
+    BoostYourAppsGrowthSocialImplementations,
+    CreatingYourFirstiOSDeveloperAccount,
+    FindingYouriOSDevicesUdidViaItunes
 }

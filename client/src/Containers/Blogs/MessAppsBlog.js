@@ -17,7 +17,11 @@ import {
   ACompleteOverviewOfTheAppDevelopmentCycle,
   AnIntroIntoTestflightExternalTesting,
   AnIntroIntoTestflightInternalTesting,
-  AppAnalyticsWhatYouCanFindOutAboutYourUsers
+  AppAnalyticsWhatYouCanFindOutAboutYourUsers,
+  AppIndexingTheLatestAndGreatestInMarketing,
+  BoostYourAppsGrowthSocialImplementations,
+  CreatingYourFirstiOSDeveloperAccount,
+  FindingYouriOSDevicesUdidViaItunes
 } from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
@@ -105,6 +109,42 @@ const articles = [
     img: require('../../assets/img/blogs/messapps/app-analytics-what-you-can-find-out-about-your-users/1.jpg'),
     date: 'June 02, 2016',
     messappsURL: 'https://messapps.com/allcategories/strategy/app-analytics-can-find-users-2/'
+  },
+  {
+    title: `App Indexing: The Latest & Greatest in Marketing`,
+    id: 'app-indexing-the-latest-and-greatest-in-marketing',
+    component: <AppIndexingTheLatestAndGreatestInMarketing/>,
+    intro: `App Indexing is Google's answer to the conundrums that face all appreneurs: declining user retention, engagement, and overall loyalty rates.`,
+    img: require('../../assets/img/blogs/messapps/app-indexing-the-latest-and-greatest-in-marketing/1.jpg'),
+    date: 'June 05, 2016',
+    messappsURL: 'https://messapps.com/allcategories/marketing/app-indexing-latest-greatest-marketing-2/'
+  },
+  {
+    title:`Boost Your App’s Growth: Social Implementations`,
+    id:`boost-your-apps-growth-social-implementations`,
+    component: <BoostYourAppsGrowthSocialImplementations/>,
+    intro: `Both Apple and Google trust that the amount of time users spend inside an app is indicative of its overall quality, and rank them accordingly.`,
+    img: require('../../assets/img/blogs/messapps/boost-your-apps-growth-social-implementations/1.jpg'),
+    date: 'June 25, 2016',
+    messappsURL: 'https://messapps.com/allcategories/marketing/boost-apps-growth-social-implementations-2/'
+  },
+  {
+    title:`Creating Your First iOS Developer Account`,
+    id:`creating-your-first-ios-developer-account`,
+    component: <CreatingYourFirstiOSDeveloperAccount/>,
+    intro: `Creating an Apple Developer account is simple!`,
+    img: require('../../assets/img/blogs/messapps/creating-your-first-ios-developer-account/1.jpg'),
+    date: 'August 01, 2016',
+    messappsURL: 'https://messapps.com/allcategories/development/creating-first-ios-developer-account/'
+  },
+  {
+    title:`Finding your iOS Device’s UDID Via iTunes`,
+    id:`finding-your-ios-devices-udid-via-itunes`,
+    component: <FindingYouriOSDevicesUdidViaItunes/>,
+    intro: `Each iOS device has a UDID, or a Unique Device Identifier ­ a sequence of 40 characters that's unique to each individual device.`,
+    img: require('../../assets/img/blogs/messapps/finding-your-ios-devices-udid-via-itunes/1.jpg'),
+    date: 'August 04, 2016',
+    messappsURL: 'https://messapps.com/allcategories/development/finding-ios-devices-udid-via-itunes-2/'
   }
 ]
 
