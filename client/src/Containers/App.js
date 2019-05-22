@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {Blogs, MessAppsBlog} from './Blogs/index';
 import {FrontPage} from './FrontPage/index';
+import {ScrollToTop} from '../Components/index';
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -83,10 +84,13 @@ class App extends Component {
 
     return (
         <Router>
+          <ScrollToTop>
           <MuiThemeProvider theme={this.state.theme}>
-            <Route path={`/`} exact component={(routeProps) => <FrontPage {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
-            <Route path={`/blogs`} component={(routeProps) => <Blogs {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme}/>}/>
+            
+              <Route path={`/`} exact component={(routeProps) => <FrontPage {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
+              <Route path={`/blogs`} component={(routeProps) => <Blogs {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme}/>}/>
           </MuiThemeProvider>
+          </ScrollToTop>
         </Router>
     )
   }

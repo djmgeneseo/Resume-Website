@@ -2,6 +2,7 @@ import BlogArticlePage from "./BlogArticlePage";
 import Parallax from "./Parallax";
 import TimePeriodCaption from './TimePeriodCaption'
 import BlogsSelection from './BlogsSelection'
+import ScrollToTop from './ScrollToTop'
 
 /** NOT using default export. When importing into another component/container, I'll need to select 'Jumbotron' or 'Footer' (etc.) like this: 
  *  
@@ -10,5 +11,5 @@ import BlogsSelection from './BlogsSelection'
  */
 
 export {
-    BlogArticlePage, Parallax, TimePeriodCaption, BlogsSelection
+    BlogArticlePage, Parallax, TimePeriodCaption, BlogsSelection, ScrollToTop
 }

@@ -56,7 +56,7 @@ const ACompleteOverviewOfTheAppDevelopmentCycle = (props) => {
             2. Finding a developer
         </Typography>
         <img src={img2} className={classes.img} alt="Java logo with developers"/>
-        <Typography className={classes.center}>Source: NeuronGlobal</Typography>
+        <Typography className={classes.center} gutterBottom>Source: NeuronGlobal</Typography>
         <Typography paragraph>
         MessApps specializes in connecting clients with experienced development teams. If you’re in need of a team, come discuss your idea with us and we’ll introduce you to some of our own: +1-646-741-4814. Conversely, say that you wanted to try your hand at coding yourself: we provide resources here on our website that are tailored to help guide the curious non-coder into the vast world of programming. Development is typically a longer process compared to the rest in an app’s development cycle, and learning to code competently enough to create an app would require an expensive investment of your time; the competition will only grow stronger in your stead, so weigh your priorities wisely. Although you could save money by coding alone, remember that the market’s competition is getting fiercer, and having a knowledgeable team on-board will ensure that your app functions as flawlessly as the other successful apps do.      
         </Typography>
@@ -64,7 +64,7 @@ const ACompleteOverviewOfTheAppDevelopmentCycle = (props) => {
             3. Design and Wireframing
         </Typography>
         <img src={img3} className={classes.img} alt="Design and Wireframing graphic"/>
-        <Typography className={classes.center}>
+        <Typography className={classes.center} gutterBottom>
         Source: Interaction-Design
         </Typography>
         <Typography paragraph>
@@ -80,7 +80,7 @@ const ACompleteOverviewOfTheAppDevelopmentCycle = (props) => {
         5. Marketing
         </Typography>
         <img src={img4} className={classes.img} alt="Marketing diagram"/>
-        <Typography className={classes.center}>
+        <Typography className={classes.center} gutterBottom>
         Source: Clin-Edge
         </Typography>
         <Typography paragraph>
