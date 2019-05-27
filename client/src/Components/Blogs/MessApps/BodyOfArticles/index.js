@@ -9,6 +9,8 @@ import AppIndexingTheLatestAndGreatestInMarketing from './AppIndexingTheLatestAn
 import BoostYourAppsGrowthSocialImplementations from './BoostYourAppsGrowthSocialImplementations'
 import CreatingYourFirstiOSDeveloperAccount from './CreatingYourFirstiOSDeveloperAccount'
 import FindingYouriOSDevicesUdidViaItunes from './FindingYouriOSDevicesUdidViaItunes'
+import HowToInstallXcodeAndStartYourFirstProject from './HowToInstallXcodeAndStartYourFirstProject'
+import ImprovingYourAppTodaysTopEarningAppCharacteristics from './ImprovingYourAppTodaysTopEarningAppCharacteristics'
 
 export {
     ThreeEasyWaysToImproveYourRestaurantsApp, 
@@ -21,5 +23,7 @@ export {
     AppIndexingTheLatestAndGreatestInMarketing,
     BoostYourAppsGrowthSocialImplementations,
     CreatingYourFirstiOSDeveloperAccount,
-    FindingYouriOSDevicesUdidViaItunes
+    FindingYouriOSDevicesUdidViaItunes,
+    HowToInstallXcodeAndStartYourFirstProject,
+    ImprovingYourAppTodaysTopEarningAppCharacteristics
 }

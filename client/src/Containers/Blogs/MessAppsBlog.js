@@ -21,7 +21,9 @@ import {
   AppIndexingTheLatestAndGreatestInMarketing,
   BoostYourAppsGrowthSocialImplementations,
   CreatingYourFirstiOSDeveloperAccount,
-  FindingYouriOSDevicesUdidViaItunes
+  FindingYouriOSDevicesUdidViaItunes,
+  HowToInstallXcodeAndStartYourFirstProject,
+  ImprovingYourAppTodaysTopEarningAppCharacteristics
 } from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
@@ -145,6 +147,24 @@ const articles = [
     img: require('../../assets/img/blogs/messapps/finding-your-ios-devices-udid-via-itunes/1.jpg'),
     date: 'August 04, 2016',
     messappsURL: 'https://messapps.com/allcategories/development/finding-ios-devices-udid-via-itunes-2/'
+  },
+  {
+    title:`How To Install Xcode & Start Your First Project`,
+    id: `how-to-install-xcode-and-start-your-first-project`,
+    component: <HowToInstallXcodeAndStartYourFirstProject/>,
+    intro: `It's easy!`,
+    img: require('../../assets/img/blogs/messapps/how-to-install-xcode-and-start-your-first-project/1.jpg'),
+    date: 'August 01, 2016',
+    messappsURL: `https://messapps.com/allcategories/development/install-xcode-start-first-project-2/`
+  },
+  {
+    title: `Improving Your App: Today’s Top-­Earning App Characteristics`,
+    id: `improving-your-app-todays-top-earning-app-characteristics`,
+    component: <ImprovingYourAppTodaysTopEarningAppCharacteristics/>,
+    intro: `With only one exception, every top­grossing Google Play app is a gaming app. Unsurprisingly, each one of those gaming apps are also occupying the top­grossing list on Apple's App Store.`,
+    img: require('../../assets/img/blogs/messapps/how-to-install-xcode-and-start-your-first-project/1.jpg'),
+    date: `July 11, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/top-earning-characteristics/`
   }
 ]
 
