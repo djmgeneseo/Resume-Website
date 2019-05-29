@@ -25,7 +25,9 @@ import {
   HowToInstallXcodeAndStartYourFirstProject,
   ImprovingYourAppTodaysTopEarningAppCharacteristics,
   IosAppDevelopmentSubmittingAnUpdate,
-  LaunchDayCanBeDifficultToPrepareFor
+  LaunchDayCanBeDifficultToPrepareFor,
+  MakeAnyAppSuccessfulWithTheseFourFeatures,
+  MakingTheMostOutOfIosAppAnalytics
 } from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
@@ -185,6 +187,24 @@ const articles = [
     img: require(`../../assets/img/blogs/messapps/launch-day-can-be-difficult-to-prepare-for/1.jpg`),
     date: `June 04, 2016`,
     messappsURL: `https://messapps.com/allcategories/marketing/launch-day-can-difficult-prepare-2/`
+  },
+  {
+    title: `Make Any App Successful With These 4 Features`,
+    id: `make-any-app-successful-with-these-four-features`,
+    component: <MakeAnyAppSuccessfulWithTheseFourFeatures/>,
+    intro: `Need help brainstorming new features for your app? Regardless of its category, statistics support that your app should grow faster if you implement one or more of these features listed in this article.`,
+    img: require(`../../assets/img/blogs/messapps/make-any-app-successful-with-these-four-features/1.jpg`),
+    date: `June 24, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/make-app-successful/`
+  },
+  {
+    title: `Making the Most Out of iOS App Analytics`,
+    id: `making-the-most-out-of-iOS-app-analytics`,
+    component: <MakingTheMostOutOfIosAppAnalytics/>,
+    intro: `Despite how essential analytics is to tracking an app's success, the App Analytics service being offered for free by Apple is too often neglected by the majority of aspiring apprenuers.`,
+    img: require(`../../assets/img/blogs/messapps/making-the-most-out-of-iOS-app-analytics/1.jpg`),
+    date: `August 16, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/making-ios-app-analytics-2/`
   }
 ]
 

@@ -13,6 +13,8 @@ import HowToInstallXcodeAndStartYourFirstProject from './HowToInstallXcodeAndSta
 import ImprovingYourAppTodaysTopEarningAppCharacteristics from './ImprovingYourAppTodaysTopEarningAppCharacteristics'
 import IosAppDevelopmentSubmittingAnUpdate from './IosAppDevelopmentSubmittingAnUpdate'
 import LaunchDayCanBeDifficultToPrepareFor from './LaunchDayCanBeDifficultToPrepareFor'
+import MakeAnyAppSuccessfulWithTheseFourFeatures from './MakeAnyAppSuccessfulWithTheseFourFeatures'
+import MakingTheMostOutOfIosAppAnalytics from './MakingTheMostOutOfIosAppAnalytics'
 
 export {
     ThreeEasyWaysToImproveYourRestaurantsApp, 
@@ -29,5 +31,7 @@ export {
     HowToInstallXcodeAndStartYourFirstProject,
     ImprovingYourAppTodaysTopEarningAppCharacteristics,
     IosAppDevelopmentSubmittingAnUpdate,
-    LaunchDayCanBeDifficultToPrepareFor
+    LaunchDayCanBeDifficultToPrepareFor,
+    MakeAnyAppSuccessfulWithTheseFourFeatures,
+    MakingTheMostOutOfIosAppAnalytics
 }
