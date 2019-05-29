@@ -11,6 +11,8 @@ import CreatingYourFirstiOSDeveloperAccount from './CreatingYourFirstiOSDevelope
 import FindingYouriOSDevicesUdidViaItunes from './FindingYouriOSDevicesUdidViaItunes'
 import HowToInstallXcodeAndStartYourFirstProject from './HowToInstallXcodeAndStartYourFirstProject'
 import ImprovingYourAppTodaysTopEarningAppCharacteristics from './ImprovingYourAppTodaysTopEarningAppCharacteristics'
+import IosAppDevelopmentSubmittingAnUpdate from './IosAppDevelopmentSubmittingAnUpdate'
+import LaunchDayCanBeDifficultToPrepareFor from './LaunchDayCanBeDifficultToPrepareFor'
 
 export {
     ThreeEasyWaysToImproveYourRestaurantsApp, 
@@ -25,5 +27,7 @@ export {
     CreatingYourFirstiOSDeveloperAccount,
     FindingYouriOSDevicesUdidViaItunes,
     HowToInstallXcodeAndStartYourFirstProject,
-    ImprovingYourAppTodaysTopEarningAppCharacteristics
+    ImprovingYourAppTodaysTopEarningAppCharacteristics,
+    IosAppDevelopmentSubmittingAnUpdate,
+    LaunchDayCanBeDifficultToPrepareFor
 }

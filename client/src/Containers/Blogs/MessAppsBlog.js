@@ -23,7 +23,9 @@ import {
   CreatingYourFirstiOSDeveloperAccount,
   FindingYouriOSDevicesUdidViaItunes,
   HowToInstallXcodeAndStartYourFirstProject,
-  ImprovingYourAppTodaysTopEarningAppCharacteristics
+  ImprovingYourAppTodaysTopEarningAppCharacteristics,
+  IosAppDevelopmentSubmittingAnUpdate,
+  LaunchDayCanBeDifficultToPrepareFor
 } from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
@@ -165,6 +167,24 @@ const articles = [
     img: require('../../assets/img/blogs/messapps/how-to-install-xcode-and-start-your-first-project/1.jpg'),
     date: `July 11, 2016`,
     messappsURL: `https://messapps.com/allcategories/strategy/top-earning-characteristics/`
+  },
+  {
+    title: `iOS App Development: Submitting an Update`,
+    id: `ios-app-development-submitting-an-update`,
+    component: <IosAppDevelopmentSubmittingAnUpdate/>,
+    intro: `Learn how to submit your app's latest version for review!`,
+    img: require('../../assets/img/blogs/messapps/ios-app-development-submitting-an-update/1.jpg'),
+    date: `August 09, 2016`,
+    messappsURL: `https://messapps.com/allcategories/marketing/ios-app-development-submitting-update-2/`
+  },
+  {
+    title: `Launch Day Can Be Difficult To Prepare For`,
+    id: `launch-day-can-be-difficult-to-prepare-for`,
+    component: <LaunchDayCanBeDifficultToPrepareFor/>,
+    intro: `An app's most critical time of growth starts on its launch date and continues up until the next three days that proceed it.`,
+    img: require(`../../assets/img/blogs/messapps/launch-day-can-be-difficult-to-prepare-for/1.jpg`),
+    date: `June 04, 2016`,
+    messappsURL: `https://messapps.com/allcategories/marketing/launch-day-can-difficult-prepare-2/`
   }
 ]
 
