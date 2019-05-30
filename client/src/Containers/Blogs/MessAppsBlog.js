@@ -27,7 +27,17 @@ import {
   IosAppDevelopmentSubmittingAnUpdate,
   LaunchDayCanBeDifficultToPrepareFor,
   MakeAnyAppSuccessfulWithTheseFourFeatures,
-  MakingTheMostOutOfIosAppAnalytics
+  MakingTheMostOutOfIosAppAnalytics,
+  MobileAppBetaTestingBreakingDownTheBasics,
+  RestaurantAppsACloserLookAtTheNumbers,
+  SettingUpYourFirstProjectWithAndroidStudio,
+  ShouldIDevelopMyAppAloneOrWithATeam,
+  SimpleAndEffectiveWaysToGainAppPublicity,
+  SpeakingCodeAReviewOfTheBasics,
+  TheAppStoreAComprehensiveAnalysis,
+  TheMobileAppBusinessModelMadeSimple,
+  TheSecretBehindAllSuccessfulAppsIsInUserLoyalty,
+  TheTopFiveGreatestPitfallsInAppMarketing
 } from '../../Components/Blogs/MessApps/BodyOfArticles/index';
 
 const jssStyle = theme => ({  
@@ -205,6 +215,98 @@ const articles = [
     img: require(`../../assets/img/blogs/messapps/making-the-most-out-of-iOS-app-analytics/1.jpg`),
     date: `August 16, 2016`,
     messappsURL: `https://messapps.com/allcategories/strategy/making-ios-app-analytics-2/`
+  },
+  {
+    title: `Mobile App Beta Testing: Breaking Down the Basics`,
+    id: `mobile-app-beta-testing-breaking-down-the-basics`,
+    component: <MobileAppBetaTestingBreakingDownTheBasics/>,
+    intro: `Wise developers seldom neglect to test their app's quality both before and after launch day. Here's what you'll need to know.`,
+    img: require(`../../assets/img/blogs/messapps/mobile-app-beta-testing-breaking-down-the-basics/1.jpg`),
+    date: `June 05, 2016`,
+    messappsURL: `https://messapps.com/allcategories/development/mobile-app-beta-testing-breaking-basics-2/`
+  },
+  {
+    title: `Restaurant Apps – A Closer Look At The Numbers`,
+    id: `restaurant-apps-a-closer-look-at-the-numbers`,
+    component: <RestaurantAppsACloserLookAtTheNumbers/>,
+    intro: `As more and more customers plug into the grid, your restaurant's internet presence will be that much more crucial.`,
+    img: require(`../../assets/img/blogs/messapps/restaurant-apps-a-closer-look-at-the-numbers/1.jpg`),
+    date: `June 25, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/restaurant-apps-closer-look-numbers-2/`
+  },
+  {
+    title: `Setting Up Your First Project with Android Studio`,
+    id: `setting-up-your-first-project-with-android-studio`,
+    component: <SettingUpYourFirstProjectWithAndroidStudio/>,
+    intro: `Setup Android’s IDE and creating your first sample project`,
+    img: require(`../../assets/img/blogs/messapps/setting-up-your-first-project-with-android-studio/1.jpg`),
+    date: `July 26, 2016`,
+    messappsURL: `https://messapps.com/allcategories/development/setting-first-project-android-studio-2/`
+  },
+  {
+    title: `Should I Develop My App Alone Or With A Team?`,
+    id: `should-i-develop-my-app-alone-or-with-a-team`,
+    component: <ShouldIDevelopMyAppAloneOrWithATeam/>,
+    intro: `Adopting a "me against the world" attitude is a trap that many appreneurs fall into. If you’re serious about your app’s growth, then you need to switch from a mindset of a coding hobbyist into that of a business owner.`,
+    img: require(`../../assets/img/blogs/messapps/should-i-develop-my-app-alone-or-with-a-team/1.jpg`),
+    date: `June 04, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/develop-app-alone-team-2/`
+  },
+  {
+    title: `Simple & Effective Ways to Gain App Publicity`,
+    id: `simple-and-effective-ways-to-gain-app-publicity`,
+    component: <SimpleAndEffectiveWaysToGainAppPublicity/>,
+    intro: `There are hundreds of thousands of apps out there. Having an amazing app is no longer enough. Only those that can evoke the most attention will have a chance at scaling the charts.`,
+    img: require(`../../assets/img/blogs/messapps/simple-and-effective-ways-to-gain-app-publicity/1.jpg`),
+    date: `July 05, 2016`,
+    messappsURL: `https://messapps.com/allcategories/marketing/simple-effective-ways-gain-app-publicity-2/`
+  },
+  {
+    title: `Speaking Code - A Review of The Basics`,
+    id: `speaking-code-a-review-of-the-basics`,
+    component: <SpeakingCodeAReviewOfTheBasics/>,
+    intro: `The learning process for speaking code is no different from the learning process of any other skill or language.
+    Remember that the best way to expedite a learning process is by either re­acquainting or first
+    familiarizing yourself with the basics. Below you'll find a collection of the most frequently asked questions we hear from beginners.`,
+    img: require(`../../assets/img/blogs/messapps/speaking-code-a-review-of-the-basics/1.png`),
+    date: `June 04, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/speaking-code-complete-review-basics/`
+  },
+  {
+    title: `The App Store: A Comprehensive Analysis`,
+    id: `the-app-store-a-comprehensive-analysis`,
+    component: <TheAppStoreAComprehensiveAnalysis/>,
+    intro: `Despite their impressive pace, for the past two decades, the expansion rate of both the Google Play Store and the Apple App Store has yet to show any indications of slowing down.`,
+    img: require(`../../assets/img/blogs/messapps/the-app-store-a-comprehensive-analysis/1.jpg`),
+    date: `June 02, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/app-store-comprehensive-analysis-2/`
+  },
+  {
+    title: `The Mobile App Business Model Made Simple`,
+    id: `the-mobile-app-business-model-made-simple`,
+    component: <TheMobileAppBusinessModelMadeSimple/>,
+    intro: `The obscurity behind the term “business model” oftentimes causes uncertainty and confusion. For our purposes, lets think of it as a birds eye view of how your business will operate.`,
+    img: require(`../../assets/img/blogs/messapps/the-mobile-app-business-model-made-simple/1.jpg`),
+    date: `June 20, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/mobile-app-business-model-made-simple/`
+  },
+  {
+    title: `The Secret Behind All Successful Apps Is In User Loyalty`,
+    id: `the-secret-behind-all-successful-apps-is-in-user-loyalty`,
+    component: <TheSecretBehindAllSuccessfulAppsIsInUserLoyalty/>,
+    intro: `Two­-thirds of iOS apps have yet to be reviewed: if the majority of developers cannot compel a single user to write a comment, then perhaps developers don’t know their audience as well as they think they do.`,
+    img: require(`../../assets/img/blogs/messapps/the-secret-behind-all-successful-apps-is-in-user-loyalty/1.jpg`),
+    date: `July 06, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/secret-behind-successful-apps-user-loyalty-2/`
+  },
+  {
+    title: `The Top 5 Greatest Pitfalls in App Marketing`,
+    id: `the-top-five-greatest-pitfalls-in-app-marketing`,
+    component: <TheTopFiveGreatestPitfallsInAppMarketing/>,
+    intro: `An app's marketing will dictate the extent of its success.`,
+    img: require(`../../assets/img/blogs/messapps/the-top-five-greatest-pitfalls-in-app-marketing/1.jpg`),
+    date: `June 04, 2016`,
+    messappsURL: `https://messapps.com/allcategories/strategy/top-5-greatest-pitfalls-app-marketing-2/`
   }
 ]
 

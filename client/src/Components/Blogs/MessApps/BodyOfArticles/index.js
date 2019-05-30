@@ -15,6 +15,16 @@ import IosAppDevelopmentSubmittingAnUpdate from './IosAppDevelopmentSubmittingAn
 import LaunchDayCanBeDifficultToPrepareFor from './LaunchDayCanBeDifficultToPrepareFor'
 import MakeAnyAppSuccessfulWithTheseFourFeatures from './MakeAnyAppSuccessfulWithTheseFourFeatures'
 import MakingTheMostOutOfIosAppAnalytics from './MakingTheMostOutOfIosAppAnalytics'
+import MobileAppBetaTestingBreakingDownTheBasics from './MobileAppBetaTestingBreakingDownTheBasics'
+import RestaurantAppsACloserLookAtTheNumbers from './RestaurantAppsACloserLookAtTheNumbers'
+import SettingUpYourFirstProjectWithAndroidStudio from './SettingUpYourFirstProjectWithAndroidStudio'
+import ShouldIDevelopMyAppAloneOrWithATeam from './ShouldIDevelopMyAppAloneOrWithATeam'
+import SimpleAndEffectiveWaysToGainAppPublicity from './SimpleAndEffectiveWaysToGainAppPublicity'
+import SpeakingCodeAReviewOfTheBasics from './SpeakingCodeAReviewOfTheBasics'
+import TheAppStoreAComprehensiveAnalysis from './TheAppStoreAComprehensiveAnalysis'
+import TheMobileAppBusinessModelMadeSimple from './TheMobileAppBusinessModelMadeSimple'
+import TheSecretBehindAllSuccessfulAppsIsInUserLoyalty from './TheSecretBehindAllSuccessfulAppsIsInUserLoyalty'
+import TheTopFiveGreatestPitfallsInAppMarketing from './TheTopFiveGreatestPitfallsInAppMarketing'
 
 export {
     ThreeEasyWaysToImproveYourRestaurantsApp, 
@@ -33,5 +43,15 @@ export {
     IosAppDevelopmentSubmittingAnUpdate,
     LaunchDayCanBeDifficultToPrepareFor,
     MakeAnyAppSuccessfulWithTheseFourFeatures,
-    MakingTheMostOutOfIosAppAnalytics
+    MakingTheMostOutOfIosAppAnalytics,
+    MobileAppBetaTestingBreakingDownTheBasics,
+    RestaurantAppsACloserLookAtTheNumbers,
+    SettingUpYourFirstProjectWithAndroidStudio,
+    ShouldIDevelopMyAppAloneOrWithATeam,
+    SimpleAndEffectiveWaysToGainAppPublicity,
+    SpeakingCodeAReviewOfTheBasics,
+    TheAppStoreAComprehensiveAnalysis,
+    TheMobileAppBusinessModelMadeSimple,
+    TheSecretBehindAllSuccessfulAppsIsInUserLoyalty,
+    TheTopFiveGreatestPitfallsInAppMarketing
 }
