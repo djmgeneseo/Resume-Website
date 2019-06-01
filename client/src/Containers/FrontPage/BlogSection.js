@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/styles'; // jss library
 import me from '../../assets/img/me.png';
 import TimePeriodCaption from '../../Components/TimePeriodCaption';
 import BlogsSelection from '../../Components/BlogsSelection';
+import BlogCard from '../../Components/Blogs/BlogCard';
 
 const jssStyle = theme => ({
     siteContainer: {
@@ -38,6 +39,30 @@ const jssStyle = theme => ({
     }
 })
 
+const blogs = [
+    {
+        title: `The App Store: A Comprehensive Analysis`,
+        url: `messapps/the-app-store-a-comprehensive-analysis`,
+        intro: `Despite their impressive pace, for the past two decades, the expansion rate of both the Google Play Store and the Apple App Store has yet to show any indications of slowing down.`,
+        img: require(`../../assets/img/blogs/messapps/the-app-store-a-comprehensive-analysis/1.jpg`),
+        date: `June 2nd, 2016`
+    },
+    {
+        title: `A Complete Overview Of The App Development Cycle`,
+        url: `messapps/a-complete-overview-of-the-app-development-cycle`,
+        intro: `An app’s development cycle can be broken down into these five distinct steps.`,
+        img: require('../../assets/img/blogs/messapps/a-complete-overview-of-the-app-development-cycle/1.jpg'),
+        date: 'June 5th, 2016'
+    },
+    {
+        title: `11 of The Most Frequently Asked App Marketing Questions`,
+        url: `messapps/eleven-of-the-most-frequently-asked-app-marketing-questions`,
+        intro: `An app's performance on the market is contingent on both its reputation and its discoverability.`,
+        img: require('../../assets/img/blogs/messapps/eleven-of-the-most-frequently-asked-app-marketing-questions/1.jpg'),
+        date: 'June 2nd, 2016'
+    }
+]
+
 class BlogSection extends Component {
 
     state={
@@ -52,6 +77,14 @@ class BlogSection extends Component {
         this.setState({ modalOpen: false });
     }
 
+    generateListOfArticles = () => {
+        return blogs.map((blog, idx) => {
+          return ( 
+            <BlogCard sm={12} md={4} key={blog.id} theme={this.props.theme} blogLink={blog.url} blogImg={blog.img} blogDate={blog.date} blogTitle={blog.title} blogIntro={blog.intro} />
+          ) 
+        })
+      }
+
     render() {
         const {classes} = this.props
         const {theme} = this.props
@@ -62,6 +95,9 @@ class BlogSection extends Component {
                         <Typography variant="h4">BLOGS</Typography>
                     </div>
                 </Grid>
+                {this.generateListOfArticles()}
+
+        {/*
                 <Grid item xs={12} sm={12} md={4}>
                     <Card className={classes.blogCard}>
                         <CardMedia className={classes.cardMedia} image={me}>
@@ -104,6 +140,7 @@ class BlogSection extends Component {
                         <CardActions><Button size="small" color="primary">Read More</Button></CardActions>
                     </Card>
                 </Grid>
+                */}
                 <Grid item xs={12} sm={12} md={12}>
                     <div style={{display: 'flex',justifyContent: 'center', width: '100%'}}>
                         <Button className={classes.allBlogsButton} color="primary" variant="contained" onClick={() => this.handleModalOpen()}>All Blog Posts</Button>

@@ -11,7 +11,7 @@ import {Abilities, Footer} from '../../Components/FrontPage/index';
 import scrollToComponent from 'react-scroll-to-component';
 
 // Media
-import { GoChevronUp, GoFileCode, GoBriefcase, GoTools } from "react-icons/go";
+import { GoChevronUp, GoFileCode, GoBriefcase, GoTools, GoBook } from "react-icons/go";
 import { IoMdTrophy } from "react-icons/io";
 import achievementsBackgroundImage from '../../assets/img/jumbo.jpg';
 
@@ -26,6 +26,7 @@ const jssStyle = theme => ({
     icon: {
         width: '20px',
         height: 'auto',
+        margin: 'auto auto',
         fontSize: '30px',
         color: theme.palette.primary['500']
     },
@@ -35,6 +36,22 @@ const jssStyle = theme => ({
     backgroundColor: {
         backgroundColor: theme.palette.primary['500'],
         color: '#fff'
+    },
+    actionArea: {
+        
+    },
+    '@media only screen and (max-width: 600px)': { // Phone screens
+        navHelperContainer: {
+            left: '0%',
+            right: '0%',
+            top: '88%',
+            bottom: '0',
+            display: 'flex',
+            flexWrap: 'nowrap'
+        },
+        actionArea: {
+            display: 'inline-flex !important'
+        }
     }
 });
 
@@ -49,29 +66,34 @@ export class FrontPage extends Component {
       const {classes} = this.props;
       const navHelper = (
         <Card className={classes.navHelperContainer}>
-                <CardActionArea onClick={() => scrollToComponent(this.aboutSection)}>
+                <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.aboutSection)}>
                     <CardContent className={classes.backgroundColor}>
                         <GoChevronUp className={classes.icon + ' ' + classes.topIcon}/>
                     </CardContent>
                 </CardActionArea>
-                <CardActionArea onClick={() => scrollToComponent(this.achievementsSection, {align: 'top'})}>
+                <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.achievementsSection, {align: 'top'})}>
                     <CardContent>
                         <IoMdTrophy className={classes.icon}/>
                     </CardContent>
                 </CardActionArea>
-                <CardActionArea onClick={() => scrollToComponent(this.portfolioSection, {align: 'top'})}>
+                <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.portfolioSection, {align: 'top'})}>
                     <CardContent>
                         <GoFileCode className={classes.icon}/>
                     </CardContent>
                 </CardActionArea>
-                <CardActionArea onClick={() => scrollToComponent(this.experienceSection, {align: 'top'})}>
+                <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.experienceSection, {align: 'top'})}>
                     <CardContent>
                         <GoBriefcase className={classes.icon}/>
                     </CardContent>
                 </CardActionArea>
-                <CardActionArea onClick={() => scrollToComponent(this.abilitiesSection, {align: 'top'})}>
+                <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.abilitiesSection, {align: 'top'})}>
                     <CardContent>
                         <GoTools className={classes.icon}/>
+                    </CardContent>
+                </CardActionArea>
+                <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.blogSection, {align: 'top'})}>
+                    <CardContent>
+                        <GoBook className={classes.icon}/>
                     </CardContent>
                 </CardActionArea>
             </Card>
@@ -90,11 +112,11 @@ export class FrontPage extends Component {
             </Grid>
             </Parallax>
             <Grid container style={{maxWidth: '1280px', margin: '0 auto'}}>
-            <Portfolio ref={(ele) => { this.portfolioSection = ele; }} theme={this.props.theme}/>
-            <Experience ref={(ele) => { this.experienceSection = ele; }} theme={this.props.theme}/>
+                <Portfolio ref={(ele) => { this.portfolioSection = ele; }} theme={this.props.theme}/>
+                <Experience ref={(ele) => { this.experienceSection = ele; }} theme={this.props.theme}/>
             </Grid>
             <Abilities ref={(ele) => { this.abilitiesSection = ele; }} theme={this.props.theme}/>
-            <BlogSection theme={this.props.theme}/>
+            <BlogSection ref={(ele) => { this.blogSection = ele }} theme={this.props.theme}/>
             <Footer/>
         </Fragment>
     )

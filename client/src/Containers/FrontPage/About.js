@@ -28,7 +28,8 @@ const snowboardingPics = [require('../../assets/img/hobbies/snowboard_1.jpg'),
 const volleyballPics = [require('../../assets/img/hobbies/volleyball.jpg')]
 
 const tennisPics = [require('../../assets/img/hobbies/tennis_1.jpg'),
-                    require('../../assets/img/hobbies/tennis_2.jpg')]
+                    require('../../assets/img/hobbies/tennis_2.jpg'),
+                    require('../../assets/img/hobbies/tennis_3.png')]
 
 const surfingPics = [require('../../assets/img/hobbies/surf_1.jpg')]
 
@@ -39,13 +40,25 @@ const climbingPics = [require('../../assets/img/hobbies/climb_2.jpg'),
                     require('../../assets/img/hobbies/climb_3.jpg')]
 
 const jssStyle = theme => ({
+    sectionBackground: {
+        background: `linear-gradient(270deg, #cfcfcfbd, ${theme.palette.primary['100']}, #c8c8c8, ${theme.palette.primary['100']}, ${theme.palette.primary['100']}, #c8c8c8, #cfcfcfbd)`,
+        backgroundSize: '1000% 1000%',
+        animation: '$BackgroundAnimation 16s ease infinite',
+        paddingTop: '75px',
+        paddingBottom: '75px'
+    },
+    '@keyframes BackgroundAnimation': { 
+        '0%': {backgroundPosition:'0% 2%'},
+        '50%':{backgroundPosition:'100% 99%'},
+        '100%':{backgroundPosition:'0% 2%'}
+    },
     inflate: {
         transform: 'scale(1.2) !important',
         zIndex: '190',
     },
     sectionAboutCard: {
         maxWidth: '1280px',
-        margin: '75px auto'
+        margin: 'auto auto'
     },
     flipContainer: {
         perspective: '1000px'
@@ -366,7 +379,7 @@ const hobbies = {
     },
     'Tennis': {
         icon: require('../../assets/icons/hobbies/tennis.png'),
-        description: ["I started playing Tennis in the Spring of '18. At this point, I was self-taught; here's me, applying skills I learned after watching Youtube tutorials and the pros play live. I recorded myself playing against the wall to debug my forehand and serve after every practice (Spring 2018).", "By the end of the Summer, I met old friends and new players who helped push me to NTRP level 3.0. Pictured is a still-frame from a video I recorded of a late-summer session. At this point, I recorded myself to debug my backhand (Summer 2018)."],
+        description: ["I started playing Tennis in the Spring of '18. At this point, I was self-taught; here's me, applying skills I learned after watching Youtube tutorials and the pros play live. I recorded myself playing against the wall to debug my forehand and serve after every practice (Spring 2018).", "By the end of the Summer, I met old friends and new players who helped push me to NTRP level 3.0. Pictured is a still-frame from a video I recorded of a late-summer session. At this point, I recorded myself to debug my backhand (Summer 2018).", "I joined the Long Beach USTA 3.0 League in the Spring of 2019. Playing others rekindled my drive to continue debugging my ground strokes and service game."],
         images: tennisPics
     },
     'Surfing': {
@@ -632,19 +645,21 @@ class About extends Component {
 
     render() {
         return (
-            <section className={this.props.classes.sectionAboutCard}>
-            <Slide in={true} direction="right" timeout={500}>
-                <div className={this.props.classes.flipContainer}>
-                    <div className={this.props.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
-                        <div className={this.props.classes.frontOfCard}>
-                            {this.generateFrontOfCard()}
+            <section className={this.props.classes.sectionBackground}>
+                <div className={this.props.classes.sectionAboutCard}>
+                    <Slide in={true} direction="right" timeout={500}>
+                        <div className={this.props.classes.flipContainer}>
+                            <div className={this.props.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
+                                <div className={this.props.classes.frontOfCard}>
+                                    {this.generateFrontOfCard()}
+                                </div>
+                                <div className={this.props.classes.backOfCard}>
+                                    {this.generateBackOfCard()}
+                                </div>
+                            </div>
                         </div>
-                        <div className={this.props.classes.backOfCard}>
-                            {this.generateBackOfCard()}
-                        </div>
-                    </div>
+                    </Slide>
                 </div>
-            </Slide>
             </section>
         )
     }

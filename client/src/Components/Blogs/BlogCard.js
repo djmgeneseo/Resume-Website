@@ -54,11 +54,13 @@ const jssStyle = theme => ({
  * @param {string} blogTitle
  * @param {string} blogIntro
  * @param {string} blogLink
+ * @param {num} sm - For Grid system; default set to 6
+ * @param {num} md - For Grid system; default set to 4
  */
 const BlogCard = (props) => {
     const {classes} = props;
     return (
-        <Grid key={props.blogTitle} item xs={12} sm={6} md={4}>
+        <Grid key={props.blogTitle} item xs={12} sm={ props.sm == null? 6 : props.sm} md={props.md == null? 4 : props.md}>
             <Card className={classes.blogCard}>
                 <CardMedia className={classes.cardMedia} image={props.blogImg}>
                     <div className={classes.timePeriodContainer}>
