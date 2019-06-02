@@ -315,13 +315,6 @@ class MessAppsBlog extends Component {
     currentPageIndex: 0
   }
 
-    // TODO - callback? or setup router properly...
-  disableLandingPage = () => {
-    this.setState({
-      isLandingPage: false
-    })
-  }
-
   // generateArticles = () => {
   //   return Object.keys(articles).map((articleName, index) => {
   //       return <Route path={`${this.props.match.path}/${articleName}`} component={(routeProps) => <ArticleHOC {...routeProps}>{articles[articleName]}</ArticleHOC>}/>
@@ -330,7 +323,7 @@ class MessAppsBlog extends Component {
 
   generateListOfArticles = () => {
     return articles.map((article, idx) => {
-      return ( 
+      return (
         <BlogCard key={article.id} theme={this.props.theme} blogLink={`messapps/${article.id}`} blogImg={article.img} blogDate={article.date} blogTitle={article.title} blogIntro={article.intro} />
       ) 
     })

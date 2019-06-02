@@ -52,6 +52,16 @@ const jssStyle = theme => ({
         '50%':{backgroundPosition:'100% 99%'},
         '100%':{backgroundPosition:'0% 2%'}
     },
+    /*
+    '@keyframes rotate-center': {
+        '0%': {
+                  transform: 'rotate(0)'
+        },
+        '100%': {
+                  transform: 'rotate(360deg)'
+        }
+      },
+    */
     inflate: {
         transform: 'scale(1.2) !important',
         zIndex: '190',
@@ -283,9 +293,9 @@ const jssStyle = theme => ({
         cursor: 'pointer',
         transform: 'translate(-50%, -60%)',
         '&:hover $arrowRound': {
-            transform: 'rotate(1turn) scale(1.2)'
+            transform: 'rotate(1turn) scale(1.2) !important'
         }
-      },
+    },
     arrowRound: {
         position: 'absolute',
         width: '50px',
@@ -294,6 +304,7 @@ const jssStyle = theme => ({
         borderRadius: '50%',
         borderRightColor: 'transparent',
         transition: 'transform .5s',
+        // animation: '$rotate-center 1s ease-in-out 1s 2 both',
         '&::after': {
             content: "' '",
             position: 'absolute',
@@ -512,7 +523,7 @@ class About extends Component {
                             ABOUT ME
                             </Typography> 
                             <Typography variant="body2">
-                                Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.
+                                My technical skillset occupies both front-end and back-end development for mobile and web apps; however, in particular, my interests lie in server-side development and database management. I mostly develop using two stacks and frequently switch between new languages & other framework paradigms: [jQuery, html/css/js, PHP, SQL, MySQL, and IIS] and [React, materialUI, html/jss/js, nodeJS, and MongoDB] is the other.
                             </Typography>
     
                             <div style={{marginTop: '10px'}}>
@@ -620,6 +631,7 @@ class About extends Component {
                         </AppBar>
                     </Grid>
                 </Grid>
+                
                 <div onClick={this.handleCardFlip} className ={this.props.classes.arrowBox}>
                     <div className={this.props.classes.arrowRound}></div>
                 </div>

@@ -80,7 +80,7 @@ class BlogSection extends Component {
     generateListOfArticles = () => {
         return blogs.map((blog, idx) => {
           return ( 
-            <BlogCard sm={12} md={4} key={blog.id} theme={this.props.theme} blogLink={blog.url} blogImg={blog.img} blogDate={blog.date} blogTitle={blog.title} blogIntro={blog.intro} />
+            <BlogCard sm={12} md={4} key={blog.url + blog.date} theme={this.props.theme} blogLink={blog.url} blogImg={blog.img} blogDate={blog.date} blogTitle={blog.title} blogIntro={blog.intro} />
           ) 
         })
       }
