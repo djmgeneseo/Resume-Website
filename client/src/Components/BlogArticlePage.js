@@ -16,7 +16,8 @@ const jssStyle = theme => ({
 })
 
 /**
- * @param {jsx} children = article/blog
+ * @param {jsx} children - article/blog
+ * @param {jsx} arrayOfRelatedBlogCards - related blogs for the sidebar of the blog page
  */
 const BlogArticlePage = (props) => {
   const {classes} = props;
@@ -29,7 +30,7 @@ const BlogArticlePage = (props) => {
           </Grid>
           <Grid item xs={12} sm={12} md={4}>
             <Paper>
-              <Typography>Hello</Typography>
+              {props.arrayOfRelatedBlogCards == null? <div></div> : props.arrayOfRelatedBlogCards}
             </Paper>
           </Grid>
         </Grid>

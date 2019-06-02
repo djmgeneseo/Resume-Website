@@ -24,7 +24,6 @@ const jssStyle = theme => ({
  */
 const MessAppsArticle = (props) => {
     const {classes} = props;
-    console.log(props.theme)
   return (
     <div>
       <div>

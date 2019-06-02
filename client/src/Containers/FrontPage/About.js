@@ -41,7 +41,7 @@ const climbingPics = [require('../../assets/img/hobbies/climb_2.jpg'),
 
 const jssStyle = theme => ({
     sectionBackground: {
-        background: `linear-gradient(270deg, #cfcfcfbd, ${theme.palette.primary['100']}, #c8c8c8, ${theme.palette.primary['100']}, ${theme.palette.primary['100']}, #c8c8c8, #cfcfcfbd)`,
+        background: `linear-gradient(270deg, #cfcfcfbd, ${theme.palette.primary['50']}, #c8c8c8, ${theme.palette.primary['50']}, ${theme.palette.primary['50']}, #c8c8c8, #cfcfcfbd)`,
         backgroundSize: '1000% 1000%',
         animation: '$BackgroundAnimation 16s ease infinite',
         paddingTop: '75px',
@@ -523,7 +523,7 @@ class About extends Component {
                             ABOUT ME
                             </Typography> 
                             <Typography variant="body2">
-                                My technical skillset occupies both front-end and back-end development for mobile and web apps; however, in particular, my interests lie in server-side development and database management. I mostly develop using two stacks and frequently switch between new languages & other framework paradigms: [jQuery, html/css/js, PHP, SQL, MySQL, and IIS] and [React, materialUI, html/jss/js, nodeJS, and MongoDB] is the other.
+                                My technical skillset occupies both front-end and back-end development for mobile and web apps; however, in particular, my interests lie in server-side development and database management. I mostly develop using two stacks and frequently switch between new languages & other framework paradigms: [jQuery, html/css/js, PHP, SQL, MySQL, and IIS] and [React, materialUI, html/jss/js, nodeJS, and MongoDB].
                             </Typography>
     
                             <div style={{marginTop: '10px'}}>
