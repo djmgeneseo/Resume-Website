@@ -410,7 +410,7 @@ const hobbies = {
     },
     'Tennis': {
         icon: require('../../assets/icons/hobbies/tennis.png'),
-        description: ["I started playing Tennis in the Spring of '18. At this point, I was self-taught; here's me, applying skills I learned after watching Youtube tutorials and the pros play live. I recorded myself playing against the wall to debug my forehand and serve after every practice (Spring 2018).", "By the end of the Summer, I met old friends and new players who helped push me to NTRP level 3.0. Pictured is a still-frame from a video I recorded of a late-summer session. At this point, I recorded myself to debug my backhand (Summer 2018).", "I joined the Long Beach USTA 3.0 League in the Spring of 2019. Playing others rekindled my drive to continue debugging my ground strokes and service game."],
+        description: ["I started playing Tennis in the Spring of '18. At this point, I was self-taught; here's me, applying skills I learned after watching Youtube tutorials and the pros play live. I recorded myself playing against the wall to debug my forehand and serve after every practice (Spring 2018).", "By the end of the Summer, I met old friends and new players who helped push me to NTRP level 3.0. Pictured is a still-frame from a video I recorded of a late-summer session. At this point, I recorded myself to debug my backhand (Summer 2018).", "I joined the Long Beach USTA 3.0 League in the Spring of 2019...and rediscovered how difficult tennis is. Playing others rekindled my drive to continue debugging my ground strokes and service game."],
         images: tennisPics
     },
     'Surfing': {
@@ -543,7 +543,7 @@ class About extends Component {
                             ABOUT ME
                             </Typography> 
                             <Typography variant="body2">
-                                My technical skillset occupies both front-end and back-end development for mobile and web apps; however, in particular, my interests lie in server-side development and database management. I mostly develop using two stacks and frequently switch between new languages & other framework paradigms: [jQuery, html/css/js, PHP, SQL, MySQL, and IIS] and [React, materialUI, html/jss/js, nodeJS, and MongoDB].
+                                I'm a <strong>Full Stack Developer</strong>, meaning my technical skillset occupies both front-end and back-end development for mobile and web applications. My current interests lean towards server-side development and database management. I mostly develop using two stacks, but am often required to learn new languages & framework paradigms: [jQuery, html/css/js, PHP, SQL, MySQL, IIS] and [React, materialUI, html/jss/js, nodeJS, MongoDB].
                             </Typography>
     
                             <div style={{marginTop: '10px'}}>
