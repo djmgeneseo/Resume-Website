@@ -82,6 +82,9 @@ const jssStyle = (theme) => ({
   disclaimerText: {
     color: '#424242ba'
   },
+  floatRight: {
+    float: 'right !important'
+  },
   '@media only screen and (max-width: 959px)': {
     siteContainer: {
       paddingRight: '60px'
@@ -95,9 +98,8 @@ const jssStyle = (theme) => ({
   }
 })
 
-// TODO: reverse key/value pairing
 const skillsJSON = {
-  5: ['JavaScript (ES5, 6, & 7)','HTML(5)','CSS(3)','JSON','Git','Bootstrap Framework','Material-UI Framework','Object Oriented Programming'],
+  5: ['JavaScript (ES5, 6, & 7)','HTML(5)','CSS(3)','JSON','Git','Bootstrap Framework','Material-UI Framework','Object Oriented Progr.'],
   4: ['NoSQL','SQL','PHP','React','React-Bootstrap Framework','Swift','JQuery','MVC Pattern','CRUD Paradigm','REST Architecture'],
   3: ['MySQL','Node.js','Java'],
   2: ['R'],
@@ -115,14 +117,17 @@ const randomString = (length) => {
   return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
 }
 
+/**
+ * Props:
+ * @param {json} classes 
+ */
 const Abilities = (props) => {
   const {classes} = props;
 
   /**
-   * 
    * @param {number} filledStarsAmt - amount of stars (propably out of 5)
    * @param {number} emptyStarsAmt - unfilled stars (probably out of 5)
-   * @returns {jsx}
+   * @returns {array} - array of jsx elements, each of which is a row of stars
    */
   const generateStars = (filledStarsAmt, emptyStarsAmt) => {
     let jsx = [];
@@ -142,12 +147,11 @@ const Abilities = (props) => {
       );
       emptyStarsAmt--;
     }  
-    return jsx.map(function(star) {return star});
+    return jsx;
   }
 
   /**
-   * 
-   * @param {object} abilityJSON - Each value is an array
+   * @param {object} abilityJSON - An object of number:arrays pairs
    * @returns {number}
    */
   const findAbilityJsonLength = (abilityJSON) => {
@@ -200,7 +204,7 @@ const Abilities = (props) => {
             return (
               <div key={randomString(10)} className={classes.onHover}>
                 <Typography style={{display: 'inline'}} variant="body1">{abilityName}</Typography>
-                <span className={classes.starsSpan} style={{float: 'right'}}>
+                <span className={classes.starsSpan + ' ' + classes.floatRight}>
                   {generateStars(amtOfStars, 5-amtOfStars)}</span>
               </div>
             )
@@ -213,7 +217,7 @@ const Abilities = (props) => {
   return (
     <section className={classes.sectionBackground}>
       <Grid container className={classes.siteContainer}>
-        <div className={classes.heading}><Typography variant="h4">ABILITIES</Typography></div>
+        <div className={classes.heading}><Typography variant="h4">{`< ABILITIES />`}</Typography></div>
         <div className={classes.headerShadow}><img alt='section header shadow' src={require('../../assets/img/section_header_shadow.png')}/></div>
         <div className={classes.subHeading}><Typography variant="h5">Skills</Typography></div>
         { generateAbilityCategoryRow(skillsJSON) }

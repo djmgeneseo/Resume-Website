@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/styles';
 /*
   Unsure how to pass props into jssStyle to pass the background image to this component via props.
 */
-
 const jssStyle = (theme) => ({
   jumbotron: {
     width: '100%',
@@ -17,6 +16,11 @@ const jssStyle = (theme) => ({
   }
 })
 
+/**
+ * Props:
+ * @param {json} classes
+ * @param {*} children 
+ */
 const Parallax = (props) => {
   const {classes} = props;
   return (

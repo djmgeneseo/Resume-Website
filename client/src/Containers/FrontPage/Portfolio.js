@@ -353,7 +353,10 @@ class Portfolio extends Component {
                   <Typography variant={'h3'} style={{position: 'absolute', right:'15%', color: 'white', cursor: 'pointer'}}onClick={this.handleCloseModal}>X</Typography>
                   <Card className={this.props.classes.modalCard}>
                       <div className={this.props.classes.cardMediaContainerModal}>
-                        <video className={classes.video} width="100%" height="100%" controls>
+                        <video 
+                            className={classes.video} 
+                            style={this.state.activePortfolioKey === 'iOS OCR Mobile Vision' || this.state.activePortfolioKey === 'Skinno' ?{marginLeft: '35%'}: {}} 
+                            width={this.state.activePortfolioKey === 'iOS OCR Mobile Vision' || this.state.activePortfolioKey === 'Skinno' ? "30%" : "100%"} height="100%" controls>
                           <source src={portfolioItems[this.state.activePortfolioKey].video} type="video/mp4"/>
                           Your browser does not support HTML5 video.
                         </video>

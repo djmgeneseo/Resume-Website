@@ -18,6 +18,12 @@ const jssStyle = theme => ({
     }
 })
 
+/**
+ * Props:
+ * @param {json} classes
+ * @param {json} theme
+ * @param {*} {...routeProps} - includes all properties passed from react-router-dom (Ex: match.path)
+ */
 class Blogs extends Component {
   render() {
       const {classes} = this.props;

@@ -68,6 +68,11 @@ const jssStyle = theme => ({
     }
 })
 
+/**
+ * MessApps article information - needed to produce both the header and body (pre-written component in property) of MessApps articles. The contents of the article's "card". 
+ *    - The 'tags' property is only used when generating "related posts" cards
+ *    - The 'order' property is only used when sorting by time of creation
+ */
 const articles = [
   {
     title: `Making the Most Out of iOS App Analytics`,
@@ -370,28 +375,37 @@ const articles = [
   }
 ]
 
+/**
+ * Props:
+ * @param {json} classes 
+ * @param {json} theme
+ * @param {*} {...routeProps} - includes all properties passed from react-router-dom (Ex: match.path)
+ */
 class MessAppsBlog extends Component {
-
-  // generateArticles = () => {
-  //   return Object.keys(articles).map((articleName, index) => {
-  //       return <Route path={`${this.props.match.path}/${articleName}`} component={(routeProps) => <ArticleHOC {...routeProps}>{articles[articleName]}</ArticleHOC>}/>
-  //   })
-  // }
 
   state = {
     anchorEl: null,
     byName: false,
   }
 
+  /**
+   * For the 'Filter by...' dropdown menu
+   */
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
+  /**
+   * For the 'Filter by...' dropdown menu
+   */
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
 
-  handleFilter = event => {  
+  /**
+   * For the 'Filter by...' dropdown menu. Switches this.state.byName bool value
+   */
+  handleFilter = () => {  
     if (this.state.byName === true) {
       this.setState({byName: false })
     } else {
@@ -401,14 +415,21 @@ class MessAppsBlog extends Component {
     this.handleClose()
   }
 
+  /**
+   * Generates blog cards for all MessApps articles
+   */
   generateListOfArticles = () => {
-    return articles.map((article, idx) => {
+    return articles.map((article) => {
       return (
         <BlogCard key={article.id} theme={this.props.theme} blogLink={`messapps/${article.id}`} blogImg={article.img} blogDate={article.date} blogTitle={article.title} blogIntro={article.intro} />
       ) 
     })
   }
 
+  /**
+   * Generates the article card (with the body of the article via pre-written component)
+   * @param {string} requestedArticleId - id property of the article variable
+   */
   generateArticle = (requestedArticleId) => {
     let requestedArticle = articles.find(({id}) => id===requestedArticleId);
     return <MessAppsArticle
@@ -425,6 +446,10 @@ class MessAppsBlog extends Component {
                 </MessAppsArticle>
   }
 
+  /**
+   * Generates <= 5 related article cards for the related article card section on each a blog page 
+   * @param {string} requestedArticleId - id property of the article variable
+   */
   generateRelatedArticleCards = (requestedArticleId) => {
     let requestedArticleTags = articles.find(({id}) => id===requestedArticleId).tags;
 

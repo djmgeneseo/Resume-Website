@@ -71,15 +71,16 @@ const jssStyle = theme => ({
 
 /**
  * Props: 
- * @param {string}     achievementAffiliation 
+ * @param {json}       classes
  * @param {json}       theme
- * @param {string}     achievement
- * @param {string}     marginBottom - OPTIONAL
- * @param {string}     year
+ * @param {string}     achievementAffiliation - Displayed above the achievement title; top-most writing
+ * @param {string}     achievement - The card's title
+ * @param {string}     marginBottom - OPTIONAL - may be necessary, depending on card's location in grid
+ * @param {string}     year - Displayed on the ribbon component
  * @param {jsx/string} adjacentToDate - OPTIONAL
- * @param {image}      icon
- * @param {image}      logo - OPTIONAL
- * @param {jsx}        children - OPTIONAL
+ * @param {image}      icon - Displayed on the card's upper-right-most corner (outside & overlaying)
+ * @param {image}      logo - OPTIONAL - Displayed inside the card's upper-right section (with padding)
+ * @param {jsx}        children - OPTIONAL - Text beneath all other features on card
  */
 
 const AchievementCard = (props) => {

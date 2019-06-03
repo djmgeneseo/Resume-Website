@@ -13,6 +13,9 @@ const jssStyle = theme => ({
     },
     headingAuthor: {
       marginBottom: '-5px !important'
+    },
+    thumbnail: {
+      marginTop: '5px'
     }
 })
 
@@ -28,7 +31,7 @@ const MessAppsArticle = (props) => {
     <div>
       <div>
       <Typography style={{float: 'right', display: 'inline'}}><a href={props.messappsURL} rel="noopener noreferrer" target="_blank">Visit MessApps</a></Typography>
-        <img src={davidThumbnail} style={{marginTop: '5px'}} alt="Caricature of David Murphy"/>
+        <img src={davidThumbnail} className={classes.thumbnail} alt="Caricature of David Murphy"/>
         <div className={classes.headingAuthorContainer}>
           <Typography variant="h6" className={classes.headingAuthor}>David Murphy</Typography>
           <TimePeriodCaption theme={props.theme} timeDescription={props.date}></TimePeriodCaption>

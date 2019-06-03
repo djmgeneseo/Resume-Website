@@ -6,7 +6,6 @@ import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Deve
 import {Slide, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
 import {FaFileDownload,FaLinkedin,FaGithub} from "react-icons/fa";
-// import { Button } from '@material-ui/core';
 
 const selfPortrait = require('../../assets/img/me.png')
 
@@ -375,6 +374,7 @@ const jssStyle = theme => ({
     }
 })
 
+// for the front-facing portion of the about card
 const info = {
     Age: 24,
     Phone: '(516) 993-7871',
@@ -382,6 +382,7 @@ const info = {
     Home: 'Long Island - Oceanside, NY'
 }
 
+// for the rear-facing portion of the about card
 const hobbies = {
     'Cycling': {
         icon: require('../../assets/icons/hobbies/bicycle.png'),
@@ -430,6 +431,10 @@ const hobbies = {
     }
 }
 
+/**
+ * Props:
+ * @param {json} classes
+ */
 class About extends Component {
     classes = this.props.classes;
 
@@ -439,6 +444,10 @@ class About extends Component {
         activeImageIdx: 0
     }
 
+    /**
+     * Handler for when user clicks on a hobby button on rear-facing portion of about me card
+     * @param {string} newHobbyKey
+     */
     handleActiveHobbyClick = (newHobbyKey) => {
         this.setState({
             activeHobbyKey: newHobbyKey,
@@ -446,6 +455,10 @@ class About extends Component {
         })
     }
 
+    /**
+     * Handler for when user clicks on the 'next picture' arrow on rear-facing portion of about me card
+     * @param {number} additionOrSubtration - either a '1' or '-1'
+     */
     handleArrowClick = (additionOrSubtraction) => {
         this.setState(state => {
             return {
@@ -454,6 +467,9 @@ class About extends Component {
         })
     }
 
+    /**
+     * Generate the hobby card on the rear-facing portion of the about me card that corresponds with the currently selected hobby (that the user has chosen)
+     */
     generateHobbyPictureCard = () => {
         return (
             <Card className={this.props.classes.hobbyCard}>
@@ -477,6 +493,9 @@ class About extends Component {
             )
     }
     
+    /**
+     * Generate all hobby icons based on the hobbies json variable. Should only be called once. The hobby button that corresponds with the currently selected hobby should increase in scale, based on the "inflate" class
+     */
     generateHobbyIcons = () => {
         return Object.keys(hobbies).map((hobby, hobbyIdx) => {
             if((hobbyIdx+1)%3 === 0) { // push icon to new row
@@ -512,6 +531,9 @@ class About extends Component {
         })
     }
 
+    /**
+     * Generates the front-facing portion of the about me card. Should only be called once.
+     */
     generateFrontOfCard = () => {
         return (
             <Paper className={this.props.classes.aboutMeCard}>
@@ -583,6 +605,9 @@ class About extends Component {
         )
     }
 
+    /**
+     * Generates the left chevron arrow, intended to be adjacent to the hobby card on the rear-facing portion of the about me card. This function may or may not be called, depending on the location of the user in the photo gallery for a selected hobby.
+     */
     generateLeftArrow = () => {
         if(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx -1]) {
             return (
@@ -597,6 +622,9 @@ class About extends Component {
         }
     }
 
+    /**
+     * Generates the right chevron arrow, intended to be adjacent to the hobby card on the rear-facing portion of the about me card. This function may or may not be called, depending on the location of the user in the photo gallery for a selected hobby.
+     */
     generateRightArrow = () => {
         if(hobbies[this.state.activeHobbyKey].images[this.state.activeImageIdx + 1]) {
             return (
@@ -609,6 +637,9 @@ class About extends Component {
         }
     }
 
+    /**
+     * Generates the rear-facing portion of the about me card. Should only be called once. 
+     */
     generateBackOfCard = () => {
        return ( 
             <Paper className={this.props.classes.aboutMeCard}>
@@ -659,6 +690,9 @@ class About extends Component {
        )
     }
 
+    /**
+     * Utilizes data in the info json variable to generate 
+     */
     generateBioAndInfo = () => {
         let props = this.props;
         return Object.keys(info).map(function(key) {
@@ -669,7 +703,10 @@ class About extends Component {
         })
     }
 
-    handleCardFlip = (event) => {
+    /**
+     * Event handler for onClick of circular arrow located on both the front-side and rear-facing portion of the about me card 
+     */
+    handleCardFlip = () => {
         this.setState(state => ({
             flippedCard: !state.flippedCard
         }));

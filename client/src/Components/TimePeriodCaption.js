@@ -31,6 +31,7 @@ const jssStyle = theme => ({
 })
 
 /**
+ * @param {json} classes
  * @param {string} timeDescription
  */
 const TimePeriodDiv = (props) => {

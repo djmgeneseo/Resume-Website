@@ -6,12 +6,12 @@ import {Experience, Portfolio, Achievements, About, BlogSection} from './index';
 import {NavBar, ColorPicker} from '../index';
 
 import {Parallax} from '../../Components/index';
-import {Abilities, Footer} from '../../Components/FrontPage/index';
+import {Abilities} from '../../Components/FrontPage/index';
 
 import scrollToComponent from 'react-scroll-to-component';
 
 // Media
-import { GoChevronUp, GoFileCode, GoBriefcase, GoTools, GoBook } from "react-icons/go";
+import { GoChevronUp, GoWatch, GoBriefcase, GoTools, GoBook } from "react-icons/go";
 import { IoMdTrophy } from "react-icons/io";
 import achievementsBackgroundImage from '../../assets/img/jumbo.jpg';
 
@@ -78,12 +78,12 @@ export class FrontPage extends Component {
                 </CardActionArea>
                 <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.portfolioSection, {align: 'top'})}>
                     <CardContent>
-                        <GoFileCode className={classes.icon}/>
+                    <GoBriefcase className={classes.icon}/>
                     </CardContent>
                 </CardActionArea>
                 <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.experienceSection, {align: 'top'})}>
                     <CardContent>
-                        <GoBriefcase className={classes.icon}/>
+                        <GoWatch className={classes.icon}/>
                     </CardContent>
                 </CardActionArea>
                 <CardActionArea className={classes.actionArea} onClick={() => scrollToComponent(this.abilitiesSection, {align: 'top'})}>
@@ -117,7 +117,6 @@ export class FrontPage extends Component {
             </Grid>
             <Abilities ref={(ele) => { this.abilitiesSection = ele; }} theme={this.props.theme}/>
             <BlogSection ref={(ele) => { this.blogSection = ele }} theme={this.props.theme}/>
-            <Footer/>
         </Fragment>
     )
   }

@@ -35,8 +35,9 @@ const jssStyle = theme => ({
 })
 
 /**
- * 
- * @param {*} props = {string} headerTitle, {function} listGenerator
+ * Props: 
+ * @param {json} classes
+ * @param {function} listItemsGenerator - returns list items to be placed alongside either end of the timeline bar
  */
 
 const Timeline = (props) => {

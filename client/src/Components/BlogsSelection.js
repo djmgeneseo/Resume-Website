@@ -4,6 +4,7 @@ import {Grid, Card, CardActionArea, CardMedia, Typography} from '@material-ui/co
 import {Link} from "react-router-dom";
 
 import MessAppsLogo from '../assets/img/blogs/messapps_logo.png';
+import ComingSoon from '../assets/img/blogs/coming_soon.jpg'
 
 import { withStyles } from '@material-ui/styles'; // jss library
 
@@ -44,35 +45,35 @@ const categories = {
     link: ''
   },
   'Coming Soon1': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon2': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon3': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon4': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon5': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon6': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon7': {
-    img: null,
+    img: ComingSoon,
     link: ''
   },
   'Coming Soon8': {
-    img: null,
+    img: ComingSoon,
     link: ''
   }
 }

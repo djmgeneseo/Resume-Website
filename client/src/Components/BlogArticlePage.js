@@ -19,6 +19,7 @@ const jssStyle = theme => ({
 })
 
 /**
+ * @param {json} classes
  * @param {jsx} children - article/blog
  * @param {jsx} arrayOfRelatedBlogCards - related blogs for the sidebar of the blog page
  */

@@ -23,6 +23,14 @@ const jssStyle = theme => ({
     },
     removeOutline: {
         outline: 'none'
+    },
+    socialIcon: {
+
+    },
+    '@media only screen and (max-width: 450px)': {
+        socialIcon: {
+          display: 'none'
+        },
     }
 });
 
@@ -115,12 +123,12 @@ class NavBar extends Component {
                                 </Menu>
                             </div>
                         </div>
-                        <a href='https://www.linkedin.com/in/david-murphy-830671106/' target="_blank" rel="noopener noreferrer">
+                        <a href='https://www.linkedin.com/in/david-murphy-830671106/' className={classes.socialIcon} target="_blank" rel="noopener noreferrer">
                             <IconButton color="secondary">
                                 <FaLinkedin/>
                             </IconButton>
                         </a>
-                        <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
+                        <a href='https://github.com/djmgeneseo' className={classes.socialIcon} target="_blank" rel="noopener noreferrer">
                             <IconButton color="secondary">
                                 <FaGithub/>
                             </IconButton>

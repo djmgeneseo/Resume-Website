@@ -231,6 +231,11 @@ const experienceJSON = {
   }
 }
 
+/**
+ * Props:
+ * @param theme
+ * @param classes
+ */
 class Experience extends Component {
 
   state={
@@ -244,7 +249,7 @@ class Experience extends Component {
   }
 
   handleOnScroll = (cardToggle) => {
-    if(this.state[cardToggle] === false){ // prevent react from mounting component by preventing this function from reseting the state with another true value
+    if(this.state[cardToggle] === false){ // prevent react from unecessarily re-mounting by preventing this function from reseting the state with another redunant true value
         // [cardToggle] - array brackets is an es6 feature used to set key via variable
         this.setState({
             [cardToggle]: true
@@ -252,6 +257,9 @@ class Experience extends Component {
     }
   }
 
+  /**
+   * @returns {array} list of jsx items to be placed alongside either end of the timeline bar
+   */
   generateExperienceListItems = () => {
     const {theme} = this.props;
     const {classes} = this.props;

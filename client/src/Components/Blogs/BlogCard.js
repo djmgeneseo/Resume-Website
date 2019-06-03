@@ -49,6 +49,7 @@ const jssStyle = theme => ({
 })
 
 /**
+ * @param {json} classes
  * @param {img} blogImg
  * @param {string} blogDate
  * @param {string} blogTitle
