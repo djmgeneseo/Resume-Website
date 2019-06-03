@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { withStyles } from '@material-ui/styles'; // jss library
-import {Typography, Link} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 
 import img1 from '../../../../assets/img/blogs/messapps/five-appreneur-books-that-guarantee-results/1.jpg';
 import img2 from '../../../../assets/img/blogs/messapps/five-appreneur-books-that-guarantee-results/2.jpg';
@@ -74,7 +74,7 @@ const FiveAppreneurBooksThatGuaranteeResults = (props) => {
           </Typography>
         </li>
         <li>
-            <Typography>Tapworthy: Designing Great iPhone Apps</Typography>
+            <Typography paragraph>Tapworthy: Designing Great iPhone Apps</Typography>
             <img src={img4} className={classes.img} alt="Tapworthy Designing Great iPhone Apps, written by Josh Clark"/>
             <Typography paragraph>
               This is a must­read for anyone interested in iOS development. Clark filled every page corner­to­corner with insight on various navigation paradigms and the advantages and disadvantages of each, app icon design, alerts and notifications, app launching and so much more.   You'll also find transcribed interviews between great successors in the app world like Gowalla CEO Josh Williams and both the Firefox browser and Facebook App creator Joe Hewitt.

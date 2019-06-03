@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {Blogs, MessAppsBlog} from './Blogs/index';
+import {Blogs} from './Blogs/index';
 import {FrontPage} from './FrontPage/index';
 import {ScrollToTop} from '../Components/index';
 

@@ -47,11 +47,6 @@ const jssStyle = theme => ({
         paddingTop: '75px',
         paddingBottom: '75px'
     },
-    '@keyframes BackgroundAnimation': { 
-        '0%': {backgroundPosition:'0% 2%'},
-        '50%':{backgroundPosition:'100% 99%'},
-        '100%':{backgroundPosition:'0% 2%'}
-    },
     /*
     '@keyframes rotate-center': {
         '0%': {
@@ -287,11 +282,12 @@ const jssStyle = theme => ({
         position: 'absolute',
         width: '50px',
         height: '50px',
-        top: '5%',
-        right: '0%',
+        top: '-3%',
+        right: '1%',
         marginRight: '-20px',
         cursor: 'pointer',
         transform: 'translate(-50%, -60%)',
+        animation: '$flip-scale-up-hor 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s both',
         '&:hover $arrowRound': {
             transform: 'rotate(1turn) scale(1.2) !important'
         }
@@ -329,6 +325,30 @@ const jssStyle = theme => ({
         aboutMeCard: {
             width: '85%',
             marginLeft: '7.5%'
+        }
+    },
+    '@keyframes BackgroundAnimation': { 
+        '0%': {backgroundPosition:'0% 2%'},
+        '50%':{backgroundPosition:'100% 99%'},
+        '100%':{backgroundPosition:'0% 2%'}
+    },
+    '@keyframes rotate-vert-center': {
+        '0%': {
+                  transform: 'rotateY(0)'
+        },
+        '100%': {
+                  transform: 'rotateY(360deg)'
+        }
+    },
+    '@keyframes flip-scale-up-hor': {
+        '0%': {
+                  transform: 'scale(1) rotateX(0)'
+        },
+        '50%': {
+                  transform: 'scale(1.5) rotateX(-180deg)'
+        },
+        '100%': {
+                  transform: 'scale(1) rotateX(-360deg)'
         }
     },
     '@media only screen and (max-width: 959px)': { // Tablet screens

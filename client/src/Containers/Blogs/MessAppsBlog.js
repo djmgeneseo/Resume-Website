@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {Route} from "react-router-dom";
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Typography, Grid, Card, CardContent, CardMedia, CardActions, Button} from '@material-ui/core'
+import {Link} from 'react-router-dom';
 
 import BlogArticlePage from '../../Components/BlogArticlePage' 
 import me from '../../assets/img/me.png';
@@ -45,7 +46,8 @@ const jssStyle = theme => ({
       textAlign: 'center',
       width: '100%',
       marginBottom: '25px',
-      marginTop: '25px'
+      marginTop: '25px',
+      position: 'relative'
     },
     blogPageContainer: {
       maxWidth: '1280px', 
@@ -59,6 +61,13 @@ const jssStyle = theme => ({
       margin: '75px auto',
       maxWidth: '1280px',
       padding: '10px'
+    },
+    left: {
+      position: 'absolute',
+      left: '0%'
+    },
+    link: {
+      cursor: 'pointer'
     }
 })
 
@@ -338,9 +347,6 @@ const articles = [
 ]
 
 class MessAppsBlog extends Component {
-  state = {
-    currentPageIndex: 0
-  }
 
   // generateArticles = () => {
   //   return Object.keys(articles).map((articleName, index) => {
@@ -391,24 +397,30 @@ class MessAppsBlog extends Component {
       }
     })
 
-    console.log(relatedArticleArr);
-
-    // TODO: finish algorithm 
     // arrange related articles based on amount of related tags in descending order
     let relatednessDict = {};
     relatedArticleArr.forEach((article) => {
-      if(relatednessDict.hasOwnProperty(article.relatedTags.length)) {
-        console.log('sup')
+      if(relatednessDict[article.relatedTags.length] === undefined) {
         relatednessDict[article.relatedTags.length] = [article];
       } else {
         relatednessDict[article.relatedTags.length].push(article)
       }
     })
     let arrOfDictKeys = Object.keys(relatednessDict)
-    // sort keys in descending order
+    // sort keys in descending order. Fishing for articles with the largest amount of related tags.
     arrOfDictKeys.sort((a,b) => b-a);
-    console.log(arrOfDictKeys);
-    console.log(relatednessDict);
+    let finalArrOfRelated = [];
+    
+    arrOfDictKeys.forEach(key => {
+      let i = 0;
+      while((finalArrOfRelated.length < 5) && (i<relatednessDict[key].length)) {
+        finalArrOfRelated.push(relatednessDict[key][i])
+        i++;
+      }
+    })
+    return finalArrOfRelated.map(article => {
+      return <BlogCard sm={12} md={12} key={article.id} theme={this.props.theme} blogLink={`messapps/${article.id}`} blogImg={article.img} blogDate={article.date} blogTitle={article.title} blogIntro={article.intro} />
+    })
   }
 
   render() {
@@ -416,12 +428,13 @@ class MessAppsBlog extends Component {
     
     return (
       <div className={classes.blogPageContainer}>
-        <Grid container spacing={16}>
+        <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12}>
-                      <div className={classes.heading}>
-                          <Typography variant="h4">MESSAPPS</Typography>
-                      </div>
-                  </Grid>
+              <div className={classes.heading}>
+                  <Typography paragraph className={classes.left + ' ' + classes.link} onClick={this.props.history.goBack}><u>{`< BACK`}</u></Typography>
+                  <Typography variant="h4">MESSAPPS</Typography>
+              </div>
+          </Grid>
           <Route 
               exact 
               path={this.props.match.path}

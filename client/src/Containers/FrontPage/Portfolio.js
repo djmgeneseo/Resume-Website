@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import {Fab, CardActions, Slide, Typography, Divider, Button, Tab, Tabs, CardMedia, CardContent, Card, Grid} from '@material-ui/core';
+import {Fab, CardActions, Slide, Typography, Divider, Button, Tab, Tabs, CardMedia, CardContent, Card, Grid, Modal} from '@material-ui/core';
 
 import {FaGithub, FaYoutubeSquare} from "react-icons/fa";
 import {MdLink} from "react-icons/md";
@@ -85,6 +85,19 @@ const jssStyle = theme => ({
   cardMediaText: {
     color: '#fff !important'
   },
+  cardMediaContainerModal: {
+    position: 'relative', 
+    overflow: 'auto',
+    maxHeight: '70vh'
+},
+modalCard: {
+    maxWidth: '60%',
+    maxHeight: '70%',
+    margin: 'auto',
+    marginTop: '5%'
+},
+video: {
+},
   '@media only screen and (max-width: 600px)': { // Phone screens
     cardCaptionActions: {
       opacity: '1'
@@ -103,12 +116,13 @@ const portfolioItems = {
   },
   'Molloy Data Dashboard': {
     tags: ['HTML & CSS','JavaScript', 'SQL', 'jQuery', 'Bootstrap', 'PHP', 'IIS'],
-    img: require('../../assets/img/data_dashboard.png')
+    img: require('../../assets/img/data_dashboard.png'),
+    video: require('../../assets/mp4/datacenter.mp4')
   },
   'Skinno': {
     tags: ['Swift', 'Firebase', 'Firestore', 'NoSQL', 'CocoaPods'],
-    video: 'https://www.youtube.com/watch?v=aB-9-rHU7FA',
-    img: require('../../assets/img/skinno.jpg')
+    img: require('../../assets/img/skinno.jpg'),
+    video: require('../../assets/mp4/skinno.mp4')
   },
   'Skinno Landing Page': {
     link: 'https://djmgeneseo.github.io/Skinno_Website/',
@@ -164,7 +178,27 @@ class Portfolio extends Component {
   
   state = {
     tabValue: 0,
-    seeMorePortfolio: false
+    seeMorePortfolio: false,
+    openModal: false,
+    activePortfolioKey: 'Molloy Data Dashboard'
+  }
+
+  /**
+   * Modal open handler
+   */
+  handleOpenModal = (newKey) => {
+    this.setState({
+        openModal: true,
+        activePortfolioKey: newKey,
+        activeImageIdx: 0
+    });
+  }
+
+  /**
+   * Modal close handler
+   */
+  handleCloseModal = () => {
+      this.setState({openModal: false});
   }
 
   /**
@@ -202,11 +236,10 @@ class Portfolio extends Component {
 
     if(portfolioItems[portfolioItemName].video) {
       elements.push(
-        (<a key={portfolioItems[portfolioItemName].video} href={portfolioItems[portfolioItemName].video} target="_blank" rel="noopener noreferrer">
-          <Fab size="small" color="primary">
+        (
+          <Fab key={portfolioItemName + 'portfolio'} size="small" color="primary" onClick={() => this.handleOpenModal(portfolioItemName)}>
             <FaYoutubeSquare className={classes.cardActionIcon}/>
-          </Fab>
-        </a>)
+          </Fab>)
       )
     }
 
@@ -282,6 +315,9 @@ class Portfolio extends Component {
     })
   }
   
+  /**
+   * Uses: generatePortfolioItems()
+   */
   render() {
     const classes = this.props.classes;
     return (
@@ -308,6 +344,27 @@ class Portfolio extends Component {
         <div style={{display: 'flex',justifyContent: 'center', width: '100%'}}>
           <Button className={classes.seeMoreButtonWrapper} onClick={this.handleSeeMoreButton} size='large' color="primary">{this.state.seeMorePortfolio ? '- See Less' : '+ See More'}</Button>
         </div>
+
+        <Modal
+          open={this.state.openModal}
+          onClose={this.handleCloseModal}>
+              <div style={{position: 'relative'}}>
+                  <Typography variant={'h3'} style={{position: 'absolute', right:'15%', color: 'white', cursor: 'pointer'}}onClick={this.handleCloseModal}>X</Typography>
+                  <Card className={this.props.classes.modalCard}>
+                      <div className={this.props.classes.cardMediaContainerModal}>
+                        <video className={classes.video} width="100%" height="100%" controls>
+                          <source src={portfolioItems[this.state.activePortfolioKey].video} type="video/mp4"/>
+                          Your browser does not support HTML5 video.
+                        </video>
+                      </div>
+                      <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                          {this.state.activePortfolioKey}
+                      </Typography>
+                      </CardContent>
+                  </Card>
+              </div>
+        </Modal>
     </Fragment>
     )
   }

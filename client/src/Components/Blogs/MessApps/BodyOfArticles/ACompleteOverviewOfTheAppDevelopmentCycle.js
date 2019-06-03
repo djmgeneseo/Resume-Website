@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { withStyles } from '@material-ui/styles'; // jss library
-import {Typography, Link} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 
 import img1 from '../../../../assets/img/blogs/messapps/a-complete-overview-of-the-app-development-cycle/1.jpg';
 import img2 from '../../../../assets/img/blogs/messapps/a-complete-overview-of-the-app-development-cycle/2.jpg';

@@ -12,6 +12,9 @@ const jssStyle = theme => ({
   },
   articlePaper: {
     padding: '40px' 
+  },
+  center: {
+      textAlign: 'center'
   }
 })
 
@@ -29,9 +32,10 @@ const BlogArticlePage = (props) => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={4}>
-            <Paper>
+            <div>
+              <Typography variant={'h5'} className={classes.center}>Related Posts</Typography>
               {props.arrayOfRelatedBlogCards == null? <div></div> : props.arrayOfRelatedBlogCards}
-            </Paper>
+            </div>
           </Grid>
         </Grid>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, Grid, Card, CardActionArea, CardContent, CardMedia, Typography} from '@material-ui/core';
+import {Grid, Card, CardActionArea, CardMedia, Typography} from '@material-ui/core';
 
 import {Link} from "react-router-dom";
 

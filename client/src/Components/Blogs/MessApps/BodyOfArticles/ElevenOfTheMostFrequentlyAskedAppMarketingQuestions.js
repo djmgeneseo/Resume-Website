@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { withStyles } from '@material-ui/styles'; // jss library
-import {Typography, Link} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 
 import img1 from '../../../../assets/img/blogs/messapps/five-appreneur-books-that-guarantee-results/1.jpg';
 import img2 from '../../../../assets/img/blogs/messapps/five-appreneur-books-that-guarantee-results/2.jpg';

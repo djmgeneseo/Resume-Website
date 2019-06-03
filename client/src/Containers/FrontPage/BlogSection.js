@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {Card, CardActions, CardContent, CardMedia, Button, Typography, Grid, Modal} from '@material-ui/core';
+import {Button, Typography, Grid, Modal} from '@material-ui/core';
 
 import { withStyles } from '@material-ui/styles'; // jss library
-import me from '../../assets/img/me.png';
-import TimePeriodCaption from '../../Components/TimePeriodCaption';
 import BlogsSelection from '../../Components/BlogsSelection';
 import BlogCard from '../../Components/Blogs/BlogCard';
 

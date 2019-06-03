@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/styles'; // jss library
-import {Typography, Link} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 
 import davidThumbnail from '../../../assets/img/blogs/david_thumbnail.png';
 import TimePeriodCaption from '../../TimePeriodCaption';

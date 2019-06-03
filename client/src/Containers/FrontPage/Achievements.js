@@ -33,6 +33,16 @@ const robotics2 = require('../../assets/img/achievements/robotics_2.jpg');
 const robotics3 = require('../../assets/img/achievements/robotics_3.jpg');
 
 const jssStyle = theme => ({
+    '@keyframes shadow-drop-2-center': {
+        '0%': {
+            transform: 'translateZ(0)',
+            boxShadow: '0 0 0 0 rgba(0, 0, 0, 0)'
+        },
+        '100%': {
+            transform: 'translateZ(50px)',
+            boxShadow: '0 0 20px 0px rgba(0, 0, 0, 0.35)'
+        }
+      },
     sectionWrapper: {
         width: '100%',
         padding: '75px 0'
@@ -101,17 +111,17 @@ const jssStyle = theme => ({
     cardMediaContainer: {
         position: 'relative', 
         overflow: 'hidden',
-        '&:hover $hobbyCardMedia': {
+        '&:hover $modalCardMedia': {
             transform: 'scale(1.2)'
         }
     },
-    hobbyCard: {
+    modalCard: {
         maxWidth: '40%',
         maxHeight: '70%',
         margin: 'auto',
         marginTop: '10%'
     },
-    hobbyCardMedia: {
+    modalCardMedia: {
         height: '370px',
         transition: 'transform .5s',
         cursor: 'pointer',
@@ -147,6 +157,9 @@ const jssStyle = theme => ({
         position: 'absolute',
         left: '15%',
         top: '50%'
+    },
+    pictureButton: {
+        marginTop: '-8px !important', marginLeft: '5px !important'
     },
     '@media only screen and (max-width: 1300px)': {
         sectionWrapper: {
@@ -308,7 +321,7 @@ class Achievements extends Component {
                                         icon={trophyIcon}
                                         logo={zahnLogo}
                                         adjacentToDate={(
-                                            <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                            <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} className={classes.pictureButton} size="small" color="primary">
                                                 <FaRegImages></FaRegImages>
                                             </Fab>
                                         )}
@@ -347,7 +360,7 @@ class Achievements extends Component {
                                             icon={teacherIcon}
                                             logo={ftcLogo}
                                             adjacentToDate={(
-                                                <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                                <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} className={classes.pictureButton} size="small" color="primary">
                                                     <FaRegImages></FaRegImages>
                                                 </Fab>
                                             )}
@@ -439,7 +452,7 @@ class Achievements extends Component {
                                             icon={certificateIcon}
                                             logo={stdLogo}
                                             adjacentToDate={(
-                                                <Fab onClick={() => {this.handleOpenModal('Sigma Tau Delta')}} style={{marginTop: '-8px', marginLeft: '5px'}} size="small" color="primary">
+                                                <Fab onClick={() => {this.handleOpenModal('Sigma Tau Delta')}} className={classes.pictureButton} size="small" color="primary">
                                                     <FaRegImages></FaRegImages>
                                                 </Fab>
                                             )}
@@ -495,14 +508,15 @@ class Achievements extends Component {
                 open={this.state.openModal}
                 onClose={this.handleCloseModal}>
                     <div style={{position: 'relative'}}>
+                        <Typography variant={'h3'} style={{position: 'absolute', right:'15%', color: 'white', cursor: 'pointer'}}onClick={this.handleCloseModal}>X</Typography>
                         {this.generateLeftArrow()}
-                        <Card className={this.props.classes.hobbyCard}>
+                        <Card className={this.props.classes.modalCard}>
                             <div className={this.props.classes.cardMediaContainer}>
                                 <CardMedia
                                 onClick={() => {window.open(achievements[this.state.activeAchievementKey].images[this.state.activeImageIdx])}}
-                                className={this.props.classes.hobbyCardMedia}
+                                className={this.props.classes.modalCardMedia}
                                 image={achievements[this.state.activeAchievementKey].images[this.state.activeImageIdx]}
-                                title={this.state.activeHobbyKey}
+                                title={this.state.activeAchievementKey}
                                 />
                             </div>
                             <CardContent>
