@@ -133,7 +133,8 @@ const portfolioItems = {
   'Job Listing Automation': {
     git: 'https://github.com/djmgeneseo/Job-Listing-Generator',
     tags: ['HTML & CSS', 'JavaScript', 'Node.js'],
-    img: require('../../assets/img/job_listing.png')
+    img: require('../../assets/img/job_listing.png'),
+    video: require('../../assets/mp4/job_listing_automation.mp4')
   },
   'Mock Food App Website': {
     link: 'https://djmgeneseo.github.io/MOCK-FOOD-DELIVERY-WEBSITE/',
@@ -144,7 +145,7 @@ const portfolioItems = {
   'iOS OCR Mobile Vision': {
     git: 'https://github.com/djmgeneseo/mlpractice',
     tags: ['Swift','Tensorflow', 'Mobile Vision', 'CocoaPods'],
-    video: 'https://www.youtube.com/watch?v=sKEsSFrNkrQ',
+    video: require('../../assets/mp4/ml_practice.mp4'),
     img: require('../../assets/img/mobile_vision.png')
   },
   'Roemer Arboretum Research': {

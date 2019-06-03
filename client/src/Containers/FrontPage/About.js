@@ -287,7 +287,7 @@ const jssStyle = theme => ({
         marginRight: '-20px',
         cursor: 'pointer',
         transform: 'translate(-50%, -60%)',
-        animation: '$flip-scale-up-hor 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s both',
+        animation: '$flip-scale-up-hor 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s both',
         '&:hover $arrowRound': {
             transform: 'rotate(1turn) scale(1.2) !important'
         }
