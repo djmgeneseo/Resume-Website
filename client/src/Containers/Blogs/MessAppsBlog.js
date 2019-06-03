@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 
 import {Route} from "react-router-dom";
 import { withStyles } from '@material-ui/styles'; // jss library
-import {Typography, Grid, Card, CardContent, CardMedia, CardActions, Button} from '@material-ui/core'
-import {Link} from 'react-router-dom';
+import {Typography, Grid} from '@material-ui/core';
 
 import BlogArticlePage from '../../Components/BlogArticlePage' 
-import me from '../../assets/img/me.png';
-import TimePeriodCaption from '../../Components/TimePeriodCaption';
 import BlogCard from '../../Components/Blogs/BlogCard';
 import MessAppsArticle from '../../Components/Blogs/MessApps/MessAppsArticle'
 
