@@ -119,7 +119,7 @@ const portfolioItems = {
     img: require('../../assets/img/data_dashboard.png'),
     video: require('../../assets/mp4/datacenter.mp4')
   },
-  'Skinno': {
+  'Skinno - Beta': {
     tags: ['Swift', 'Firebase', 'Firestore', 'NoSQL', 'CocoaPods'],
     img: require('../../assets/img/skinno.jpg'),
     video: require('../../assets/mp4/skinno.mp4')
@@ -355,8 +355,8 @@ class Portfolio extends Component {
                       <div className={this.props.classes.cardMediaContainerModal}>
                         <video 
                             className={classes.video} 
-                            style={this.state.activePortfolioKey === 'iOS OCR Mobile Vision' || this.state.activePortfolioKey === 'Skinno' ?{marginLeft: '35%'}: {}} 
-                            width={this.state.activePortfolioKey === 'iOS OCR Mobile Vision' || this.state.activePortfolioKey === 'Skinno' ? "30%" : "100%"} height="100%" controls>
+                            style={this.state.activePortfolioKey === 'iOS OCR Mobile Vision' || this.state.activePortfolioKey === 'Skinno - Beta' ?{marginLeft: '35%'}: {}} 
+                            width={this.state.activePortfolioKey === 'iOS OCR Mobile Vision' || this.state.activePortfolioKey === 'Skinno - Beta' ? "30%" : "100%"} height="100%" controls>
                           <source src={portfolioItems[this.state.activePortfolioKey].video} type="video/mp4"/>
                           Your browser does not support HTML5 video.
                         </video>

@@ -175,7 +175,7 @@ const jssStyle = theme => ({
     },
     arrowIcon: {
         border: `solid ${theme.palette.primary['200']}`,
-        borderWidth: '0 3px 3px 0',
+        borderWidth: '0 6px 6px 0',
         display: 'inline-block',
         padding: '3px',
         width: '15px',
@@ -287,30 +287,30 @@ const jssStyle = theme => ({
         cursor: 'pointer',
         transform: 'translate(-50%, -60%)',
         animation: '$flip-scale-up-hor 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s both',
-        '&:hover $arrowRound': {
-            transform: 'rotate(1turn) scale(1.2) !important'
+        '&:hover $curvedArrow': {
+            transform: 'rotateX(180deg) scale(1.2) !important'
         }
     },
-    arrowRound: {
-        position: 'absolute',
-        width: '50px',
-        height: '50px',
-        border: 'calc(50px / 4) solid '+theme.palette.primary['500'],
-        borderRadius: '50%',
-        borderRightColor: 'transparent',
-        transition: 'transform .5s',
-        // animation: '$rotate-center 1s ease-in-out 1s 2 both',
-        '&::after': {
-            content: "' '",
-            position: 'absolute',
-            top: '-22.5%',
-            left: '65%',
-            border: 'calc(50px * 0.5) solid #fff',
-            borderBottomColor: theme.palette.primary['500'],
-            borderLeftColor: 'transparent',
-            borderTopWidth: '0',
-            borderRightWidth: '0'
-        }
+      curvedArrow: {
+          width: '0',
+          height: '0',
+          position: 'relative',
+          transform: 'rotate(-9deg)',
+          borderTop: '50px solid transparent',
+          borderRight: `50px solid ${theme.palette.primary['500']}`,
+          transition: 'transform .5s',
+          '&::after': {
+              top: '-57px',
+              left: '-27px',
+              width: '63px',
+              border: '0 solid transparent',
+              height: '14px',
+              content: "' '",
+              position: 'absolute',
+              transform: 'rotate(45deg)',
+              borderTop: `26px solid ${theme.palette.primary['500']}`,
+              borderRadius: '107px 0 0 0'
+          }
       },
     '@media only screen and (max-width: 1300px)': { // Smaller desktop/laptop screens
         aboutMeSection: {
@@ -564,8 +564,8 @@ class About extends Component {
                             <Typography className={this.props.classes.aboutMeHeader} variant="h5">
                             ABOUT ME
                             </Typography> 
-                            <Typography variant="body2">
-                                I'm a <strong>Full Stack Developer</strong>, meaning my technical skillset occupies both front-end and back-end development for mobile and web applications. My current interests lean towards server-side development and database management. I mostly develop using two stacks, but am often required to learn new languages & framework paradigms: [jQuery, html/css/js, PHP, SQL, MySQL, IIS] and [React, materialUI, html/jss/js, nodeJS, MongoDB].
+                            <Typography body1 style={{display: 'inline'}}>
+                                I'm a <strong>Full Stack Mobile and Web Developer</strong> with experience in both entrepreneurial and collegiate working environments. I predominantly develop software with two stacks, but am often required to learn new languages & frameworks: [jQuery, HTML/CSS/JS, PHP, SQL, MySQL, IIS] and [React, materialUI, HTML/CSS/JS, nodeJS, MongoDB].
                             </Typography>
     
                             <div style={{marginTop: '10px'}}>
@@ -599,7 +599,7 @@ class About extends Component {
                     </Grid>
                 </Grid>
                 <div onClick={this.handleCardFlip} className={this.props.classes.arrowBox}>
-                    <div className={this.props.classes.arrowRound}></div>
+                    <div className={this.props.classes.curvedArrow}></div>
                 </div>
             </Paper>
         )
@@ -684,7 +684,7 @@ class About extends Component {
                 </Grid>
                 
                 <div onClick={this.handleCardFlip} className ={this.props.classes.arrowBox}>
-                    <div className={this.props.classes.arrowRound}></div>
+                <div className={this.props.classes.curvedArrow}></div>
                 </div>
             </Paper>
        )

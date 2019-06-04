@@ -47,34 +47,6 @@ const categories = {
   'Coming Soon1': {
     img: ComingSoon,
     link: ''
-  },
-  'Coming Soon2': {
-    img: ComingSoon,
-    link: ''
-  },
-  'Coming Soon3': {
-    img: ComingSoon,
-    link: ''
-  },
-  'Coming Soon4': {
-    img: ComingSoon,
-    link: ''
-  },
-  'Coming Soon5': {
-    img: ComingSoon,
-    link: ''
-  },
-  'Coming Soon6': {
-    img: ComingSoon,
-    link: ''
-  },
-  'Coming Soon7': {
-    img: ComingSoon,
-    link: ''
-  },
-  'Coming Soon8': {
-    img: ComingSoon,
-    link: ''
   }
 }
 
@@ -89,9 +61,9 @@ const BlogsSelection = (props) => {
 
   const generateCategoryCards = () => {
     return Object.keys(categories).map((categoryName, idx) => {
-      return <Grid key={categoryName + idx} item xs={12} sm={6} md={4}>
+      return <Grid key={categoryName + idx} item xs={12} sm={6} md={6}>
       <Card className={classes.categoryCard}>
-          <CardActionArea className={classes.categoryCard} style={{padding: '10px'}}>
+          <CardActionArea className={classes.categoryCard}>
             <Link to="/blogs/MessApps">
                 <CardMedia className={classes.categoryCardMedia} image={categories[categoryName]['img']} title={categoryName}>
                   <Typography>{categories[categoryName]['img'] === null ? categoryName: ''}</Typography>

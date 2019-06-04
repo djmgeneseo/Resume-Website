@@ -42,7 +42,7 @@ const jssStyle = theme => ({
   },
   experiencePaperLeft: {
     width: '96%',
-    height: '300px', // '300px'
+    height: '320px', // '300px'
     padding: '30px',
     boxSizing: 'border-box',
     position: 'relative',
@@ -84,7 +84,7 @@ const jssStyle = theme => ({
   },
   experiencePaperRight: {
     width: '96%',
-    height: '300px', // '300px'
+    height: '320px', // '300px'
     padding: '30px',
     boxSizing: 'border-box',
     position: 'relative',

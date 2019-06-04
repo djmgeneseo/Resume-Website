@@ -9,7 +9,7 @@ const jssStyle = theme => ({
   buttonContainer: {
     position: 'fixed',
     right: '-3px',
-    top: '30%',
+    top: '20%',
     height: 'auto',
     zIndex: '1101'
   },

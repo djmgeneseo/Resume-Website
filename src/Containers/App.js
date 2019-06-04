@@ -34,12 +34,14 @@ let initialTheme = createMuiTheme({
   overrides: {
       MuiTypography: {
         body1: {
+          fontSize: 17,
           color: grey[800]
         },
         paragraph: {
           fontSize: 19
         },
         body2: {
+          fontSize: 17,
           color: grey[800]
         },
         h1: {

@@ -19,7 +19,7 @@ const jssStyle = theme => ({
     navHelperContainer: {
         position: 'fixed',
         right: '-3px',
-        top: '50%',
+        top: '40%',
         height: 'auto',
         zIndex: '1101'
     },
@@ -40,11 +40,23 @@ const jssStyle = theme => ({
     actionArea: {
         
     },
+    '@media only screen and (max-width: 1400px)': { // for navHelper only; it's blocking text on smaller monitors/screens
+        navHelperContainer: {
+            right: '0%',
+            top: 'auto',
+            height: '55px',
+            bottom: '0',
+            display: 'flex',
+            flexWrap: 'nowrap'
+        },
+        actionArea: {
+            display: 'inline-flex !important'
+        }
+    },
     '@media only screen and (max-width: 600px)': { // Phone screens
         navHelperContainer: {
             left: '0%',
             right: '0%',
-            top: '88%',
             bottom: '0',
             display: 'flex',
             flexWrap: 'nowrap'
