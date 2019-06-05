@@ -79,7 +79,7 @@ const jssStyle = theme => ({
       }
     },
     '@media only screen and (max-width: 600px)': {
-      height: '400px'
+      height: '480px'
     }
   },
   experiencePaperRight: {
@@ -111,7 +111,7 @@ const jssStyle = theme => ({
       marginTop: '0px !important'
     },
     '@media only screen and (max-width: 600px)': {
-      height: '400px'
+      height: '480px'
     }
   }, 
   certificateIconDivLeft: {

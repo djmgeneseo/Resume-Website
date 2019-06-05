@@ -564,7 +564,7 @@ class About extends Component {
                             <Typography className={this.props.classes.aboutMeHeader} variant="h5">
                             ABOUT ME
                             </Typography> 
-                            <Typography body1 style={{display: 'inline'}}>
+                            <Typography variant="body1" style={{display: 'inline'}}>
                                 I'm a <strong>Full Stack Mobile and Web Developer</strong> with experience in both entrepreneurial and collegiate working environments. I predominantly develop software with two stacks, but am often required to learn new languages & frameworks: [jQuery, HTML/CSS/JS, PHP, SQL, MySQL, IIS] and [React, materialUI, HTML/CSS/JS, nodeJS, MongoDB].
                             </Typography>
     
