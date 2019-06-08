@@ -1,0 +1,61 @@
+### ABOUT
+    # Hobbies and interests on the back-side of card
+    # Education
+
+### EXPERIENCE
+
+### Abilities
+    # Languages/Skills
+        Bootstrap Framework
+        Material-UI
+        React-Bootstrap
+        CSS(3)
+        HTML(5)
+        JSON
+        MySQL
+        SQL
+        NoSQL
+        PHP
+        Java
+        Swift
+        R
+        Git
+        JQuery
+        Javascript
+        MVC Pattern
+        Object Oriented Programming
+        Laravel Framework
+
+    # Tools
+        Eclipse
+        LDAP
+        ODBC
+        MongoDB
+        DynamoDB
+        Firestore
+        Firebase
+        Microsoft IIS
+        Ingenuix
+        Android Studio
+        Xcode
+        Visual Studio Code
+        Visual Studio 2017
+        Brackets
+        NPM
+        CocoaPods (MacOS Package Manager)
+        Google Analytics
+        R Studios
+        REST Architecture
+        CRUD Paradigm
+
+### ACHIEVEMENTS
+    # Sigma Tau Delta - International English Honors Society
+    # Robotics Regionals and Super Regionals
+
+### PROJECTS (My Latest Work)
+
+### PUBLICATIONS
+
+### OTHER
+    # 'italics' This project was built using the MERN Stack.
+    # Painter's utensil on the side that opens a tray with different colors for selection 
