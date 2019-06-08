@@ -139,7 +139,7 @@ const jssStyle = theme => ({
     },
     arrowIcon: {
         border: `solid ${theme.palette.primary['200']}`,
-        borderWidth: '0 3px 3px 0',
+        borderWidth: '0 6px 6px 0',
         display: 'inline-block',
         padding: '40px',
         width: '20px',
@@ -321,7 +321,7 @@ class Achievements extends Component {
                                         icon={trophyIcon}
                                         logo={zahnLogo}
                                         adjacentToDate={(
-                                            <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} className={classes.pictureButton} size="small" color="primary">
+                                            <Fab onClick={() => this.handleOpenModal('Zahn Innovation Center')} className={classes.pictureButton} size="small" >
                                                 <FaRegImages></FaRegImages>
                                             </Fab>
                                         )}
@@ -360,7 +360,7 @@ class Achievements extends Component {
                                             icon={teacherIcon}
                                             logo={ftcLogo}
                                             adjacentToDate={(
-                                                <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} className={classes.pictureButton} size="small" color="primary">
+                                                <Fab onClick={() => this.handleOpenModal('FIRST Tech Challenge')} className={classes.pictureButton} size="small">
                                                     <FaRegImages></FaRegImages>
                                                 </Fab>
                                             )}
@@ -452,7 +452,7 @@ class Achievements extends Component {
                                             icon={certificateIcon}
                                             logo={stdLogo}
                                             adjacentToDate={(
-                                                <Fab onClick={() => {this.handleOpenModal('Sigma Tau Delta')}} className={classes.pictureButton} size="small" color="primary">
+                                                <Fab onClick={() => {this.handleOpenModal('Sigma Tau Delta')}} className={classes.pictureButton} size="small">
                                                     <FaRegImages></FaRegImages>
                                                 </Fab>
                                             )}
