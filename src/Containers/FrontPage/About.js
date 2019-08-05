@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 
-import resume from '../../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf'
+import resume from '../../assets/pdf/David_Murphy_Resume.pdf'
 
 import {Slide, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
