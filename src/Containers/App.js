@@ -88,7 +88,6 @@ class App extends Component {
         <Router>
           <ScrollToTop>
           <MuiThemeProvider theme={this.state.theme}>
-            
               <Route path={`/`} exact component={(routeProps) => <FrontPage {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme} />}/>
               <Route path={`/blogs`} component={(routeProps) => <Blogs {...routeProps} changeColor={(color)=>this.changeColor(color)} theme={this.state.theme}/>}/>
           </MuiThemeProvider>

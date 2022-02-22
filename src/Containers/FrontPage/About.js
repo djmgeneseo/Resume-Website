@@ -82,6 +82,7 @@ const jssStyle = theme => ({
     },  
     backOfCard: {
         backfaceVisibility: 'hidden',
+        overflowY: 'scroll',
         position: 'absolute',
         top: '0',
         left: '0',
@@ -214,7 +215,8 @@ const jssStyle = theme => ({
         boxSizing: 'border-box',
         alignItems: 'center',
         height: '87%',
-        paddingBottom: '50px'
+        paddingBottom: '50px',
+        overflowY: 'auto'
     },
     downloadResumeButton: {
         position: 'absolute',
@@ -281,10 +283,10 @@ const jssStyle = theme => ({
         position: 'absolute',
         width: '50px',
         height: '50px',
-        top: '-3%',
-        right: '1%',
-        marginRight: '-20px',
+        top: '-2%',
+        right: '7%',
         cursor: 'pointer',
+        zIndex: '100',
         transform: 'translate(-50%, -60%)',
         animation: '$flip-scale-up-hor 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s both',
         '&:hover $curvedArrow': {
@@ -376,7 +378,7 @@ const jssStyle = theme => ({
 
 // for the front-facing portion of the about card
 const info = {
-    Age: 24,
+    Age: new Date().getMonth() < 8 ? new Date().getFullYear() - 1994 -1 : new Date().getFullYear()- 1994,
     Phone: '(516) 993-7871',
     Email: 'djmgeneseo@gmail.com',
     Home: 'Long Island - Oceanside, NY'
@@ -598,9 +600,6 @@ class About extends Component {
                         </AppBar>
                     </Grid>
                 </Grid>
-                <div onClick={this.handleCardFlip} className={this.props.classes.arrowBox}>
-                    <div className={this.props.classes.curvedArrow}></div>
-                </div>
             </Paper>
         )
     }
@@ -682,10 +681,6 @@ class About extends Component {
                         </AppBar>
                     </Grid>
                 </Grid>
-                
-                <div onClick={this.handleCardFlip} className ={this.props.classes.arrowBox}>
-                <div className={this.props.classes.curvedArrow}></div>
-                </div>
             </Paper>
        )
     }
@@ -718,6 +713,9 @@ class About extends Component {
                 <div className={this.props.classes.sectionAboutCard}>
                     <Slide in={true} direction="right" timeout={500}>
                         <div className={this.props.classes.flipContainer}>
+                        <div onClick={this.handleCardFlip} className={this.props.classes.arrowBox}>
+                                    <div className={this.props.classes.curvedArrow}></div>
+                                </div>
                             <div className={this.props.classes.flipper} style={ this.state.flippedCard === true? {transform: 'rotateY(180deg)'} : null}>
                                 <div className={this.props.classes.frontOfCard}>
                                     {this.generateFrontOfCard()}
