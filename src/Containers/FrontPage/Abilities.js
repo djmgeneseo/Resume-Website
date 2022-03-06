@@ -99,18 +99,18 @@ const jssStyle = (theme) => ({
 })
 
 const skillsJSON = {
-  5: ['JavaScript (ES5, 6, & 7)','HTML(5)','CSS(3)','JSON','Git','Bootstrap Framework','Material-UI Framework','Object Oriented Progr.'],
-  4: ['NoSQL','SQL','PHP','React','React-Bootstrap Framework','Swift','JQuery','MVC Pattern','CRUD Paradigm','REST Architecture'],
-  3: ['MySQL','Node.js','Java'],
-  2: ['R'],
+  5: ['JavaScript (ES5, 6, & 7)'],
+  4: ['HTML(5)','CSS(3)','Async','OOP','MongoDB/Mongoose','MySQL','MsSQL','Node.js/Express','React','MVC Pattern','CRUD Paradigm','RESTful Architecture', 'API'],
+  3: ['SCSS','Java','R','PHP','Reactstrap','Bootstrap Framework','Material-UI Framework', 'JQuery'],
+  2: ['Swift'],
   1: ['Laravel Framework']
 }
 
 const toolsJSON = {
-  5: ['Android Studio','Xcode','Visual Studio Code','Brackets','Firestore','Firebase','Microsoft IIS','NPM'],
-  4: ['CocoaPods', 'Eclipse','Ingenuix CMS'],
-  3: ['Eclipse', 'MongoDB','Google Analytics','R Studios','ODBC'],
-  2: ['LDAP','Visual Studio 2017'],
+  5: ['Microsoft IIS','Visual Studio Code','Git'],
+  4: ['Android Studio','ODBC','NPM'],
+  3: ['MongoSH','LDAP','AWS','Xcode','Ingenuix CMS','Google Analytics','Firestore','Firebase'],
+  2: ['Visual Studio 2017','R Studios','Eclipse','CocoaPods'],
   1: ['DynamoDB']
 }
 const randomString = (length) => {

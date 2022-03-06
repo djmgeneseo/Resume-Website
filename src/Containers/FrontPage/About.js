@@ -5,7 +5,7 @@ import resume from '../../assets/pdf/David_Murphy_Resume.pdf'
 
 import {Slide, CardContent, CardMedia, Card, IconButton, Fab, Tooltip, Grid, Toolbar, AppBar, Typography, Paper} from '@material-ui/core';
 
-import {FaFileDownload,FaLinkedin,FaGithub} from "react-icons/fa";
+import {FaFileDownload,FaLinkedin,FaGithub,FaInstagram} from "react-icons/fa";
 
 const selfPortrait = require('../../assets/img/me.png')
 
@@ -560,7 +560,7 @@ class About extends Component {
                                 <img alt='Self Portrait of David Murphy' src={selfPortrait}/>
                             </div>
                             <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
-                            <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Applications Developer/Implementation Specialist <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
+                            <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Lead Applications Developer <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
                         </Grid>
                         <Grid className={this.props.classes.aboutMeSection} item xs={12} sm={12} md={6}>
                             <Typography className={this.props.classes.aboutMeHeader} variant="h5">
@@ -593,6 +593,13 @@ class About extends Component {
                                     <a href='https://github.com/djmgeneseo' target="_blank" rel="noopener noreferrer">
                                         <IconButton color="secondary">
                                         <FaGithub className={this.props.classes.footerButtonIcon}/>
+                                        </IconButton>
+                                    </a>
+                                </div>
+                                <div className={this.props.classes.footerButton}>
+                                    <a href='https://www.instagram.com/dave_murph_' target="_blank" rel="noopener noreferrer">
+                                        <IconButton color="secondary">
+                                        <FaInstagram className={this.props.classes.footerButtonIcon}/>
                                         </IconButton>
                                     </a>
                                 </div>

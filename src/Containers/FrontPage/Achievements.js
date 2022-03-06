@@ -425,12 +425,12 @@ class Achievements extends Component {
                                         <AchievementCard
                                             theme={theme}
                                             achievementAffiliation={"Galvanize"}
-                                            achievement={'Company Member (Skinno Inc.)'}
+                                            achievement={'Company Partner (Skinno Inc.)'}
                                             year={'2018-19'}
                                             icon={memberIcon}
                                             logo={galvanizeLogo}
                                         >
-                                            <Typography><em>"Galvanize is the recognized leader in technology education with a focus in software development, data science and data engineering. We have a world-renowned team of experienced, full-time instructional faculty with decades of experience among them."</em></Typography>
+                                            <Typography><em>"Galvanize is a recognized leader in technology education with a focus in software development, data science and data engineering. We have a world-renowned team of experienced, full-time instructional faculty with decades of experience among them."</em></Typography>
                                         </AchievementCard>
                                     </div>
                                 </Grow>

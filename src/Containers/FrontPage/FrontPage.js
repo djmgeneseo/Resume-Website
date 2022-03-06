@@ -2,11 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library
 import {Card, CardActionArea, CardContent, Grid} from '@material-ui/core';
 
-import {Experience, Portfolio, Achievements, About, BlogSection} from './index';
+import {Experience, Portfolio, Achievements, About, Abilities, BlogSection} from './index';
 import {NavBar, ColorPicker} from '../index';
 
 import {Parallax} from '../../Components/index';
-import {Abilities} from '../../Components/FrontPage/index';
 
 import scrollToComponent from 'react-scroll-to-component';
 
