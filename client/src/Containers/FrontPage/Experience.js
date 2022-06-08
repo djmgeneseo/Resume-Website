@@ -185,12 +185,18 @@ presentBorder: {
 })
 
 const experienceJSON = {
+  'Lead Applications Developer': {
+    company: 'Molloy University',
+    start: 'Feb 2021',
+    end: 'Present',
+    description: 'Design, develop, and maintain applications, RESTful services, and APIs with a focus on code re-usability and maintainability. Lead constituent departments, teams, and developers towards software-oriented solutions. Manage all phases of software implementation including configuration, cross-application interfacing, training, rollout, and support.',
+    present: true
+  },
   'Applications Developer/Implementation Specialist': {
     company: 'Molloy College',
     start: 'Jun 2018',
-    end: 'Present',
-    description: 'Responsible for the development, analysis, implementation, documentation, training, and ongoing support of software applications. The software is designed to improve both administrative and academic processes, and the overall organizational effectiveness of the College.',
-    present: true
+    end: 'Feb 2021',
+    description: 'Responsible for the development, analysis, implementation, documentation, training, and ongoing support of software applications. The software is designed to improve both administrative and academic processes, and the overall organizational effectiveness of the College.'
   },
   'Chief Technology Officer': {
     company: 'Skinno Inc.',
@@ -219,9 +225,8 @@ const experienceJSON = {
   'Robotics Co-Advisor': {
     company: 'Hewlett-Woodmere School District',
     start: 'Sep 2017',
-    end: 'Present',
-    description: 'Board-certified to instruct Android mobile development for students between grades 9-12. Provide guidance for both software (Java - Android Studio & Eclipse) and hardware design and implementation in an academic setting.',
-    present: true
+    end: 'June 2020',
+    description: 'Board-certified to instruct Android mobile development for students between grades 9-12. Provide guidance for both software (Java - Android Studio & Eclipse) and hardware design and implementation in an academic setting.'
   },
   'Intern Editor': {
     company: 'Messapps',
@@ -264,10 +269,8 @@ class Experience extends Component {
     const {theme} = this.props;
     const {classes} = this.props;
     const self=this;
-    let i=0;
     // i%2=0 means even, which means a right-hand list item. So styleRef[0] will contain right-hand <li> jss
-    return Object.keys(experienceJSON).map(function(jobName) {
-      i++;
+    return Object.keys(experienceJSON).map((jobName, idx) => {
       
       // Default style = list item oriented to the right
       let largeMarginTop = null;
@@ -276,13 +279,14 @@ class Experience extends Component {
       let timelineMarker = classes.timelineMarkerRight
       let presentBorder = null;
       let certificateIconDiv = classes.certificateIconDivRight;
-
-      if(i%2===1) { // left list item
+      let thisItemPosition = (idx+1)%2===1 ? 'left' : 'right'
+      
+      if(thisItemPosition === 'left') { // left list item
         float = classes.floatLeft;
         experiencePaperOrientation = classes.experiencePaperLeft;
         timelineMarker = classes.timelineMarkerLeft
         certificateIconDiv = classes.certificateIconDivLeft;
-      } else if(i===2 && window.innerWidth > 960) {
+      } else if(idx===2 && window.innerWidth > 960) {
         largeMarginTop = {
           marginTop: '50px'
         }
@@ -293,12 +297,12 @@ class Experience extends Component {
       }
       
       return(
-        <li className={float + ' ' + classes.experienceItem} style={largeMarginTop} key={jobName}>
+        <li className={float + ' ' + classes.experienceItem} style={largeMarginTop} key={jobName+idx}>
           <div className={timelineMarker}>
             <FaCircle></FaCircle>
           </div>
-          <ScrollTrigger onEnter={()=>self.handleOnScroll('show '+jobName)}>
-            <Grow in={self.state['show '+jobName]} timeout={1000}>
+          <ScrollTrigger onEnter={()=>this.handleOnScroll('show '+jobName)}>
+            <Grow in={this.state['show '+jobName]} timeout={1000}>
               <div>
                 <Paper className={float + ' ' + experiencePaperOrientation + ' ' + presentBorder}>
                   <div className={certificateIconDiv}></div>
