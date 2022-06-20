@@ -50,7 +50,7 @@ const cors = require('cors')
 // CORS-enabled for all origins
 app.use(cors({
   allowedHeaders: ["Authorization","Content-Type"],
-  origin: "http://localhost:80",
+  origin: "http://localhost:3000",
   methods: "GET,PUT,POST,DELETE,OPTIONS",
   preflightContinue: false,
   credentials: true
