@@ -59,11 +59,11 @@ const PORT =  process.env.PORT || 3000;
 // DEFINE ROUTES
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-// app.get("*",(req,res,next) => {
-//     res.sendFile('404.html', {root: path.join(__dirname)}, (err) => {
-//         if(err) next(err)
-//     })
-// });
+app.get("*",(req,res,next) => {
+    res.sendFile('404.html', {root: path.join(__dirname)}, (err) => {
+        if(err) next(err)
+    })
+});
 
 
 app.listen(PORT, function(err){
