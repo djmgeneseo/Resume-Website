@@ -185,12 +185,18 @@ presentBorder: {
 })
 
 const experienceJSON = {
+  'Database Administrator': {
+    company: 'Molloy University',
+    start: 'Jan 2022',
+    end: 'Present',
+    description: 'Assists with all aspects of the Jenzabar ERP system, JICS Portal and other related software and databases for the Univserity. This includes, identifying, researching, selecting, analyzing, implementing and troubleshooting the databases of the University. Demonstrate proficiency using and administering the Jenzabar ERP database, Microsoft Access, SQL Databases, MySQL and other database/software packages.',
+    present: true
+  },
   'Lead Applications Developer': {
     company: 'Molloy University',
     start: 'Feb 2021',
-    end: 'Present',
-    description: 'Design, develop, and maintain applications, RESTful services, and APIs with a focus on code re-usability and maintainability. Lead constituent departments, teams, and developers towards software-oriented solutions. Manage all phases of software implementation including configuration, cross-application interfacing, training, rollout, and support.',
-    present: true
+    end: 'Jan 2022',
+    description: 'Design, develop, and maintain applications, RESTful services, and APIs with a focus on code re-usability and maintainability. Lead constituent departments, teams, and developers towards software-oriented solutions. Manage all phases of software implementation including configuration, cross-application interfacing, training, rollout, and support.'
   },
   'Applications Developer/Implementation Specialist': {
     company: 'Molloy College',
@@ -244,6 +250,8 @@ const experienceJSON = {
 class Experience extends Component {
 
   state={
+    'show Database Administrator': false,
+    'show Lead Applications Developer': false,
     'show Applications Developer/Implementation Specialist': false,
     'show Chief Technology Officer': false,
     'show Technology Specialist': false,
@@ -268,7 +276,6 @@ class Experience extends Component {
   generateExperienceListItems = () => {
     const {theme} = this.props;
     const {classes} = this.props;
-    const self=this;
     // i%2=0 means even, which means a right-hand list item. So styleRef[0] will contain right-hand <li> jss
     return Object.keys(experienceJSON).map((jobName, idx) => {
       
