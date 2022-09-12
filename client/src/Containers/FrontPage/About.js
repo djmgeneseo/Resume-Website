@@ -378,7 +378,7 @@ const jssStyle = theme => ({
 
 // for the front-facing portion of the about card
 const info = {
-    Age: new Date().getMonth() < 8 ? new Date().getFullYear() - 1994 -1 : new Date().getFullYear()- 1994,
+    // Age: new Date().getMonth() < 8 ? new Date().getFullYear() - 1994 -1 : new Date().getFullYear()- 1994,
     Phone: '(516) 993-7871',
     Email: 'djmgeneseo@gmail.com',
     Home: 'Long Island - Oceanside, NY'
@@ -560,14 +560,14 @@ class About extends Component {
                                 <img alt='Self Portrait of David Murphy' src={selfPortrait}/>
                             </div>
                             <Typography variant="h4" style={{marginTop: '10px'}}>David Murphy</Typography>
-                            <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Lead Applications Developer <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy College</Typography>
+                            <Typography style={{padding: '5px', fontWeight: "bold"}} variant="body2" color="primary">Database Administrator <br/> <span style={{fontWeight: 'normal'}}>@</span> Molloy University</Typography>
                         </Grid>
                         <Grid className={this.props.classes.aboutMeSection} item xs={12} sm={12} md={6}>
                             <Typography className={this.props.classes.aboutMeHeader} variant="h5">
                             ABOUT ME
                             </Typography> 
                             <Typography variant="body1" style={{display: 'inline'}}>
-                                I'm a <strong>Full Stack Mobile and Web Developer</strong> with experience in both entrepreneurial and collegiate working environments. I predominantly develop software with two stacks, but am often required to learn new languages & frameworks: [jQuery, HTML/CSS/JS, PHP, SQL, MySQL, IIS] and [React, materialUI, HTML/CSS/JS, nodeJS, MongoDB].
+                                I'm a <strong>Full Stack Mobile & Web Developer</strong> with experience in both entrepreneurial and collegiate working environments. I predominantly develop software with two stacks, but am often required to learn new languages & frameworks: [jQuery, HTML/CSS/JS, PHP, SQL, MySQL, IIS] and [React, materialUI, HTML/CSS/JS, nodeJS, MongoDB].
                             </Typography>
     
                             <div style={{marginTop: '10px'}}>

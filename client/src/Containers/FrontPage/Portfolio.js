@@ -109,9 +109,44 @@ video: {
 })
 
 const portfolioItems = {
+  
+  'Molloy Scholarships': {
+    tags: ['React', 'HTML & CSS', 'JavaScript', 'Microsoft IIS'],
+    link: 'https://scholarships.molloy.edu',
+    img: require('../../assets/img/scholarships.jpg')
+  },
+  'Molloy Portal (web)': {
+    tags: ['React', 'HTML & CSS', 'JavaScript', 'Microsoft IIS'],
+    link: 'https://portal.molloy.edu',
+    img: require('../../assets/img/molloy-portal-web.jpg')
+  },
+  'Molloy Portal (mobile)': {
+    tags: ['React Native'],
+    link: 'https://play.google.com/store/apps/details?id=com.MolloyCollege.Portal',
+    img: require('../../assets/img/molloy-portal-mobile.jpg')
+  },
+  // 'Stay Safe Pledge': {
+  //   tags: ['HTML & CSS', 'JavaScript','Node.js', 'React', 'MySQL', 'Microsoft IIS'],
+  //   link: 'https://blogs.molloy.edu/stay-safe-pledge'
+  // },
+  'Molloy Accordion': {
+    tags: ['HTML & CSS', 'Javascript', 'React', 'Microsoft IIS'],
+    link: 'https://blogs.molloy.edu/accordion/',
+    img: require('../../assets/img/accordion.jpg')
+  },
+  'Molloy Job Listing Generator': {
+    tags: ['HTML & CSS', 'Javascript', 'React', 'Microsoft IIS'],
+    link: 'https://blogs.molloy.edu/job-listing-generator/',
+    img: require('../../assets/img/job-listing-generator.jpg')
+  },
+  'Molloy Surveys': {
+    tags: ['HTML & CSS', 'JavaScript','Node.js', 'React', 'Microsoft IIS'],
+    link: 'https://blogs.molloy.edu/survey-login/',
+    img: require('../../assets/img/surveys.jpg')
+  },
   'Resume Website': {
     git: 'https://github.com/djmgeneseo/Resume-Website',
-    tags: ['React', 'JavaScript', 'ES6', 'JSS', 'Material-UI', 'npm'],
+    tags: ['React', 'JavaScript', 'ES6', 'JSS', 'Material-UI', 'npm', 'Heroku'],
     img: require('../../assets/img/resume_site.png')
   },
   'Molloy Data Dashboard': {

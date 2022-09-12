@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/styles'; // jss library;
 
-import resume from '../assets/pdf/David_Murphy_-_Full_Stack_Applications_Developer.pdf';
+import resume from '../assets/pdf/David_Murphy_Resume.pdf';
 
 import {Link} from "react-router-dom";
 
